@@ -54,7 +54,7 @@ const calculated = computed(() => {
 
     <div class="bg-white w-full p-4 md:p-8 flex flex-col items-center gap-4 max-w-[1000px]">
       <div class="mt-4 w-full">
-        <v-sheet :elevation="5" class="w-full !h-full p-4">
+        <v-sheet :elevation="5" class="w-full p-4 pb-8">
           <div>
             <h2 class="font-medium text-lg text-center">Выберите механическое устройство</h2>
           </div>
