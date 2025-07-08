@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Calculator from '~/components/Calculator/Calculator.vue'
+
 // const {
 //   public: { backendUrl },
 // } = useRuntimeConfig()
@@ -26,5 +28,5 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-white w-full ~text-sm/xs ~pb-4/8">hello</div>
+  <Calculator />
 </template>

@@ -1,9 +1,11 @@
 <template>
-  <NuxtLayout>
-    <div class="min-h-[50vh] flex flex-col">
-      <NuxtPage />
-    </div>
-  </NuxtLayout>
+  <v-app>
+    <NuxtLayout>
+      <div class="min-h-[50vh] flex flex-col">
+        <NuxtPage />
+      </div>
+    </NuxtLayout>
+  </v-app>
 </template>
 
 <style>
