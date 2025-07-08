@@ -74,10 +74,10 @@ export default defineNuxtConfig({
 
   ogImage: { enabled: false },
 
-  image: {
-    provider: 'ipx',
-    ipx: {},
-  },
+  // image: {
+  //   provider: 'ipx',
+  //   ipx: {},
+  // },
 
   googleFonts: {
     families: {
