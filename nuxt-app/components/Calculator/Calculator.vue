@@ -54,11 +54,11 @@ const calculated = computed(() => {
 
     <div class="bg-white w-full p-4 md:p-8 flex flex-col items-center gap-4 max-w-[1000px]">
       <div class="mt-4 w-full">
-        <v-sheet :elevation="5" class="w-full h-full p-4">
+        <v-sheet :elevation="5" class="w-full !h-full p-4">
           <div>
             <h2 class="font-medium text-lg text-center">Выберите механическое устройство</h2>
           </div>
-          <div class="flex flex-wrap gap-4 justify-evenly">
+          <div class="flex flex-wrap gap-4 justify-evenly h-full">
             <div
               class="flex-1 min-w-[150px] max-w-[200px] aspect-square"
               v-for="(item, index) in mockData"
