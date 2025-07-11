@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Calculator from '~/components/Calculator/Calculator.vue'
+import Slider from '~/components/Slider/Slider.vue'
 
 // const {
 //   public: { backendUrl },
@@ -28,5 +29,6 @@ useHead({
 </script>
 
 <template>
+  <Slider />
   <Calculator />
 </template>
