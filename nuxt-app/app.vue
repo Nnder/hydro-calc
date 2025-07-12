@@ -14,8 +14,6 @@ body {
 
 <script setup>
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
-import Header from '~/components/Header/Header.vue'
-import Footer from './components/Footer/Footer.vue'
 
 // we can remove a lot of boilerplate from Schema.org by providing template params
 const route = useRoute()
