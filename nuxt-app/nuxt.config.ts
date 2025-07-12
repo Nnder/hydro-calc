@@ -219,6 +219,13 @@ export default defineNuxtConfig({
 
   // Настройка cookie для SSR
 
+  routeRules: {
+    '/': {
+      isr: true, // Включаем ISR
+      prerender: true, // Предварительный рендеринг при сборке
+    },
+  },
+
   app: {
     head: {
       title: 'Строительный магазин Абсолют техно',

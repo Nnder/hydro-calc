@@ -1,11 +1,7 @@
 <template>
   <v-app>
     <NuxtLayout>
-      <Header/> 
-      <div class="min-h-[50vh] flex flex-col">
-        <NuxtPage />
-      </div>
-      <Footer />
+      <NuxtPage />
     </NuxtLayout>
   </v-app>
 </template>
@@ -18,8 +14,8 @@ body {
 
 <script setup>
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
-import Header from '~/components/Header/Header.vue';
-import Footer from './components/Footer/Footer.vue';
+import Header from '~/components/Header/Header.vue'
+import Footer from './components/Footer/Footer.vue'
 
 // we can remove a lot of boilerplate from Schema.org by providing template params
 const route = useRoute()

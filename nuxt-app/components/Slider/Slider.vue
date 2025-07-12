@@ -1,9 +1,18 @@
 <template>
   <ClientOnly>
+    <div v-if="!isHydrated">
+      <!-- Fallback контент -->
+      <div class="h-[600px] flex items-center justify-center">
+        <v-progress-circular indeterminate size="64"></v-progress-circular>
+      </div>
+    </div>
+
     <swiper-container
+      v-show="isHydrated"
       :loop="true"
       :navigation="true"
       :pagination="true"
+      :preload-images="false"
       class="swiper-with-video"
       :autoplay="{
         delay: 5000,
@@ -12,7 +21,17 @@
     >
       <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
         <div class="video-wrapper">
-          <video ref="videoRef" class="background-video" :poster="slider.img" autoplay muted loop playsinline>
+          <video
+            ref="videoRef"
+            class="background-video"
+            :poster="slider.img"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            loading="lazy"
+          >
             <source :src="slider.videoSrc" type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
@@ -62,6 +81,16 @@ import { ref } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
+
+const isHydrated = ref(false)
+
+onMounted(() => {
+  isHydrated.value = true
+  // Динамический импорт Swiper
+  import('swiper/element/bundle').then(({ register }) => {
+    register()
+  })
+})
 
 const sliders = [
   {

@@ -1,5 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <slot />
+  <Header />
+  <div class="min-h-[50vh] flex flex-col">
+    <slot />
+  </div>
+  <Footer />
 </template>
