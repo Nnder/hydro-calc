@@ -1,21 +1,20 @@
 <template>
-  <ClientOnly>
-    <div v-if="!isHydrated">
-      <!-- Fallback контент -->
-      <div class="h-[600px] flex items-center justify-center">
-        <v-progress-circular indeterminate size="64"></v-progress-circular>
-      </div>
+  <div v-if="!isHydrated">
+    <!-- Fallback контент -->
+    <div class="h-[600px] flex items-center justify-center">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
     </div>
-
+  </div>
+  <ClientOnly>
     <swiper-container
       v-show="isHydrated"
       :loop="true"
-      :navigation="true"
+      :navigation="isDesktop"
       :pagination="true"
       :preload-images="false"
       class="swiper-with-video"
       :autoplay="{
-        delay: 5000,
+        delay: 500000,
         disableOnInteraction: false,
       }"
     >
@@ -59,7 +58,14 @@
 
             <!-- Нижний блок с кнопкой и доп информацией -->
             <div class="bottom-content">
-              <v-btn color="primary" :ripple="false" elevation="12" size="x-large" rounded="xl" class="order-btn">
+              <v-btn
+                color="primary"
+                :ripple="false"
+                elevation="12"
+                :size="isDesktop ? 'x-large' : 'large'"
+                rounded="xl"
+                class="order-btn"
+              >
                 {{ slider.buttonText || 'Заказать' }}
                 <v-icon icon="mdi-arrow-right" class="ml-2" />
               </v-btn>
@@ -81,6 +87,10 @@ import { ref } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
+
+import { useDisplay } from 'vuetify'
+const { mdAndUp } = useDisplay()
+const isDesktop = computed(() => mdAndUp.value)
 
 const isHydrated = ref(false)
 
@@ -248,7 +258,7 @@ const videoRef = ref(null)
 /* Адаптивные стили */
 @media (max-width: 768px) {
   .swiper-with-video {
-    height: 500px;
+    height: 100vh;
   }
 
   .title {
@@ -275,10 +285,6 @@ const videoRef = ref(null)
 
   .description {
     font-size: 1.1rem;
-  }
-
-  .order-btn {
-    width: 100%;
   }
 }
 </style>
