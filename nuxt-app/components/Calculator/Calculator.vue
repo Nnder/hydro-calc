@@ -20,6 +20,11 @@ const prevStep = () => {
     currentStep.value--
   }
 }
+
+const submitForm = () => {
+  callback(formSteps)
+  currentStep.value = 1
+}
 </script>
 
 <template>
@@ -44,7 +49,6 @@ const prevStep = () => {
         </v-stepper-window-item>
       </v-stepper-window>
 
-      <!-- Навигация (остается без изменений) -->
       <v-card-actions class="px-2 pb-4 flex">
         <template v-if="currentStep < formSteps.length">
           <v-btn
@@ -88,7 +92,7 @@ const prevStep = () => {
               rounded="xl"
               :size="isDesktop ? 'x-large' : 'large'"
               color="green"
-              @click="() => callback(formSteps)"
+              @click="submitForm"
             >
               Добавить в заказ
             </v-btn>

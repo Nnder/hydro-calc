@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import Calculator from '~/components/Calculator/Calculator.vue'
 import Slider from '~/components/Slider/Slider.vue'
+import { useCartStore } from '~/stores/cart'
+import { storeToRefs } from 'pinia'
 
-// const {
-//   public: { backendUrl },
-// } = useRuntimeConfig()
+const cartStore = useCartStore()
+const { cart } = storeToRefs(cartStore)
 
 useHead({
   title: `Абсолют техно`,
@@ -15,17 +16,6 @@ useHead({
     },
   ],
 })
-
-// const { data: category } = await useAsyncData(`category-list`, () =>
-//   $fetch(`${backendUrl}/api/categories`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Accept: 'application/json',
-//       'X-XSRF-TOKEN': useCookie('XSRF-TOKEN').value,
-//     },
-//   })
-// )
 
 const formSteps = ref([
   {
@@ -68,5 +58,8 @@ const formSteps = ref([
 
 <template>
   <Slider />
-  <Calculator :formSteps="formSteps" :callback="data => console.log('data', data)" />
+  <Calculator
+    :formSteps="formSteps"
+    :callback="(data: []) => cartStore.addItem({ product: 'Гидроцилиндер', data: [...data] })"
+  />
 </template>
