@@ -1,146 +1,110 @@
-<script setup lang="ts">
-const selected = ref<null | number>(null)
+<script setup>
+import { ref, computed } from 'vue'
+import { useDisplay } from 'vuetify'
 
-const mockData = [
-  { src: 'hydrocilinder.png', title: 'Гидроцилиндер', descriptionImg: 'description_hydrocilinder.jpg' },
-  { src: 'hydromotor.png', title: 'Гидромотор', descriptionImg: 'description_hydromotor.png' },
-  { src: 'hydronasos.png', title: 'Гидронасос', descriptionImg: '' },
-  { src: 'reductor.png', title: 'Редуктор', descriptionImg: '' },
-]
+const { mdAndUp } = useDisplay()
+const isDesktop = computed(() => mdAndUp.value)
 
-const elementType = ref<null | string>(null)
-const elementSize = ref<null | number>(null)
-const elementFieldOne = ref<null | number>(null)
-const elementFieldTwo = ref<null | number>(null)
-const elementFieldThree = ref<null | number>(null)
+const currentStep = ref(1)
 
-const calculated = computed(() => {
-  let result = 0
-  if (elementType.value !== null) {
-    result += 1000
+const { formSteps, callback } = defineProps(['formSteps', 'callback'])
+
+const nextStep = () => {
+  if (currentStep.value < formSteps.length) {
+    currentStep.value++
   }
+}
 
-  if (elementSize.value !== null) {
-    result *= elementSize.value / 50
+const prevStep = () => {
+  if (currentStep.value > 1) {
+    currentStep.value--
   }
-
-  if (elementFieldOne.value !== null) {
-    result *= elementFieldOne.value
-  }
-
-  if (elementFieldTwo.value !== null) {
-    result *= elementFieldTwo.value
-  }
-
-  if (elementFieldThree.value !== null) {
-    result *= elementFieldThree.value
-  }
-
-  return result
-})
+}
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
-    <div class="w-full p-4 md:p-8 flex flex-col items-center gap-4 max-w-[1000px]">
-      <p class="font-medium text-lg text-justify">
-        Наш калькулятор позволяет быстро и точно рассчитать стоимость гидравлических компонентов с учетом всех
-        технических параметров и требований вашего проекта. Выберите тип устройства, укажите параметры и мгновенно
-        получите расчёт стоимости и сроков изготовления
-      </p>
+  <ClientOnly>
+    <v-stepper v-model="currentStep">
+      <v-stepper-header>
+        <v-stepper-item
+          v-for="step in formSteps"
+          :key="step.id"
+          :value="step.id"
+          :title="isDesktop ? step.title : ''"
+        ></v-stepper-item>
+      </v-stepper-header>
 
-      <h2 class="font-bold text-4xl text-center my-2">Калькулятор стоимости</h2>
-    </div>
+      <v-stepper-window>
+        <v-stepper-window-item v-for="step in formSteps" :key="`content-${step.id}`" :value="step.id">
+          <v-card flat class="pa-4">
+            <v-img :src="step.image" aspect-ratio="1.5" cover class="mb-2 rounded-lg"></v-img>
 
-    <div class="bg-white w-full p-4 md:p-8 flex flex-col items-center gap-4 max-w-[1000px]">
-      <div class="mt-4 w-full">
-        <v-sheet :elevation="5" class="w-full p-4 pb-8">
-          <div>
-            <h2 class="font-medium text-lg text-center">Выберите механическое устройство</h2>
-          </div>
-          <div class="flex flex-wrap gap-4 justify-evenly h-full">
-            <div
-              class="flex-1 min-w-[150px] max-w-[200px] aspect-square"
-              v-for="(item, index) in mockData"
-              @click="selected = index"
+            <v-text-field v-model="step.value" :label="step.fieldLabel" outlined clearable></v-text-field>
+          </v-card>
+        </v-stepper-window-item>
+      </v-stepper-window>
+
+      <!-- Навигация (остается без изменений) -->
+      <v-card-actions class="px-2 pb-4 flex">
+        <template v-if="currentStep < formSteps.length">
+          <v-btn
+            :size="isDesktop ? 'x-large' : 'large'"
+            v-if="currentStep > 1"
+            color="secondary"
+            @click="prevStep"
+            rounded="xl"
+          >
+            Назад
+          </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn
+            :size="isDesktop ? 'x-large' : 'large'"
+            v-if="currentStep < formSteps.length"
+            color="primary"
+            rounded="xl"
+            @click="nextStep"
+          >
+            Далее
+          </v-btn>
+        </template>
+
+        <div v-else class="flex flex-col w-full">
+          <div class="mb-2">
+            <v-btn
+              :size="isDesktop ? 'x-large' : 'large'"
+              v-if="currentStep > 1"
+              color="secondary"
+              @click="prevStep"
+              class="mr-2"
+              rounded="xl"
             >
-              <NuxtImg
-                :src="item.src"
-                :alt="item.title"
-                class="w-full h-full object-contain"
-                sizes="200px"
-                loading="lazy"
-              />
-              <p class="text-center font-medium">{{ item.title }}</p>
-            </div>
+              Назад
+            </v-btn>
           </div>
-        </v-sheet>
-      </div>
 
-      <v-sheet :elevation="5" class="w-full h-full !flex flex-col items-center p-4" v-if="selected !== null">
-        <h2 class="text-center text-2xl font-medium">{{ mockData[selected].title }}</h2>
-        <NuxtImg
-          :src="mockData[selected].descriptionImg"
-          :alt="mockData[selected].title"
-          class="w-full h-full object-contain max-w-[800px]"
-          sizes="800px"
-          loading="lazy"
-        />
-      </v-sheet>
-
-      <v-sheet :elevation="5" class="w-full p-4 flex flex-col gap-4" v-if="selected !== null">
-        <v-select
-          v-model="elementType"
-          label="Тип работы"
-          :items="[
-            { title: 'Замена детали', props: { value: 1 } },
-            { title: 'Проточка детали', props: { value: 2 } },
-            { title: 'Восстановление', props: { value: 3 } },
-          ]"
-        ></v-select>
-        <v-select
-          v-model="elementSize"
-          label="Размеры гидроцилиндра"
-          :items="[
-            { title: '200 мм', props: { value: 200 } },
-            { title: '100 мм', props: { value: 100 } },
-            { title: '50 мм', props: { value: 50 } },
-          ]"
-        ></v-select>
-
-        <v-select
-          v-model="elementFieldOne"
-          label="Поршень"
-          :items="[
-            { title: 'Поршень 1', props: { value: 1 } },
-            { title: 'Поршень 2', props: { value: 2 } },
-            { title: 'Поршень 3', props: { value: 3 } },
-          ]"
-        ></v-select>
-
-        <v-select
-          v-model="elementFieldTwo"
-          label="Шток"
-          :items="[
-            { title: 'Шток 1', props: { value: 1 } },
-            { title: 'Шток 2', props: { value: 2 } },
-            { title: 'Шток 3', props: { value: 3 } },
-          ]"
-        ></v-select>
-
-        <v-select
-          v-model="elementFieldThree"
-          label="Распределительный узел"
-          :items="[
-            { title: 'Узел 1', props: { value: 1, price: 1500 } },
-            { title: 'Узел 2', props: { value: 2, price: 2500 } },
-            { title: 'Узел 3', props: { value: 3, price: 3500 } },
-          ]"
-        ></v-select>
-
-        <div class="text-xl font-medium text-center">Стоимость: {{ calculated }} руб.</div>
-        <div class="text-xl font-medium text-center" v-if="elementType !== null">от 5 рабочих дней</div>
-      </v-sheet>
-    </div>
-  </div>
+          <div class="w-full flex flex-col gap-2">
+            <v-btn
+              variant="elevated"
+              rounded="xl"
+              :size="isDesktop ? 'x-large' : 'large'"
+              color="green"
+              @click="() => callback(formSteps)"
+            >
+              Добавить в заказ
+            </v-btn>
+          </div>
+        </div>
+      </v-card-actions>
+    </v-stepper>
+  </ClientOnly>
 </template>
+
+<style scoped>
+.v-stepper {
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+</style>

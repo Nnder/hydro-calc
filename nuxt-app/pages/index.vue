@@ -26,9 +26,47 @@ useHead({
 //     },
 //   })
 // )
+
+const formSteps = ref([
+  {
+    id: 1,
+    title: 'Шаг',
+    fieldLabel: 'Введите ваше имя',
+    image: '/images/form-step1.jpg',
+    value: '',
+  },
+  {
+    id: 2,
+    title: 'Шаг',
+    fieldLabel: 'Введите ваш email',
+    image: '/images/form-step2.jpg',
+    value: '',
+  },
+  {
+    id: 3,
+    title: 'Шаг',
+    fieldLabel: 'Введите ваш email',
+    image: '/images/form-step2.jpg',
+    value: '',
+  },
+  {
+    id: 4,
+    title: 'Шаг',
+    fieldLabel: 'Введите ваш email',
+    image: '/images/form-step2.jpg',
+    value: '',
+  },
+  {
+    id: 5,
+    title: 'Шаг',
+    fieldLabel: 'Введите ваш телефон',
+    image: '/images/form-step3.jpg',
+    value: '',
+  },
+])
 </script>
 
 <template>
   <Slider />
-  <Calculator />
+  <Calculator :formSteps="formSteps" :callback="data => console.log('data', data)" />
 </template>
