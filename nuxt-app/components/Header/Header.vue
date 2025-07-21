@@ -2,7 +2,6 @@
 import { ref, reactive, onBeforeUnmount } from 'vue'
 
 const siteConfig = reactive({
-  logoText: 'Логотип',
   phone: '+78001234567',
   phoneFormatted: '8 (800) 123-45-67',
 })
@@ -10,25 +9,17 @@ const siteConfig = reactive({
 const isMobileMenuOpen = ref(false)
 const mobileSubMenuOpen = ref(null)
 const activeMenu = ref(null)
+const activeSubMenu = ref(null)
 const menuTimeout = ref(null)
 
 const mainMenu = reactive([
   {
-    id: 'categories',
-    name: 'Категории',
-    submenu: [
-      { name: 'Насосные станции', link: '/' },
-      { name: 'Гидроцилиндры', link: '/' },
-      { name: 'Гидромоторы', link: '/' },
-    ],
-  },
-  {
     id: 'services',
     name: 'Услуги',
     submenu: [
-      { name: 'Ремонт гидравлики', link: '/' },
-      { name: 'Изготовление гидроцилиндров', link: '/' },
-      { name: 'Диагностика', link: '/' },
+      { name: 'Ремонт гидравлики', link: '#' },
+      { name: 'Изготовление гидроцилиндров', link: '#' },
+      { name: 'Диагностика', link: '#' },
     ],
   },
   {
@@ -39,7 +30,7 @@ const mainMenu = reactive([
   {
     id: 'delivery',
     name: 'Доставка',
-    link: '/',
+    link: '#',
   },
   {
     id: 'contacts',
@@ -50,69 +41,76 @@ const mainMenu = reactive([
 
 const megaMenuData = reactive({
   equipment: [
-    { name: 'Насосные станции', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-    { name: 'Гидроцилиндры', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-    { name: 'Гидромоторы', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
+    { name: 'Насосные станции', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
+    { name: 'Гидроцилиндры', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
+    { name: 'Гидромоторы', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
   ],
   news: [
     {
       title: 'Новые модели насосных станций',
       description: 'Обзор новинок 2024 года с улучшенными характеристиками',
       date: '15.05.2024',
-      link: '/',
+      link: '#',
     },
     {
       title: 'Как выбрать гидроцилиндр',
       description: 'Подробное руководство по подбору оборудования',
       date: '10.05.2024',
-      link: '/',
+      link: '#',
     },
   ],
   specialOffer: {
     title: 'Спецпредложение',
     description: 'Гидравлические станции серии PRO со скидкой 20% до конца месяца',
-    link: '/',
+    link: '#',
   },
   services: [
     {
       title: 'Ремонт',
       items: [
-        { name: 'Ремонт гидравлики', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-        { name: 'Ремонт гидроцилиндров', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
+        { 
+          name: 'Гидравлики', 
+          link: '#', 
+          icon: 'material-symbols:arrow-forward-ios-rounded',
+          subItems: [
+            { name: 'Насосы', link: '#' },
+            { name: 'Клапаны', link: '#' },
+            { name: 'Цилиндры', link: '#' },
+            { name: 'Фильтры', link: '#' },
+          ]
+        },
+        { name: 'Цилиндров', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
       ],
     },
     {
       title: 'Изготовление',
       items: [
-        { name: 'Изготовление гидроцилиндров', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-        { name: 'Изготовление уплотнений', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
+        { name: 'Гидроцилиндров', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
+        { name: 'Уплотнений', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
       ],
     },
     {
       title: 'Продажа',
       items: [
-        { name: 'Штоки и гильзы', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-        { name: 'Уплотнения', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-      ],
-    },
-    {
-      title: 'Диагностика',
-      items: [
-        { name: 'Выездная диагностика', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-        { name: 'Испытания на стендах', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
+        { name: 'Штоки и гильзы', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
+        { name: 'Уплотнения', link: '#', icon: 'material-symbols:arrow-forward-ios-rounded' },
       ],
     },
   ],
 })
 
-const openSubMenu = menuId => {
+const openSubMenu = (menuId, itemId = null) => {
   clearTimeout(menuTimeout.value)
   activeMenu.value = menuId
+  if (itemId) {
+    activeSubMenu.value = itemId
+  }
 }
 
 const closeSubMenu = () => {
   menuTimeout.value = setTimeout(() => {
     activeMenu.value = null
+    activeSubMenu.value = null
   }, 200)
 }
 
@@ -145,8 +143,25 @@ onBeforeUnmount(() => {
             <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
             </button>
-            <NuxtLink to="/" class="text-xl font-bold text-hydro-power truncate max-w-[160px] sm:max-w-none">
-              {{ siteConfig.logoText }}
+            <NuxtLink 
+              to="/" 
+              class="flex items-center justify-center sm:justify-start"
+            >
+
+              <NuxtImg 
+                src="../public/logo.svg" 
+                alt="GlobalLogo"
+                class="w-10 h-10 sm:hidden"
+              />
+              
+              <NuxtImg 
+                src="../public/medium_logo.svg" 
+                alt="GlobalLogo"  
+                class="hidden sm:block w-32 h-32"
+              />
+              
+              <span class="text-xl font-bold text-hydro-power ml-2 sm:ml-4 truncate max-w-[120px] sm:max-w-none">
+              </span>
             </NuxtLink>
           </div>
 
@@ -238,105 +253,132 @@ onBeforeUnmount(() => {
         </div>
       </transition>
 
-      <transition
-        enter-active-class="transition-all duration-300 ease-out"
-        leave-active-class="transition-all duration-200 ease-in"
-        enter-from-class="opacity-0 -translate-y-2"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-2"
+    <transition
+      enter-active-class="transition-all duration-300 ease-out"
+      leave-active-class="transition-all duration-200 ease-in"
+      enter-from-class="opacity-0 -translate-y-2"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-2"
+    >
+      <div
+        v-show="activeMenu === 'services'"
+        class="absolute left-0 right-0 top-full bg-white shadow-xl z-50 border-t border-hydro-steel py-6 overflow-hidden"
+        @mouseenter="openSubMenu('services')"
+        @mouseleave="closeSubMenu"
       >
-        <div
-          v-show="activeMenu === 'categories'"
-          class="absolute left-0 right-0 top-full bg-white shadow-xl z-50 border-t border-hydro-steel py-6 overflow-hidden"
-          @mouseenter="openSubMenu('categories')"
-          @mouseleave="closeSubMenu"
-        >
-          <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div>
-                <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">Оборудование</h3>
-                <ul class="space-y-3">
-                  <li v-for="item in megaMenuData.equipment" :key="item.name">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap gap-8">
+            <div class="flex-1 min-w-[250px]">
+              <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">
+                Ремонт
+              </h3>
+              <ul class="space-y-3">
+                <li class="relative group" 
+                    @mouseenter="openSubMenu('services', 'hydraulics')"
+                    @mouseleave="closeSubMenu">
+                  <div class="flex items-center">
                     <NuxtLink
-                      :to="item.link"
+                      to="#"
+                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base flex-grow"
+                    >
+                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
+                      Гидравлики
+                    </NuxtLink>
+                    <Icon 
+                      name="material-symbols:chevron-right" 
+                      class="w-4 h-4 ml-1 text-hydro-steel/50 transition-transform duration-200"
+                      :class="{'rotate-90': activeSubMenu === 'hydraulics'}"
+                    />
+                  </div>
+                  
+                  <transition
+                    enter-active-class="transition-opacity duration-200 ease-out"
+                    leave-active-class="transition-opacity duration-150 ease-in"
+                    enter-from-class="opacity-0"
+                    enter-to-class="opacity-100"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <div 
+                      v-if="activeSubMenu === 'hydraulics'"
+                      class="absolute left-full top-0 ml-2 w-48 bg-white shadow-lg rounded-md p-2 z-50 border border-hydro-steel"
+                      style="margin-top: -36px;"
+                    >
+                      <ul class="space-y-2">
+                        <li v-for="subItem in megaMenuData.services[0].items[0].subItems" :key="subItem.name">
+                          <NuxtLink 
+                            :to="subItem.link" 
+                            class="text-hydro-steel hover:text-hydro-power flex items-center text-sm p-2 hover:bg-hydro-light/10 rounded transition-colors"
+                            @click="closeSubMenu"
+                          >
+                            <Icon name="material-symbols:arrow-right" class="w-3 h-3 mr-2 text-hydro-power/50" />
+                            {{ subItem.name }}
+                          </NuxtLink>
+                        </li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <li>
+                  <NuxtLink
+                    to="#"
+                    class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
+                  >
+                    <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
+                    Цилиндров
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
+
+              <div class="flex-1 min-w-[250px]">
+                <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">
+                  Изготовление
+                </h3>
+                <ul class="space-y-3">
+                  <li>
+                    <NuxtLink
+                      to="#"
                       class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
                     >
-                      <Icon :name="item.icon" class="w-4 h-4 mr-2 text-hydro-power" />
-                      {{ item.name }}
+                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
+                      Гидроцилиндров
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink
+                      to="#"
+                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
+                    >
+                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
+                      Уплотнений
                     </NuxtLink>
                   </li>
                 </ul>
               </div>
 
-              <div class="md:col-span-1 lg:col-span-2">
-                <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">Новости и статьи</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div v-for="item in megaMenuData.news" :key="item.title" class="group">
-                    <NuxtLink :to="item.link" class="block transition-transform duration-200 hover:translate-x-1">
-                      <h4 class="text-hydro-power font-medium group-hover:underline text-sm md:text-base">
-                        {{ item.title }}
-                      </h4>
-                      <p class="text-hydro-steel mt-1 text-xs md:text-sm">{{ item.description }}</p>
-                      <span class="text-xs text-hydro-steel/50 mt-2 block">{{ item.date }}</span>
-                    </NuxtLink>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <NuxtLink
-                  :to="megaMenuData.specialOffer.link"
-                  class="block bg-tech-light rounded-lg overflow-hidden border border-hydro-steel hover:shadow-md transition-all duration-300 h-full"
-                >
-                  <div class="p-4 h-full flex flex-col">
-                    <h3 class="font-bold text-tech-dark mb-2 text-sm md:text-base">
-                      {{ megaMenuData.specialOffer.title }}
-                    </h3>
-                    <p class="text-hydro-steel mb-4 flex-grow text-xs md:text-sm">
-                      {{ megaMenuData.specialOffer.description }}
-                    </p>
-                    <div
-                      class="bg-hydro-power text-white text-center py-2 px-4 rounded font-medium transition-colors duration-200 hover:bg-hydro-power/90 text-sm"
-                    >
-                      Узнать подробнее
-                    </div>
-                  </div>
-                </NuxtLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-
-      <transition
-        enter-active-class="transition-all duration-300 ease-out"
-        leave-active-class="transition-all duration-200 ease-in"
-        enter-from-class="opacity-0 -translate-y-2"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-2"
-      >
-        <div
-          v-show="activeMenu === 'services'"
-          class="absolute left-0 right-0 top-full bg-white shadow-xl z-50 border-t border-hydro-steel py-6 overflow-hidden"
-          @mouseenter="openSubMenu('services')"
-          @mouseleave="closeSubMenu"
-        >
-          <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div v-for="category in megaMenuData.services" :key="category.title">
+              <div class="flex-1 min-w-[250px]">
                 <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">
-                  {{ category.title }}
+                  Продажа
                 </h3>
                 <ul class="space-y-3">
-                  <li v-for="item in category.items" :key="item.name">
+                  <li>
                     <NuxtLink
-                      :to="item.link"
+                      to="#"
                       class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
                     >
-                      <Icon :name="item.icon" class="w-4 h-4 mr-2 text-hydro-power" />
-                      {{ item.name }}
+                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
+                      Штоки и гильзы
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink
+                      to="#"
+                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
+                    >
+                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
+                      Уплотнения
                     </NuxtLink>
                   </li>
                 </ul>

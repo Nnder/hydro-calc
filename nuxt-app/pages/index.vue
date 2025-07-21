@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Calculator from '~/components/Calculator/Calculator.vue'
-import DeviceSelector from '~/components/App/DeviceSelector.vue'
+import Slider from '~/components/Slider/Slider.vue'
 import { useCartStore } from '~/stores/cart'
 
 const cartStore = useCartStore()
@@ -64,40 +64,8 @@ const formSteps = ref([
 </script>
 
 <template>
-  <DeviceSelector/>
-  <div class="mt-4 w-full">
-    <h2 class="text-center text-2xl font-medium pb-2">Калькулятор</h2>
-    <v-sheet :elevation="5" class="w-full p-4">
-      <div>
-        <h2 class="font-medium text-lg text-center">Выберите механическое устройство</h2>
-      </div>
-      <div class="flex flex-wrap gap-4 justify-evenly">
-        <div
-          class="flex-1 min-w-[150px] max-w-[200px] aspect-square"
-          v-for="(item, index) in mockData"
-          @click="selected = index"
-        >
-          <NuxtImg
-            :src="item.src"
-            :alt="item.title"
-            class="w-full h-full object-contain"
-            sizes="200px"
-            loading="lazy"
-          />
-          <p class="text-center font-medium">{{ item.title }}</p>
-        </div>
-      </div>
-    </v-sheet>
-  </div>
-  <div class="w-full h-full !flex flex-col items-center p-4" v-if="selected !== null">
-    <h2 class="text-center text-2xl font-medium pb-2">{{ mockData[selected].title }}</h2>
+  <Slider/>
 
-    <Calculator
-      :formSteps="formSteps"
-      :callback="(data: []) => cartStore.addItem({ product: 'Гидроцилиндер', data: [...data] })"
-    />
-  </div>
-  <div class="w-full p-4 flex flex-col gap-4" v-if="selected !== null"></div>
 </template>
 
 <style scoped>
