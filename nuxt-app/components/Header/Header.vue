@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, onBeforeUnmount } from 'vue'
+import { ref, reactive } from 'vue'
 
 const siteConfig = reactive({
   phone: '+78001234567',
@@ -7,20 +7,19 @@ const siteConfig = reactive({
 })
 
 const isMobileMenuOpen = ref(false)
-const mobileSubMenuOpen = ref(null)
 const activeMenu = ref(null)
 const activeSubMenu = ref(null)
-const menuTimeout = ref(null)
+const mobileSubMenuState = reactive({
+  services: false,
+  repair: false,
+  hydraulics: false,
+})
 
-const mainMenu = reactive([
+const mainMenu = [
   {
     id: 'services',
     name: 'Услуги',
-    submenu: [
-      { name: 'Ремонт гидравлики', link: '/' },
-      { name: 'Изготовление гидроцилиндров', link: '/' },
-      { name: 'Диагностика', link: '/' },
-    ],
+    hasSubmenu: true,
   },
   {
     id: 'about',
@@ -37,127 +36,97 @@ const mainMenu = reactive([
     name: 'Контакты',
     link: '/contacts',
   },
-])
+]
 
-const megaMenuData = reactive({
-  equipment: [
-    { name: 'Насосные станции', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-    { name: 'Гидроцилиндры', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-    { name: 'Гидромоторы', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-  ],
-  news: [
-    {
-      title: 'Новые модели насосных станций',
-      description: 'Обзор новинок 2024 года с улучшенными характеристиками',
-      date: '15.05.2024',
-      link: '/',
-    },
-    {
-      title: 'Как выбрать гидроцилиндр',
-      description: 'Подробное руководство по подбору оборудования',
-      date: '10.05.2024',
-      link: '/',
-    },
-  ],
-  specialOffer: {
-    title: 'Спецпредложение',
-    description: 'Гидравлические станции серии PRO со скидкой 20% до конца месяца',
-    link: '/',
+const servicesSubMenu = [
+  {
+    id: 'repair',
+    name: 'Ремонт',
+    items: [
+      {
+        id: 'hydraulics',
+        name: 'Гидравлики',
+        link: '/page1',
+        subItems: [
+          { name: 'Насосы', link: '/test' },
+          { name: 'Клапаны', link: '/' },
+          { name: 'Цилиндры', link: '/' },
+          { name: 'Фильтры', link: '/' },
+        ],
+      },
+      { name: 'Цилиндров', link: '/' },
+    ],
   },
-  services: [
-    {
-      title: 'Ремонт',
-      items: [
-        {
-          name: 'Гидравлики',
-          link: '/',
-          icon: 'material-symbols:arrow-forward-ios-rounded',
-          subItems: [
-            { name: 'Насосы', link: '/' },
-            { name: 'Клапаны', link: '/' },
-            { name: 'Цилиндры', link: '/' },
-            { name: 'Фильтры', link: '/' },
-          ],
-        },
-        { name: 'Цилиндров', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-      ],
-    },
-    {
-      title: 'Изготовление',
-      items: [
-        { name: 'Гидроцилиндров', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-        { name: 'Уплотнений', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-      ],
-    },
-    {
-      title: 'Продажа',
-      items: [
-        { name: 'Штоки и гильзы', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-        { name: 'Уплотнения', link: '/', icon: 'material-symbols:arrow-forward-ios-rounded' },
-      ],
-    },
-  ],
-})
-
-const openSubMenu = (menuId, itemId = null) => {
-  clearTimeout(menuTimeout.value)
-  activeMenu.value = menuId
-  if (itemId) {
-    activeSubMenu.value = itemId
-  }
-}
-
-const closeSubMenu = () => {
-  menuTimeout.value = setTimeout(() => {
-    activeMenu.value = null
-    activeSubMenu.value = null
-  }, 200)
-}
+  {
+    id: 'production',
+    name: 'Изготовление',
+    items: [
+      { name: 'Гидроцилиндров', link: '/' },
+      { name: 'Уплотнений', link: '/' },
+    ],
+  },
+  {
+    id: 'sale',
+    name: 'Продажа',
+    items: [
+      { name: 'Штоки и гильзы', link: '/' },
+      { name: 'Уплотнения', link: '/' },
+    ],
+  },
+]
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
   if (!isMobileMenuOpen.value) {
-    mobileSubMenuOpen.value = null
+    resetMobileSubMenus()
   }
 }
 
 const toggleMobileSubMenu = menuId => {
-  mobileSubMenuOpen.value = mobileSubMenuOpen.value === menuId ? null : menuId
+  mobileSubMenuState[menuId] = !mobileSubMenuState[menuId]
 }
 
-const toggleCart = () => {
-  console.log('Открытие корзины')
+const resetMobileSubMenus = () => {
+  Object.keys(mobileSubMenuState).forEach(key => {
+    mobileSubMenuState[key] = false
+  })
 }
 
-onBeforeUnmount(() => {
-  clearTimeout(menuTimeout.value)
-})
+const openSubMenu = (menuId, itemId = null) => {
+  activeMenu.value = menuId
+  activeSubMenu.value = itemId
+}
+
+const closeSubMenu = () => {
+  activeMenu.value = null
+  activeSubMenu.value = null
+}
 </script>
 
 <template>
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="relative" @mouseleave="closeSubMenu">
       <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between h-16 md:h-20">
           <div class="flex items-center space-x-4">
             <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
             </button>
-            <NuxtLink to="/" class="flex items-center justify-center sm:justify-start">
-              <NuxtImg src="../public/logo.svg" alt="GlobalLogo" class="w-10 h-10 sm:hidden" />
-
-              <NuxtImg src="../public/medium_logo.svg" alt="GlobalLogo" class="hidden sm:block w-32 h-32" />
-
-              <span class="text-xl font-bold text-hydro-power ml-2 sm:ml-4 truncate max-w-[120px] sm:max-w-none">
-              </span>
+            <NuxtLink to="/" class="flex items-center h-16">
+              <NuxtImg
+                src="/logo.svg"
+                alt="Logo"
+                class="h-10 w-auto sm:h-12"
+                :imgAttrs="{ style: 'max-height: 100%' }"
+              />
             </NuxtLink>
           </div>
 
-          <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 h-full">
+          <nav class="hidden lg:flex items-center space-x-6 h-full">
             <template v-for="item in mainMenu" :key="item.id">
-              <div v-if="item.submenu" class="relative h-full">
+              <div v-if="item.hasSubmenu" class="relative h-full">
                 <button
-                  class="flex items-center h-full text-tech-dark hover:text-hydro-power font-medium text-sm xl:text-base"
+                  class="flex items-center h-full px-2 text-tech-dark hover:text-hydro-power font-medium text-base"
                   @mouseenter="openSubMenu(item.id)"
                 >
                   <span>{{ item.name }}</span>
@@ -167,7 +136,7 @@ onBeforeUnmount(() => {
               <NuxtLink
                 v-else
                 :to="item.link"
-                class="text-tech-dark hover:text-hydro-power font-medium text-sm xl:text-base whitespace-nowrap"
+                class="px-2 text-tech-dark hover:text-hydro-power font-medium text-base whitespace-nowrap"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -177,61 +146,115 @@ onBeforeUnmount(() => {
           <div class="flex items-center space-x-4 sm:space-x-6">
             <NuxtLink
               :to="`tel:${siteConfig.phone}`"
-              class="flex items-center text-tech-dark hover:text-hydro-power whitespace-nowrap"
+              class="flex items-center text-tech-dark hover:text-hydro-power text-sm sm:text-base"
             >
               <Icon name="material-symbols:call" class="h-5 w-5 mr-1" />
               <span class="font-medium hidden md:inline">{{ siteConfig.phoneFormatted }}</span>
             </NuxtLink>
-
-            <button class="relative text-tech-dark hover:text-hydro-power" @click="toggleCart">
+            <button class="text-tech-dark hover:text-hydro-power" @click="toggleCart">
               <Icon name="material-symbols:shopping-cart-outline" class="w-6 h-6" />
             </button>
           </div>
         </div>
       </div>
 
+      <!-- Мобильное меню -->
       <transition
-        enter-active-class="transition-all duration-300 ease-out"
-        leave-active-class="transition-all duration-200 ease-in"
-        enter-from-class="opacity-0 -translate-y-2"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-2"
+        enter-active-class="transition-all duration-200 ease-out"
+        leave-active-class="transition-all duration-150 ease-in"
       >
-        <div
-          v-show="isMobileMenuOpen"
-          class="lg:hidden bg-white shadow-lg border-t border-hydro-steel max-h-[80vh] overflow-y-auto"
-        >
-          <div class="container mx-auto px-4 py-3">
-            <div class="space-y-3">
+        <div v-show="isMobileMenuOpen" class="lg:hidden bg-white shadow-lg border-t border-hydro-steel">
+          <div class="container mx-auto px-3 py-2">
+            <!-- Уменьшил padding-x с px-4 на px-3 -->
+            <div class="space-y-1">
+              <!-- Уменьшил отступ между пунктами -->
               <template v-for="item in mainMenu" :key="item.id">
-                <div v-if="item.submenu">
+                <div v-if="item.hasSubmenu">
                   <button
-                    class="flex items-center justify-between w-full text-tech-dark hover:text-hydro-power font-medium py-2 text-base"
-                    @click="toggleMobileSubMenu(item.id)"
+                    class="flex items-center justify-between w-full text-tech-dark hover:text-hydro-power font-medium py-3 text-base"
+                    @click="toggleMobileSubMenu('services')"
                   >
                     <span>{{ item.name }}</span>
                     <Icon
                       name="material-symbols:keyboard-arrow-down"
-                      class="ml-1 h-4 w-4 transition-transform duration-200"
-                      :class="{ 'rotate-180': mobileSubMenuOpen === item.id }"
+                      class="h-5 w-5 transition-transform duration-200"
+                      :class="{ 'rotate-180': mobileSubMenuState.services }"
                     />
                   </button>
-                  <div v-show="mobileSubMenuOpen === item.id" class="pl-4 space-y-2 mt-2">
-                    <NuxtLink
-                      v-for="subItem in item.submenu"
-                      :key="subItem.name"
-                      :to="subItem.link"
-                      class="block text-hydro-steel hover:text-hydro-power py-1 text-sm"
-                    >
-                      {{ subItem.name }}
-                    </NuxtLink>
+
+                  <div v-show="mobileSubMenuState.services" class="pl-3 space-y-1">
+                    <!-- Уменьшил padding-left с pl-4 на pl-3 -->
+                    <template v-for="category in servicesSubMenu" :key="category.id">
+                      <div>
+                        <button
+                          class="flex items-center justify-between w-full text-hydro-steel hover:text-hydro-power py-2.5 text-base"
+                          @click="toggleMobileSubMenu(category.id)"
+                        >
+                          <div class="flex items-center">
+                            <Icon
+                              name="material-symbols:arrow-forward-ios-rounded"
+                              class="w-4 h-4 mr-2 text-hydro-power"
+                            />
+                            <span>{{ category.name }}</span>
+                          </div>
+                          <Icon
+                            name="material-symbols:chevron-right"
+                            class="h-4 w-4 transition-transform duration-200"
+                            :class="{ 'rotate-90': mobileSubMenuState[category.id] }"
+                          />
+                        </button>
+
+                        <div v-show="mobileSubMenuState[category.id]" class="pl-4 space-y-1">
+                          <!-- Уменьшил padding-left с pl-6 на pl-4 -->
+                          <template v-for="subItem in category.items" :key="subItem.name">
+                            <div v-if="subItem.subItems">
+                              <button
+                                class="flex items-center justify-between w-full text-hydro-steel hover:text-hydro-power py-2.5 text-base"
+                                @click="toggleMobileSubMenu('hydraulics')"
+                              >
+                                <div class="flex items-center">
+                                  <Icon name="material-symbols:arrow-right" class="w-3 h-3 mr-2 text-hydro-power/50" />
+                                  <span>{{ subItem.name }}</span>
+                                </div>
+                                <Icon
+                                  name="material-symbols:chevron-right"
+                                  class="h-4 w-4 transition-transform duration-200"
+                                  :class="{ 'rotate-90': mobileSubMenuState.hydraulics }"
+                                />
+                              </button>
+
+                              <div v-show="mobileSubMenuState.hydraulics" class="pl-5 space-y-1">
+                                <NuxtLink
+                                  v-for="item in subItem.subItems"
+                                  :key="item.name"
+                                  :to="item.link"
+                                  class="block text-hydro-steel hover:text-hydro-power py-2 text-base"
+                                  @click="toggleMobileMenu"
+                                >
+                                  {{ item.name }}
+                                </NuxtLink>
+                              </div>
+                            </div>
+                            <NuxtLink
+                              v-else
+                              :to="subItem.link"
+                              class="flex items-center text-hydro-steel hover:text-hydro-power py-2.5 text-base"
+                              @click="toggleMobileMenu"
+                            >
+                              <Icon name="material-symbols:arrow-right" class="w-3 h-3 mr-2 text-hydro-power/50" />
+                              {{ subItem.name }}
+                            </NuxtLink>
+                          </template>
+                        </div>
+                      </div>
+                    </template>
                   </div>
                 </div>
                 <NuxtLink
                   v-else
                   :to="item.link"
-                  class="block text-tech-dark hover:text-hydro-power font-medium py-2 text-base"
+                  class="block text-tech-dark hover:text-hydro-power font-medium py-3 text-base"
+                  @click="toggleMobileMenu"
                 >
                   {{ item.name }}
                 </NuxtLink>
@@ -241,132 +264,67 @@ onBeforeUnmount(() => {
         </div>
       </transition>
 
+      <!-- Десктопное мега-меню -->
       <transition
-        enter-active-class="transition-all duration-300 ease-out"
-        leave-active-class="transition-all duration-200 ease-in"
-        enter-from-class="opacity-0 -translate-y-2"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-2"
+        enter-active-class="transition-all duration-200 ease-out"
+        leave-active-class="transition-all duration-150 ease-in"
       >
         <div
           v-show="activeMenu === 'services'"
-          class="absolute left-0 right-0 top-full bg-white shadow-xl z-50 border-t border-hydro-steel py-6 overflow-hidden"
+          class="absolute left-0 right-0 top-full bg-white shadow-xl z-50 border-t border-hydro-steel py-6"
           @mouseenter="openSubMenu('services')"
           @mouseleave="closeSubMenu"
         >
           <div class="container mx-auto px-4">
             <div class="flex flex-wrap gap-8">
-              <div class="flex-1 min-w-[250px]">
-                <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">Ремонт</h3>
-                <ul class="space-y-3">
-                  <li
-                    class="relative group"
-                    @mouseenter="openSubMenu('services', 'hydraulics')"
-                    @mouseleave="closeSubMenu"
-                  >
-                    <div class="flex items-center">
-                      <NuxtLink
-                        to="/"
-                        class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base flex-grow"
-                      >
-                        <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
-                        Гидравлики
-                      </NuxtLink>
-                      <Icon
-                        name="material-symbols:chevron-right"
-                        class="w-4 h-4 ml-1 text-hydro-steel/50 transition-transform duration-200"
-                        :class="{ 'rotate-90': activeSubMenu === 'hydraulics' }"
-                      />
-                    </div>
+              <template v-for="category in servicesSubMenu" :key="category.id">
+                <div class="flex-1 min-w-[250px]">
+                  <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">
+                    {{ category.name }}
+                  </h3>
+                  <ul class="space-y-3">
+                    <template v-for="item in category.items" :key="item.name">
+                      <li class="relative group" @mouseenter="openSubMenu('services', item.id)">
+                        <div class="flex items-center">
+                          <NuxtLink
+                            :to="item.link"
+                            class="text-hydro-steel hover:text-hydro-power flex items-center flex-grow text-base"
+                          >
+                            <Icon
+                              name="material-symbols:arrow-forward-ios-rounded"
+                              class="w-4 h-4 mr-2 text-hydro-power"
+                            />
+                            {{ item.name }}
+                          </NuxtLink>
+                          <Icon
+                            v-if="item.subItems"
+                            name="material-symbols:chevron-right"
+                            class="ml-1 text-hydro-steel/50 transition-transform duration-200"
+                            :class="{ 'rotate-90': activeSubMenu === item.id }"
+                          />
+                        </div>
 
-                    <transition
-                      enter-active-class="transition-opacity duration-200 ease-out"
-                      leave-active-class="transition-opacity duration-150 ease-in"
-                      enter-from-class="opacity-0"
-                      enter-to-class="opacity-100"
-                      leave-from-class="opacity-100"
-                      leave-to-class="opacity-0"
-                    >
-                      <div
-                        v-if="activeSubMenu === 'hydraulics'"
-                        class="absolute left-full top-0 ml-2 w-48 bg-white shadow-lg rounded-md p-2 z-50 border border-hydro-steel"
-                        style="margin-top: -36px"
-                      >
-                        <ul class="space-y-2">
-                          <li v-for="subItem in megaMenuData.services[0].items[0].subItems" :key="subItem.name">
-                            <NuxtLink
-                              :to="subItem.link"
-                              class="text-hydro-steel hover:text-hydro-power flex items-center text-sm p-2 hover:bg-hydro-light/10 rounded transition-colors"
-                              @click="closeSubMenu"
-                            >
-                              <Icon name="material-symbols:arrow-right" class="w-3 h-3 mr-2 text-hydro-power/50" />
-                              {{ subItem.name }}
-                            </NuxtLink>
-                          </li>
-                        </ul>
-                      </div>
-                    </transition>
-                  </li>
-                  <li>
-                    <NuxtLink
-                      to="/"
-                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
-                    >
-                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
-                      Цилиндров
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="flex-1 min-w-[250px]">
-                <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">Изготовление</h3>
-                <ul class="space-y-3">
-                  <li>
-                    <NuxtLink
-                      to="/"
-                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
-                    >
-                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
-                      Гидроцилиндров
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink
-                      to="/"
-                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
-                    >
-                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
-                      Уплотнений
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="flex-1 min-w-[250px]">
-                <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">Продажа</h3>
-                <ul class="space-y-3">
-                  <li>
-                    <NuxtLink
-                      to="/"
-                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
-                    >
-                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
-                      Штоки и гильзы
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink
-                      to="/"
-                      class="text-hydro-steel hover:text-hydro-power flex items-center transition-colors duration-200 text-sm md:text-base"
-                    >
-                      <Icon name="material-symbols:arrow-forward-ios-rounded" class="w-4 h-4 mr-2 text-hydro-power" />
-                      Уплотнения
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </div>
+                        <transition
+                          enter-active-class="transition-all duration-200 ease-out"
+                          leave-active-class="transition-all duration-150 ease-in"
+                        >
+                          <ul v-if="item.subItems && activeSubMenu === item.id" class="pl-6 mt-2 space-y-2">
+                            <li v-for="subItem in item.subItems" :key="subItem.name">
+                              <NuxtLink
+                                :to="subItem.link"
+                                class="text-hydro-steel hover:text-hydro-power flex items-center text-sm p-2 hover:bg-hydro-light/10 rounded"
+                              >
+                                <Icon name="material-symbols:arrow-right" class="w-3 h-3 mr-2 text-hydro-power/50" />
+                                {{ subItem.name }}
+                              </NuxtLink>
+                            </li>
+                          </ul>
+                        </transition>
+                      </li>
+                    </template>
+                  </ul>
+                </div>
+              </template>
             </div>
           </div>
         </div>
