@@ -2,7 +2,6 @@
 import { ref, reactive, onBeforeUnmount } from 'vue'
 
 const siteConfig = reactive({
-  logoText: 'Логотип',
   phone: '+78001234567',
   phoneFormatted: '8 (800) 123-45-67',
 })
@@ -144,8 +143,25 @@ onBeforeUnmount(() => {
             <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
             </button>
-            <NuxtLink to="/" class="text-xl font-bold text-hydro-power truncate max-w-[160px] sm:max-w-none">
-              {{ siteConfig.logoText }}
+            <NuxtLink 
+              to="/" 
+              class="flex items-center justify-center sm:justify-start"
+            >
+
+              <NuxtImg 
+                src="../public/logo.svg" 
+                alt="GlobalLogo"
+                class="w-10 h-10 sm:hidden"
+              />
+              
+              <NuxtImg 
+                src="../public/medium_logo.svg" 
+                alt="GlobalLogo"  
+                class="hidden sm:block w-32 h-32"
+              />
+              
+              <span class="text-xl font-bold text-hydro-power ml-2 sm:ml-4 truncate max-w-[120px] sm:max-w-none">
+              </span>
             </NuxtLink>
           </div>
 
