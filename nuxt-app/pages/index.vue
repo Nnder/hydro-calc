@@ -2,10 +2,8 @@
 import Calculator from '~/components/Calculator/Calculator.vue'
 import Slider from '~/components/Slider/Slider.vue'
 import { useCartStore } from '~/stores/cart'
-import { storeToRefs } from 'pinia'
 
 const cartStore = useCartStore()
-const { cart } = storeToRefs(cartStore)
 
 const selected = ref<null | number>(null)
 
