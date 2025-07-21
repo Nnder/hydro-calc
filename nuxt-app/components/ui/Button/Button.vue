@@ -11,14 +11,14 @@
   <button v-else :disabled="props.disabled" :class="buttonClasses">
     <slot></slot>
   </button>
-  <!-- <component :is="asComponents" :disabled="props.disabled" :to="props.disabled ? '#' : props.to" :class="buttonClasses">
+  <!-- <component :is="asComponents" :disabled="props.disabled" :to="props.disabled ? '/' : props.to" :class="buttonClasses">
     <slot></slot>
   </component> -->
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-// import { NuxtLink } from '#components'
+// import { NuxtLink } from '/components'
 const { variant = 'primary', ...props } = defineProps<{
   variant?: 'primary' | 'secondary' | 'transparent' | 'warning'
   disabled?: boolean
