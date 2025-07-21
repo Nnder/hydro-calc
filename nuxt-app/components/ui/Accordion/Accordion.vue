@@ -1,6 +1,7 @@
 <template>
   <div class="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
     <div class="space-y-4">
+      <h2 class="font-bold text-2xl">Часто задаваемвые вопросы</h2>
       <div 
         v-for="(item, index) in items" 
         :key="item.id || index"
@@ -90,7 +91,6 @@ const toggle = (index) => {
   }
 };
 
-// Плавная анимация для аккордеона
 const startTransition = (el) => {
   el.style.height = el.scrollHeight + 'px';
 };
