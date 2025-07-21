@@ -20,23 +20,23 @@ const submitForm = () => {
       <div class="container mx-auto px-6 py-24 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
           <div class="w-16 h-1 bg-hydro-power mx-auto mb-6 rounded-full"></div>
-          
+
           <h1 class="text-4xl md:text-6xl font-bold mb-6">
             <span class="text-white">Контакты</span>
           </h1>
-          
+
           <p class="text-xl text-hydro-steel max-w-2xl mx-auto mb-8">
             Свяжитесь с нами для решения ваших технических задач
           </p>
-          
+
           <div class="flex justify-center gap-6">
-            <a href="#" class="group flex items-center gap-2 text-hydro-steel hover:text-white transition-colors">
+            <a href="/" class="group flex items-center gap-2 text-hydro-steel hover:text-white transition-colors">
               <div class="bg-hydro-power/10 group-hover:bg-hydro-power/20 p-3 rounded-full transition-all">
                 <Icon name="heroicons:phone" class="w-5 h-5" />
               </div>
               <span>+7 (800) 555-33-55</span>
             </a>
-            <a href="#" class="group flex items-center gap-2 text-hydro-steel hover:text-white transition-colors">
+            <a href="/" class="group flex items-center gap-2 text-hydro-steel hover:text-white transition-colors">
               <div class="bg-hydro-power/10 group-hover:bg-hydro-power/20 p-3 rounded-full transition-all">
                 <Icon name="heroicons:envelope" class="w-5 h-5" />
               </div>
@@ -171,7 +171,9 @@ const submitForm = () => {
       <div class="mt-16">
         <div class="rounded-xl shadow-sm overflow-hidden border border-hydro-steel/10 h-[500px] relative">
           <Gis />
-          <div class="absolute bottom-6 right-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10 flex items-center gap-3">
+          <div
+            class="absolute bottom-6 right-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10 flex items-center gap-3"
+          >
             <div class="bg-hydro-power p-2 rounded-full">
               <Icon name="heroicons:map-pin" class="w-5 h-5 text-white" />
             </div>

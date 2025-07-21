@@ -14,6 +14,13 @@ body {
 
 <script setup>
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
+import { useCartStore } from '~/stores/cart'
+
+const cartStore = useCartStore()
+
+onMounted(() => {
+  cartStore.setCart()
+})
 
 // we can remove a lot of boilerplate from Schema.org by providing template params
 const route = useRoute()
