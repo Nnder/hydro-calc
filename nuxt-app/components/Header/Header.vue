@@ -47,7 +47,7 @@ const servicesSubMenu = [
       {
         id: 'hydraulics',
         name: 'Гидроцилиндров',
-        link: '/page1',
+        link: '/page2',
         // subItems: [
         //   { name: 'Дифектовка (разборка)', link: '/test' },
         //   { name: 'Подбор и замена уплотнений', link: '/' },
@@ -72,7 +72,7 @@ const servicesSubMenu = [
         id: 'nasosy',
         name: 'Насосов',
         // name: 'Насосы аксиально поршневые и аксиально рядовые поршневые',
-        link: '/page1',
+        link: '/test',
         // subItems: [
         //   { name: 'Дифектовка', link: '/test' },
         //   { name: 'Подбор и замена уплотнений', link: '/' },
