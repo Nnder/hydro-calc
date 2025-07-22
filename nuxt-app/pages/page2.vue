@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-6xl mx-auto py-8 md:py-12 px-4 sm:px-6 lg:px-8 bg-tech-light rounded-2xl shadow-xl mt-8 mb-16">
-    <section class="mb-16 text-center">
+    <section class="mb-4 text-center">
       <div class="inline-block bg-white px-6 py-2 rounded-full shadow-sm mb-6">
         <span class="text-hydro-steel font-medium">Гидравлические системы</span>
       </div>
@@ -11,7 +11,7 @@
       </p>
     </section>
 
-    <section class="mb-16">
+    <section class="mb-2">
       <div
         class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-300"
       >
@@ -28,7 +28,7 @@
     </section>
 
     <section class="bg-white rounded-2xl p-8 shadow-lg">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
         <div>
           <h2 class="text-2xl md:text-3xl font-bold text-hydro-steel mb-2">Выберите детали для ремонта</h2>
           <p class="text-hydro-steel/70">Отметьте необходимые компоненты гидроцилиндра</p>
@@ -43,7 +43,7 @@
           v-for="(part, index) in hydrantParts"
           :key="index"
           @click="toggleSelection(index)"
-          class="p-5 border-2 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between group"
+          class="p-3 border-2 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between group"
           :class="{
             'border-hydro-power bg-hydro-power/5': part.selected,
             'border-gray-200 hover:border-hydro-power/30': !part.selected,
