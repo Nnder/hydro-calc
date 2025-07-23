@@ -57,7 +57,7 @@ const servicesSubMenu = [
       },
       {
         id: 'cylindry',
-        name: 'Цилиндров',
+        name: 'Гидромоторов',
         link: '/page1',
         // subItems: [
         //   { name: 'Диагностика и дифектовка', link: '/test' },
@@ -192,6 +192,11 @@ const closeSubMenu = () => {
           </nav>
 
           <div class="flex items-center space-x-4 sm:space-x-6">
+            <button
+              class="py-3 px-4 shadow-xl text-white bg-hydro-power rounded-xl hover:text-hydro-power font-medium text-base whitespace-nowrap"
+            >
+              Выезд специалиста
+            </button>
             <NuxtLink
               :to="`tel:${siteConfig.phone}`"
               class="flex items-center text-tech-dark hover:text-hydro-power text-sm sm:text-base"
@@ -199,9 +204,6 @@ const closeSubMenu = () => {
               <Icon name="material-symbols:call" class="h-5 w-5 mr-1" />
               <span class="font-medium hidden md:inline">{{ siteConfig.phoneFormatted }}</span>
             </NuxtLink>
-            <button class="text-tech-dark hover:text-hydro-power" @click="toggleCart">
-              <Icon name="material-symbols:shopping-cart-outline" class="w-6 h-6" />
-            </button>
           </div>
         </div>
       </div>

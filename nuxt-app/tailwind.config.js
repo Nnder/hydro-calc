@@ -41,22 +41,22 @@ export default {
         dark: '#0D1B2A',
         gray: '#70798C',
         black: '#212121',
-        
+
         hydro: {
-          power: '#2563EB',    // Синий (давление)
-          steel: '#4B5563',    // Металл корпуса
-          oil: '#92400E',      // Цвет масла
-          danger: '#DC2626',   // Аварийные элементы
+          power: '#2563EB', // Синий (давление)
+          steel: '#4B5563', // Металл корпуса
+          oil: '#92400E', // Цвет масла
+          danger: '#DC2626', // Аварийные элементы
         },
         tech: {
-          light: '#F3F4F6',    // Светлый фон
-          dark: '#111827',     // Тёмный фон секций
-        }
+          light: '#F3F4F6', // Светлый фон
+          dark: '#111827', // Тёмный фон секций
+        },
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'], 
-        industrial: ['"Orbitron"', 'sans-serif'] 
-      }
-    }
-  }
+        sans: ['Montserrat', 'sans-serif'],
+        industrial: ['"Orbitron"', 'sans-serif'],
+      },
+    },
+  },
 }
