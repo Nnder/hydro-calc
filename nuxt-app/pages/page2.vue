@@ -1,4 +1,8 @@
 <template>
+  <div class="min-h-screen bg-tech-light">
+  <ContentWithImage />
+
+  <Block />
   <div class="bg-tech-light">
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <section class="mb-4 text-center">
@@ -123,11 +127,14 @@
       </section>
     </div>
   </div>
+    </div>
   <Stages />
   <Contact />
 </template>
 
 <script setup>
+import ContentWithImage from '~/components/Page/ContentWithImage.vue';
+import Block from '~/components/Page/Block.vue';
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 
