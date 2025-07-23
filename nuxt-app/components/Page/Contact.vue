@@ -3,7 +3,7 @@
     <div class="max-w-4xl mx-auto bg-tech-light rounded-xl shadow-lg overflow-hidden">
       <div class="grid grid-cols-1 md:grid-cols-2">
         <div class="relative h-full min-h-[250px] md:min-h-[400px]">
-          <NuxtImg 
+          <NuxtImg
             src="https://avatars.mds.yandex.net/i?id=70a370ca64a8362d386f05296044fff0_l-5910627-images-thumbs&n=13"
             alt="Консультация инженера по гидроцилиндрам"
             class="w-full h-full object-cover"
@@ -31,8 +31,8 @@
                 v-model="consultation.name"
                 placeholder="Ваше имя"
                 required
-                class="w-full px-4 py-3 border border-gray-800 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-hydro-power"
-              >
+                class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+              />
             </div>
 
             <div>
@@ -41,8 +41,8 @@
                 v-model="consultation.phone"
                 placeholder="Телефон"
                 required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-hydro-power"
-              >
+                class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+              />
             </div>
 
             <button
@@ -54,7 +54,7 @@
             </button>
 
             <div class="text-xs text-gray-500">
-              Нажимая кнопку, вы соглашаетесь с 
+              Нажимая кнопку, вы соглашаетесь с
               <a href="#" class="text-hydro-power hover:underline">политикой конфиденциальности</a>
             </div>
           </form>
@@ -87,7 +87,7 @@
 const consultation = ref({
   name: '',
   phone: '',
-  problemType: ''
+  problemType: '',
 })
 
 const submitConsultation = () => {
@@ -97,14 +97,11 @@ const submitConsultation = () => {
 </script>
 
 <style scoped>
-
-
-
 @media (max-width: 768px) {
   .grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .divide-x > :not(:first-child) {
     border-left: 1px solid #e5e7eb;
   }

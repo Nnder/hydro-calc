@@ -1,9 +1,7 @@
 <template>
   <div v-if="!isHydrated">
     <!-- Fallback контент -->
-    <div class="h-[600px] flex items-center justify-center">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
-    </div>
+    <div class="h-[600px] flex items-center justify-center"></div>
   </div>
   <ClientOnly>
     <swiper-container
@@ -49,7 +47,7 @@
 
               <ul class="features" v-if="slider.features">
                 <li v-for="(feature, i) in slider.features" :key="i">
-                  <v-icon icon="mdi-check-circle" color="primary" class="mr-2" />
+                  <Icon icon="mdi-check-circle" color="primary" class="mr-2" />
                   {{ feature }}
                 </li>
               </ul>
@@ -58,15 +56,14 @@
             <!-- Нижний блок с кнопкой и доп информацией -->
             <div class="bottom-content">
               <button
-                @click="showModal = true"
-                class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl hover:text-hydro-power font-semibold text-base md:text-lg whitespace-nowrap"
+                class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap"
               >
                 {{ slider.buttonText || 'Заказать' }}
-                <v-icon icon="mdi-arrow-right" class="ml-2" />
+                <Icon icon="mdi-arrow-right" class="ml-2" />
               </button>
 
               <div class="additional-info" v-if="slider.additionalInfo">
-                <v-icon icon="mdi-information-outline" size="small" class="mr-1" />
+                <Icon icon="mdi-information-outline" size="small" class="mr-1" />
                 {{ slider.additionalInfo }}
               </div>
             </div>

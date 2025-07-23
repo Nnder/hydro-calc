@@ -196,7 +196,7 @@ const showModal = ref(false)
           <div class="flex items-center space-x-4 sm:space-x-6">
             <button
               @click="showModal = true"
-              class="py-3 px-4 shadow-xl text-white bg-hydro-power rounded-xl hover:text-hydro-power font-semibold text-base whitespace-nowrap"
+              class="bg-hydro-power hover:bg-hydro-power/90 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
             >
               Выезд специалиста
             </button>
@@ -386,7 +386,7 @@ const showModal = ref(false)
   </header>
 
   <Modal
-    class="!p-4 md:p-6 !w-72 md:!w-96 !h-96 rounded-lg"
+    class="!p-4 md:p-6 !w-72 md:!w-96 h-fit rounded-lg"
     :isOpen="showModal"
     @close="
       () => {
@@ -395,10 +395,40 @@ const showModal = ref(false)
     "
   >
     <div class="flex flex-col gap-4 items-center justify-center w-full overflow-hidden">
-      <p class="text-lg md:text-xl font-bold text-nowrap">Заказ создан</p>
+      <p class="text-lg md:text-xl font-bold text-nowrap">Выезд специалиста</p>
       <div class="flex flex-col gap-4">
-        <input class="!border-2 !border-[#2563EB]" />
-        <textarea class="!border-2 !border-[#2563EB]"></textarea>
+        <form class="space-y-4">
+          <div>
+            <input
+              type="text"
+              placeholder="Ваше имя"
+              required
+              class="w-full px-4 py-3 rounded-lg border-hydro-power border-2"
+            />
+          </div>
+
+          <div>
+            <input
+              type="tel"
+              placeholder="Телефон"
+              required
+              class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-hydro-power hover:bg-hydro-power/90 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
+          >
+            <Icon name="mdi:phone-outline" class="text-xl" />
+            Заказать выезд
+          </button>
+
+          <div class="text-xs text-gray-500">
+            Нажимая кнопку, вы соглашаетесь с
+            <a href="#" class="text-hydro-power hover:underline">политикой конфиденциальности</a>
+          </div>
+        </form>
       </div>
       <p class="text-lg md:text-xl font-bold text-nowrap">Мы свяжимся с вами</p>
     </div>
