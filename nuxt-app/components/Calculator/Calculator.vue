@@ -25,6 +25,8 @@ const submitForm = () => {
   callback(formSteps)
   currentStep.value = 1
 }
+
+// калькулятор откладывается на потом
 </script>
 
 <template>
