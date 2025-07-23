@@ -1,6 +1,6 @@
 <template>
   <div class="bg-tech-light">
-    <div class="w-4/5 mx-auto py-8 md:py-12 px-4 sm:px-6 lg:px-8 rounded-2xl mt-8 mb-16">
+    <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <section class="mb-4 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-hydro-power">
           Профессиональный ремонт <br />гидроцилиндров
