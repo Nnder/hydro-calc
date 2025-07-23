@@ -11,9 +11,9 @@
       </p>
     </section>
 
-    <section class="mb-2">
+    <section class="mb-2 relative">
       <div
-        class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-300"
+        class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-300 relative"
       >
         <NuxtImg
           src="hydrocilinder.webp"
@@ -24,6 +24,21 @@
           format="webp"
           quality="80"
         />
+        
+        <div 
+          v-for="(part, index) in hydrantParts" 
+          :key="'highlight-'+index"
+          class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
+          :class="{
+            'opacity-0': !part.selected,
+            'opacity-100': part.selected,
+          }"
+        >
+          <div 
+            class="absolute bg-red-500/50 border-2 border-red-600 rounded-md"
+            :style="getHighlightStyle(index)"
+          ></div>
+        </div>
       </div>
     </section>
 
@@ -78,15 +93,15 @@
 
 <script setup>
 const hydrantParts = ref([
-  { name: 'Диагностика (дифектовка)', selected: false },
-  { name: 'Подбор и замена уплотнений', selected: false },
-  { name: 'Изготовление и замена штока', selected: false },
-  { name: 'Изготовление и замена поршня', selected: false },
-  { name: 'Изготовление и ремонт гильз', selected: false },
-  { name: 'Изготовление и замена крышек', selected: false },
-  { name: 'Ремонт цапф', selected: false },
-  { name: 'Замена проушин', selected: false },
-  { name: 'Гидравлические испытания', selected: false },
+  { name: 'Диагностика (дифектовка)', selected: false, highlight: { top: '10%', left: '50%', width: '40%', height: '15%' } },
+  { name: 'Подбор и замена уплотнений', selected: false, highlight: { top: '30%', left: '20%', width: '60%', height: '10%' } },
+  { name: 'Изготовление и замена штока', selected: false, highlight: { top: '25%', left: '30%', width: '20%', height: '50%' } },
+  { name: 'Изготовление и замена поршня', selected: false, highlight: { top: '40%', left: '45%', width: '15%', height: '10%' } },
+  { name: 'Изготовление и ремонт гильз', selected: false, highlight: { top: '30%', left: '50%', width: '30%', height: '40%' } },
+  { name: 'Изготовление и замена крышек', selected: false, highlight: { top: '20%', left: '80%', width: '15%', height: '60%' } },
+  { name: 'Ремонт цапф', selected: false, highlight: { top: '70%', left: '10%', width: '15%', height: '15%' } },
+  { name: 'Замена проушин', selected: false, highlight: { top: '75%', left: '75%', width: '20%', height: '15%' } },
+  { name: 'Гидравлические испытания', selected: false, highlight: { top: '85%', left: '40%', width: '20%', height: '10%' } },
 ])
 
 const selectedCount = computed(() => {
@@ -95,6 +110,17 @@ const selectedCount = computed(() => {
 
 const toggleSelection = index => {
   hydrantParts.value[index].selected = !hydrantParts.value[index].selected
+}
+
+
+const getHighlightStyle = (index) => {
+  const part = hydrantParts.value[index]
+  return {
+    top: part.highlight.top,
+    left: part.highlight.left,
+    width: part.highlight.width,
+    height: part.highlight.height,
+  }
 }
 </script>
 
