@@ -58,17 +58,13 @@
 
             <!-- Нижний блок с кнопкой и доп информацией -->
             <div class="bottom-content">
-              <v-btn
-                color="primary"
-                :ripple="false"
-                elevation="12"
-                :size="isDesktop ? 'x-large' : 'large'"
-                rounded="xl"
-                class="order-btn"
+              <button
+                @click="showModal = true"
+                class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl hover:text-hydro-power font-semibold text-base md:text-lg whitespace-nowrap"
               >
                 {{ slider.buttonText || 'Заказать' }}
                 <v-icon icon="mdi-arrow-right" class="ml-2" />
-              </v-btn>
+              </button>
 
               <div class="additional-info" v-if="slider.additionalInfo">
                 <v-icon icon="mdi-information-outline" size="small" class="mr-1" />

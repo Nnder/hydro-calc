@@ -31,7 +31,7 @@ const submitForm = () => {
 
 <template>
   <ClientOnly>
-    <v-stepper v-model="currentStep">
+    <!-- <v-stepper v-model="currentStep">
       <v-stepper-header>
         <v-stepper-item
           v-for="step in formSteps"
@@ -101,7 +101,7 @@ const submitForm = () => {
           </div>
         </div>
       </v-card-actions>
-    </v-stepper>
+    </v-stepper> -->
   </ClientOnly>
 </template>
 

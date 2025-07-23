@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Calculator from '~/components/Calculator/Calculator.vue'
 import Slider from '~/components/Slider/Slider.vue'
 import { useCartStore } from '~/stores/cart'
 
@@ -23,49 +22,10 @@ useHead({
     },
   ],
 })
-
-const formSteps = ref([
-  {
-    id: 1,
-    title: 'Шаг',
-    fieldLabel: 'Деталь 1',
-    image: '/description_hydrocilinder.jpg',
-    value: '',
-  },
-  {
-    id: 2,
-    title: 'Шаг',
-    fieldLabel: 'Деталь 2',
-    image: '/description_hydrocilinder.jpg',
-    value: '',
-  },
-  {
-    id: 3,
-    title: 'Шаг',
-    fieldLabel: 'Деталь 3',
-    image: '/description_hydrocilinder.jpg',
-    value: '',
-  },
-  {
-    id: 4,
-    title: 'Шаг',
-    fieldLabel: 'Деталь 4',
-    image: '/description_hydrocilinder.jpg',
-    value: '',
-  },
-  {
-    id: 5,
-    title: 'Шаг',
-    fieldLabel: 'Деталь 5',
-    image: '/description_hydrocilinder.jpg',
-    value: '',
-  },
-])
 </script>
 
 <template>
-  <Slider/>
-
+  <Slider />
 </template>
 
 <style scoped>

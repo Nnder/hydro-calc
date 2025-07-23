@@ -149,6 +149,8 @@ const closeSubMenu = () => {
   activeMenu.value = null
   activeSubMenu.value = null
 }
+
+const showModal = ref(false)
 </script>
 
 <template>
@@ -193,7 +195,8 @@ const closeSubMenu = () => {
 
           <div class="flex items-center space-x-4 sm:space-x-6">
             <button
-              class="py-3 px-4 shadow-xl text-white bg-hydro-power rounded-xl hover:text-hydro-power font-medium text-base whitespace-nowrap"
+              @click="showModal = true"
+              class="py-3 px-4 shadow-xl text-white bg-hydro-power rounded-xl hover:text-hydro-power font-semibold text-base whitespace-nowrap"
             >
               Выезд специалиста
             </button>
@@ -381,4 +384,23 @@ const closeSubMenu = () => {
       </transition>
     </div>
   </header>
+
+  <Modal
+    class="!p-4 md:p-6 !w-72 md:!w-96 !h-96 rounded-lg"
+    :isOpen="showModal"
+    @close="
+      () => {
+        showModal = false
+      }
+    "
+  >
+    <div class="flex flex-col gap-4 items-center justify-center w-full overflow-hidden">
+      <p class="text-lg md:text-xl font-bold text-nowrap">Заказ создан</p>
+      <div class="flex flex-col gap-4">
+        <input class="!border-2 !border-[#2563EB]" />
+        <textarea class="!border-2 !border-[#2563EB]"></textarea>
+      </div>
+      <p class="text-lg md:text-xl font-bold text-nowrap">Мы свяжимся с вами</p>
+    </div>
+  </Modal>
 </template>
