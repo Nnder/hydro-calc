@@ -157,7 +157,7 @@ const showModal = ref(false)
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="relative" @mouseleave="closeSubMenu">
       <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center justify-between h-16 md:h-16">
           <div class="flex items-center space-x-4">
             <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
