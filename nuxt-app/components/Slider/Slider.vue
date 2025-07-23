@@ -9,7 +9,6 @@
     <swiper-container
       v-show="isHydrated"
       :loop="true"
-      :navigation="isDesktop"
       :pagination="true"
       :preload-images="false"
       class="swiper-with-video"
@@ -83,10 +82,6 @@ import { ref } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
-
-import { useDisplay } from 'vuetify'
-const { mdAndUp } = useDisplay()
-const isDesktop = computed(() => mdAndUp.value)
 
 const isHydrated = ref(false)
 
