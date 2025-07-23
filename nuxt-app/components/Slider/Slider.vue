@@ -14,8 +14,8 @@
       :preload-images="false"
       class="swiper-with-video"
       :autoplay="{
-        delay: 500000,
-        disableOnInteraction: false,
+        delay: 10000,
+        disableOnInteraction: true,
       }"
     >
       <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
