@@ -28,19 +28,24 @@ const contacts = [
     <div class="container mx-auto px-4 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div class="space-y-6">
-          <NuxtLink to="/" class="inline-flex items-center">
-            <NuxtImg 
-              src="/logo.svg" 
-              alt="Логотип компании"
-               class="w-12 h-12 md:hidden invert brightness-0 filter"
-            />
-            <NuxtImg 
-              src="/full_logo.svg" 
-              alt="Логотип компании"
-              class="hidden md:block w-48 h-48"
-
-            />
-          </NuxtLink>
+      <NuxtLink to="/" class="inline-flex items-center">
+        <NuxtImg 
+          src="/logo.svg" 
+          alt="Логотип компании"
+          class="w-12 h-12 md:hidden dark:invert dark:brightness-0"
+          width="48"
+          height="48"
+          loading="lazy"
+        />
+        <NuxtImg 
+          src="/full_logo.svg" 
+          alt="Логотип компании"
+          class="hidden md:block w-48 h-auto"
+          width="192"
+          height="48"
+          loading="lazy"
+        />
+      </NuxtLink>
           <p class="text-neutral-light text-sm leading-relaxed">
             Профессиональные гидравлические решения для промышленности и строительства. Официальный дистрибьютор ведущих
             мировых производителей.
