@@ -1,8 +1,4 @@
 <template>
-  <div class="min-h-screen bg-tech-light">
-  <ContentWithImage />
-
-  <Block />
   <div class="bg-tech-light">
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <section class="mb-4 text-center">
@@ -26,6 +22,7 @@
             loading="lazy"
             format="webp"
             quality="80"
+            id="hydroImage"
           />
 
           <div
@@ -33,8 +30,8 @@
             :key="'highlight-' + index"
             class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
             :class="{
-              'opacity-0': !part.selected,
-              'opacity-100': part.selected,
+              'opacity-0': activeHighlight !== index,
+              'opacity-100': activeHighlight === index,
             }"
           >
             <div
@@ -63,17 +60,17 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
           <div v-for="(part, index) in hydrantParts" :key="index" class="group">
             <div
-              @click="toggleSelection(index)"
               class="p-3 md:p-4 border rounded-lg md:rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between"
               :class="{
                 'border-hydro-power bg-hydro-power/5': part.selected,
                 'border-gray-200 hover:border-hydro-power/30': !part.selected,
               }"
+              @click="handlePartClick(index)"
               role="button"
               tabindex="0"
-              @keydown.enter.space="toggleSelection(index)"
+              @keydown.enter.space="handlePartClick(index)"
             >
-              <div class="flex items-center gap-2 md:gap-3">
+              <div class="flex items-center gap-2 md:gap-3 flex-1">
                 <div
                   class="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center"
                   :class="{
@@ -83,8 +80,8 @@
                 >
                   <Icon :name="part.icon || 'mdi:engine-outline'" class="text-xl md:text-2xl" />
                 </div>
-                <div class="text-left">
-                  <span class="text-base md:text-lg font-medium text-hydro-steel block">{{ part.name }}</span>
+                <div class="text-base md:text-lg font-medium text-hydro-steel block text-left flex-1">
+                  {{ part.name }}
                 </div>
               </div>
               <Icon
@@ -107,11 +104,13 @@
               leave-from-class="opacity-100 max-h-96"
               leave-to-class="opacity-0 max-h-0"
             >
-              <div v-if="part.show && part.description" @click="part.show = false" class="overflow-hidden">
+              <div v-if="part.show && part.description" class="overflow-hidden">
                 <div
                   class="relative mt-2 p-3 md:p-4 bg-gray-50 rounded-lg border border-gray-200 text-hydro-steel/80 text-sm md:text-base"
                 >
-                  <div class="text-right text-2xl font-bold absolute top-0 right-2 cursor-pointer">x</div>
+                  <div class="text-right">
+                    <button @click="part.show = false" class="text-2xl font-bold cursor-pointer">×</button>
+                  </div>
                   <p class="mb-2">{{ part.description }}</p>
                   <div v-if="part.features" class="mt-2 md:mt-3">
                     <div v-for="(feature, i) in part.features" :key="i" class="flex items-start mb-1 md:mb-2">
@@ -127,14 +126,11 @@
       </section>
     </div>
   </div>
-    </div>
   <Stages />
   <Contact />
 </template>
 
 <script setup>
-import ContentWithImage from '~/components/Page/ContentWithImage.vue';
-import Block from '~/components/Page/Block.vue';
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 
@@ -229,17 +225,33 @@ const hydrantParts = ref([
   },
 ])
 
-const selectedCount = computed(() => {
-  return hydrantParts.value.filter(part => part.selected).length
-})
+const activeHighlight = ref(null)
+const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
 
-const toggleSelection = index => {
-  const val = !hydrantParts.value[index].selected
-  hydrantParts.value[index].selected = val
-  hydrantParts.value[index].show = val
+const handlePartClick = (index) => {
+  hydrantParts.value[index].selected = !hydrantParts.value[index].selected
+  hydrantParts.value[index].show = hydrantParts.value[index].selected
+  activeHighlight.value = index
+  
+  scrollToImage()
+  setTimeout(() => {
+    if (activeHighlight.value === index) {
+      activeHighlight.value = null
+    }
+  }, 3000)
 }
 
-const getHighlightStyle = index => {
+const scrollToImage = () => {
+  const element = document.getElementById('hydroImage')
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    })
+  }
+}
+
+const getHighlightStyle = (index) => {
   const part = hydrantParts.value[index]
   return {
     top: part.highlight.top,
