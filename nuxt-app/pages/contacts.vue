@@ -177,7 +177,12 @@ const submitForm = () => {
             <div class="bg-hydro-power p-2 rounded-full">
               <Icon name="heroicons:map-pin" class="w-5 h-5 text-white" />
             </div>
-            <span class="font-medium text-tech-dark">г. Нижний Тагил, Аганичева 101А</span>
+            <span class="font-medium text-tech-dark">Свердловская область</span>
+          </div>
+          <div
+            class="absolute top-6 left-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10"
+          >
+            <h3 class="font-bold text-lg">Мы работаем по всей Свердловской области</h3>
           </div>
         </div>
       </div>
