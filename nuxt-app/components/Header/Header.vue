@@ -398,23 +398,24 @@ const showModal = ref(false)
       <p class="text-lg md:text-xl font-bold text-nowrap">Выезд специалиста</p>
       <div class="flex flex-col gap-4">
         <form class="space-y-4">
-          <div>
-            <input
-              type="text"
-              placeholder="Ваше имя"
-              required
-              class="w-full px-4 py-3 rounded-lg border-hydro-power border-2"
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="Ваше имя"
+            required
+            class="w-full px-4 py-3 rounded-lg border-hydro-power border-2"
+          />
 
-          <div>
-            <input
-              type="tel"
-              placeholder="Телефон"
-              required
-              class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
-            />
-          </div>
+          <input
+            type="tel"
+            placeholder="Телефон"
+            required
+            class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+          />
+
+          <textarea
+            class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+            placeholder="Описание проблемы"
+          ></textarea>
 
           <button
             type="submit"
