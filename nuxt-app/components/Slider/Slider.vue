@@ -7,7 +7,7 @@
     <swiper-container
       v-show="isHydrated"
       :loop="true"
-      :navigation="true"
+      :navigation="sm"
       :pagination="true"
       :preload-images="false"
       class="swiper-with-video"
@@ -80,6 +80,7 @@ import { ref } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
+const { sm } = useScreenSize()
 
 const isHydrated = ref(false)
 

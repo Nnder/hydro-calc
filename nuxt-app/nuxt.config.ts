@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   },
   sourcemap: false,
   modules: [
+    '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxt/image',
     // '@nuxtjs/sitemap',
