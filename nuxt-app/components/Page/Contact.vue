@@ -1,25 +1,7 @@
 <template>
   <section class="bg-gradient-to-b from-hydro-power/10 bg-tech-light py-12 md:py-16 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto bg-tech-light rounded-xl shadow-lg overflow-hidden">
-      <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="relative h-full min-h-[250px] md:min-h-[400px]">
-          <NuxtImg
-            src="https://avatars.mds.yandex.net/i?id=70a370ca64a8362d386f05296044fff0_l-5910627-images-thumbs&n=13"
-            alt="Консультация инженера по гидроцилиндрам"
-            class="w-full h-full object-cover"
-            sizes="sm:100vw md:50vw"
-            format="webp"
-            quality="80"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-hydro-steel/70 flex items-center justify-center p-6 text-center">
-            <div>
-              <h3 class="text-white text-2xl md:text-3xl font-bold mb-3">Бесплатная консультация</h3>
-              <p class="text-white text-lg">Наши специалисты ответят на все ваши вопросы</p>
-            </div>
-          </div>
-        </div>
-
+      <div class="grid grid-cols-1">
         <div class="p-6 md:p-8">
           <h2 class="text-2xl md:text-3xl font-bold text-hydro-steel mb-4">Получите консультацию инженера</h2>
           <p class="text-hydro-steel/80 mb-6">Оставьте контакты и мы перезвоним в течение 15 минут</p>
@@ -44,6 +26,12 @@
                 class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
               />
             </div>
+
+            <textarea
+              rows="5"
+              class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+              placeholder="Описание проблемы"
+            ></textarea>
 
             <button
               type="submit"

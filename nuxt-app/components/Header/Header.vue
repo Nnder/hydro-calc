@@ -157,7 +157,7 @@ const showModal = ref(false)
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="relative" @mouseleave="closeSubMenu">
       <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center justify-between h-16 md:h-16">
           <div class="flex items-center space-x-4">
             <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
@@ -398,23 +398,24 @@ const showModal = ref(false)
       <p class="text-lg md:text-xl font-bold text-nowrap">Выезд специалиста</p>
       <div class="flex flex-col gap-4">
         <form class="space-y-4">
-          <div>
-            <input
-              type="text"
-              placeholder="Ваше имя"
-              required
-              class="w-full px-4 py-3 rounded-lg border-hydro-power border-2"
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="Ваше имя"
+            required
+            class="w-full px-4 py-3 rounded-lg border-hydro-power border-2"
+          />
 
-          <div>
-            <input
-              type="tel"
-              placeholder="Телефон"
-              required
-              class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
-            />
-          </div>
+          <input
+            type="tel"
+            placeholder="Телефон"
+            required
+            class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+          />
+
+          <textarea
+            class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
+            placeholder="Описание проблемы"
+          ></textarea>
 
           <button
             type="submit"

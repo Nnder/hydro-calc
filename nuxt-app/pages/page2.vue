@@ -228,11 +228,11 @@ const hydrantParts = ref([
 const activeHighlight = ref(null)
 const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
 
-const handlePartClick = (index) => {
+const handlePartClick = index => {
   hydrantParts.value[index].selected = !hydrantParts.value[index].selected
   hydrantParts.value[index].show = hydrantParts.value[index].selected
   activeHighlight.value = index
-  
+
   scrollToImage()
   setTimeout(() => {
     if (activeHighlight.value === index) {
@@ -246,12 +246,12 @@ const scrollToImage = () => {
   if (element) {
     element.scrollIntoView({
       behavior: 'smooth',
-      block: 'center'
+      block: 'center',
     })
   }
 }
 
-const getHighlightStyle = (index) => {
+const getHighlightStyle = index => {
   const part = hydrantParts.value[index]
   return {
     top: part.highlight.top,

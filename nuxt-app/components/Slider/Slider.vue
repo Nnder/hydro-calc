@@ -7,6 +7,7 @@
     <swiper-container
       v-show="isHydrated"
       :loop="true"
+      :navigation="sm"
       :pagination="true"
       :preload-images="false"
       class="swiper-with-video"
@@ -47,7 +48,7 @@
 
               <ul class="features" v-if="slider.features">
                 <li v-for="(feature, i) in slider.features" :key="i">
-                  <Icon icon="mdi-check-circle" color="primary" class="mr-2" />
+                  <Icon name="mdi-check-circle" color="primary" class="mr-2" />
                   {{ feature }}
                 </li>
               </ul>
@@ -59,11 +60,11 @@
                 class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap"
               >
                 {{ slider.buttonText || 'Заказать' }}
-                <Icon icon="mdi-arrow-right" class="ml-2" />
+                <Icon name="mdi-arrow-right" class="ml-2" />
               </button>
 
               <div class="additional-info" v-if="slider.additionalInfo">
-                <Icon icon="mdi-information-outline" size="small" class="mr-1" />
+                <Icon name="mdi-information-outline" size="small" class="mr-1" />
                 {{ slider.additionalInfo }}
               </div>
             </div>
@@ -79,6 +80,7 @@ import { ref } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
+const { sm } = useScreenSize()
 
 const isHydrated = ref(false)
 
