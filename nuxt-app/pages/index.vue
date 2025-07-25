@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Slider from '~/components/Slider/Slider.vue'
+import ServiceBlock from '~/components/ServiceBlock/ServiceBlock.vue'
 import { useCartStore } from '~/stores/cart'
 
 const cartStore = useCartStore()
@@ -26,6 +27,7 @@ useHead({
 
 <template>
   <Slider />
+  <ServiceBlock />
 </template>
 
 <style scoped>
