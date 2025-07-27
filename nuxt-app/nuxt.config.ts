@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxt/image',
-    // '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap',
     '@nuxtjs/seo',
     '@nuxtjs/robots',
     '@nuxt/icon',
@@ -37,16 +37,27 @@ export default defineNuxtConfig({
   //   payloadExtraction: false, // отключаем генерацию _payload.json
   // },
 
-  // sitemap: {
-  //   hostname: 'https://absolutetechno.ru',
-  //   defaults: {
-  //     changefreq: 'daily',
-  //     priority: 1,
-  //     lastmod: new Date().toISOString(),
-  //   },
-  //   exclude: ['/account/*', '/account'],
-  //   routes: ['/category/**', '/products/category/**', '/products/**', '/news/**', '/about', '/', '/category'],
-  // },
+  sitemap: {
+    hostname: 'https://absolutetechno.ru',
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date().toISOString(),
+    },
+    routes: [
+      '/',
+      '/contacts',
+      '/about',
+      '/page2',
+      '/page1',
+      '/test',
+      '/remont-hydraulic-cylinders',
+      '/remont-hydraulic-motors',
+      '/remont-nasosov-pumps',
+    ],
+  },
+
+  site: { url: 'absolutetechno.com' },
 
   robots: {
     UserAgent: '*',
@@ -55,7 +66,7 @@ export default defineNuxtConfig({
     Sitemap: ['https://absolutetechno.ru/sitemap.xml'],
   },
 
-  ogImage: { enabled: false },
+  // ogImage: { enabled: false },
 
   // image: {
   //   provider: 'ipx',
@@ -202,10 +213,41 @@ export default defineNuxtConfig({
 
   // Настройка cookie для SSR
 
-  routeRules: {
-    '/': {
-      isr: true, // Включаем ISR
-      prerender: true, // Предварительный рендеринг при сборке
+  // routeRules: {
+  //   '/': {
+  //     isr: true, // Включаем ISR
+  //     prerender: true, // Предварительный рендеринг при сборке
+  //   },
+  // },
+
+  runtimeConfig: {
+    mail: {
+      host: process.env.MAIL_HOST,
+      port: process.env.MAIL_PORT,
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD,
+    },
+    public: {
+      mailFrom: process.env.MAIL_FROM_ADDRESS,
+    },
+  },
+
+  ssr: true,
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/contacts',
+        '/about',
+        '/page2',
+        '/page1',
+        '/test',
+        '/remont-hydraulic-cylinders',
+        '/remont-hydraulic-motors',
+        '/remont-nasosov-pumps',
+      ],
+      ignore: ['/api/**'],
     },
   },
 

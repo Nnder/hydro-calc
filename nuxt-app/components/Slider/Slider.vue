@@ -57,7 +57,7 @@
             <!-- Нижний блок с кнопкой и доп информацией -->
             <div class="bottom-content">
               <button
-                class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap"
+                class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap flex items-center"
               >
                 {{ slider.buttonText || 'Заказать' }}
                 <Icon name="mdi-arrow-right" class="ml-2" />

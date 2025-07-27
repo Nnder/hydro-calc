@@ -6,11 +6,11 @@
           <h2 class="text-2xl md:text-3xl font-bold text-hydro-steel mb-4">Получите консультацию инженера</h2>
           <p class="text-hydro-steel/80 mb-6">Оставьте контакты и мы перезвоним в течение 15 минут</p>
 
-          <form @submit.prevent="submitConsultation" class="space-y-4">
+          <form @submit.prevent="submitForm" class="space-y-4">
             <div>
               <input
                 type="text"
-                v-model="consultation.name"
+                v-model="form.name"
                 placeholder="Ваше имя"
                 required
                 class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
@@ -20,7 +20,7 @@
             <div>
               <input
                 type="tel"
-                v-model="consultation.phone"
+                v-model="form.phone"
                 placeholder="Телефон"
                 required
                 class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg"
@@ -72,15 +72,31 @@
 </template>
 
 <script setup>
-const consultation = ref({
+const form = ref({
   name: '',
   phone: '',
   problemType: '',
 })
 
-const submitConsultation = () => {
-  alert(`Спасибо, ${consultation.value.name}! Наш специалист свяжется с вами в течение 15 минут.`)
-  consultation.value = { name: '', phone: '', problemType: '' }
+const submitForm = async () => {
+  // isSending.value = true
+  try {
+    await $fetch('/api/send-email', {
+      method: 'POST',
+      body: {
+        to: 'ваш-email@example.com',
+        subject: 'Новое сообщение с сайта',
+        text: `Email: ${form.value.name}\nСообщение: ${form.value.phone}`,
+        html: `<p>Email: ${form.value.name}</p><p>Сообщение: ${form.value.phone}</p>`,
+      },
+    })
+    // isSent.value = true
+    // form.value = { email: '', message: '' }
+  } catch (error) {
+    alert('Ошибка отправки!')
+  } finally {
+    // isSending.value = false
+  }
 }
 </script>
 
