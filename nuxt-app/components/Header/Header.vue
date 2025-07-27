@@ -58,7 +58,7 @@ const servicesSubMenu = [
       {
         id: 'cylindry',
         name: 'Гидромоторов',
-        link: '/page1',
+        link: '/remont-hydraulic-motors',
         // subItems: [
         //   { name: 'Диагностика и дифектовка', link: '/test' },
         //   { name: 'Подбор и замена уплотнений', link: '/' },
@@ -72,7 +72,7 @@ const servicesSubMenu = [
         id: 'nasosy',
         name: 'Насосов',
         // name: 'Насосы аксиально поршневые и аксиально рядовые поршневые',
-        link: '/test',
+        link: '/remont-nasosov-pumps',
         // subItems: [
         //   { name: 'Дифектовка', link: '/test' },
         //   { name: 'Подбор и замена уплотнений', link: '/' },
@@ -97,7 +97,7 @@ const servicesSubMenu = [
       {
         id: 'cylindry',
         name: 'Гидроцилиндров',
-        link: '/page1',
+        link: '/page2',
         // subItems: [
         //   { name: 'Проектировка', link: '/test' },
         //   { name: 'Изготовление', link: '/' },
@@ -105,7 +105,7 @@ const servicesSubMenu = [
         // ],
       },
       // { name: 'Станция гидравлическая (объем от 50л до 2000л)', link: '/' },
-      { name: 'Станция гидравлическая', link: '/' },
+      { name: 'Станция гидравлическая', link: '/test' },
     ],
   },
   {
