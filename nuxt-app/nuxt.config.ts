@@ -44,7 +44,17 @@ export default defineNuxtConfig({
       priority: 1,
       lastmod: new Date().toISOString(),
     },
-    routes: ['/', '/contacts', '/about', '/page2', '/page1', '/test'],
+    routes: [
+      '/',
+      '/contacts',
+      '/about',
+      '/page2',
+      '/page1',
+      '/test',
+      '/remont-hydraulic-cylinders',
+      '/remont-hydraulic-motors',
+      '/remont-nasosov-pumps',
+    ],
   },
 
   site: { url: 'absolutetechno.com' },
@@ -226,7 +236,17 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/contacts', '/about', '/page2', '/page1', '/test'],
+      routes: [
+        '/',
+        '/contacts',
+        '/about',
+        '/page2',
+        '/page1',
+        '/test',
+        '/remont-hydraulic-cylinders',
+        '/remont-hydraulic-motors',
+        '/remont-nasosov-pumps',
+      ],
       ignore: ['/api/**'],
     },
   },
