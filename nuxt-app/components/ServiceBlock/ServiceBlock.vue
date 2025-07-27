@@ -51,6 +51,30 @@ const categories = ref([
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
       },
       {
+        title: 'Изготовление Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Изготовление Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Изготовление Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Изготовление Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Изготовление Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Изготовление Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
         title: 'Изготовление Кронштейнов',
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
       }
@@ -61,6 +85,30 @@ const categories = ref([
     active: false,
     bgText: 'Продажа',
     services: [
+      {
+        title: 'Продажа Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Продажа Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Продажа Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Продажа Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Продажа Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
+      {
+        title: 'Продажа Гидроцилиндров',
+        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
+      },
       {
         title: 'Продажа Гидроцилиндров',
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13'
