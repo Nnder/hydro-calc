@@ -58,7 +58,7 @@ const parameters = ref([
         <div 
         v-for="(param, index) in parameters"
         :key="index"
-        class="bg-white p-3 sm:p-4 rounded-lg shadow-xs sm:shadow-sm"
+        class="bg-white p-3 sm:p-4"
         >
         <p class="text-lg sm:text-xl md:text-2xl font-bold text-hydro-power mb-1 sm:mb-2">{{ param.value }}</p>
         <div class="bg-hydro-power h-0.5 w-full mb-2 sm:mb-3"></div>
