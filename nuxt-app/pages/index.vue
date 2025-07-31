@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Slider from '~/components/Slider/Slider.vue'
 import ServiceBlock from '~/components/ServiceBlock/ServiceBlock.vue'
+import Gis from '~/components/Map/2Gis.vue'
 import { useCartStore } from '~/stores/cart'
 
 const cartStore = useCartStore()
@@ -28,6 +29,7 @@ useHead({
 <template>
   <Slider />
   <ServiceBlock />
+  <Gis />
 </template>
 
 <style scoped>
