@@ -198,7 +198,8 @@ const showModal = ref(false)
               @click="showModal = true"
               class="bg-hydro-power hover:bg-hydro-power/90 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
             >
-              Выезд специалиста
+              <span class="hidden md:block">Выездная служба</span>
+              <Icon name="mdi:van-utility" class="text-white text-lg sm:text-xl" />
             </button>
             <NuxtLink
               :to="`tel:${siteConfig.phone}`"
