@@ -128,11 +128,13 @@
   </div>
   <Stages />
   <Contact />
+  <ThePageExtra />
 </template>
 
 <script setup>
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
+import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 
 const hydrantParts = ref([
   {
