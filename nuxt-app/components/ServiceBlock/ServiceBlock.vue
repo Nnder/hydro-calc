@@ -12,7 +12,7 @@ const categories = ref([
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
       },
       {
-        title: 'Ремонт Насосов',
+        title: 'Ремонт Гидронасосов',
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
       },
       {
@@ -50,7 +50,7 @@ const categories = ref([
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
       },
       {
-        title: 'Продажа Насосов',
+        title: 'Продажа Гидронасосов',
         image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
       },
       {
