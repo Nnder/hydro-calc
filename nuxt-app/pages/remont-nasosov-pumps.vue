@@ -4,8 +4,8 @@
       <section class="mb-4 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-hydro-power">Профессиональный ремонт <br />насосов</h1>
         <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
-          Компания «СДМ Гидравлика» — лидер в ремонте насосов для спецтехники и промышленного оборудования в Москве и
-          области.
+          Компания «СДМ Гидравлика» — лидер в ремонте гидронасосов для спецтехники и промышленного оборудования в Москве
+          и области.
         </p>
       </section>
 
@@ -16,7 +16,7 @@
           <NuxtImg
             src="hydrocilinder.webp"
             class="w-full h-auto object-cover max-w-5xl"
-            alt="Профессиональный ремонт насосов"
+            alt="Профессиональный ремонт гидронасосов"
             loading="lazy"
             format="webp"
             quality="80"
@@ -46,7 +46,7 @@
             <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-hydro-steel mb-1 md:mb-2">
               Выберите детали для ремонта
             </h2>
-            <p class="text-sm md:text-base text-hydro-steel/70">Отметьте необходимые компоненты насоса</p>
+            <p class="text-sm md:text-base text-hydro-steel/70">Отметьте необходимые компоненты гидронасоса</p>
           </div>
           <div
             class="bg-hydro-power/10 text-hydro-power px-3 py-1 md:px-4 md:py-2 rounded-full text-sm md:text-base font-medium"

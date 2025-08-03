@@ -70,7 +70,7 @@ const servicesSubMenu = [
       },
       {
         id: 'nasosy',
-        name: 'Насосов',
+        name: 'Гидронасосов',
         // name: 'Насосы аксиально поршневые и аксиально рядовые поршневые',
         link: '/remont-nasosov-pumps',
         // subItems: [
@@ -90,7 +90,7 @@ const servicesSubMenu = [
     items: [
       {
         id: 'rvd',
-        name: 'РВД',
+        name: 'Изготоаление рукава высокого давления (РВД)',
         link: '/rukava-visokigi-davlenia-rvd',
         // subItems: [{ name: 'Калькулятор', link: '/test' }],
       },
@@ -105,7 +105,7 @@ const servicesSubMenu = [
         // ],
       },
       // { name: 'Станция гидравлическая (объем от 50л до 2000л)', link: '/' },
-      { name: 'Станция гидравлическая', link: '/test' },
+      { name: 'Проектировка и изготовление гидравлических станций', link: '/test' },
     ],
   },
   {
@@ -113,12 +113,12 @@ const servicesSubMenu = [
     name: 'Продажа',
     items: [
       { name: 'Уплотнений', link: '/' },
-      { name: 'Насосов', link: '/' },
+      { name: 'Гидронасосов', link: '/' },
       { name: 'Гидроцилиндров', link: '/' },
       { name: 'Гидрораспределителей', link: '/' },
       { name: 'Клапанов давления', link: '/' },
-      { name: 'Фильтров', link: '/' },
-      { name: 'Маслов', link: '/' },
+      { name: 'Фильтров и фильтроэлементов', link: '/' },
+      { name: 'ГСМ и технических жидкостей', link: '/' },
     ],
   },
 ]
@@ -198,7 +198,8 @@ const showModal = ref(false)
               @click="showModal = true"
               class="bg-hydro-power hover:bg-hydro-power/90 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
             >
-              Выезд специалиста
+              <span class="hidden md:block">Выездная служба</span>
+              <Icon name="mdi:van-utility" class="text-white text-lg sm:text-xl" />
             </button>
             <NuxtLink
               :to="`tel:${siteConfig.phone}`"
