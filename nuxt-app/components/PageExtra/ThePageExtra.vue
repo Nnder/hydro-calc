@@ -117,7 +117,7 @@ const tableData = ref([
    </section>
 
    <section class="w-full h-[50vh] min-h-[400px]">
-    <div class="w-full h-full bg-purple-800">
+    <div class="w-full h-full bg-hydro-power">
         <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div class="flex flex-col md:flex-row items-center justify-between w-full gap-8">
             <div class="text-white max-w-2xl">
@@ -130,7 +130,7 @@ const tableData = ref([
                 техническому заданию или готовому образцу<br>
                 с гарантией 12 месяцев
             </p>
-            <button class="border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white hover:text-purple-800 transition-colors duration-300">
+            <button class="border-2 border-white text-black px-6 py-2 rounded-lg bg-white hover:bg-hydro-power hover:text-white transition-colors duration-300">
                 Рассчитать стоимость
             </button>
             </div>

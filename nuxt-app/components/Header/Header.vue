@@ -91,7 +91,7 @@ const servicesSubMenu = [
       {
         id: 'rvd',
         name: 'РВД',
-        link: '/page1',
+        link: '/rukava-visokigi-davlenia-rvd',
         // subItems: [{ name: 'Калькулятор', link: '/test' }],
       },
       {
