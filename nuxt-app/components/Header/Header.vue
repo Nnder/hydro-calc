@@ -91,7 +91,7 @@ const servicesSubMenu = [
       {
         id: 'rvd',
         name: 'Изготоаление рукава высокого давления (РВД)',
-        link: '/rukava-visokigi-davlenia-rvd',
+        link: '/rukava-visokogo-davlenia-rvd',
         // subItems: [{ name: 'Калькулятор', link: '/test' }],
       },
       {
