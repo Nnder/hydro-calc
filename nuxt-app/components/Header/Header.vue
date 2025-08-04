@@ -47,7 +47,7 @@ const servicesSubMenu = [
       {
         id: 'hydraulics',
         name: 'Гидроцилиндров',
-        link: '/page2',
+        link: '/remont-hydraulic-cylinders',
         // subItems: [
         //   { name: 'Дифектовка (разборка)', link: '/test' },
         //   { name: 'Подбор и замена уплотнений', link: '/' },
