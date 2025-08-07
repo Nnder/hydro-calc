@@ -47,7 +47,7 @@ const servicesSubMenu = [
       {
         id: 'hydraulics',
         name: 'Гидроцилиндров',
-        link: '/page2',
+        link: '/remont-hydraulic-cylinders',
         // subItems: [
         //   { name: 'Дифектовка (разборка)', link: '/test' },
         //   { name: 'Подбор и замена уплотнений', link: '/' },
@@ -91,7 +91,7 @@ const servicesSubMenu = [
       {
         id: 'rvd',
         name: 'Изготоаление рукава высокого давления (РВД)',
-        link: '/rukava-visokigi-davlenia-rvd',
+        link: '/rukava-visokogo-davlenia-rvd',
         // subItems: [{ name: 'Калькулятор', link: '/test' }],
       },
       {
