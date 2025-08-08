@@ -12,15 +12,14 @@ body {
 
 <script setup>
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
-import { useCartStore } from '~/stores/cart'
+// import { useCartStore } from '~/stores/cart'
 
-const cartStore = useCartStore()
+// const cartStore = useCartStore()
 
-onMounted(() => {
-  cartStore.setCart()
-})
+// onMounted(() => {
+//   cartStore.setCart()
+// })
 
-// we can remove a lot of boilerplate from Schema.org by providing template params
 const route = useRoute()
 
 useHead({
@@ -85,13 +84,11 @@ useHead({
 })
 
 useSchemaOrg([
-  // much of the data will be inferred such as the title, description and all URLs
   defineWebPage(),
   defineWebSite({
     name: 'Nuxt SEO',
     description: 'Nuxt SEO is a collection of hand-crafted Nuxt Modules to help you rank higher in search engines.',
   }),
-  // choose an identity, either with definePerson or an defineOrganization
   defineOrganization({
     name: 'Nuxt SEO',
   }),
