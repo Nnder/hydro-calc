@@ -133,7 +133,6 @@
   </div>
   <InformationBlock class="mb-4" />
   <Stages />
-  <!-- <ThePageExtra /> -->
   <Contact />
 </template>
 

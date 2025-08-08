@@ -138,7 +138,5 @@ const tableData = ref([
   <ProductionEquipment />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <AccessoriesGrid :items="items" />
-
-  <ThePageExtra />
   <Contact />
 </template>
