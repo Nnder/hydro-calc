@@ -97,7 +97,7 @@ const servicesSubMenu = [
       {
         id: 'cylindry',
         name: 'Гидроцилиндров',
-        link: '/page2',
+        link: '/izgotovlenie-hydrocylindrov',
         // subItems: [
         //   { name: 'Проектировка', link: '/test' },
         //   { name: 'Изготовление', link: '/' },
@@ -105,7 +105,10 @@ const servicesSubMenu = [
         // ],
       },
       // { name: 'Станция гидравлическая (объем от 50л до 2000л)', link: '/' },
-      { name: 'Проектировка и изготовление гидравлических станций', link: '/test' },
+      {
+        name: 'Проектировка и изготовление гидравлических станций',
+        link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
+      },
     ],
   },
   {
@@ -113,9 +116,9 @@ const servicesSubMenu = [
     name: 'Продажа',
     items: [
       { name: 'Уплотнений', link: '/' },
-      { name: 'Гидронасосов', link: '/' },
-      { name: 'Гидроцилиндров', link: '/' },
-      { name: 'Гидрораспределителей', link: '/' },
+      { name: 'Гидронасосов', link: '/test' },
+      { name: 'Гидроцилиндров', link: '/page1' },
+      { name: 'Гидрораспределителей', link: '/page2' },
       { name: 'Клапанов давления', link: '/' },
       { name: 'Фильтров и фильтроэлементов', link: '/' },
       { name: 'ГСМ и технических жидкостей', link: '/' },
