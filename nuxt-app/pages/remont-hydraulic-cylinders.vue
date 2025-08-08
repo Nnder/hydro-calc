@@ -131,15 +131,16 @@
       </div>
     </div>
   </div>
+  <InformationBlock class="mb-4" />
   <Stages />
-  <ThePageExtra />
+  <!-- <ThePageExtra /> -->
   <Contact />
 </template>
 
 <script setup>
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
+import InformationBlock from '~/components/Block/InformationBlock.vue'
 
 const hydrantParts = ref([
   {

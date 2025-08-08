@@ -2,17 +2,19 @@
 defineProps({
   items: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
 </script>
 
 <template>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-    <AccessoriesItem 
-      v-for="(item, index) in items"
-      :key="index"
-      :item="item"
-    />
-  </div>
+  <section class="max-w-7xl mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 md:mb-12">
+      <h2 class="text-2xl md:text-4xl font-bold text-hydro-power">Дополнительные комплектующие</h2>
+      <p class="mt-2 text-sm md:text-base">Всегда в наличии расходные материалы для РВД</p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+      <AccessoriesItem v-for="(item, index) in items" :key="index" :item="item" />
+    </div>
+  </section>
 </template>
