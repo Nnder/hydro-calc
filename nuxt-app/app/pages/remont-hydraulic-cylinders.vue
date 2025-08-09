@@ -116,12 +116,13 @@
                 :key="'highlight-' + index"
                 class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
                 :class="{
-                  'opacity-0': activeHighlight !== index,
-                  'opacity-100': activeHighlight === index,
+                  'opacity-0': part.selected,
+                  'opacity-100': part.selected,
                 }"
               >
                 <div
-                  class="absolute bg-red-500/50 border-2 border-red-600 rounded-md"
+                  v-if="part.selected"
+                  :class="'absolute border-2 rounded-md ' + part.color"
                   :style="getHighlightStyle(index)"
                 ></div>
               </div>
@@ -161,43 +162,48 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
+    color: 'bg-orange-400/50 border-orange-400',
   },
   {
     name: 'Изготовление и замена штока',
     selected: false,
     show: false,
+    color: 'bg-green-500/50 border-green-500',
     highlight: { top: '25%', left: '30%', width: '20%', height: '50%' },
   },
   {
     name: 'Изготовление и замена поршня',
     selected: false,
     show: false,
+    color: 'bg-teal-600/50 border-teal-600',
     highlight: { top: '40%', left: '45%', width: '15%', height: '10%' },
   },
   {
     name: 'Ремонт гильз',
     selected: false,
     show: false,
+    color: 'bg-sky-700/50 border-sky-700',
     highlight: { top: '30%', left: '50%', width: '30%', height: '40%' },
   },
   {
     name: 'Замена крышек',
     selected: false,
     show: false,
-
+    color: 'bg-blue-300/50 border-blue-300',
     highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
   },
   {
     name: 'Ремонт цапф',
     selected: false,
     show: false,
-
+    color: 'bg-indigo-600/50 border-indigo-600',
     highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
   },
   {
     name: 'Замена проушин',
     selected: false,
     show: false,
+    color: 'bg-orange-600/50 border-orange-600',
     highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
   },
   {
@@ -215,20 +221,13 @@ const hydrantParts = ref([
   },
 ])
 
-const activeHighlight = ref(null)
 const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
 
 const handlePartClick = index => {
   hydrantParts.value[index].selected = !hydrantParts.value[index].selected
   hydrantParts.value[index].show = hydrantParts.value[index].selected
-  activeHighlight.value = index
 
   // scrollToImage()
-  setTimeout(() => {
-    if (activeHighlight.value === index) {
-      activeHighlight.value = null
-    }
-  }, 3000)
 }
 
 const scrollToImage = () => {
