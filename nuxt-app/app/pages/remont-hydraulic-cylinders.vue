@@ -132,7 +132,7 @@
       </div>
     </div>
   </div>
-  <InformationBlock class="mb-4" />
+  <InformationBlock :blockData="blockData" />
   <Stages />
   <Contact />
 </template>
@@ -141,6 +141,14 @@
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
+
+const blockData = {
+  title: 'Изготовим нестандартное оборудование по вашему проекту',
+  description: 'Произведём гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+  buttonText: 'Рассчитать стоимость',
+  imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
+  imageAlt: 'Гидроцилиндр'
+}
 
 const hydrantParts = ref([
   {
