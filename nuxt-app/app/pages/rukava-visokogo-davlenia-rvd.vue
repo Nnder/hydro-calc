@@ -6,13 +6,14 @@ import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 
+
 const parameters = ref([
-  { value: 'до 200', description: 'Диаметр поршня, мм' },
-  { value: 'до 2400', description: 'Ход поршня, мм' },
-  { value: 'до 40', description: 'Max давление, МПа' },
+  { value: 'до 200', description: 'Диаметр подключения, мм' },
+  { value: 'до 40', description: 'Рабочее давление, МПа' },
+  { value: 'от -50°C до +100°C', description: 'Температурный диапазон' },
 ])
 
-const header = 'ПАРАМЕТРЫ НАШИХ ГИДРОЦИЛИНДРОВ'
+const header = 'ПАРАМЕТРЫ ИЗГОТОВЛЯЕМЫХ РВД'
 
 const description = `<p class="text-lg">
           Компания ООО "Энергия" располагает современным производственным комплексом. Специализируемся на
@@ -29,105 +30,120 @@ const title = 'Изготовление и ремонт РВД в Екатери
 
 const items = ref([
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://www.music-expert.ru/upload/iblock/d4b/d4b0e306e2721170394296fe7782ae16.jpeg',
+    title: 'Обжимная гильза',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://www.osnastka.pro/upload/images/112.02.10.jpg',
+    title: 'Зажимная гайка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/12277885/2a00000194915eb9b5b1b48a36d2408ed7fb/orig',
+    title: 'Прямой фитинг',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://cdn1.ozone.ru/s3/multimedia-w/6450629240.jpg',
+    title: 'Угловой фитинг 90°',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://store.eihydraulics.ru/upload/iblock/921/921ea5cca55ff9febc69f2a8c696c8e0.jpg',
+    title: 'Фланец SAE',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/4888456/2a0000018b191e4183bfaa4bc32ab3acd765/orig',
+    title: 'Уплотнительное кольцо',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/11695357/2a000001904798c1d5bc7fcab8b126ee87dd/orig',
+    title: 'Быстросъёмное соединение',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/5207288/2a0000018e0b56f3ef5939a5538134c3f47d/orig',
+    title: 'Защитная пружина',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/5243609/2a000001923476b725fafc49bf93526cd286/orig',
+    title: 'Переходник',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/i?id=e18bda75bc6cc9f915ddb2f8f436ccf214d7a030-13486952-images-thumbs&n=13',
+    title: 'Заглушка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/4355034/2a00000194c2cfe7fb7aac10224321a3ae4b/orig',
+    title: 'Медная шайба',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://simferopol.cstg.ru/upload/iblock/f67/dqei9lz6ch0g91988ockuyb190nhfso1.jpeg',
+    title: 'Ремонтный комплект',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
-  },
+    image: 'https://avatars.mds.yandex.net/i?id=e1089dbe70bb5c6da54a3bb3432cf1d3_l-4942568-images-thumbs&n=13',
+    title: 'Демпфер вибрации',
+  }
 ])
 
 const tableData = ref([
   {
-    innerDiameterMm: '51,0',
-    innerDiameterInch: '2"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '76,0',
-    minBendRadiusInch: '2,99"',
-    vacuum: '100',
-    weightKg: '1,540',
-    weightLb: '1,04',
+    innerDiameterMm: '6,3',
+    innerDiameterInch: '1/4"',
+    outerDiameterMm: '12,5',
+    outerDiameterInch: '0,49"',
+    workingPressureBar: '350',
+    workingPressurePsi: '5075',
+    burstPressureBar: '1400',
+    burstPressurePsi: '20300',
+    minBendRadiusMm: '80',
+    minBendRadiusInch: '3,15"',
+    vacuum: '95',
+    weightKg: '0,32',
+    weightLb: '0,21',
   },
   {
-    innerDiameterMm: '76,0',
-    innerDiameterInch: '3"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '114,0',
-    minBendRadiusInch: '4,49"',
-    vacuum: '100',
-    weightKg: '2,680',
-    weightLb: '1,81',
+    innerDiameterMm: '12,5',
+    innerDiameterInch: '1/2"',
+    outerDiameterMm: '21,5',
+    outerDiameterInch: '0,85"',
+    workingPressureBar: '250',
+    workingPressurePsi: '3625',
+    burstPressureBar: '1000',
+    burstPressurePsi: '14500',
+    minBendRadiusMm: '150',
+    minBendRadiusInch: '5,91"',
+    vacuum: '95',
+    weightKg: '0,75',
+    weightLb: '0,50',
   },
   {
-    innerDiameterMm: '102,0',
-    innerDiameterInch: '4"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '153,0',
-    minBendRadiusInch: '6,02"',
-    vacuum: '100',
-    weightKg: '3,910',
-    weightLb: '2,63',
+    innerDiameterMm: '19,0',
+    innerDiameterInch: '3/4"',
+    outerDiameterMm: '29,0',
+    outerDiameterInch: '1,14"',
+    workingPressureBar: '210',
+    workingPressurePsi: '3045',
+    burstPressureBar: '840',
+    burstPressurePsi: '12180',
+    minBendRadiusMm: '220',
+    minBendRadiusInch: '8,66"',
+    vacuum: '95',
+    weightKg: '1,25',
+    weightLb: '0,84',
   },
+  {
+    innerDiameterMm: '25,0',
+    innerDiameterInch: '1"',
+    outerDiameterMm: '36,0',
+    outerDiameterInch: '1,42"',
+    workingPressureBar: '175',
+    workingPressurePsi: '2537',
+    burstPressureBar: '700',
+    burstPressurePsi: '10150',
+    minBendRadiusMm: '280',
+    minBendRadiusInch: '11,02"',
+    vacuum: '90',
+    weightKg: '1,85',
+    weightLb: '1,24',
+  }
 ])
 </script>
 
