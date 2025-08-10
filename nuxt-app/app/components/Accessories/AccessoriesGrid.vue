@@ -13,8 +13,13 @@ defineProps({
       <h2 class="text-2xl md:text-4xl font-bold text-hydro-power">Дополнительные комплектующие</h2>
       <p class="mt-2 text-sm md:text-base">Всегда в наличии расходные материалы для РВД</p>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-      <AccessoriesItem v-for="(item, index) in items" :key="index" :item="item" />
+    <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+      <AccessoriesItem 
+        v-for="(item, index) in items" 
+        :key="index" 
+        :item="item" 
+        class="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(25%-1.5rem)] lg:w-[calc(20%-1.5rem)]"
+      />
     </div>
   </section>
 </template>
