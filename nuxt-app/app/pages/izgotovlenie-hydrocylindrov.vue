@@ -129,11 +129,19 @@ const tableData = ref([
     weightLb: '2,63',
   },
 ])
+
+const blockData = {
+  title: 'Производим рукава высокого давления по индивидуальным параметрам',
+  description: 'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 24 месяцев',
+  buttonText: 'Заказать РВД',
+  imageUrl: 'https://avatars.mds.yandex.net/i?id=204dd5e5dde778919d6fd95f544c62b8_l-12497179-images-thumbs&n=13', 
+  imageAlt: 'Производство рукавов высокого давления'
+}
 </script>
 
 <template>
   <ParametersGrid :parameters="parameters" :header="header" />
-  <InformationBlock />
+  <InformationBlock :blockData="blockData" />
   <RvdTableWrapper :table-data="tableData" />
   <ProductionEquipment />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
