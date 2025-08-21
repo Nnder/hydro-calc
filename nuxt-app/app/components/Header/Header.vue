@@ -115,7 +115,7 @@ const servicesSubMenu = [
     id: 'sale',
     name: 'Продажа',
     items: [
-      { name: 'Уплотнений', link: '/' },
+      { name: 'Уплотнений', link: '/sell-uplotnenie' },
       { name: 'Гидронасосов', link: '/test' },
       { name: 'Гидроцилиндров', link: '/page1' },
       { name: 'Гидрораспределителей', link: '/page2' },
