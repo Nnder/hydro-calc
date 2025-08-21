@@ -7,142 +7,135 @@ import ProductionEquipment from '~/components/Production/ProductionEquipment.vue
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 
 const parameters = ref([
-  { value: 'до 200', description: 'Диаметр поршня, мм' },
-  { value: 'до 2400', description: 'Ход поршня, мм' },
-  { value: 'до 40', description: 'Max давление, МПа' },
+  { value: 'более 1000', description: 'Наименований в каталоге' },
+  { value: 'до 40', description: 'Размерный ряд, мм' },
+  { value: '24/7', description: 'Доступность на складе' },
 ])
 
-const header = 'ПАРАМЕТРЫ НАШИХ ГИДРОЦИЛИНДРОВ'
+const header = 'АССОРТИМЕНТ ДОПОЛНИТЕЛЬНЫХ КОМПЛЕКТУЮЩИХ'
 
 const description = `<p class="text-lg">
-          Компания ООО "Энергия" располагает современным производственным комплексом. Специализируемся на
-          высококачественном ремонте и изготовлении рукавов высокого давления с использованием итальянского оборудования
-          OR.
+          Компания ООО "Энергия" предлагает широкий выбор дополнительных комплектующих для гидравлических систем.
+          В нашем каталоге представлены все необходимые компоненты для монтажа и обслуживания гидрооборудования.
         </p>
         <p class="text-lg">
-          Строго соблюдаем все технологические нормы и гарантируем многоэтапный контроль качества на каждом этапе
-          производства.
+          Все комплектующие соответствуют международным стандартам качества и имеют необходимые сертификаты.
+          Гарантируем быструю отгрузку со склада и индивидуальный подход к каждому клиенту.
         </p>`
 
-const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
-const title = 'Изготовление и ремонт РВД в Екатеринбурге'
+const imageUrl = 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg'
+const title = 'Дополнительные комплектующие для гидравлики по Свердловской области'
 
 const items = ref([
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Быстросъемы',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Фитинги',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Фланцы',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Адаптеры',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Ниппели',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Заглушки',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Хомуты',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Клапаны',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Манометры',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Фильтры',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Редукторы',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Прокладки',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Уплотнения',
+  },
+  {
+    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    title: 'Штуцеры',
   },
 ])
 
 const tableData = ref([
   {
-    innerDiameterMm: '51,0',
-    innerDiameterInch: '2"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '76,0',
-    minBendRadiusInch: '2,99"',
-    vacuum: '100',
-    weightKg: '1,540',
-    weightLb: '1,04',
+    type: 'Быстросъем',
+    size: '1/2"',
+    pressure: '350',
+    material: 'Сталь',
+    connection: 'Резьба'
   },
   {
-    innerDiameterMm: '76,0',
-    innerDiameterInch: '3"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '114,0',
-    minBendRadiusInch: '4,49"',
-    vacuum: '100',
-    weightKg: '2,680',
-    weightLb: '1,81',
+    type: 'Фитинг',
+    size: '3/4"',
+    pressure: '420',
+    material: 'Нерж. сталь',
+    connection: 'Фланец'
   },
   {
-    innerDiameterMm: '102,0',
-    innerDiameterInch: '4"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '153,0',
-    minBendRadiusInch: '6,02"',
-    vacuum: '100',
-    weightKg: '3,910',
-    weightLb: '2,63',
+    type: 'Фланец',
+    size: '1"',
+    pressure: '250',
+    material: 'Сталь',
+    connection: 'Болтовое'
   },
+  {
+    type: 'Адаптер',
+    size: '1/4"',
+    pressure: '600',
+    material: 'Латунь',
+    connection: 'Резьба'
+  },
+  {
+    type: 'Ниппель',
+    size: '3/8"',
+    pressure: '500',
+    material: 'Сталь',
+    connection: 'Резьба'
+  }
 ])
 
 const blockData = {
-  title: 'Производим рукава высокого давления по индивидуальным параметрам',
-  description: 'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 24 месяцев',
-  buttonText: 'Заказать РВД',
-  imageUrl: 'https://avatars.mds.yandex.net/i?id=204dd5e5dde778919d6fd95f544c62b8_l-12497179-images-thumbs&n=13', 
-  imageAlt: 'Производство рукавов высокого давления'
+  title: 'Комплектующие для гидравлических систем любого типа',
+  description: 'Подберем и поставим любые комплектующие\nпо вашим техническим требованиям\nс гарантией качества',
+  buttonText: 'Заказать комплектующие',
+  imageUrl: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg', 
+  imageAlt: 'Дополнительные комплектующие для гидравлики'
 }
 </script>
 
 <template>
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
-  <RvdTableWrapper :table-data="tableData" />
+  <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <ProductionEquipment />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <AccessoriesGrid :items="items" />

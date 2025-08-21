@@ -1,3 +1,12 @@
+<script setup>
+defineProps({
+  steps: {
+    type: Array,
+    required: true
+  }
+})
+</script>
+
 <template>
   <div class="bg-tech-light pb-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,59 +35,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const steps = [
-  {
-    title: 'Доставка и приемка',
-    shortDescription: 'Транспортировка и осмотр',
-    description:
-      'Мы организуем доставку гидроцилиндра на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
-    image: '/icons/delivery-truck.svg',
-  },
-  {
-    title: 'Дефектовка',
-    shortDescription: 'Полная диагностика',
-    description:
-      'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
-    image: '/icons/magnifying-glass.svg',
-  },
-  {
-    title: 'Согласование',
-    shortDescription: 'Утверждение стоимости',
-    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
-    image: '/icons/handshake.svg',
-  },
-  {
-    title: 'Закупка материалов',
-    shortDescription: 'Комплектующие',
-    description:
-      'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: металлические детали, уплотнения и др.',
-    image: '/icons/gears.svg',
-  },
-  {
-    title: 'Обработка',
-    shortDescription: 'Восстановление деталей',
-    description: 'Проводим хонингование, расхромирование, хромирование, шлифовку и полировку поверхностей',
-    image: '/icons/tools.svg',
-  },
-  {
-    title: 'Сборка',
-    shortDescription: 'Комплектация',
-    description: 'Профессиональная сборка гидроцилиндра с использованием новых уплотнений и комплектующих',
-    image: '/icons/assembly.svg',
-  },
-  {
-    title: 'Испытания',
-    shortDescription: 'Тестирование',
-    description: 'Проводим испытания на специализированном стенде, моделируя номинальные и максимальные нагрузки',
-    image: '/icons/test.svg',
-  },
-  {
-    title: 'Отгрузка',
-    shortDescription: 'Возврат клиенту',
-    description: 'Упаковываем и доставляем отремонтированный гидроцилиндр с гарантией качества',
-    image: '/icons/package.svg',
-  },
-]
-</script>

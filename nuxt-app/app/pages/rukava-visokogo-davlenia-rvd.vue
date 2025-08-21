@@ -26,7 +26,7 @@ const description = `<p class="text-lg">
         </p>`
 
 const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
-const title = 'Изготовление и ремонт РВД в Екатеринбурге'
+const title = 'Изготовление и ремонт РВД по Свердловской области'
 
 const items = ref([
   {

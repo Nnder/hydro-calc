@@ -6,8 +6,7 @@
           Профессиональный ремонт <br />гидроцилиндров
         </h1>
         <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
-          Компания «СДМ Гидравлика» — лидер в ремонте гидроцилиндров для спецтехники и промышленного оборудования в
-          Москве и области.
+          Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
         </p>
       </section>
       <div class="flex min-h-[600px] gap-4">
@@ -132,7 +131,7 @@
     </div>
   </div>
   <InformationBlock :blockData="blockData" />
-  <Stages />
+  <Stages :steps="repairSteps" />
   <Contact />
 </template>
 
@@ -140,6 +139,63 @@
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
+
+const repairSteps = ref([
+  {
+    title: 'Доставка и приемка',
+    shortDescription: 'Транспортировка и осмотр',
+    description: 'Мы организуем доставку гидромотора на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+    image: '/icons/delivery-truck.svg',
+  },
+  {
+    title: 'Разборка и мойка',
+    shortDescription: 'Предварительная подготовка',
+    description: 'Аккуратная разборка гидромотора, тщательная мойка всех деталей и дефектовка компонентов',
+    image: '/icons/tools.svg',
+  },
+  {
+    title: 'Дефектовка',
+    shortDescription: 'Полная диагностика',
+    description: 'Наши специалисты проводят полную диагностику всех узлов, составляют техническое заключение и выявляют причины неисправности',
+    image: '/icons/magnifying-glass.svg',
+  },
+  {
+    title: 'Согласование',
+    shortDescription: 'Утверждение стоимости',
+    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта гидромотора',
+    image: '/icons/handshake.svg',
+  },
+  {
+    title: 'Закупка материалов',
+    shortDescription: 'Комплектующие',
+    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: шестерни, валы, подшипники и уплотнения',
+    image: '/icons/gears.svg',
+  },
+  {
+    title: 'Восстановление',
+    shortDescription: 'Ремонт деталей',
+    description: 'Проводим шлифовку валов, восстановление посадочных мест, замену изношенных деталей и ремонт корпусных частей',
+    image: '/icons/repair.svg',
+  },
+  {
+    title: 'Сборка',
+    shortDescription: 'Комплектация',
+    description: 'Профессиональная сборка гидромотора с использованием новых уплотнений, подшипников и комплектующих',
+    image: '/icons/assembly.svg',
+  },
+  {
+    title: 'Испытания',
+    shortDescription: 'Тестирование',
+    description: 'Проводим испытания на специализированном стенде под нагрузкой, проверяем рабочее давление и производительность',
+    image: '/icons/test.svg',
+  },
+  {
+    title: 'Отгрузка',
+    shortDescription: 'Возврат клиенту',
+    description: 'Упаковываем и доставляем отремонтированный гидромотор с гарантией качества и технической документацией',
+    image: '/icons/package.svg',
+  },
+])
 
 const blockData = {
   title: 'Изготовим нестандартное оборудование по вашему проекту',
