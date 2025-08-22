@@ -23,40 +23,40 @@ const description = `<p class="text-lg">
           Гарантируем быструю отгрузку со склада и индивидуальный подход к каждому клиенту.
         </p>`
 
-const imageUrl = 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg'
+const imageUrl = 'https://avatars.mds.yandex.net/i?id=799b5344a321a8b7638711f915862050_l-5875861-images-thumbs&n=13'
 const title = 'Дополнительные комплектующие для гидравлики по Свердловской области'
 
 const items = ref([
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/get-mpic/4907979/2a000001923367635312bc4fb93f925d59b4/orig',
     title: 'Быстросъемы',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=a9ea457bb05e6726144d0ca089d09fa9_l-5227935-images-thumbs&n=13',
     title: 'Фитинги',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=b05f6fad8d23a7b79855fce41768f5fd_l-3742206-images-thumbs&n=13',
     title: 'Фланцы',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=152961c0c39c822c5b2ef7e81c72183d_l-4425921-images-thumbs&n=13',
     title: 'Адаптеры',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=3d04c40c5dda1ec28f636a94ec27b9176668c8fe-5910939-images-thumbs&n=13',
     title: 'Ниппели',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://7.allegroimg.com/original/01b2cc/fb96e6e04457a7346590db7251e7',
     title: 'Заглушки',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=43a2c8d3364563f76d1814e75b2e9ff3_l-10144254-images-thumbs&n=13',
     title: 'Хомуты',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/get-altay/15223968/2a00000195a3d4094ce3ec2f4d0919e7a2c3/XXXL',
     title: 'Клапаны',
   },
   {
@@ -64,23 +64,23 @@ const items = ref([
     title: 'Манометры',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=c47b6246a76a363d8fef283cbe7a83581d7caf32-5163012-images-thumbs&n=13',
     title: 'Фильтры',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=d85321732904ae20e515636c087a163a_l-12427807-images-thumbs&n=13',
     title: 'Редукторы',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=f42771efb0d059ac5b02969387c4888e_l-8485874-images-thumbs&n=13',
     title: 'Прокладки',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://specresurs96.ru/userfls/shop/large/2508_4388027-remkomplekt-gidrotsili.png',
     title: 'Уплотнения',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=2761356dd035b85b1762052e0b09b732_l-10806805-images-thumbs&n=13',
     title: 'Штуцеры',
   },
 ])
@@ -127,7 +127,7 @@ const blockData = {
   title: 'Комплектующие для гидравлических систем любого типа',
   description: 'Подберем и поставим любые комплектующие\nпо вашим техническим требованиям\nс гарантией качества',
   buttonText: 'Заказать комплектующие',
-  imageUrl: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg', 
+  imageUrl: 'https://gidroplus.com/wp-content/uploads/2020/03/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.jpg', 
   imageAlt: 'Дополнительные комплектующие для гидравлики'
 }
 </script>

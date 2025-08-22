@@ -23,40 +23,40 @@ const description = `<p class="text-lg">
           производства. Изготавливаем гидроцилиндры по стандартным и индивидуальным чертежам.
         </p>`
 
-const imageUrl = 'https://gidroprivod.com/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg'
+const imageUrl = 'https://cdn.stpulscen.ru/system/ckeditor_assets/pictures/494982/content_honingovannaya_trubka_prim.jpeg'
 const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области'
 
 const items = ref([
   {
-    image: 'https://stankotec.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=8405108591ece3b455079d0ad0508e41_l-5303693-images-thumbs&n=13',
     title: 'Шток',
   },
   {
-    image: 'https://gidroservis-rt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=83d2b77057be96a13243be2da3ba1667_l-5754670-images-thumbs&n=13',
     title: 'Гильза',
   },
   {
-    image: 'https://gidroprivod-m.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://cdn.izap24.ru/images/prodacts/sourse/250377/250377261_vtulka-tsilindra-bf-040410001.jpg',
     title: 'Поршень',
   },
   {
-    image: 'https://gidroagregat.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/i?id=39f61ff2ce2f0c0ac6d7739604e86d50_l-10698550-images-thumbs&n=13',
     title: 'Крышка',
   },
   {
-    image: 'https://gidromolot.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/get-mpic/1597983/2a0000018dec406adb92c14c0cb0b88be6e5/orig',
     title: 'Гайка',
   },
   {
-    image: 'https://gidrocilindr.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://specresurs96.ru/userfls/shop/large/2508_4388027-remkomplekt-gidrotsili.png',
     title: 'Уплотнения',
   },
   {
-    image: 'https://gidrosila.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://cdn1.ozone.ru/s3/multimedia-1-z/6914229587.jpg',
     title: 'Проушина',
   },
   {
-    image: 'https://gidrokomplekt.ru/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg',
+    image: 'https://avatars.mds.yandex.net/get-mpic/1565610/img_id243666551572505319.jpeg/orig',
     title: 'Фланец',
   },
 ])
@@ -66,7 +66,7 @@ const blockData = {
   title: 'Изготавливаем гидроцилиндры по индивидуальным параметрам',
   description: 'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 24 месяцев',
   buttonText: 'Заказать гидроцилиндр',
-  imageUrl: 'https://gidroprivod.com/upload/iblock/7b9/7b9c0c6f6d4d8c8d7b0c6f6d4d8c8d7b.jpg', 
+  imageUrl: 'https://avatars.mds.yandex.net/get-altay/13207207/2a0000018fe778e2b0f645e5753a192a5581/XXL_height', 
   imageAlt: 'Производство гидроцилиндров'
 }
 </script>
