@@ -37,9 +37,9 @@ const mainMenu = [
     link: '/contacts',
   },
     {
-    id: 'partners',
-    name: 'Партнеры',
-    link: '/partners',
+    id: 'postavshkam',
+    name: 'Поставщикам',
+    link: '/postavshkam',
   },
 ]
 
