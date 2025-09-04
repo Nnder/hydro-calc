@@ -1,5 +1,4 @@
 <script setup>
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
