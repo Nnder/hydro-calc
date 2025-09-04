@@ -133,6 +133,8 @@
   </div>
   <InformationBlock :blockData="blockData" />
   <Stages :steps="repairSteps" />
+  <PortfolioSection />
+  <Accordion />
   <Contact />
 </template>
 
@@ -140,6 +142,9 @@
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
+import TrustSection from '~/components/Main/TrustSection.vue'
+import PortfolioSection from '~/components/Main/PortfolioSection.vue'
+import Accordion from '~/components/Page/Accordion.vue'
 
 
 const repairSteps = ref([
@@ -164,13 +169,13 @@ const repairSteps = ref([
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: металлические детали, уплотнения и др.',
+    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: детали, уплотнения и др.',
     image: '/icons/gears.svg',
   },
   {
     title: 'Обработка',
     shortDescription: 'Восстановление деталей',
-    description: 'Проводим хонингование, расхромирование, хромирование, шлифовку и полировку поверхностей',
+    description: 'Проводим хонингование,наплавку штоков коррзионостойкими материалами , шлифовку и полировку поверхностей',
     image: '/icons/tools.svg',
   },
   {
@@ -180,9 +185,9 @@ const repairSteps = ref([
     image: '/icons/assembly.svg',
   },
   {
-    title: 'Испытания',
+    title: 'Испытания по ГОСТу 18464-96',
     shortDescription: 'Тестирование',
-    description: 'Проводим испытания на специализированном стенде, моделируя номинальные и максимальные нагрузки',
+    description: 'Проводим испытания на специализированном стенде',
     image: '/icons/test.svg',
   },
   {
@@ -194,8 +199,8 @@ const repairSteps = ref([
 ])
 
 const blockData = {
-  title: 'Изготовим нестандартное оборудование по вашему проекту',
-  description: 'Произведём гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
+  description: 'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
   buttonText: 'Рассчитать стоимость',
   imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
   imageAlt: 'Гидроцилиндр'
@@ -212,6 +217,7 @@ const hydrantParts = ref([
       'Визуальный осмотр на предмет повреждений',
       'Проверка герметичности системы',
       'Измерение параметров штока и гильзы',
+      'Составление карт проверов гильзы и штока',
       'Составление дефектовочной ведомости',
     ],
     highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
@@ -269,12 +275,12 @@ const hydrantParts = ref([
     name: 'Гидравлические испытания',
     selected: false,
     show: false,
-    description: 'Контрольные испытания под давлением после ремонта.',
+    description: 'Контрольные испытания гидрацилиндров по ГОСТу',
     features: [
       'Проверка на герметичность',
       'Испытание рабочим давлением',
       'Контроль плавности хода',
-      'Фиксация результатов',
+      'Фиксация результатов с занесением данных в паспорт',
     ],
     highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },
