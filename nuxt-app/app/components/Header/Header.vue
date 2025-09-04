@@ -36,6 +36,11 @@ const mainMenu = [
     name: 'Контакты',
     link: '/contacts',
   },
+    {
+    id: 'postavshkam',
+    name: 'Поставщикам',
+    link: '/postavshkam',
+  },
 ]
 
 const servicesSubMenu = [
@@ -56,19 +61,6 @@ const servicesSubMenu = [
         // ],
       },
       {
-        id: 'cylindry',
-        name: 'Гидромоторов',
-        link: '/remont-hydraulic-motors',
-        // subItems: [
-        //   { name: 'Диагностика и дифектовка', link: '/test' },
-        //   { name: 'Подбор и замена уплотнений', link: '/' },
-        //   { name: 'Изготовление и замена штока', link: '/' },
-        //   { name: 'Изготовление и замена поршня', link: '/' },
-        //   { name: 'Изготовление и ремонт гильз', link: '/' },
-        //   { name: 'Изготовление и ремонт крышек', link: '/' },
-        // ],
-      },
-      {
         id: 'nasosy',
         name: 'Гидронасосов',
         // name: 'Насосы аксиально поршневые и аксиально рядовые поршневые',
@@ -82,6 +74,30 @@ const servicesSubMenu = [
         //   { name: 'Изготовление и ремонт крышек', link: '/' },
         // ],
       },
+      {
+        id: 'cylindry',
+        name: 'Гидромоторов',
+        link: '/remont-hydraulic-motors',
+        // subItems: [
+        //   { name: 'Диагностика и дифектовка', link: '/test' },
+        //   { name: 'Подбор и замена уплотнений', link: '/' },
+        //   { name: 'Изготовление и замена штока', link: '/' },
+        //   { name: 'Изготовление и замена поршня', link: '/' },
+        //   { name: 'Изготовление и ремонт гильз', link: '/' },
+        //   { name: 'Изготовление и ремонт крышек', link: '/' },
+        // ],
+      },
+      {
+        id: 'kovshey',
+        name: 'Ковшей',
+        link: '/remont-kovshey',
+      },
+      {
+        id: 'svarochny',
+        name: 'Сварочные работы',
+        link: '/remont-svarkoy',
+      },
+      
     ],
   },
   {
@@ -90,7 +106,7 @@ const servicesSubMenu = [
     items: [
       {
         id: 'rvd',
-        name: 'Изготоаление рукава высокого давления (РВД)',
+        name: 'Изготовление рукава высокого давления (РВД)',
         link: '/rukava-visokogo-davlenia-rvd',
         // subItems: [{ name: 'Калькулятор', link: '/test' }],
       },

@@ -3,10 +3,10 @@
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <section class="mb-4 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-hydro-power">
-          Профессиональный ремонт <br />гидромоторов
+          Профессиональный ремонт <br />гидроцилиндров
         </h1>
         <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
-          Профессиональный ремонт гидромоторов в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
+          Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
         </p>
       </section>
       <div class="flex min-h-[600px] gap-4">
@@ -86,7 +86,7 @@
                     <div v-if="part.features" class="mt-2 md:mt-3">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start mb-1 md:mb-2">
                         <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0" />
-                        <span>{{ feature }}</span>
+                        <span v-html="feature"></span>
                       </div>
                     </div>
                   </div>
@@ -115,12 +115,13 @@
                 :key="'highlight-' + index"
                 class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
                 :class="{
-                  'opacity-0': activeHighlight !== index,
-                  'opacity-100': activeHighlight === index,
+                  'opacity-0': part.selected,
+                  'opacity-100': part.selected,
                 }"
               >
                 <div
-                  class="absolute bg-red-500/50 border-2 border-red-600 rounded-md"
+                  v-if="part.selected"
+                  :class="'absolute border-2 rounded-md ' + part.color"
                   :style="getHighlightStyle(index)"
                 ></div>
               </div>
@@ -130,7 +131,7 @@
       </div>
     </div>
   </div>
-  <!-- <InformationBlock :blockData="blockData" /> -->
+  <InformationBlock :blockData="blockData" />
   <Stages :steps="repairSteps" />
   <Contact />
 </template>
@@ -140,59 +141,54 @@ import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 
+
 const repairSteps = ref([
   {
     title: 'Доставка и приемка',
     shortDescription: 'Транспортировка и осмотр',
-    description: 'Мы организуем доставку гидромоторов на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+    description: 'Мы организуем доставку гидроцилиндра на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
     image: '/icons/delivery-truck.svg',
-  },
-  {
-    title: 'Разборка и мойка',
-    shortDescription: 'Предварительная подготовка',
-    description: 'Разборка гидромотора, тщательная мойка всех деталей',
-    image: '/icons/tools.svg',
   },
   {
     title: 'Дефектовка',
     shortDescription: 'Полная диагностика',
-    description: 'Наши специалисты проводят полную диагностику всех узлов и деталей, составляют техническое заключение и выявляют причины неисправности',
+    description: 'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
     image: '/icons/magnifying-glass.svg',
   },
   {
     title: 'Согласование',
     shortDescription: 'Утверждение стоимости',
-    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта гидромотора',
+    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
     image: '/icons/handshake.svg',
   },
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем оригинальные запчасти или аналоги неуступающие по качеству',
+    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: металлические детали, уплотнения и др.',
     image: '/icons/gears.svg',
   },
   {
-    title: 'Восстановление',
-    shortDescription: 'Ремонт деталей',
-    description: 'Проводим шлифовку валов, восстановление рабочих поверхностей, притирку рабочих поверхностей деталей роторной группы, замену изношенных деталей и ревизию корпусных частей',
-    image: '/icons/repair.svg',
+    title: 'Обработка',
+    shortDescription: 'Восстановление деталей',
+    description: 'Проводим хонингование, расхромирование, хромирование, шлифовку и полировку поверхностей',
+    image: '/icons/tools.svg',
   },
   {
     title: 'Сборка',
     shortDescription: 'Комплектация',
-    description: 'Профессиональная сборка гидромотора с использованием новых уплотнений, подшипников и комплектующих',
+    description: 'Профессиональная сборка гидроцилиндра с использованием новых уплотнений и комплектующих',
     image: '/icons/assembly.svg',
   },
   {
     title: 'Испытания',
     shortDescription: 'Тестирование',
-    description: 'Проводим испытания на специализированном стенде под нагрузкой, проверяем рабочее давление, производительность и КПД',
+    description: 'Проводим испытания на специализированном стенде, моделируя номинальные и максимальные нагрузки',
     image: '/icons/test.svg',
   },
   {
     title: 'Отгрузка',
     shortDescription: 'Возврат клиенту',
-    description: 'Упаковываем и доставляем отремонтированный гидромоторов с гарантией качества и технической документацией',
+    description: 'Упаковываем и доставляем отремонтированный гидроцилиндр с гарантией качества',
     image: '/icons/package.svg',
   },
 ])
@@ -207,14 +203,15 @@ const blockData = {
 
 const hydrantParts = ref([
   {
-    name: 'Дефектовка (разборка)',
+    name: 'Диагностика (дефектовка)',
     selected: false,
     show: false,
     description:
-      'Полная диагностика гидромоторов с использованием современного оборудования для выявления всех дефектов.',
+      'Полная диагностика гидроцилиндра с использованием современного оборудования для выявления всех дефектов.',
     features: [
       'Визуальный осмотр на предмет повреждений',
-      'Разборка гидромоторов, осмотр всех комплектующих на наличие поверхностных дефектов',
+      'Проверка герметичности системы',
+      'Измерение параметров штока и гильзы',
       'Составление дефектовочной ведомости',
     ],
     highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
@@ -223,50 +220,73 @@ const hydrantParts = ref([
     name: 'Подбор и замена уплотнений',
     selected: false,
     show: false,
-    description: 'Комплексная замена всех уплотнительных элементов гидромоторов.',
-    features: [
-      'Подбор оригинальных уплатнений или аналогов',
-      'Замена манжет, колец и сальников',
-    ],
     highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
+    color: 'bg-orange-400/50 border-orange-400',
   },
   {
-    name: 'Ремонт или замена рабочей группы',
+    name: 'Изготовление и замена штока',
     selected: false,
     show: false,
-    description: 'Притирка рабочих поверхностей блока и распределителя или замена на оригинальные запчасти',
-    features: [],
-    highlight: { top: '1%', left: '25%', width: '45%', height: '10%' },
+    color: 'bg-green-500/50 border-green-500',
+    highlight: { top: '25%', left: '30%', width: '20%', height: '50%' },
+  },
+  {
+    name: 'Изготовление и замена поршня',
+    selected: false,
+    show: false,
+    color: 'bg-teal-600/50 border-teal-600',
+    highlight: { top: '40%', left: '45%', width: '15%', height: '10%' },
+  },
+  {
+    name: 'Ремонт гильз',
+    selected: false,
+    show: false,
+    color: 'bg-sky-700/50 border-sky-700',
+    highlight: { top: '30%', left: '50%', width: '30%', height: '40%' },
+  },
+  {
+    name: 'Замена крышек',
+    selected: false,
+    show: false,
+    color: 'bg-blue-300/50 border-blue-300',
+    highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
+  },
+  {
+    name: 'Ремонт цапф',
+    selected: false,
+    show: false,
+    color: 'bg-indigo-600/50 border-indigo-600',
+    highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
+  },
+  {
+    name: 'Замена проушин',
+    selected: false,
+    show: false,
+    color: 'bg-orange-600/50 border-orange-600',
+    highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
   },
   {
     name: 'Гидравлические испытания',
     selected: false,
     show: false,
-    description: 'Контрольные испытания на специализированном стенде.',
+    description: 'Контрольные испытания под давлением после ремонта.',
     features: [
       'Проверка на герметичность',
-      'Контроль расходных характеристик мотора',
-      'Контроль рабочего давления',
-      'Фиксация результатов с занесением данных в паспорт',
+      'Испытание рабочим давлением P<span class="text-[10px]">раб</span> * 1,25',
+      'Контроль плавности хода',
+      'Фиксация результатов',
     ],
     highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },
 ])
 
-const activeHighlight = ref(null)
 const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
 
 const handlePartClick = index => {
   hydrantParts.value[index].selected = !hydrantParts.value[index].selected
   hydrantParts.value[index].show = hydrantParts.value[index].selected
-  activeHighlight.value = index
 
-  scrollToImage()
-  setTimeout(() => {
-    if (activeHighlight.value === index) {
-      activeHighlight.value = null
-    }
-  }, 3000)
+  // scrollToImage()
 }
 
 const scrollToImage = () => {

@@ -6,8 +6,7 @@
           Профессиональный ремонт <br />гидроцилиндров
         </h1>
         <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
-          Компания «СДМ Гидравлика» — лидер в ремонте гидроцилиндров для спецтехники и промышленного оборудования в
-          Москве и области.
+          Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
         </p>
       </section>
       <div class="flex min-h-[600px] gap-4">
@@ -87,7 +86,7 @@
                     <div v-if="part.features" class="mt-2 md:mt-3">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start mb-1 md:mb-2">
                         <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0" />
-                        <span>{{ feature }}</span>
+                        <span v-html="feature"></span>
                       </div>
                     </div>
                   </div>
@@ -132,8 +131,10 @@
       </div>
     </div>
   </div>
-  <InformationBlock class="mb-4" />
-  <Stages />
+  <InformationBlock :blockData="blockData" />
+  <Stages :steps="repairSteps" />
+  <PortfolioSection />
+  <Accordion />
   <Contact />
 </template>
 
@@ -141,6 +142,69 @@
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
+import TrustSection from '~/components/Main/TrustSection.vue'
+import PortfolioSection from '~/components/Main/PortfolioSection.vue'
+import Accordion from '~/components/Page/Accordion.vue'
+
+
+const repairSteps = ref([
+  {
+    title: 'Доставка и приемка',
+    shortDescription: 'Транспортировка и осмотр',
+    description: 'Мы организуем доставку гидроцилиндра на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+    image: '/icons/delivery-truck.svg',
+  },
+  {
+    title: 'Дефектовка',
+    shortDescription: 'Полная диагностика',
+    description: 'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
+    image: '/icons/magnifying-glass.svg',
+  },
+  {
+    title: 'Согласование',
+    shortDescription: 'Утверждение стоимости',
+    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
+    image: '/icons/handshake.svg',
+  },
+  {
+    title: 'Закупка материалов',
+    shortDescription: 'Комплектующие',
+    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: детали, уплотнения и др.',
+    image: '/icons/gears.svg',
+  },
+  {
+    title: 'Обработка',
+    shortDescription: 'Восстановление деталей',
+    description: 'Проводим хонингование,наплавку штоков коррзионостойкими материалами , шлифовку и полировку поверхностей',
+    image: '/icons/tools.svg',
+  },
+  {
+    title: 'Сборка',
+    shortDescription: 'Комплектация',
+    description: 'Профессиональная сборка гидроцилиндра с использованием новых уплотнений и комплектующих',
+    image: '/icons/assembly.svg',
+  },
+  {
+    title: 'Испытания по ГОСТу 18464-96',
+    shortDescription: 'Тестирование',
+    description: 'Проводим испытания на специализированном стенде',
+    image: '/icons/test.svg',
+  },
+  {
+    title: 'Отгрузка',
+    shortDescription: 'Возврат клиенту',
+    description: 'Упаковываем и доставляем отремонтированный гидроцилиндр с гарантией качества',
+    image: '/icons/package.svg',
+  },
+])
+
+const blockData = {
+  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
+  description: 'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+  buttonText: 'Рассчитать стоимость',
+  imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
+  imageAlt: 'Гидроцилиндр'
+}
 
 const hydrantParts = ref([
   {
@@ -153,6 +217,7 @@ const hydrantParts = ref([
       'Визуальный осмотр на предмет повреждений',
       'Проверка герметичности системы',
       'Измерение параметров штока и гильзы',
+      'Составление карт проверов гильзы и штока',
       'Составление дефектовочной ведомости',
     ],
     highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
@@ -210,12 +275,12 @@ const hydrantParts = ref([
     name: 'Гидравлические испытания',
     selected: false,
     show: false,
-    description: 'Контрольные испытания под давлением после ремонта.',
+    description: 'Контрольные испытания гидрацилиндров по ГОСТу',
     features: [
       'Проверка на герметичность',
-      'Испытание рабочим давлением',
+      'Испытание давлением P<span class="text-[10px]">раб</span> * 1,25',
       'Контроль плавности хода',
-      'Фиксация результатов',
+      'Фиксация результатов с занесением данных в паспорт',
     ],
     highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },

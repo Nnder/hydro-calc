@@ -15,126 +15,66 @@ const parameters = ref([
 const header = 'ПАРАМЕТРЫ НАШИХ ГИДРОЦИЛИНДРОВ'
 
 const description = `<p class="text-lg">
-          Компания ООО "Энергия" располагает современным производственным комплексом. Специализируемся на
-          высококачественном ремонте и изготовлении рукавов высокого давления с использованием итальянского оборудования
-          OR.
+          Компания ООО "Энергия" специализируется на производстве высококачественных гидроцилиндров любого уровня сложности. 
+          Используем современное оборудование и передовые технологии изготовления.
         </p>
         <p class="text-lg">
           Строго соблюдаем все технологические нормы и гарантируем многоэтапный контроль качества на каждом этапе
-          производства.
+          производства. Изготавливаем гидроцилиндры по стандартным и индивидуальным чертежам.
         </p>`
 
-const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
-const title = 'Изготовление и ремонт РВД в Екатеринбурге'
+const imageUrl = 'https://cdn.stpulscen.ru/system/ckeditor_assets/pictures/494982/content_honingovannaya_trubka_prim.jpeg'
+const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области'
 
 const items = ref([
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/i?id=8405108591ece3b455079d0ad0508e41_l-5303693-images-thumbs&n=13',
+    title: 'Шток',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/i?id=83d2b77057be96a13243be2da3ba1667_l-5754670-images-thumbs&n=13',
+    title: 'Гильза',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://cdn.izap24.ru/images/prodacts/sourse/250377/250377261_vtulka-tsilindra-bf-040410001.jpg',
+    title: 'Поршень',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/i?id=39f61ff2ce2f0c0ac6d7739604e86d50_l-10698550-images-thumbs&n=13',
+    title: 'Крышка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/1597983/2a0000018dec406adb92c14c0cb0b88be6e5/orig',
+    title: 'Гайка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://specresurs96.ru/userfls/shop/large/2508_4388027-remkomplekt-gidrotsili.png',
+    title: 'Уплотнения',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://cdn1.ozone.ru/s3/multimedia-1-z/6914229587.jpg',
+    title: 'Проушина',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
-    title: 'Втулка',
+    image: 'https://avatars.mds.yandex.net/get-mpic/1565610/img_id243666551572505319.jpeg/orig',
+    title: 'Фланец',
   },
 ])
 
-const tableData = ref([
-  {
-    innerDiameterMm: '51,0',
-    innerDiameterInch: '2"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '76,0',
-    minBendRadiusInch: '2,99"',
-    vacuum: '100',
-    weightKg: '1,540',
-    weightLb: '1,04',
-  },
-  {
-    innerDiameterMm: '76,0',
-    innerDiameterInch: '3"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '114,0',
-    minBendRadiusInch: '4,49"',
-    vacuum: '100',
-    weightKg: '2,680',
-    weightLb: '1,81',
-  },
-  {
-    innerDiameterMm: '102,0',
-    innerDiameterInch: '4"',
-    outerDiameterMm: '',
-    outerDiameterInch: '',
-    workingPressureBar: '10',
-    workingPressurePsi: '150',
-    burstPressureBar: '30',
-    burstPressurePsi: '450',
-    minBendRadiusMm: '153,0',
-    minBendRadiusInch: '6,02"',
-    vacuum: '100',
-    weightKg: '3,910',
-    weightLb: '2,63',
-  },
-])
+
+const blockData = {
+  title: 'Изготавливаем гидроцилиндры по индивидуальным параметрам',
+  description: 'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 24 месяцев',
+  buttonText: 'Заказать гидроцилиндр',
+  imageUrl: 'https://avatars.mds.yandex.net/get-altay/13207207/2a0000018fe778e2b0f645e5753a192a5581/XXL_height', 
+  imageAlt: 'Производство гидроцилиндров'
+}
 </script>
 
 <template>
   <ParametersGrid :parameters="parameters" :header="header" />
-  <InformationBlock />
-  <RvdTableWrapper :table-data="tableData" />
+  <InformationBlock :blockData="blockData" />
+  <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <ProductionEquipment />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <AccessoriesGrid :items="items" />
