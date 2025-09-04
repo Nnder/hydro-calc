@@ -36,6 +36,11 @@ const mainMenu = [
     name: 'Контакты',
     link: '/contacts',
   },
+    {
+    id: 'postavshkam',
+    name: 'Поставщикам',
+    link: '/postavshkam',
+  },
 ]
 
 const servicesSubMenu = [
@@ -82,6 +87,17 @@ const servicesSubMenu = [
         //   { name: 'Изготовление и ремонт крышек', link: '/' },
         // ],
       },
+      {
+        id: 'kovshey',
+        name: 'Ковшей',
+        link: '/remont-kovshey',
+      },
+      {
+        id: 'svarochny',
+        name: 'Сварочные работы',
+        link: '/remont-svarkoy',
+      },
+      
     ],
   },
   {
