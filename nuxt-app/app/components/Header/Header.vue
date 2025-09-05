@@ -262,13 +262,13 @@ const showModal = ref(false)
                           <div class="flex items-center">
                             <Icon
                               name="material-symbols:arrow-forward-ios-rounded"
-                              class="w-4 h-4 mr-2 text-hydro-power"
+                              class="min-w-4 min-h-4 mr-2 text-hydro-power"
                             />
                             <span>{{ category.name }}</span>
                           </div>
                           <Icon
                             name="material-symbols:chevron-right"
-                            class="h-4 w-4 transition-transform duration-200"
+                            class="min-h-4 min-w-4 transition-transform duration-200"
                             :class="{ 'rotate-90': mobileSubMenuState[category.id] }"
                           />
                         </button>
@@ -364,7 +364,7 @@ const showModal = ref(false)
                           >
                             <Icon
                               name="material-symbols:arrow-forward-ios-rounded"
-                              class="w-4 h-4 mr-2 text-hydro-power transition-transform duration-200 group-hover:translate-x-0.5"
+                              class="min-w-4 min-h-4 mr-2 text-hydro-power transition-transform duration-200 group-hover:translate-x-0.5"
                             />
                             {{ item.name }}
                           </NuxtLink>
