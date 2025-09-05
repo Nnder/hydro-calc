@@ -6,6 +6,7 @@ import ProductionEquipment from '~/components/Production/ProductionEquipment.vue
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import RvdTableWrapperObject from '~/components/Rvd-table/RvdTableWrapperObject.vue'
 import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
+import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
 
 const parameters = ref([
@@ -29,22 +30,7 @@ const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
 const title = 'Изготовление и ремонт РВД по Свердловской области'
 
 const items = ref([
-  {
-    image: 'https://www.music-expert.ru/upload/iblock/d4b/d4b0e306e2721170394296fe7782ae16.jpeg',
-    title: 'Обжимная гильза',
-  },
-  {
-    image: 'https://www.osnastka.pro/upload/images/112.02.10.jpg',
-    title: 'Зажимная гайка',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/get-mpic/12277885/2a00000194915eb9b5b1b48a36d2408ed7fb/orig',
-    title: 'Прямой фитинг',
-  },
-  {
-    image: 'https://cdn1.ozone.ru/s3/multimedia-w/6450629240.jpg',
-    title: 'Угловой фитинг 90°',
-  },
+  
   {
     image: 'https://store.eihydraulics.ru/upload/iblock/921/921ea5cca55ff9febc69f2a8c696c8e0.jpg',
     title: 'Фланец SAE',
@@ -59,7 +45,7 @@ const items = ref([
   },
   {
     image: 'https://avatars.mds.yandex.net/get-mpic/5207288/2a0000018e0b56f3ef5939a5538134c3f47d/orig',
-    title: 'Защитная пружина',
+    title: 'Защитные оболочки',
   },
   {
     image: 'https://avatars.mds.yandex.net/get-mpic/5243609/2a000001923476b725fafc49bf93526cd286/orig',
@@ -69,18 +55,6 @@ const items = ref([
     image: 'https://avatars.mds.yandex.net/i?id=e18bda75bc6cc9f915ddb2f8f436ccf214d7a030-13486952-images-thumbs&n=13',
     title: 'Заглушка',
   },
-  {
-    image: 'https://avatars.mds.yandex.net/get-mpic/4355034/2a00000194c2cfe7fb7aac10224321a3ae4b/orig',
-    title: 'Медная шайба',
-  },
-  {
-    image: 'https://simferopol.cstg.ru/upload/iblock/f67/dqei9lz6ch0g91988ockuyb190nhfso1.jpeg',
-    title: 'Ремонтный комплект',
-  },
-  {
-    image: 'https://avatars.mds.yandex.net/i?id=e1089dbe70bb5c6da54a3bb3432cf1d3_l-4942568-images-thumbs&n=13',
-    title: 'Демпфер вибрации',
-  }
 ])
 
 const tableData = ref([
@@ -800,16 +774,20 @@ const blockData = {
   imageUrl: 'https://avatars.mds.yandex.net/i?id=204dd5e5dde778919d6fd95f544c62b8_l-12497179-images-thumbs&n=13', 
   imageAlt: 'Производство рукавов высокого давления'
 }
+
+const mainSlideData = {
+  src: 'https://cdn11.bigcommerce.com/s-b9jusbkdeq/product_images/uploaded_images/1.jpg',
+  title: 'Изготовление РВД по вашим размерам или образцу',
+  description: 'РВД 1SN-4SH, защитные оплетки, тормозные трубки и магистрали, тормозные шланги, другие комплектующие'
+}
 </script>
 
 <template>
-  <RvdTableSlider :tables="tableDataObjects" />
+    <ContentWithImage :mainSlideData="mainSlideData"/>
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
   <RvdTableWrapper :table-data="tableData" />
-  <div v-for="tableType in tableDataObjects" :key="tableType.id">
-    <RvdTableWrapperObject :table-data-object="tableType.data" />
-  </div>
+  <RvdTableSlider :tables="tableDataObjects" />
   <ProductionEquipment />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <AccessoriesGrid :items="items" />
