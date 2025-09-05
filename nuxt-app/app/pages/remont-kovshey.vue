@@ -1,9 +1,10 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData"/>
-  <Stages :steps="repairSteps" />
-  <InformationBlock :blockData="blockData" />
   <PartnerBlock :blockDataText="blockDataText"/>
+  <InformationBlock :blockData="blockData" />
+  <Stages :steps="repairSteps" />
   <PortfolioSection />
+  <Accordion />
   <Contact />
 </template>
 
@@ -14,6 +15,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+import Accordion from '~/components/Page/Accordion.vue'
 
 const mainSlideData = {
   src: 'https://lorry-group.ru/wp-content/uploads/2020/parser/cat_6015_B.jpg',
@@ -61,26 +63,14 @@ const repairSteps = ref([
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: металлические детали, уплотнения и др.',
+    description: 'Приобретаем сертефицированные запчасти и детали для ремонта ковшей',
     image: '/icons/gears.svg',
   },
   {
-    title: 'Обработка',
-    shortDescription: 'Восстановление деталей',
-    description: 'Проводим хонингование, расхромирование, хромирование, шлифовку и полировку поверхностей',
-    image: '/icons/tools.svg',
-  },
-  {
-    title: 'Сборка',
+    title: 'Сборка и сварка',
     shortDescription: 'Комплектация',
-    description: 'Профессиональная сборка ковшас использованием новых уплотнений и комплектующих',
+    description: 'Профессиональная сборка и сварка ковша с использованием комплектующих, а также усилиение ковша',
     image: '/icons/assembly.svg',
-  },
-  {
-    title: 'Испытания',
-    shortDescription: 'Тестирование',
-    description: 'Проводим испытания на специализированном стенде, моделируя номинальные и максимальные нагрузки',
-    image: '/icons/test.svg',
   },
   {
     title: 'Отгрузка',
@@ -93,7 +83,7 @@ const repairSteps = ref([
 const blockData = {
   title: 'Увеличьте ресурс ваших машин',
   description: 'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
-  buttonText: 'Рассчитать стоимость',
+  buttonText: 'Связаться с нами',
   imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
   imageAlt: 'ковш'
 }
