@@ -8,7 +8,7 @@ import Stages from '~/components/Page/Stages.vue';
 </script>
 <template>
     <div class="min-h-screen bg-tech-light">
-        <ContentWithImage />
+        <!-- <ContentWithImage /> -->
         <Block />
         <Diagnostics />
         <PartnerBlock />

@@ -12,17 +12,17 @@
           />
         </div>
 
-        <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between">
+        <div class="w-full md:w-1/2 px-8 md:px-12 flex flex-col justify-between">
           <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            Почему мы являемся надёжными партнерами?
+            {{ blockDataText.title }}
           </h2>
 
-          <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-            Мы быстро (от 1 дня) и эффективно устраним поломки, восстановим работу вашей техники и снизим риск повторных сбоев. Гарантируем качественный ремонт, чтобы ваши проекты могли продолжаться без задержек.
-          </p>
+          <div class="text-lg text-gray-700 mb-8 leading-relaxed space-y-4" v-html="blockDataText.description">
+            
+          </div>
 
           <ul class="space-y-4 mb-8">
-            <li v-for="(item, index) in benefits" :key="index" class="flex items-start gap-3">
+            <li v-for="(item, index) in blockDataText.benefits" :key="index" class="flex items-start gap-3">
               <div class="flex-shrink-0 mt-1">
                 <Icon name="heroicons:check-badge" class="w-6 h-6 text-green-600" />
               </div>
@@ -30,18 +30,7 @@
             </li>
           </ul>
 
-          <p class="text-gray-700 italic mb-8">
-            Не допустите, чтобы проблемы с техникой останавливали ваш бизнес. Мы сделаем все возможное, чтобы ваша спецтехника была в отличном состоянии.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-xl transition duration-300">
-              Заказать диагностику
-            </button>
-            <button class="bg-gray-800 hover:bg-gray-900 text-white font-medium py-3 px-6 rounded-xl transition duration-300">
-              Получить консультацию
-            </button>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -49,11 +38,11 @@
 </template>
 
 <script setup>
-const benefits = [
-  "Благодаря точной диагностике многие неисправности мы решим на месте, не отрывая технику от производства.",
-  "Бесплатно доставим гидроагрегат, снимая с вас ответственность за организацию транспортировки.",
-  "Соблюдаем все стандарты и требования безопасности в процессе ремонта.",
-  "Используем первоклассное оборудование и технологии для точной диагностики.",
-  "Эффективно организуем обслуживание больших парков техники с индивидуальным графиком."
-]
+
+defineProps({
+  blockDataText: {
+    type: Object,
+    required: true
+  },  
+})
 </script>
