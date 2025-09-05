@@ -231,16 +231,13 @@ const showModal = ref(false)
         </div>
       </div>
 
-      <!-- Мобильное меню -->
       <transition
         enter-active-class="transition-all duration-200 ease-out"
         leave-active-class="transition-all duration-150 ease-in"
       >
         <div v-show="isMobileMenuOpen" class="lg:hidden bg-white shadow-lg border-t border-hydro-steel">
           <div class="container mx-auto px-3 py-2">
-            <!-- Уменьшил padding-x с px-4 на px-3 -->
             <div class="space-y-1">
-              <!-- Уменьшил отступ между пунктами -->
               <template v-for="item in mainMenu" :key="item.id">
                 <div v-if="item.hasSubmenu">
                   <button
@@ -256,7 +253,6 @@ const showModal = ref(false)
                   </button>
 
                   <div v-show="mobileSubMenuState.services" class="pl-3 space-y-1">
-                    <!-- Уменьшил padding-left с pl-4 на pl-3 -->
                     <template v-for="category in servicesSubMenu" :key="category.id">
                       <div>
                         <button
@@ -278,7 +274,6 @@ const showModal = ref(false)
                         </button>
 
                         <div v-show="mobileSubMenuState[category.id]" class="pl-4 space-y-1">
-                          <!-- Уменьшил padding-left с pl-6 на pl-4 -->
                           <template v-for="subItem in category.items" :key="subItem.name">
                             <div v-if="subItem.subItems">
                               <button
@@ -337,14 +332,18 @@ const showModal = ref(false)
         </div>
       </transition>
 
-      <!-- Десктопное мега-меню -->
       <transition
-        enter-active-class="transition-all duration-200 ease-out"
-        leave-active-class="transition-all duration-150 ease-in"
+        enter-active-class="transition-all duration-300 ease-out"
+        enter-from-class="opacity-0 -translate-y-2 z-40"
+        enter-to-class="opacity-100 translate-y-0 z-50"
+        leave-active-class="transition-all duration-200 ease-in"
+        leave-from-class="opacity-100 translate-y-0 z-50"
+        leave-to-class="opacity-0 -translate-y-2 z-40"
       >
         <div
           v-show="activeMenu === 'services'"
-          class="absolute left-0 right-0 top-full bg-white shadow-xl z-50 border-t border-hydro-steel py-6"
+          class="absolute left-0 right-0 top-full bg-white shadow-xl py-6"
+          :class="activeMenu === 'services' ? 'z-50' : 'z-40'"
           @mouseenter="openSubMenu('services')"
           @mouseleave="closeSubMenu"
         >
@@ -361,11 +360,11 @@ const showModal = ref(false)
                         <div class="flex items-center">
                           <NuxtLink
                             :to="item.link"
-                            class="text-hydro-steel hover:text-hydro-power flex items-center flex-grow text-base"
+                            class="text-hydro-steel hover:text-hydro-power flex items-center flex-grow text-base transition-colors duration-200"
                           >
                             <Icon
                               name="material-symbols:arrow-forward-ios-rounded"
-                              class="w-4 h-4 mr-2 text-hydro-power"
+                              class="w-4 h-4 mr-2 text-hydro-power transition-transform duration-200 group-hover:translate-x-0.5"
                             />
                             {{ item.name }}
                           </NuxtLink>
@@ -378,16 +377,23 @@ const showModal = ref(false)
                         </div>
 
                         <transition
-                          enter-active-class="transition-all duration-200 ease-out"
+                          enter-active-class="transition-all duration-250 ease-out"
+                          enter-from-class="opacity-0 -translate-x-2"
+                          enter-to-class="opacity-100 translate-x-0"
                           leave-active-class="transition-all duration-150 ease-in"
+                          leave-from-class="opacity-100 translate-x-0"
+                          leave-to-class="opacity-0 -translate-x-2"
                         >
                           <ul v-if="item.subItems && activeSubMenu === item.id" class="pl-6 mt-2 space-y-2">
                             <li v-for="subItem in item.subItems" :key="subItem.name">
                               <NuxtLink
                                 :to="subItem.link"
-                                class="text-hydro-steel hover:text-hydro-power flex items-center text-sm p-2 hover:bg-hydro-light/10 rounded"
+                                class="text-hydro-steel hover:text-hydro-power flex items-center text-sm p-2 hover:bg-hydro-light/10 rounded transition-all duration-200 hover:pl-3"
                               >
-                                <Icon name="material-symbols:arrow-right" class="w-3 h-3 mr-2 text-hydro-power/50" />
+                                <Icon 
+                                  name="material-symbols:arrow-right" 
+                                  class="w-3 h-3 mr-2 text-hydro-power/50 transition-transform duration-200 group-hover:translate-x-0.5" 
+                                />
                                 {{ subItem.name }}
                               </NuxtLink>
                             </li>
@@ -455,3 +461,18 @@ const showModal = ref(false)
     </div>
   </Modal>
 </template>
+
+<style scoped>
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-transition {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nested-transition {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+</style>
