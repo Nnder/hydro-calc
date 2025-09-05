@@ -123,8 +123,11 @@
       </div>
     </div>
   </div>
-  <!-- <InformationBlock :blockData="blockData" /> -->
+  <InformationBlock :blockData="blockData" />
+  <PartnerBlock :blockDataText="blockDataText"/>
   <Stages :steps="repairSteps"  :globalTitle="globalTitle"/>
+  <PortfolioSection />
+  <Accordion />
   <Contact />
 </template>
 
@@ -133,6 +136,22 @@ import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+import PortfolioSection from '~/components/Main/PortfolioSection.vue'
+import Accordion from '~/components/Page/Accordion.vue'
+import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+
+const blockDataText = {
+  title: 'Что мы делаем?',
+  description: `<p>Различные операции по восстановлению ковшей с применением износостойких, высокопрочных сталей и вспомогательных материалов. Во время эксплуатации при контакте конструкции с внешней средой быстро изнашиваются элементы корпуса, ломаются зубья. В большинстве случаев экономически целесообразно выполнить ремонт поврежденных частей ковша вместо приобретения нового.</p>
+<p>Оперативно и качественно осуществим замену адаптера, зубьев, днища, стенок, режущей кромки и футеровки. Обеспечиваем надежную защиту конструкции от преждевременного износа в условиях больших ударных нагрузок.</p>`,
+  benefits: [
+  "Благодаря точной диагностике многие неисправности мы решим на месте, не отрывая технику от производства.",
+  "Бесплатно доставим гидроагрегат, снимая с вас ответственность за организацию транспортировки.",
+  "Соблюдаем все стандарты и требования безопасности в процессе ремонта.",
+  "Используем первоклассное оборудование и технологии для точной диагностики.",
+  "Эффективно организуем обслуживание больших парков техники с индивидуальным графиком."
+]
+}
 
 const mainSlideData = {
   src: 'https://www.hansa-flex.de/fileadmin/hansaflex/Products/Drive_and_control_engineering/Pumps/Produkte_Pumpen_01.jpg',
