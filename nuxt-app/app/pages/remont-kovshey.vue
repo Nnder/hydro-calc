@@ -1,10 +1,11 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData"/>
-  <Stages :steps="repairSteps" />
-  <InformationBlock :blockData="blockData" />
   <PartnerBlock :blockDataText="blockDataText"/>
+  <InformationBlock :blockData="blockData" />
+  <Stages :steps="repairSteps" />
   <PortfolioSection />
   <Contact />
+  <Accordion />
 </template>
 
 <script setup>
@@ -14,6 +15,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+import Accordion from '~/components/Page/Accordion.vue'
 
 const mainSlideData = {
   src: 'https://lorry-group.ru/wp-content/uploads/2020/parser/cat_6015_B.jpg',
