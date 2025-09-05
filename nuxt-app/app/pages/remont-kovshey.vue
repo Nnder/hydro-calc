@@ -94,7 +94,7 @@ const blockData = {
   title: 'Увеличьте ресурс ваших машин',
   description: 'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
   buttonText: 'Рассчитать стоимость',
-  imageUrl: 'https://image.emojisky.com/73/11391073-middle.png',
+  imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
   imageAlt: 'ковш'
 }
 

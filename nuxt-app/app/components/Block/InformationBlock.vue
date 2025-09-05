@@ -33,9 +33,9 @@ const showModal = ref(false)
             <NuxtImg
               :src="blockData.imageUrl"
               :alt="blockData.imageAlt"
-              class="w-64 h-64 object-contain"
-              width="320"
-              height="320"
+              class="w-[512] h-fit object-contain"
+              width="640"
+              height="6400"
               format="webp"
             />
           </div>
