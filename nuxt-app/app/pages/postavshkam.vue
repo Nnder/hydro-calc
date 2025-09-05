@@ -82,7 +82,7 @@
                   </svg>
                 </div>
                 <h3 class="font-semibold text-gray-900 mb-1">Телефон</h3>
-                <a href="tel:+73512181452" class="text-blue-600 hover:text-blue-800 transition-colors text-lg font-medium">+7 (351) 218-14-52</a>
+                <a href="tel:+73512181452" class="text-blue-600 hover:text-blue-800 transition-colors text-lg font-medium">+7 (123) 123-12-32</a>
               </div>
               
               <div class="text-center">
@@ -92,7 +92,7 @@
                   </svg>
                 </div>
                 <h3 class="font-semibold text-gray-900 mb-1">Электронная почта</h3>
-                <a href="mailto:parts@arsenalavto.ru" class="text-blue-600 hover:text-blue-800 transition-colors text-lg font-medium">parts@arsenalavto.ru</a>
+                <a href="mailto:parts@arsenalavto.ru" class="text-blue-600 hover:text-blue-800 transition-colors text-lg font-medium">mail@mail.ru</a>
               </div>
               
               <div class="text-center">
