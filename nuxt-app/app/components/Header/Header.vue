@@ -94,7 +94,7 @@ const servicesSubMenu = [
       },
       {
         id: 'svarochny',
-        name: 'Сварочные работы',
+        name: 'Сварочные и токарные работы',
         link: '/remont-svarkoy',
       },
     ],
