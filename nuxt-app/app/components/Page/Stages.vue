@@ -3,16 +3,24 @@ defineProps({
   steps: {
     type: Array,
     required: true
+  },
+  globalTitle: {
+    type: Object  ,
+    default: () => ({
+      gtitle: "Гидроцилиндр",
+      subtitle: "Полный цикл восстановления гидроцилиндров спецтехники",
+    })
   }
+  
 })
 </script>
 
 <template>
   <div class="bg-tech-light pb-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-dark sm:text-4xl">Этапы ремонта гидроцилиндров</h2>
-        <p class="mt-4 text-xl text-dark/80 max-w-3xl mx-auto">Полный цикл восстановления гидроцилиндров спецтехники</p>
+      <div class="text-center mt-10">
+        <h2 class="text-3xl font-bold text-dark sm:text-4xl">Этапы ремонта {{ globalTitle.gtitle }}</h2>
+        <p class="mt-4 text-xl text-dark/80 max-w-3xl mx-auto">{{ globalTitle.subtitle }}</p>
       </div>
 
       <div class="hidden lg:block mt-8 bg-white rounded-xl shadow-md p-8 border border-hydro-steel/10">

@@ -132,7 +132,7 @@
     </div>
   </div>
   <InformationBlock :blockData="blockData" />
-  <Stages :steps="repairSteps" />
+  <Stages :steps="repairSteps"  :globalTitle="globalTitle"/>
   <PortfolioSection />
   <Accordion />
   <Contact />
@@ -146,6 +146,10 @@ import TrustSection from '~/components/Main/TrustSection.vue'
 import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import Accordion from '~/components/Page/Accordion.vue'
 
+const globalTitle = ref({
+  gtitle: 'Гидроцилиндров',
+  subtitle: 'Полный цикл восстановления гидроцилиндров спецтехники'
+})
 
 const repairSteps = ref([
   {

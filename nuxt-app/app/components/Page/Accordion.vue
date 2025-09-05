@@ -9,7 +9,7 @@
       <div 
         v-for="(item, index) in faqItems" 
         :key="item.id"
-        class="border border-gray-200 rounded-xl bg-white overflow-hidden transition-all duration-200 hover:shadow-lg"
+        class="w-full lg:min-w-[56rem] max-w-4xl border border-gray-200 rounded-xl bg-white overflow-hidden transition-all duration-200 hover:shadow-lg"
       >
         <button
           @click="toggle(index)"

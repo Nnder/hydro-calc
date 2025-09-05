@@ -4,6 +4,8 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
+import RvdTableWrapperObject from '~/components/Rvd-table/RvdTableWrapperObject.vue'
+import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
 
 
 const parameters = ref([
@@ -144,6 +146,653 @@ const tableData = ref([
   }
 ])
 
+const tableDataObjects = ref([
+  {
+    id: 'type1',
+    data: [
+      {
+        nominalMm: 6,
+        nominalInch: '1/4',
+        innerDiameter: 6.6,
+        braidDiameter: 10.9,
+        outerDiameter: 13.0,
+        workingPressureBar: 225,
+        workingPressurePsi: 3265,
+        testPressure: 450,
+        burstPressureBar: 900,
+        bendRadius: 100,
+        weight: 0.19
+      },
+      {
+        nominalMm: 8,
+        nominalInch: '5/16',
+        innerDiameter: 8.3,
+        braidDiameter: 12.5,
+        outerDiameter: 14.7,
+        workingPressureBar: 215,
+        workingPressurePsi: 3120,
+        testPressure: 430,
+        burstPressureBar: 860,
+        bendRadius: 115,
+        weight: 0.22
+      },
+      {
+        nominalMm: 10,
+        nominalInch: '3/8',
+        innerDiameter: 9.9,
+        braidDiameter: 14.8,
+        outerDiameter: 16.8,
+        workingPressureBar: 180,
+        workingPressurePsi: 2610,
+        testPressure: 360,
+        burstPressureBar: 720,
+        bendRadius: 125,
+        weight: 0.28
+      },
+      {
+        nominalMm: 12,
+        nominalInch: '1/2',
+        innerDiameter: 13.0,
+        braidDiameter: 17.9,
+        outerDiameter: 20.0,
+        workingPressureBar: 160,
+        workingPressurePsi: 2320,
+        testPressure: 320,
+        burstPressureBar: 640,
+        bendRadius: 180,
+        weight: 0.36
+      },
+      {
+        nominalMm: 16,
+        nominalInch: '5/8',
+        innerDiameter: 16.4,
+        braidDiameter: 21.0,
+        outerDiameter: 23.2,
+        workingPressureBar: 130,
+        workingPressurePsi: 1885,
+        testPressure: 260,
+        burstPressureBar: 520,
+        bendRadius: 200,
+        weight: 0.44
+      },
+      {
+        nominalMm: 19,
+        nominalInch: '3/4',
+        innerDiameter: 19.5,
+        braidDiameter: 25.0,
+        outerDiameter: 27.1,
+        workingPressureBar: 105,
+        workingPressurePsi: 1525,
+        testPressure: 210,
+        burstPressureBar: 420,
+        bendRadius: 240,
+        weight: 0.56
+      },
+      {
+        nominalMm: 25,
+        nominalInch: '1',
+        innerDiameter: 26.0,
+        braidDiameter: 32.9,
+        outerDiameter: 35.1,
+        workingPressureBar: 88,
+        workingPressurePsi: 1275,
+        testPressure: 176,
+        burstPressureBar: 352,
+        bendRadius: 300,
+        weight: 0.83
+      },
+      {
+        nominalMm: 31,
+        nominalInch: '1-1/4',
+        innerDiameter: 32.5,
+        braidDiameter: 39.9,
+        outerDiameter: 42.5,
+        workingPressureBar: 63,
+        workingPressurePsi: 915,
+        testPressure: 150,
+        burstPressureBar: 252,
+        bendRadius: 420,
+        weight: 1.07
+      },
+      {
+        nominalMm: 38,
+        nominalInch: '1-1/2',
+        innerDiameter: 38.7,
+        braidDiameter: 46.5,
+        outerDiameter: 50.1,
+        workingPressureBar: 50,
+        workingPressurePsi: 725,
+        testPressure: 100,
+        burstPressureBar: 200,
+        bendRadius: 500,
+        weight: 1.42
+      },
+      {
+        nominalMm: 51,
+        nominalInch: '2',
+        innerDiameter: 51.1,
+        braidDiameter: 59.9,
+        outerDiameter: 64.1,
+        workingPressureBar: 40,
+        workingPressurePsi: 580,
+        testPressure: 80,
+        burstPressureBar: 160,
+        bendRadius: 630,
+        weight: 2.01
+      }
+    ]
+  },
+  {
+    id: 'type2', 
+    data: [
+      {
+        nominalMm: 6,
+        nominalInch: '1/4',
+        innerDiameter: 6.6,
+        braidDiameter: 9.9,
+        outerDiameter: 11.9,
+        workingPressureBar: 225,
+        workingPressurePsi: 3265,
+        testPressure: 450,
+        burstPressureBar: 900,
+        bendRadius: 75,
+        weight: 0.16
+      },
+      {
+        nominalMm: 8,
+        nominalInch: '5/16',
+        innerDiameter: 8.3,
+        braidDiameter: 11.7,
+        outerDiameter: 13.7,
+        workingPressureBar: 215,
+        workingPressurePsi: 3120,
+        testPressure: 430,
+        burstPressureBar: 860,
+        bendRadius: 85,
+        weight: 0.21
+      },
+      {
+        nominalMm: 10,
+        nominalInch: '3/8',
+        innerDiameter: 9.9,
+        braidDiameter: 13.1,
+        outerDiameter: 15.7,
+        workingPressureBar: 180,
+        workingPressurePsi: 2610,
+        testPressure: 360,
+        burstPressureBar: 720,
+        bendRadius: 90,
+        weight: 0.26
+      },
+      {
+        nominalMm: 12,
+        nominalInch: '1/2',
+        innerDiameter: 13.0,
+        braidDiameter: 16.6,
+        outerDiameter: 19.5,
+        workingPressureBar: 160,
+        workingPressurePsi: 2320,
+        testPressure: 320,
+        burstPressureBar: 640,
+        bendRadius: 130,
+        weight: 0.34
+      },
+      {
+        nominalMm: 16,
+        nominalInch: '5/8',
+        innerDiameter: 16.4,
+        braidDiameter: 20.3,
+        outerDiameter: 22.3,
+        workingPressureBar: 130,
+        workingPressurePsi: 1885,
+        testPressure: 260,
+        burstPressureBar: 520,
+        bendRadius: 150,
+        weight: 0.39
+      },
+      {
+        nominalMm: 19,
+        nominalInch: '3/4',
+        innerDiameter: 19.5,
+        braidDiameter: 24.0,
+        outerDiameter: 26.0,
+        workingPressureBar: 105,
+        workingPressurePsi: 1525,
+        testPressure: 210,
+        burstPressureBar: 420,
+        bendRadius: 180,
+        weight: 0.50
+      },
+      {
+        nominalMm: 25,
+        nominalInch: '1',
+        innerDiameter: 26.0,
+        braidDiameter: 31.0,
+        outerDiameter: 33.1,
+        workingPressureBar: 88,
+        workingPressurePsi: 1275,
+        testPressure: 176,
+        burstPressureBar: 352,
+        bendRadius: 230,
+        weight: 0.74
+      }
+    ]
+  },
+  {
+    id: 'type3', 
+    data: [
+      {
+        nominalMm: 6,
+        nominalInch: '1/4',
+        innerDiameter: 6.6,
+        braidDiameter: 12.4,
+        outerDiameter: 14.4,
+        workingPressureBar: 400,
+        workingPressurePsi: 5800,
+        testPressure: 800,
+        burstPressureBar: 1600,
+        bendRadius: 100,
+        weight: 0.31
+      },
+      {
+        nominalMm: 8,
+        nominalInch: '5/16',
+        innerDiameter: 8.3,
+        braidDiameter: 14.0,
+        outerDiameter: 16.0,
+        workingPressureBar: 350,
+        workingPressurePsi: 5075,
+        testPressure: 700,
+        burstPressureBar: 1400,
+        bendRadius: 115,
+        weight: 0.37
+      },
+      {
+        nominalMm: 10,
+        nominalInch: '3/8',
+        innerDiameter: 9.9,
+        braidDiameter: 16.4,
+        outerDiameter: 18.4,
+        workingPressureBar: 330,
+        workingPressurePsi: 4785,
+        testPressure: 660,
+        burstPressureBar: 1320,
+        bendRadius: 125,
+        weight: 0.44
+      },
+      {
+        nominalMm: 12,
+        nominalInch: '1/2',
+        innerDiameter: 13.0,
+        braidDiameter: 19.4,
+        outerDiameter: 21.4,
+        workingPressureBar: 275,
+        workingPressurePsi: 4000,
+        testPressure: 550,
+        burstPressureBar: 1100,
+        bendRadius: 180,
+        weight: 0.53
+      },
+      {
+        nominalMm: 16,
+        nominalInch: '5/8',
+        innerDiameter: 16.4,
+        braidDiameter: 22.6,
+        outerDiameter: 24.6,
+        workingPressureBar: 250,
+        workingPressurePsi: 3625,
+        testPressure: 500,
+        burstPressureBar: 1000,
+        bendRadius: 200,
+        weight: 0.66
+      },
+      {
+        nominalMm: 19,
+        nominalInch: '3/4',
+        innerDiameter: 19.5,
+        braidDiameter: 26.6,
+        outerDiameter: 28.6,
+        workingPressureBar: 215,
+        workingPressurePsi: 3120,
+        testPressure: 430,
+        burstPressureBar: 860,
+        bendRadius: 240,
+        weight: 0.84
+      },
+      {
+        nominalMm: 25,
+        nominalInch: '1',
+        innerDiameter: 26.0,
+        braidDiameter: 34.5,
+        outerDiameter: 37.1,
+        workingPressureBar: 165,
+        workingPressurePsi: 2395,
+        testPressure: 325,
+        burstPressureBar: 660,
+        bendRadius: 300,
+        weight: 1.23
+      },
+      {
+        nominalMm: 31,
+        nominalInch: '1-1/4',
+        innerDiameter: 32.5,
+        braidDiameter: 43.9,
+        outerDiameter: 46.7,
+        workingPressureBar: 125,
+        workingPressurePsi: 1815,
+        testPressure: 250,
+        burstPressureBar: 500,
+        bendRadius: 420,
+        weight: 1.77
+      },
+      {
+        nominalMm: 38,
+        nominalInch: '1-1/2',
+        innerDiameter: 38.7,
+        braidDiameter: 51.1,
+        outerDiameter: 54.5,
+        workingPressureBar: 90,
+        workingPressurePsi: 1305,
+        testPressure: 180,
+        burstPressureBar: 360,
+        bendRadius: 500,
+        weight: 2.17
+      },
+      {
+        nominalMm: 51,
+        nominalInch: '2',
+        innerDiameter: 51.1,
+        braidDiameter: 62.9,
+        outerDiameter: 66.7,
+        workingPressureBar: 80,
+        workingPressurePsi: 1160,
+        testPressure: 160,
+        burstPressureBar: 320,
+        bendRadius: 630,
+        weight: 2.79
+      }
+    ]
+  },
+  {
+    id: 'type4', 
+    data: [
+      {
+        nominalMm: 6,
+        nominalInch: '1/4',
+        innerDiameter: 6.6,
+        braidDiameter: 11.0,
+        outerDiameter: 13.0,
+        workingPressureBar: 400,
+        workingPressurePsi: 5800,
+        testPressure: 800,
+        burstPressureBar: 1600,
+        bendRadius: 75,
+        weight: 0.25
+      },
+      {
+        nominalMm: 8,
+        nominalInch: '5/16',
+        innerDiameter: 8.3,
+        braidDiameter: 12.6,
+        outerDiameter: 14.6,
+        workingPressureBar: 350,
+        workingPressurePsi: 5075,
+        testPressure: 700,
+        burstPressureBar: 1400,
+        bendRadius: 85,
+        weight: 0.30
+      },
+      {
+        nominalMm: 10,
+        nominalInch: '3/8',
+        innerDiameter: 9.9,
+        braidDiameter: 14.7,
+        outerDiameter: 16.6,
+        workingPressureBar: 330,
+        workingPressurePsi: 4785,
+        testPressure: 660,
+        burstPressureBar: 1320,
+        bendRadius: 90,
+        weight: 0.37
+      },
+      {
+        nominalMm: 12,
+        nominalInch: '1/2',
+        innerDiameter: 13.0,
+        braidDiameter: 18.0,
+        outerDiameter: 20.0,
+        workingPressureBar: 275,
+        workingPressurePsi: 3990,
+        testPressure: 550,
+        burstPressureBar: 1100,
+        bendRadius: 130,
+        weight: 0.45
+      },
+      {
+        nominalMm: 16,
+        nominalInch: '5/8',
+        innerDiameter: 16.4,
+        braidDiameter: 21.9,
+        outerDiameter: 23.9,
+        workingPressureBar: 250,
+        workingPressurePsi: 3625,
+        testPressure: 500,
+        burstPressureBar: 1000,
+        bendRadius: 170,
+        weight: 0.61
+      },
+      {
+        nominalMm: 19,
+        nominalInch: '3/4',
+        innerDiameter: 19.5,
+        braidDiameter: 25.5,
+        outerDiameter: 27.6,
+        workingPressureBar: 215,
+        workingPressurePsi: 3120,
+        testPressure: 430,
+        burstPressureBar: 860,
+        bendRadius: 200,
+        weight: 0.76
+      },
+      {
+        nominalMm: 25,
+        nominalInch: '1',
+        innerDiameter: 26.0,
+        braidDiameter: 32.9,
+        outerDiameter: 35.6,
+        workingPressureBar: 165,
+        workingPressurePsi: 2395,
+        testPressure: 330,
+        burstPressureBar: 660,
+        bendRadius: 250,
+        weight: 1.15
+      }
+    ]
+  },
+  {
+    id: 'type5', 
+    data: [
+      {
+        nominalMm: 10,
+        nominalInch: '3/8',
+        innerDiameter: 9.9,
+        braidDiameter: 17.4,
+        outerDiameter: 21.1,
+        workingPressureBar: 445,
+        workingPressurePsi: 6455,
+        testPressure: 890,
+        burstPressureBar: 1780,
+        bendRadius: 180,
+        weight: 0.70
+      },
+      {
+        nominalMm: 12,
+        nominalInch: '1/2',
+        innerDiameter: 13.0,
+        braidDiameter: 20.6,
+        outerDiameter: 24.2,
+        workingPressureBar: 425,
+        workingPressurePsi: 6165,
+        testPressure: 850,
+        burstPressureBar: 1700,
+        bendRadius: 230,
+        weight: 0.85
+      },
+      {
+        nominalMm: 16,
+        nominalInch: '5/8',
+        innerDiameter: 16.4,
+        braidDiameter: 24.2,
+        outerDiameter: 27.9,
+        workingPressureBar: 350,
+        workingPressurePsi: 5075,
+        testPressure: 780,
+        burstPressureBar: 1560,
+        bendRadius: 250,
+        weight: 1.04
+      },
+      {
+        nominalMm: 19,
+        nominalInch: '3/4',
+        innerDiameter: 19.5,
+        braidDiameter: 27.9,
+        outerDiameter: 32.0,
+        workingPressureBar: 350,
+        workingPressurePsi: 5075,
+        testPressure: 770,
+        burstPressureBar: 1540,
+        bendRadius: 300,
+        weight: 1.32
+      },
+      {
+        nominalMm: 25,
+        nominalInch: '1',
+        innerDiameter: 26.0,
+        braidDiameter: 35.1,
+        outerDiameter: 38.9,
+        workingPressureBar: 320,
+        workingPressurePsi: 4640,
+        testPressure: 640,
+        burstPressureBar: 1280,
+        bendRadius: 340,
+        weight: 2.06
+      },
+      {
+        nominalMm: 31,
+        nominalInch: '1-1/4',
+        innerDiameter: 32.5,
+        braidDiameter: 45.9,
+        outerDiameter: 50.5,
+        workingPressureBar: 210,
+        workingPressurePsi: 3045,
+        testPressure: 480,
+        burstPressureBar: 960,
+        bendRadius: 460,
+        weight: 3.14
+      },
+      {
+        nominalMm: 38,
+        nominalInch: '1-1/2',
+        innerDiameter: 38.7,
+        braidDiameter: 52.1,
+        outerDiameter: 56.8,
+        workingPressureBar: 185,
+        workingPressurePsi: 2685,
+        testPressure: 420,
+        burstPressureBar: 840,
+        bendRadius: 560,
+        weight: 3.61
+      },
+      {
+        nominalMm: 51,
+        nominalInch: '2',
+        innerDiameter: 51.1,
+        braidDiameter: 65.4,
+        outerDiameter: 70.2,
+        workingPressureBar: 165,
+        workingPressurePsi: 2395,
+        testPressure: 330,
+        burstPressureBar: 660,
+        bendRadius: 660,
+        weight: 5.13
+      }
+    ]
+  },
+  {
+    id: 'type6', 
+    data: [
+      {
+        nominalMm: 19,
+        nominalInch: '3/4',
+        innerDiameter: 19.5,
+        braidDiameter: 28.3,
+        outerDiameter: 31.9,
+        workingPressureBar: 420,
+        workingPressurePsi: 6090,
+        testPressure: 840,
+        burstPressureBar: 1680,
+        bendRadius: 280,
+        weight: 1.43
+      },
+      {
+        nominalMm: 25,
+        nominalInch: '1',
+        innerDiameter: 26.0,
+        braidDiameter: 35.4,
+        outerDiameter: 38.7,
+        workingPressureBar: 380,
+        workingPressurePsi: 5510,
+        testPressure: 760,
+        burstPressureBar: 1520,
+        bendRadius: 340,
+        weight: 2.20
+      },
+      {
+        nominalMm: 31,
+        nominalInch: '1-1/4',
+        innerDiameter: 32.5,
+        braidDiameter: 42.3,
+        outerDiameter: 45.2,
+        workingPressureBar: 350,
+        workingPressurePsi: 5075,
+        testPressure: 700,
+        burstPressureBar: 1380,
+        bendRadius: 460,
+        weight: 2.58
+      },
+      {
+        nominalMm: 38,
+        nominalInch: '1-1/2',
+        innerDiameter: 38.7,
+        braidDiameter: 49.2,
+        outerDiameter: 53.4,
+        workingPressureBar: 290,
+        workingPressurePsi: 4200,
+        testPressure: 580,
+        burstPressureBar: 1160,
+        bendRadius: 560,
+        weight: 3.30
+      },
+      {
+        nominalMm: 51,
+        nominalInch: '2',
+        innerDiameter: 51.1,
+        braidDiameter: 63.2,
+        outerDiameter: 67.3,
+        workingPressureBar: 250,
+        workingPressurePsi: 3625,
+        testPressure: 500,
+        burstPressureBar: 1000,
+        bendRadius: 700,
+        weight: 4.94
+      }
+    ]
+  }
+])
+
+
+
+
 const blockData = {
   title: 'Производим рукава высокого давления по индивидуальным параметрам',
   description: 'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 12 месяцев',
@@ -154,9 +803,13 @@ const blockData = {
 </script>
 
 <template>
+  <RvdTableSlider :tables="tableDataObjects" />
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
   <RvdTableWrapper :table-data="tableData" />
+  <div v-for="tableType in tableDataObjects" :key="tableType.id">
+    <RvdTableWrapperObject :table-data-object="tableType.data" />
+  </div>
   <ProductionEquipment />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <AccessoriesGrid :items="items" />
