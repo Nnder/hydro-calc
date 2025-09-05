@@ -5,6 +5,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
+import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
 const parameters = ref([
   { value: 'более 1000', description: 'Наименований в каталоге' },
@@ -130,9 +131,16 @@ const blockData = {
   imageUrl: 'https://gidroplus.com/wp-content/uploads/2020/03/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.jpg', 
   imageAlt: 'Дополнительные комплектующие для гидравлики'
 }
+
+const mainSlideData = {
+  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  title: 'Профессиональный ремонт гидроцилиндров',
+  description: 'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.'
+}
 </script>
 
 <template>
+    <ContentWithImage :mainSlideData="mainSlideData"/>
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
