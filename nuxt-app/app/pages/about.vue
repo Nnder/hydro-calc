@@ -4,10 +4,10 @@
       <div class="mb-20">
         <div class="flex flex-col lg:flex-row gap-12 items-center">
           <div class="lg:w-1/2">
-            <h2 class="text-4xl font-bold mb-8 text-dark">О компании Абсолют техно</h2>
+            <h2 class="text-4xl font-bold mb-8 text-dark">О компании ООО "Абсолют Техно"</h2>
             <div class="space-y-6 text-neutral-dark leading-relaxed text-lg">
               <p>
-                <strong class="text-primary-DEFAULT">Абсолют техно</strong> - ведущий поставщик профессионального инструмента, строительного
+                <strong class="text-primary-DEFAULT">ООО "Абсолют Техно"</strong> - ведущий поставщик профессионального инструмента, строительного
                 оборудования и промышленных решений в России. С 2010 года мы помогаем профессионалам и компаниям
                 находить оптимальные технические решения для реализации любых проектов.
               </p>
@@ -16,7 +16,7 @@
                 предлагая клиентам только проверенное и качественное оборудование от мировых производителей.
               </p>
               <p>
-                Сегодня Абсолют техно - это не просто магазин инструментов, а полноценный технологический партнер,
+                Сегодня Абсолют Техно - это не просто магазин инструментов, а полноценный Технологический партнер,
                 готовый предложить комплексные решения для строительства, производства и ремонтных работ любого
                 масштаба.
               </p>
@@ -25,7 +25,7 @@
           <div class="lg:w-1/2">
             <NuxtImg
               src="full_logo_text.svg"
-              alt="Шоурум Абсолют техно"
+              alt="Шоурум ООО Абсолют Техно"
               class="w-full h-auto object-cover"
               loading="lazy"
             />
@@ -34,7 +34,7 @@
       </div>
 
       <div class="mb-20">
-        <h2 class="text-4xl font-bold mb-12 text-center text-dark">Наши ценности</h2>
+        <h2 class="text-4xl font-bold mb-12 text-center text-dark">Наши приоритеты</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent-DEFAULT hover:shadow-lg transition-all">
             <div class="text-accent-DEFAULT text-4xl mb-4">✓</div>
@@ -48,7 +48,7 @@
             <div class="text-hydro-power text-4xl mb-4">✓</div>
             <h3 class="text-2xl font-bold mb-4 text-dark">Инновации</h3>
             <p class="text-neutral-dark">
-              Мы постоянно следим за тенденциями рынка, внедряем новые технологии и предлагаем клиентам современные
+              Мы постоянно следим за тенденциями рынка, внедряем новые Технологии и предлагаем клиентам современные
               решения, повышающие эффективность их работы.
             </p>
           </div>
