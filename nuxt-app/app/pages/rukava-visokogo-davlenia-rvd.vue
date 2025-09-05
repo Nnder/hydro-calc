@@ -4,6 +4,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
+import RvdTableWrapperObject from '~/components/Rvd-table/RvdTableWrapperObject.vue'
 
 
 const parameters = ref([

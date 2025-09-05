@@ -11,6 +11,10 @@ import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
+const globalTitle = ref({
+  gtitle: 'Ковшей',
+  subtitle: 'Полный цикл восстановления гидромоторов спецтехники'
+})
 
 const repairSteps = ref([
   {
