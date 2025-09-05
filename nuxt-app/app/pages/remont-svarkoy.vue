@@ -132,7 +132,7 @@
     </div>
   </div>
   <InformationBlock :blockData="blockData" />
-  <Stages :steps="repairSteps" />
+  <Stages :steps="repairSteps"  :globalTitle="globalTitle"/>
   <Contact />
 </template>
 
@@ -141,6 +141,10 @@ import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 
+const globalTitle = ref({
+  gtitle: 'Сварочных и Токарных работ',
+  subtitle: 'Полный цикл восстановления Сварочных и Токарных работ'
+})
 
 const repairSteps = ref([
   {

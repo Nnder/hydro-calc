@@ -3,7 +3,7 @@
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <section class="mb-4 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-hydro-power">
-          Профессиональный ремонт <br />гидроцилиндров
+          Профессиональный ремонт <br />ковшей
         </h1>
         <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
           Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
@@ -132,7 +132,7 @@
     </div>
   </div>
   <InformationBlock :blockData="blockData" />
-  <Stages :steps="repairSteps" />
+  <Stages :steps="repairSteps"  :globalTitle="globalTitle"/>
   <Contact />
 </template>
 
@@ -141,6 +141,10 @@ import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 
+const globalTitle = ref({
+  gtitle: 'Ковшей',
+  subtitle: 'Полный цикл восстановления гидромоторов спецтехники'
+})
 
 const repairSteps = ref([
   {
