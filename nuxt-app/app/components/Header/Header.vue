@@ -36,7 +36,7 @@ const mainMenu = [
     name: 'Контакты',
     link: '/contacts',
   },
-    {
+  {
     id: 'postavshkam',
     name: 'Поставщикам',
     link: '/postavshkam',
@@ -97,7 +97,6 @@ const servicesSubMenu = [
         name: 'Сварочные работы',
         link: '/remont-svarkoy',
       },
-      
     ],
   },
   {
@@ -406,7 +405,7 @@ const showModal = ref(false)
   </header>
 
   <Modal
-    class="!p-4 md:p-6 !w-72 md:!w-96 h-fit rounded-lg"
+    class="!p-4 md:p-6 !w-72 md:!w-96 h-fit rounded-lg md:max-w-md lg:max-w-lg"
     :isOpen="showModal"
     @close="
       () => {

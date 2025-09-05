@@ -2,8 +2,8 @@
 defineProps({
   blockData: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const showModal = ref(false)
@@ -45,7 +45,7 @@ const showModal = ref(false)
   </section>
 
   <Modal
-    class="!p-4 md:p-6 !w-72 md:!w-96 h-fit rounded-lg"
+    class="!p-4 md:p-6 !w-72 md:!w-96 h-fit rounded-lg md:max-w-md lg:max-w-lg"
     :isOpen="showModal"
     @close="
       () => {

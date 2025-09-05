@@ -10,6 +10,7 @@
               v-for="(project, index) in portfolio"
               :key="index"
               class="bg-white rounded-xl sm:rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group"
+              @click="showPortfolio(project)"
             >
               <div class="h-40 sm:h-48 bg-hydro-steel/10 relative overflow-hidden">
                 <div
@@ -69,15 +70,55 @@
       </div>
     </div>
   </section>
+
+  <Modal
+    class="!p-4 md:p-6 !w-screen !h-screen rounded-lg"
+    :isOpen="showModal"
+    @close="
+      () => {
+        showModal = false
+      }
+    "
+  >
+    <PortfolioSlider :sliders="selectedPortfolio"></PortfolioSlider>
+  </Modal>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import PortfolioSlider from './PortfolioSlider.vue'
+
+defineProps({
+  portfolio: {
+    type: Array,
+    required: true,
+  },
+})
+
+const showPortfolio = project => {
+  showModal.value = true
+  selectedPortfolio.value = project.data
+}
+
+const showModal = ref(false)
+const selectedPortfolio = ref([])
+
 const portfolio = [
   {
     title: 'Ремонт экскаватора Hitachi',
     description: 'Полное восстановление гидросистемы после аварии',
     year: '2023',
     tags: ['Экскаватор', 'Гидроцилиндры', 'Срочный ремонт'],
+    data: [
+      {
+        type: 'img',
+        src: '/hydrocilinder.png',
+      },
+      {
+        type: '3d',
+        src: '/3d/Сборка_ГЦ_реф.glb',
+      },
+    ],
   },
   {
     title: 'Обслуживание башенного крана',
