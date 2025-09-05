@@ -2,6 +2,7 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <PerformanceChecker />
 </template>
 
 <style>
@@ -12,6 +13,7 @@ body {
 
 <script setup>
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
+import PerformanceChecker from './components/PerformanceChecker/PerformanceChecker.vue'
 // import { useCartStore } from '~/stores/cart'
 
 // const cartStore = useCartStore()
