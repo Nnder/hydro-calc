@@ -9,11 +9,11 @@
       <div 
         v-for="(item, index) in faqItems" 
         :key="item.id"
-        class="border border-gray-200 rounded-xl bg-white overflow-hidden transition-all duration-200 hover:shadow-lg"
+        class="w-full lg:min-w-[56rem] max-w-4xl border border-gray-200 rounded-xl bg-white overflow-hidden transition-all duration-200 hover:shadow-lg"
       >
         <button
           @click="toggle(index)"
-          class="flex justify-between items-center w-full lg:min-w-[56rem] max-w-4xl p-6 text-left bg-white hover:bg-gray-50 transition-colors duration-200"
+          class="flex justify-between items-center w-full p-6 text-left bg-white hover:bg-gray-50 transition-colors duration-200"
           :aria-expanded="item.isOpen"
         >
           <span class="text-lg font-semibold text-gray-900">{{ item.question }}</span>
