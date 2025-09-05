@@ -4,8 +4,8 @@
   <InformationBlock :blockData="blockData" />
   <Stages :steps="repairSteps" />
   <PortfolioSection />
-  <Contact />
   <Accordion />
+  <Contact />
 </template>
 
 <script setup>
