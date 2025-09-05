@@ -1,14 +1,7 @@
 <template>
+    <ContentWithImage :mainSlideData="mainSlideData"/>
   <div class="bg-tech-light">
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
-      <section class="mb-4 text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-hydro-power">
-          Профессиональный ремонт <br />гидроцилиндров
-        </h1>
-        <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
-          Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
-        </p>
-      </section>
       <div class="flex min-h-[600px] gap-4">
         <!-- Левая секция (список деталей) -->
         <section class="flex-1 p-2 bg-white rounded-xl md:rounded-2xl overflow-auto">
@@ -145,6 +138,13 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import TrustSection from '~/components/Main/TrustSection.vue'
 import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import Accordion from '~/components/Page/Accordion.vue'
+import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+
+const mainSlideData = {
+  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  title: 'Профессиональный ремонт гидроцилиндров',
+  description: 'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.'
+}
 
 const globalTitle = ref({
   gtitle: 'Гидроцилиндров',

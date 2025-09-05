@@ -1,138 +1,10 @@
 <template>
-  <div class="bg-tech-light">
-    <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
-      <section class="mb-4 text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-hydro-power">
-          Профессиональный ремонт <br />гидроцилиндров
-        </h1>
-        <p class="text-xl text-hydro-steel/80 max-w-3xl mx-auto leading-relaxed">
-          Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.
-        </p>
-      </section>
-      <div class="flex min-h-[600px] gap-4">
-        <!-- Левая секция (список деталей) -->
-        <section class="flex-1 p-2 bg-white rounded-xl md:rounded-2xl overflow-auto">
-          <div
-            class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 md:mb-4 gap-2 md:gap-4"
-          >
-            <div>
-              <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-hydro-steel mb-1 md:mb-2">
-                Выберите детали для ремонта
-              </h2>
-              <p class="text-sm md:text-base text-hydro-steel/70">Отметьте необходимые компоненты гидроцилиндра</p>
-            </div>
-            <div
-              class="bg-hydro-power/10 text-hydro-power px-3 py-1 md:px-4 md:py-2 rounded-full text-sm md:text-base font-medium"
-            >
-              Выбрано: {{ selectedCount }} из {{ hydrantParts.length }}
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 gap-1 md:gap-2">
-            <div v-for="(part, index) in hydrantParts" :key="index" class="group">
-              <div
-                class="p-2 md:p-3 border rounded-lg md:rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between"
-                :class="{
-                  'border-hydro-power bg-hydro-power/5': part.selected,
-                  'border-gray-200 hover:border-hydro-power/30': !part.selected,
-                }"
-                @click="handlePartClick(index)"
-                role="button"
-                tabindex="0"
-                @keydown.enter.space="handlePartClick(index)"
-              >
-                <div class="flex items-center gap-2 md:gap-2 flex-1">
-                  <div
-                    class="w-10 h-8 md:w-12 md:h-10 rounded-lg flex items-center justify-center"
-                    :class="{
-                      'bg-hydro-power/10 text-hydro-power': part.selected,
-                      'bg-tech-light text-hydro-steel/50 group-hover:bg-hydro-power/5': !part.selected,
-                    }"
-                  >
-                    <Icon :name="part.icon || 'mdi:engine-outline'" class="text-xl md:text-2xl" />
-                  </div>
-                  <div class="text-base md:text-lg font-medium text-hydro-steel block text-left flex-1">
-                    {{ part.name }}
-                  </div>
-                </div>
-                <Icon
-                  v-if="part.selected"
-                  name="mdi:check-circle"
-                  class="text-xl md:text-2xl text-hydro-power shrink-0"
-                />
-                <Icon
-                  v-else
-                  name="mdi:plus-circle-outline"
-                  class="text-xl md:text-2xl text-gray-300 shrink-0 group-hover:text-hydro-power/50"
-                />
-              </div>
-
-              <transition
-                enter-active-class="transition-all duration-300 ease-out"
-                enter-from-class="opacity-0 max-h-0"
-                enter-to-class="opacity-100 max-h-96"
-                leave-active-class="transition-all duration-200 ease-in"
-                leave-from-class="opacity-100 max-h-96"
-                leave-to-class="opacity-0 max-h-0"
-              >
-                <div v-if="part.show && part.description" class="overflow-hidden">
-                  <div
-                    class="relative mt-2 p-3 md:p-4 bg-gray-50 rounded-lg border border-gray-200 text-hydro-steel/80 text-sm md:text-base"
-                  >
-                    <div class="text-right">
-                      <button @click="part.show = false" class="text-2xl font-bold cursor-pointer">×</button>
-                    </div>
-                    <p class="mb-2">{{ part.description }}</p>
-                    <div v-if="part.features" class="mt-2 md:mt-3">
-                      <div v-for="(feature, i) in part.features" :key="i" class="flex items-start mb-1 md:mb-2">
-                        <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0" />
-                        <span v-html="feature"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </transition>
-            </div>
-          </div>
-        </section>
-
-        <!-- Правая секция (изображение) -->
-        <section class="flex-1 relative">
-          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100">
-            <div class="relative" style="transform: rotate(90deg); transform-origin: center">
-              <NuxtImg
-                src="hydrocilinder.webp"
-                class="max-h-screen w-auto object-contain"
-                alt="Профессиональный ремонт гидроцилиндров"
-                loading="lazy"
-                format="webp"
-                quality="80"
-                id="hydroImage"
-              />
-
-              <div
-                v-for="(part, index) in hydrantParts"
-                :key="'highlight-' + index"
-                class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
-                :class="{
-                  'opacity-0': part.selected,
-                  'opacity-100': part.selected,
-                }"
-              >
-                <div
-                  v-if="part.selected"
-                  :class="'absolute border-2 rounded-md ' + part.color"
-                  :style="getHighlightStyle(index)"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+  <ContentWithImage :mainSlideData="mainSlideData"/>
+  <PartnerBlock :blockDataText="blockDataText"/>
   <InformationBlock :blockData="blockData" />
-  <Stages :steps="repairSteps"  :globalTitle="globalTitle"/>
+  <Stages :steps="repairSteps" />
+  <PortfolioSection />
+  <Accordion />
   <Contact />
 </template>
 
@@ -140,17 +12,40 @@
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
+import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+import PortfolioSection from '~/components/Main/PortfolioSection.vue'
+import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+import Accordion from '~/components/Page/Accordion.vue'
+
+const mainSlideData = {
+  src: 'https://lorry-group.ru/wp-content/uploads/2020/parser/cat_6015_B.jpg',
+  title: 'Осуществим ремонт ковшей экскаваторов, бульдозеров и другой техники',
+  description: 'Замена днища, замена режущей кромки или другие ремонтные работы, которые мы выполняем профессионально'
+}
+
+const blockDataText = {
+  title: 'Что мы делаем?',
+  description: `<p>Различные операции по восстановлению ковшей с применением износостойких, высокопрочных сталей и вспомогательных материалов. Во время эксплуатации при контакте конструкции с внешней средой быстро изнашиваются элементы корпуса, ломаются зубья. В большинстве случаев экономически целесообразно выполнить ремонт поврежденных частей ковша вместо приобретения нового.</p>
+<p>Оперативно и качественно осуществим замену адаптера, зубьев, днища, стенок, режущей кромки и футеровки. Обеспечиваем надежную защиту конструкции от преждевременного износа в условиях больших ударных нагрузок.</p>`,
+  benefits: [
+  "Благодаря точной диагностике многие неисправности мы решим на месте, не отрывая технику от производства.",
+  "Бесплатно доставим гидроагрегат, снимая с вас ответственность за организацию транспортировки.",
+  "Соблюдаем все стандарты и требования безопасности в процессе ремонта.",
+  "Используем первоклассное оборудование и технологии для точной диагностики.",
+  "Эффективно организуем обслуживание больших парков техники с индивидуальным графиком."
+]
+}
 
 const globalTitle = ref({
-  gtitle: 'Сварочных и Токарных работ',
-  subtitle: 'Полный цикл восстановления Сварочных и Токарных работ'
+  gtitle: 'Ковшей',
+  subtitle: 'Полный цикл восстановления гидромоторов спецтехники'
 })
 
 const repairSteps = ref([
   {
     title: 'Доставка и приемка',
     shortDescription: 'Транспортировка и осмотр',
-    description: 'Мы организуем доставку гидроцилиндра на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+    description: 'Мы организуем доставку ковшана наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
     image: '/icons/delivery-truck.svg',
   },
   {
@@ -168,41 +63,29 @@ const repairSteps = ref([
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: металлические детали, уплотнения и др.',
+    description: 'Приобретаем сертефицированные запчасти и детали для ремонта ковшей',
     image: '/icons/gears.svg',
   },
   {
-    title: 'Обработка',
-    shortDescription: 'Восстановление деталей',
-    description: 'Проводим хонингование, расхромирование, хромирование, шлифовку и полировку поверхностей',
-    image: '/icons/tools.svg',
-  },
-  {
-    title: 'Сборка',
+    title: 'Сборка и сварка',
     shortDescription: 'Комплектация',
-    description: 'Профессиональная сборка гидроцилиндра с использованием новых уплотнений и комплектующих',
+    description: 'Профессиональная сборка и сварка ковша с использованием комплектующих, а также усилиение ковша',
     image: '/icons/assembly.svg',
-  },
-  {
-    title: 'Испытания',
-    shortDescription: 'Тестирование',
-    description: 'Проводим испытания на специализированном стенде, моделируя номинальные и максимальные нагрузки',
-    image: '/icons/test.svg',
   },
   {
     title: 'Отгрузка',
     shortDescription: 'Возврат клиенту',
-    description: 'Упаковываем и доставляем отремонтированный гидроцилиндр с гарантией качества',
+    description: 'Упаковываем и доставляем отремонтированный ковш с гарантией качества',
     image: '/icons/package.svg',
   },
 ])
 
 const blockData = {
-  title: 'Изготовим нестандартное оборудование по вашему проекту',
-  description: 'Произведём гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
-  buttonText: 'Рассчитать стоимость',
-  imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
-  imageAlt: 'Гидроцилиндр'
+  title: 'Увеличьте ресурс ваших машин',
+  description: 'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
+  buttonText: 'Связаться с нами',
+  imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
+  imageAlt: 'ковш'
 }
 
 const hydrantParts = ref([
@@ -211,7 +94,7 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     description:
-      'Полная диагностика гидроцилиндра с использованием современного оборудования для выявления всех дефектов.',
+      'Полная диагностика ковшас использованием современного оборудования для выявления всех дефектов.',
     features: [
       'Визуальный осмотр на предмет повреждений',
       'Проверка герметичности системы',
