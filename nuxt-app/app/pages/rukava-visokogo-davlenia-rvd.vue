@@ -121,6 +121,7 @@ const tableData = ref([
 const tableDataObjects = ref([
   {
     id: 'type1',
+    title: 'Тип 1: Высокопрочные шланги',
     data: [
       {
         nominalMm: 6,

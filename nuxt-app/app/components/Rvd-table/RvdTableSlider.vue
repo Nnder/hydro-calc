@@ -1,6 +1,5 @@
 <template>
   <div v-if="!isHydrated">
-    <!-- Fallback контент -->
     <div class="h-[600px] flex items-center justify-center"></div>
   </div>
   <ClientOnly>
@@ -21,11 +20,22 @@
         :key="'table-' + index"
         class="table-slide"
       >
-        <div class="slide-content bg-white rounded-lg shadow-lg p-4 mx-auto">
-        <div class="overflow-x-auto">
-          <RvdTableWrapperObject :table-data-object="tableData.data" />
-        </div>
-      </div>
+          <div class="relative z-10 p-6">
+            <div class="text-center mb-6">
+              <h2 class="text-3xl font-bold text-black mb-2 drop-shadow-md">
+                {{ tableData.title }}
+              </h2>
+              <p class="text-black text-opacity-90 max-w-2xl mx-auto drop-shadow-md">
+                {{ tableData.description }}
+              </p>
+            </div>
+          
+            <div class="bg-white bg-opacity-90 rounded-lg p-4 backdrop-blur-sm">
+              <div class="overflow-x-auto">
+                <RvdTableWrapperObject :table-data-object="tableData.data" />
+              </div>
+            </div>
+          </div>
       </swiper-slide>
     </swiper-container>
   </ClientOnly>
@@ -64,8 +74,8 @@ const videoRef = ref(null)
   width: 100%;
   height: 600px;
   position: relative;
-  --swiper-navigation-color: white;
-  --swiper-pagination-color: white;
+  --swiper-navigation-color: #2563ed;
+  --swiper-pagination-color: #2563ed;
 }
 
 .video-slide {
