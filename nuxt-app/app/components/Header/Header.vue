@@ -175,8 +175,8 @@ const showModal = ref(false)
 <template>
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="relative" @mouseleave="closeSubMenu">
-      <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16 md:h-16">
+      <div class="xl:container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
           <div class="flex items-center space-x-4">
             <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
@@ -191,7 +191,7 @@ const showModal = ref(false)
             </NuxtLink>
           </div>
 
-          <nav class="hidden lg:flex items-center space-x-6 h-full">
+          <nav class="hidden xl:flex items-center space-x-6 h-full">
             <template v-for="item in mainMenu" :key="item.id">
               <div v-if="item.hasSubmenu" class="relative h-full">
                 <button
@@ -235,7 +235,7 @@ const showModal = ref(false)
         enter-active-class="transition-all duration-200 ease-out"
         leave-active-class="transition-all duration-150 ease-in"
       >
-        <div v-show="isMobileMenuOpen" class="lg:hidden bg-white shadow-lg border-t border-hydro-steel">
+        <div v-show="isMobileMenuOpen" class="xl:hidden bg-white shadow-lg border-t border-hydro-steel">
           <div class="container mx-auto px-3 py-2">
             <div class="space-y-1">
               <template v-for="item in mainMenu" :key="item.id">
@@ -390,9 +390,9 @@ const showModal = ref(false)
                                 :to="subItem.link"
                                 class="text-hydro-steel hover:text-hydro-power flex items-center text-sm p-2 hover:bg-hydro-light/10 rounded transition-all duration-200 hover:pl-3"
                               >
-                                <Icon 
-                                  name="material-symbols:arrow-right" 
-                                  class="w-3 h-3 mr-2 text-hydro-power/50 transition-transform duration-200 group-hover:translate-x-0.5" 
+                                <Icon
+                                  name="material-symbols:arrow-right"
+                                  class="w-3 h-3 mr-2 text-hydro-power/50 transition-transform duration-200 group-hover:translate-x-0.5"
                                 />
                                 {{ subItem.name }}
                               </NuxtLink>
@@ -473,6 +473,8 @@ const showModal = ref(false)
 }
 
 .nested-transition {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 </style>
