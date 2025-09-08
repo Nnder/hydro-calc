@@ -8,7 +8,6 @@ import RvdTableWrapperObject from '~/components/Rvd-table/RvdTableWrapperObject.
 import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
-
 const parameters = ref([
   { value: 'до 2"', description: 'Диаметр подключения, дюймов' },
   { value: 'до 40', description: 'Рабочее давление, МПа' },
@@ -30,7 +29,6 @@ const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
 const title = 'Изготовление и ремонт РВД по Свердловской области'
 
 const items = ref([
-  
   {
     image: 'https://store.eihydraulics.ru/upload/iblock/921/921ea5cca55ff9febc69f2a8c696c8e0.jpg',
     title: 'Фланец SAE',
@@ -117,7 +115,7 @@ const tableData = ref([
     vacuum: '90',
     weightKg: '1,85',
     weightLb: '1,24',
-  }
+  },
 ])
 
 const tableDataObjects = ref([
@@ -135,7 +133,7 @@ const tableDataObjects = ref([
         testPressure: 450,
         burstPressureBar: 900,
         bendRadius: 100,
-        weight: 0.19
+        weight: 0.19,
       },
       {
         nominalMm: 8,
@@ -148,7 +146,7 @@ const tableDataObjects = ref([
         testPressure: 430,
         burstPressureBar: 860,
         bendRadius: 115,
-        weight: 0.22
+        weight: 0.22,
       },
       {
         nominalMm: 10,
@@ -161,7 +159,7 @@ const tableDataObjects = ref([
         testPressure: 360,
         burstPressureBar: 720,
         bendRadius: 125,
-        weight: 0.28
+        weight: 0.28,
       },
       {
         nominalMm: 12,
@@ -174,7 +172,7 @@ const tableDataObjects = ref([
         testPressure: 320,
         burstPressureBar: 640,
         bendRadius: 180,
-        weight: 0.36
+        weight: 0.36,
       },
       {
         nominalMm: 16,
@@ -187,7 +185,7 @@ const tableDataObjects = ref([
         testPressure: 260,
         burstPressureBar: 520,
         bendRadius: 200,
-        weight: 0.44
+        weight: 0.44,
       },
       {
         nominalMm: 19,
@@ -200,7 +198,7 @@ const tableDataObjects = ref([
         testPressure: 210,
         burstPressureBar: 420,
         bendRadius: 240,
-        weight: 0.56
+        weight: 0.56,
       },
       {
         nominalMm: 25,
@@ -213,7 +211,7 @@ const tableDataObjects = ref([
         testPressure: 176,
         burstPressureBar: 352,
         bendRadius: 300,
-        weight: 0.83
+        weight: 0.83,
       },
       {
         nominalMm: 31,
@@ -226,7 +224,7 @@ const tableDataObjects = ref([
         testPressure: 150,
         burstPressureBar: 252,
         bendRadius: 420,
-        weight: 1.07
+        weight: 1.07,
       },
       {
         nominalMm: 38,
@@ -239,7 +237,7 @@ const tableDataObjects = ref([
         testPressure: 100,
         burstPressureBar: 200,
         bendRadius: 500,
-        weight: 1.42
+        weight: 1.42,
       },
       {
         nominalMm: 51,
@@ -252,12 +250,12 @@ const tableDataObjects = ref([
         testPressure: 80,
         burstPressureBar: 160,
         bendRadius: 630,
-        weight: 2.01
-      }
-    ]
+        weight: 2.01,
+      },
+    ],
   },
   {
-    id: 'type2', 
+    id: 'type2',
     data: [
       {
         nominalMm: 6,
@@ -270,7 +268,7 @@ const tableDataObjects = ref([
         testPressure: 450,
         burstPressureBar: 900,
         bendRadius: 75,
-        weight: 0.16
+        weight: 0.16,
       },
       {
         nominalMm: 8,
@@ -283,7 +281,7 @@ const tableDataObjects = ref([
         testPressure: 430,
         burstPressureBar: 860,
         bendRadius: 85,
-        weight: 0.21
+        weight: 0.21,
       },
       {
         nominalMm: 10,
@@ -296,7 +294,7 @@ const tableDataObjects = ref([
         testPressure: 360,
         burstPressureBar: 720,
         bendRadius: 90,
-        weight: 0.26
+        weight: 0.26,
       },
       {
         nominalMm: 12,
@@ -309,7 +307,7 @@ const tableDataObjects = ref([
         testPressure: 320,
         burstPressureBar: 640,
         bendRadius: 130,
-        weight: 0.34
+        weight: 0.34,
       },
       {
         nominalMm: 16,
@@ -322,7 +320,7 @@ const tableDataObjects = ref([
         testPressure: 260,
         burstPressureBar: 520,
         bendRadius: 150,
-        weight: 0.39
+        weight: 0.39,
       },
       {
         nominalMm: 19,
@@ -335,7 +333,7 @@ const tableDataObjects = ref([
         testPressure: 210,
         burstPressureBar: 420,
         bendRadius: 180,
-        weight: 0.50
+        weight: 0.5,
       },
       {
         nominalMm: 25,
@@ -348,12 +346,12 @@ const tableDataObjects = ref([
         testPressure: 176,
         burstPressureBar: 352,
         bendRadius: 230,
-        weight: 0.74
-      }
-    ]
+        weight: 0.74,
+      },
+    ],
   },
   {
-    id: 'type3', 
+    id: 'type3',
     data: [
       {
         nominalMm: 6,
@@ -366,7 +364,7 @@ const tableDataObjects = ref([
         testPressure: 800,
         burstPressureBar: 1600,
         bendRadius: 100,
-        weight: 0.31
+        weight: 0.31,
       },
       {
         nominalMm: 8,
@@ -379,7 +377,7 @@ const tableDataObjects = ref([
         testPressure: 700,
         burstPressureBar: 1400,
         bendRadius: 115,
-        weight: 0.37
+        weight: 0.37,
       },
       {
         nominalMm: 10,
@@ -392,7 +390,7 @@ const tableDataObjects = ref([
         testPressure: 660,
         burstPressureBar: 1320,
         bendRadius: 125,
-        weight: 0.44
+        weight: 0.44,
       },
       {
         nominalMm: 12,
@@ -405,7 +403,7 @@ const tableDataObjects = ref([
         testPressure: 550,
         burstPressureBar: 1100,
         bendRadius: 180,
-        weight: 0.53
+        weight: 0.53,
       },
       {
         nominalMm: 16,
@@ -418,7 +416,7 @@ const tableDataObjects = ref([
         testPressure: 500,
         burstPressureBar: 1000,
         bendRadius: 200,
-        weight: 0.66
+        weight: 0.66,
       },
       {
         nominalMm: 19,
@@ -431,7 +429,7 @@ const tableDataObjects = ref([
         testPressure: 430,
         burstPressureBar: 860,
         bendRadius: 240,
-        weight: 0.84
+        weight: 0.84,
       },
       {
         nominalMm: 25,
@@ -444,7 +442,7 @@ const tableDataObjects = ref([
         testPressure: 325,
         burstPressureBar: 660,
         bendRadius: 300,
-        weight: 1.23
+        weight: 1.23,
       },
       {
         nominalMm: 31,
@@ -457,7 +455,7 @@ const tableDataObjects = ref([
         testPressure: 250,
         burstPressureBar: 500,
         bendRadius: 420,
-        weight: 1.77
+        weight: 1.77,
       },
       {
         nominalMm: 38,
@@ -470,7 +468,7 @@ const tableDataObjects = ref([
         testPressure: 180,
         burstPressureBar: 360,
         bendRadius: 500,
-        weight: 2.17
+        weight: 2.17,
       },
       {
         nominalMm: 51,
@@ -483,12 +481,12 @@ const tableDataObjects = ref([
         testPressure: 160,
         burstPressureBar: 320,
         bendRadius: 630,
-        weight: 2.79
-      }
-    ]
+        weight: 2.79,
+      },
+    ],
   },
   {
-    id: 'type4', 
+    id: 'type4',
     data: [
       {
         nominalMm: 6,
@@ -501,7 +499,7 @@ const tableDataObjects = ref([
         testPressure: 800,
         burstPressureBar: 1600,
         bendRadius: 75,
-        weight: 0.25
+        weight: 0.25,
       },
       {
         nominalMm: 8,
@@ -514,7 +512,7 @@ const tableDataObjects = ref([
         testPressure: 700,
         burstPressureBar: 1400,
         bendRadius: 85,
-        weight: 0.30
+        weight: 0.3,
       },
       {
         nominalMm: 10,
@@ -527,7 +525,7 @@ const tableDataObjects = ref([
         testPressure: 660,
         burstPressureBar: 1320,
         bendRadius: 90,
-        weight: 0.37
+        weight: 0.37,
       },
       {
         nominalMm: 12,
@@ -540,7 +538,7 @@ const tableDataObjects = ref([
         testPressure: 550,
         burstPressureBar: 1100,
         bendRadius: 130,
-        weight: 0.45
+        weight: 0.45,
       },
       {
         nominalMm: 16,
@@ -553,7 +551,7 @@ const tableDataObjects = ref([
         testPressure: 500,
         burstPressureBar: 1000,
         bendRadius: 170,
-        weight: 0.61
+        weight: 0.61,
       },
       {
         nominalMm: 19,
@@ -566,7 +564,7 @@ const tableDataObjects = ref([
         testPressure: 430,
         burstPressureBar: 860,
         bendRadius: 200,
-        weight: 0.76
+        weight: 0.76,
       },
       {
         nominalMm: 25,
@@ -579,12 +577,12 @@ const tableDataObjects = ref([
         testPressure: 330,
         burstPressureBar: 660,
         bendRadius: 250,
-        weight: 1.15
-      }
-    ]
+        weight: 1.15,
+      },
+    ],
   },
   {
-    id: 'type5', 
+    id: 'type5',
     data: [
       {
         nominalMm: 10,
@@ -597,7 +595,7 @@ const tableDataObjects = ref([
         testPressure: 890,
         burstPressureBar: 1780,
         bendRadius: 180,
-        weight: 0.70
+        weight: 0.7,
       },
       {
         nominalMm: 12,
@@ -610,7 +608,7 @@ const tableDataObjects = ref([
         testPressure: 850,
         burstPressureBar: 1700,
         bendRadius: 230,
-        weight: 0.85
+        weight: 0.85,
       },
       {
         nominalMm: 16,
@@ -623,7 +621,7 @@ const tableDataObjects = ref([
         testPressure: 780,
         burstPressureBar: 1560,
         bendRadius: 250,
-        weight: 1.04
+        weight: 1.04,
       },
       {
         nominalMm: 19,
@@ -636,7 +634,7 @@ const tableDataObjects = ref([
         testPressure: 770,
         burstPressureBar: 1540,
         bendRadius: 300,
-        weight: 1.32
+        weight: 1.32,
       },
       {
         nominalMm: 25,
@@ -649,7 +647,7 @@ const tableDataObjects = ref([
         testPressure: 640,
         burstPressureBar: 1280,
         bendRadius: 340,
-        weight: 2.06
+        weight: 2.06,
       },
       {
         nominalMm: 31,
@@ -662,7 +660,7 @@ const tableDataObjects = ref([
         testPressure: 480,
         burstPressureBar: 960,
         bendRadius: 460,
-        weight: 3.14
+        weight: 3.14,
       },
       {
         nominalMm: 38,
@@ -675,7 +673,7 @@ const tableDataObjects = ref([
         testPressure: 420,
         burstPressureBar: 840,
         bendRadius: 560,
-        weight: 3.61
+        weight: 3.61,
       },
       {
         nominalMm: 51,
@@ -688,12 +686,12 @@ const tableDataObjects = ref([
         testPressure: 330,
         burstPressureBar: 660,
         bendRadius: 660,
-        weight: 5.13
-      }
-    ]
+        weight: 5.13,
+      },
+    ],
   },
   {
-    id: 'type6', 
+    id: 'type6',
     data: [
       {
         nominalMm: 19,
@@ -706,7 +704,7 @@ const tableDataObjects = ref([
         testPressure: 840,
         burstPressureBar: 1680,
         bendRadius: 280,
-        weight: 1.43
+        weight: 1.43,
       },
       {
         nominalMm: 25,
@@ -719,7 +717,7 @@ const tableDataObjects = ref([
         testPressure: 760,
         burstPressureBar: 1520,
         bendRadius: 340,
-        weight: 2.20
+        weight: 2.2,
       },
       {
         nominalMm: 31,
@@ -732,7 +730,7 @@ const tableDataObjects = ref([
         testPressure: 700,
         burstPressureBar: 1380,
         bendRadius: 460,
-        weight: 2.58
+        weight: 2.58,
       },
       {
         nominalMm: 38,
@@ -745,7 +743,7 @@ const tableDataObjects = ref([
         testPressure: 580,
         burstPressureBar: 1160,
         bendRadius: 560,
-        weight: 3.30
+        weight: 3.3,
       },
       {
         nominalMm: 51,
@@ -758,29 +756,30 @@ const tableDataObjects = ref([
         testPressure: 500,
         burstPressureBar: 1000,
         bendRadius: 700,
-        weight: 4.94
-      }
-    ]
-  }
+        weight: 4.94,
+      },
+    ],
+  },
 ])
 
 const blockData = {
   title: 'Производим рукава высокого давления по индивидуальным параметрам',
-  description: 'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 12 месяцев',
+  description:
+    'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 12 месяцев',
   buttonText: 'Заказать РВД',
-  imageUrl: 'https://avatars.mds.yandex.net/i?id=204dd5e5dde778919d6fd95f544c62b8_l-12497179-images-thumbs&n=13', 
-  imageAlt: 'Производство рукавов высокого давления'
+  imageUrl: 'https://avatars.mds.yandex.net/i?id=204dd5e5dde778919d6fd95f544c62b8_l-12497179-images-thumbs&n=13',
+  imageAlt: 'Производство рукавов высокого давления',
 }
 
 const mainSlideData = {
   src: 'https://cdn11.bigcommerce.com/s-b9jusbkdeq/product_images/uploaded_images/1.jpg',
   title: 'Изготовление РВД по вашим размерам или образцу',
-  description: 'РВД 1SN-4SH, защитные оплетки, тормозные трубки и магистрали, тормозные шланги, другие комплектующие'
+  description: 'РВД 1SN-4SH, защитные оплетки, тормозные трубки и магистрали, тормозные шланги, другие комплектующие',
 }
 </script>
 
 <template>
-    <ContentWithImage :mainSlideData="mainSlideData"/>
+  <ContentWithImage :mainSlideData="mainSlideData" />
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
   <RvdTableWrapper :table-data="tableData" />
