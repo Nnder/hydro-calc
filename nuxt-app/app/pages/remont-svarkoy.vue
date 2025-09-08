@@ -195,6 +195,17 @@ const getHighlightStyle = index => {
     height: part.highlight.height,
   }
 }
+
+useHead({
+  title: 'Сварочные и токарные работы',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 </script>
 
 <style>

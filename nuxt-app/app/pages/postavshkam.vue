@@ -125,6 +125,16 @@
 <script setup>
 import Accordion from '~/components/Page/Accordion.vue';
 
+useHead({
+  title: 'Поставщики',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 const requirements = [
   "Большой ассортимент в наличии на складе",
   "Регулярное информирование об ассортименте и складских остатках",

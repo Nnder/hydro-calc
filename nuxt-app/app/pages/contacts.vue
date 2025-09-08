@@ -1,6 +1,16 @@
 <script setup>
 import Gis from '~/components/Map/2Gis.vue'
 
+useHead({
+  title: 'Наши контакты',
+  meta: [
+    {
+      name: 'description',
+      content: 'Свяжитесь с нами для консультации и сотрудничества',
+    },
+  ],
+})
+
 const form = reactive({
   name: '',
   email: '',

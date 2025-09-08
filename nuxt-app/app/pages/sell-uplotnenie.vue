@@ -138,6 +138,16 @@ const blockData = {
   imageAlt: 'ковш'
 }
 
+useHead({
+  title: 'Уплатнение',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 </script>
 
 <template>

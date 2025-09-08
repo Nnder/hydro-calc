@@ -65,3 +65,15 @@
     </div>
   </div>
 </template>
+
+<script setup>
+useHead({
+  title: 'О компании',
+  meta: [
+    {
+      name: 'description',
+      content: 'Абсолют Техно - компания по продажам,ремонтам,изготовлениям сварочных изделий',
+    },
+  ],
+})
+</script>
