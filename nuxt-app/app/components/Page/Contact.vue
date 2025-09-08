@@ -4,27 +4,29 @@
     <div class="absolute inset-0 z-0 overflow-hidden">
       <!-- Основной градиентный фон -->
       <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50/80"></div>
-      
+
       <!-- Абстрактные фигуры -->
       <div class="absolute -top-20 -left-20 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-indigo-300/15 rounded-full blur-3xl"></div>
-      
+
       <!-- Большие круги -->
       <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200/20 rounded-full animate-pulse-slow"></div>
       <div class="absolute bottom-1/3 right-1/3 w-48 h-48 bg-indigo-300/15 rounded-full animate-float"></div>
-      
+
       <!-- Геометрические фигуры -->
       <div class="absolute top-20 right-20 w-32 h-32 bg-blue-300/10 rotate-45 animate-rotate-slow"></div>
-      <div class="absolute bottom-20 left-20 w-24 h-24 bg-indigo-400/10 rounded-2xl rotate-12 animate-bounce-slow"></div>
-      
+      <div
+        class="absolute bottom-20 left-20 w-24 h-24 bg-indigo-400/10 rounded-2xl rotate-12 animate-bounce-slow"
+      ></div>
+
       <!-- Волны -->
       <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-200/20 to-transparent"></div>
-      
+
       <!-- Сетка из треугольников и кругов -->
       <div class="absolute inset-0 opacity-[0.03]">
         <div class="absolute top-0 left-0 w-full h-full pattern-geometric"></div>
       </div>
-      
+
       <!-- Плавающие элементы -->
       <div class="absolute top-10 left-10 w-16 h-16 bg-blue-300/10 rounded-lg rotate-45 animate-float-reverse"></div>
       <div class="absolute top-40 right-40 w-20 h-20 bg-indigo-300/10 rounded-full animate-bounce"></div>
@@ -34,11 +36,14 @@
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- Заголовок секции -->
       <div class="text-center mb-12 md:mb-16">
-        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl mb-6 shadow-lg">
+        <div
+          class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl mb-6 shadow-lg"
+        >
           <Icon name="mdi:tools" class="text-white text-3xl" />
         </div>
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
-          Профессиональная <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">консультация</span>
+          Профессиональная
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">консультация</span>
         </h2>
         <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
           Экспертная помощь от сертифицированных технических специалистов
@@ -55,9 +60,7 @@
 
             <div class="relative z-10">
               <div class="text-center lg:text-left mb-10">
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                  Бесплатная консультация
-                </h3>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Бесплатная консультация</h3>
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
                   <p class="text-gray-600 mb-3 font-medium">Оставьте заявку и получите:</p>
                   <ul class="text-sm text-gray-500 space-y-2">
@@ -97,7 +100,7 @@
                         'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
                         'placeholder-gray-400 text-gray-700',
                         'shadow-sm hover:shadow-md',
-                        formErrors.name ? 'border-red-400 bg-red-50' : 'border-blue-100 hover:border-blue-300'
+                        formErrors.name ? 'border-red-400 bg-red-50' : 'border-blue-100 hover:border-blue-300',
                       ]"
                       @input="clearError('name')"
                     />
@@ -119,7 +122,7 @@
                         'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
                         'placeholder-gray-400 text-gray-700',
                         'shadow-sm hover:shadow-md',
-                        formErrors.phone ? 'border-red-400 bg-red-50' : 'border-blue-100 hover:border-blue-300'
+                        formErrors.phone ? 'border-red-400 bg-red-50' : 'border-blue-100 hover:border-blue-300',
                       ]"
                       @input="clearError('phone')"
                     />
@@ -141,23 +144,22 @@
                       'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
                       'placeholder-gray-400 text-gray-700',
                       'shadow-sm hover:shadow-md',
-                      'border-blue-100 hover:border-blue-300'
+                      'border-blue-100 hover:border-blue-300',
                     ]"
                   ></textarea>
                 </div>
 
-                <div class="flex items-center space-x-3 bg-blue-50/50 rounded-xl p-4">
+                <div>
                   <input
-                    type="checkbox"
-                    id="agreement"
-                    v-model="form.agreement"
-                    required
-                    class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    type="file"
+                    :class="[
+                      'w-full px-5 py-4 border-2 rounded-xl transition-all duration-300 resize-none',
+                      'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
+                      'placeholder-gray-400 text-gray-700',
+                      'shadow-sm hover:shadow-md',
+                      'border-blue-100 hover:border-blue-300',
+                    ]"
                   />
-                  <label for="agreement" class="text-sm text-gray-600">
-                    Я соглашаюсь с 
-                    <a href="#" class="text-blue-600 hover:underline font-medium">обработкой персональных данных</a>
-                  </label>
                 </div>
 
                 <button
@@ -168,20 +170,12 @@
                     'transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl',
                     'text-lg',
                     isSending || !form.agreement
-                      ? 'bg-gradient-to-r from-blue-300 to-blue-400 cursor-not-allowed' 
-                      : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-blue-500/40'
+                      ? 'bg-gradient-to-r from-blue-300 to-blue-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-blue-500/40',
                   ]"
                 >
-                  <Icon 
-                    v-if="isSending" 
-                    name="svg-spinners:ring-resize" 
-                    class="text-2xl" 
-                  />
-                  <Icon 
-                    v-else 
-                    name="mdi:phone-in-talk" 
-                    class="text-2xl" 
-                  />
+                  <Icon v-if="isSending" name="svg-spinners:ring-resize" class="text-2xl" />
+                  <Icon v-else name="mdi:phone-in-talk" class="text-2xl" />
                   {{ isSending ? 'Отправляем заявку...' : 'Получить консультацию' }}
                 </button>
               </form>
@@ -201,9 +195,11 @@
                   loading="lazy"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent rounded-3xl"></div>
-                
+
                 <!-- Плавающие элементы -->
-                <div class="absolute top-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg animate-float">
+                <div
+                  class="absolute top-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg animate-float"
+                >
                   <div class="flex items-center space-x-3">
                     <div class="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
                     <span class="text-sm font-medium text-gray-700">Online сейчас</span>
@@ -220,16 +216,20 @@
                   Почему выбирают нас?
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div 
-                    v-for="(benefit, index) in benefits" 
-                    :key="index" 
+                  <div
+                    v-for="(benefit, index) in benefits"
+                    :key="index"
                     class="flex items-start space-x-4 group hover:bg-blue-50/50 p-4 rounded-2xl transition-all duration-300"
                   >
-                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                    <div
+                      class="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-300"
+                    >
                       <Icon :name="benefit.icon" class="text-white text-base" />
                     </div>
                     <div>
-                      <div class="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                      <div
+                        class="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300"
+                      >
                         {{ benefit.title }}
                       </div>
                       <div class="text-sm text-gray-600 mt-1">{{ benefit.description }}</div>
@@ -252,8 +252,8 @@
       leave-from-class="opacity-100 translate-y-0 scale-100"
       leave-to-class="opacity-0 translate-y-10 scale-95"
     >
-      <div 
-        v-if="showSuccess" 
+      <div
+        v-if="showSuccess"
         class="fixed top-6 right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-5 rounded-2xl shadow-2xl z-50 max-w-md border-l-4 border-emerald-400 backdrop-blur-sm"
       >
         <div class="flex items-start space-x-4">
@@ -277,12 +277,12 @@ const form = ref({
   name: '',
   phone: '',
   description: '',
-  agreement: false
+  agreement: false,
 })
 
 const formErrors = ref({
   name: '',
-  phone: ''
+  phone: '',
 })
 
 const isSending = ref(false)
@@ -292,40 +292,40 @@ const stats = [
   { value: '15 мин', label: 'Среднее время ответа' },
   { value: '24/7', label: 'Круглосуточная поддержка' },
   { value: '10+ лет', label: 'Опыт работы' },
-  { value: '100%', label: 'Гарантия конфиденциальности' }
+  { value: '100%', label: 'Гарантия конфиденциальности' },
 ]
 
 const benefits = [
-  { 
-    icon: 'mdi:account-tie', 
-    title: 'Сертифицированные специалисты', 
-    description: 'Высокая квалификация' 
+  {
+    icon: 'mdi:account-tie',
+    title: 'Сертифицированные специалисты',
+    description: 'Высокая квалификация',
   },
-  { 
-    icon: 'mdi:wrench', 
-    title: 'Современное оборудование', 
-    description: 'Профессиональная техника' 
+  {
+    icon: 'mdi:wrench',
+    title: 'Современное оборудование',
+    description: 'Профессиональная техника',
   },
-  { 
-    icon: 'mdi:shield-check', 
-    title: 'Гарантия качества', 
-    description: 'На все виды работ' 
+  {
+    icon: 'mdi:shield-check',
+    title: 'Гарантия качества',
+    description: 'На все виды работ',
   },
-  { 
-    icon: 'mdi:clock-fast', 
-    title: 'Срочный выезд', 
-    description: 'В течение 60 минут' 
+  {
+    icon: 'mdi:clock-fast',
+    title: 'Срочный выезд',
+    description: 'В течение 60 минут',
   },
-  { 
-    icon: 'mdi:certificate', 
-    title: 'Официальный договор', 
-    description: 'Все документы' 
+  {
+    icon: 'mdi:certificate',
+    title: 'Официальный договор',
+    description: 'Все документы',
   },
-  { 
-    icon: 'mdi:headset', 
-    title: 'Техподдержка', 
-    description: 'После выполнения работ' 
-  }
+  {
+    icon: 'mdi:headset',
+    title: 'Техподдержка',
+    description: 'После выполнения работ',
+  },
 ]
 
 const validateForm = () => {
@@ -352,7 +352,7 @@ const validateForm = () => {
   return isValid
 }
 
-const clearError = (field) => {
+const clearError = field => {
   if (formErrors.value[field]) {
     formErrors.value[field] = ''
   }
@@ -365,14 +365,13 @@ const submitForm = async () => {
 
   try {
     await new Promise(resolve => setTimeout(resolve, 2000))
-    
+
     form.value = { name: '', phone: '', description: '', agreement: false }
-    
+
     showSuccess.value = true
     setTimeout(() => {
       showSuccess.value = false
     }, 5000)
-
   } catch (error) {
     console.error('Ошибка отправки:', error)
     alert('Произошла ошибка при отправке. Попробуйте еще раз.')
@@ -384,28 +383,52 @@ const submitForm = async () => {
 
 <style scoped>
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes float-reverse {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(15px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
 }
 
 @keyframes rotate-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes bounce-slow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .animate-float {
@@ -430,12 +453,22 @@ const submitForm = async () => {
 
 /* Геометрический паттерн */
 .pattern-geometric {
-  background-image: 
+  background-image:
     radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 2px, transparent 2px),
     radial-gradient(circle at 75% 75%, rgba(79, 70, 229, 0.1) 2px, transparent 2px),
-    linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.05) 49%, rgba(59, 130, 246, 0.05) 51%, transparent 52%),
+    linear-gradient(
+      45deg,
+      transparent 48%,
+      rgba(59, 130, 246, 0.05) 49%,
+      rgba(59, 130, 246, 0.05) 51%,
+      transparent 52%
+    ),
     linear-gradient(-45deg, transparent 48%, rgba(79, 70, 229, 0.05) 49%, rgba(79, 70, 229, 0.05) 51%, transparent 52%);
-  background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+  background-size:
+    100px 100px,
+    100px 100px,
+    50px 50px,
+    50px 50px;
 }
 
 @media (max-width: 1024px) {

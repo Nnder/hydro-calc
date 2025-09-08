@@ -157,6 +157,16 @@ const submitForm = () => {
                 class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
               ></textarea>
             </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-hydro-steel mb-2">Файлы</label>
+              <input
+                type="file"
+                id="file"
+                rows="5"
+                placeholder="Ваши файлы..."
+                class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
+              />
+            </div>
             <button
               type="submit"
               class="w-full bg-hydro-power hover:bg-hydro-power/90 text-white font-medium py-4 px-6 rounded-lg transition duration-300 hover:shadow-md text-lg flex items-center justify-center gap-2"
@@ -179,9 +189,7 @@ const submitForm = () => {
             </div>
             <span class="font-medium text-tech-dark">Свердловская область</span>
           </div>
-          <div
-            class="absolute top-6 left-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10"
-          >
+          <div class="absolute top-6 left-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10">
             <h3 class="font-bold text-lg">Мы работаем по всей Свердловской области</h3>
           </div>
         </div>

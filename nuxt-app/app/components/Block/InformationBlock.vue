@@ -76,6 +76,8 @@ const showModal = ref(false)
             placeholder="Описание проблемы"
           ></textarea>
 
+          <input type="file" class="w-full px-4 py-3 border-hydro-power border-2 rounded-lg" />
+
           <button
             type="submit"
             class="w-full bg-hydro-power hover:bg-hydro-power/90 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
