@@ -5,6 +5,8 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
+import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 
 const parameters = ref([
   { value: 'до 200', description: 'Диаметр поршня, мм' },
@@ -25,7 +27,7 @@ const description = `<p class="text-lg">
         </p>`
 
 const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
-const title = 'Изготовление и ремонт РВД в Екатеринбурге'
+const title = 'Продажа утеплителей в Нижнем Тагиле'
 
 const items = ref([
   {
@@ -138,6 +140,20 @@ const blockData = {
   imageAlt: 'ковш'
 }
 
+const mainSlideData = {
+  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  title: 'Профессиональный ремонт гидроцилиндров',
+  description: 'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.'
+}
+
+const blockDataText = {
+  title: 'Что мы делаем?',
+  description: `<p>Различные операции по восстановлению ковшей с применением износостойких, высокопрочных сталей и вспомогательных материалов. Во время эксплуатации при контакте конструкции с внешней средой быстро изнашиваются элементы корпуса, ломаются зубья. В большинстве случаев экономически целесообразно выполнить ремонт поврежденных частей ковша вместо приобретения нового.</p>
+<p>Оперативно и качественно осуществим замену адаптера, зубьев, днища, стенок, режущей кромки и футеровки. Обеспечиваем надежную защиту конструкции от преждевременного износа в условиях больших ударных нагрузок.</p>`,
+
+}
+
+
 useHead({
   title: 'Уплатнение',
   meta: [
@@ -151,10 +167,12 @@ useHead({
 </script>
 
 <template>
-  <InformationBlock :blockData="blockData" />
-
-  <ProductionEquipment />
+  <ContentWithImage :mainSlideData="mainSlideData"/>
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
+  <InformationBlock :blockData="blockData" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default"/>
+  
+  
   <AccessoriesGrid :items="items" />
   <Contact />
 </template>

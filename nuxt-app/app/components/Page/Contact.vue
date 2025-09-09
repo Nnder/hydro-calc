@@ -36,11 +36,6 @@
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- Заголовок секции -->
       <div class="text-center mb-12 md:mb-16">
-        <div
-          class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl mb-6 shadow-lg"
-        >
-          <Icon name="mdi:tools" class="text-white text-3xl" />
-        </div>
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
           Профессиональная
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">консультация</span>
@@ -149,19 +144,6 @@
                   ></textarea>
                 </div>
 
-                <div>
-                  <input
-                    type="file"
-                    :class="[
-                      'w-full px-5 py-4 border-2 rounded-xl transition-all duration-300 resize-none',
-                      'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
-                      'placeholder-gray-400 text-gray-700',
-                      'shadow-sm hover:shadow-md',
-                      'border-blue-100 hover:border-blue-300',
-                    ]"
-                  />
-                </div>
-
                 <button
                   type="submit"
                   :disabled="isSending || !form.agreement"
@@ -188,23 +170,13 @@
             <div class="h-full w-full flex items-center justify-center p-10 md:p-14">
               <div class="relative w-full h-80 md:h-96 lg:h-[500px]">
                 <NuxtImg
-                  src="/images/technical-specialist-consultation.jpg"
+                  src="https://wowprofi.ru/src/Frontend/Files/MediaLibrary/09/confident-male-worker-standing-factory-107420-96036.jpg"
                   alt="Технический специалист за работой"
                   class="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/20"
                   :imgAttrs="{ style: 'object-position: center 30%' }"
                   loading="lazy"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent rounded-3xl"></div>
-
-                <!-- Плавающие элементы -->
-                <div
-                  class="absolute top-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg animate-float"
-                >
-                  <div class="flex items-center space-x-3">
-                    <div class="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
-                    <span class="text-sm font-medium text-gray-700">Online сейчас</span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -305,16 +277,6 @@ const benefits = [
     icon: 'mdi:wrench',
     title: 'Современное оборудование',
     description: 'Профессиональная техника',
-  },
-  {
-    icon: 'mdi:shield-check',
-    title: 'Гарантия качества',
-    description: 'На все виды работ',
-  },
-  {
-    icon: 'mdi:clock-fast',
-    title: 'Срочный выезд',
-    description: 'В течение 60 минут',
   },
   {
     icon: 'mdi:certificate',
