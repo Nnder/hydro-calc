@@ -35,18 +35,18 @@ const submitForm = () => {
             <span class="text-white">Контакты</span>
           </h1>
 
-          <p class="text-xl text-hydro-steel max-w-2xl mx-auto mb-8">
+          <p class="text-xl text-white max-w-2xl mx-auto mb-8">
             Свяжитесь с нами для решения ваших технических задач
           </p>
 
           <div class="flex justify-center gap-6">
-            <a href="/" class="group flex items-center gap-2 text-hydro-steel hover:text-white transition-colors">
+            <a href="/" class="group flex items-center gap-2 text-white hover:text-white transition-colors">
               <div class="bg-hydro-power/10 group-hover:bg-hydro-power/20 p-3 rounded-full transition-all">
                 <Icon name="heroicons:phone" class="w-5 h-5" />
               </div>
               <span>+7 (800) 555-33-55</span>
             </a>
-            <a href="/" class="group flex items-center gap-2 text-hydro-steel hover:text-white transition-colors">
+            <a href="/" class="group flex items-center gap-2 text-white hover:text-white transition-colors">
               <div class="bg-hydro-power/10 group-hover:bg-hydro-power/20 p-3 rounded-full transition-all">
                 <Icon name="heroicons:envelope" class="w-5 h-5" />
               </div>
@@ -80,8 +80,18 @@ const submitForm = () => {
               </div>
               <div>
                 <h3 class="text-2xl font-bold mb-4 text-tech-dark">Телефоны</h3>
-                <p class="text-hydro-steel text-lg mb-2">+7 (800) 555-33-55</p>
-                <p class="text-hydro-steel text-lg">+7 (800) 555-33-55</p>
+                <p class="text-gray-600 text-lg mb-2">
+                  <span class="font-medium text-tech-dark">Общий:</span> +7 (800) 555-33-55
+                </p>
+                <p class="text-gray-600 text-lg mb-2">
+                  <span class="font-medium text-tech-dark">Инженер:</span> +7 (800) 555-44-66
+                </p>
+                <p class="text-gray-600 text-lg mb-2">
+                  <span class="font-medium text-tech-dark">Техподдержка:</span> +7 (800) 555-77-88
+                </p>
+                <p class="text-gray-600 text-lg">
+                  <span class="font-medium text-tech-dark">Отдел продаж:</span> +7 (800) 555-99-00
+                </p>
               </div>
             </div>
           </div>

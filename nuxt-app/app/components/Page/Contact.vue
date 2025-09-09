@@ -2,45 +2,22 @@
   <section class="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
     <!-- Фоновые абстрактные фигуры -->
     <div class="absolute inset-0 z-0 overflow-hidden">
-      <!-- Основной градиентный фон -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50/80"></div>
-
-      <!-- Абстрактные фигуры -->
-      <div class="absolute -top-20 -left-20 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-indigo-300/15 rounded-full blur-3xl"></div>
-
-      <!-- Большие круги -->
-      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200/20 rounded-full animate-pulse-slow"></div>
-      <div class="absolute bottom-1/3 right-1/3 w-48 h-48 bg-indigo-300/15 rounded-full animate-float"></div>
-
-      <!-- Геометрические фигуры -->
-      <div class="absolute top-20 right-20 w-32 h-32 bg-blue-300/10 rotate-45 animate-rotate-slow"></div>
-      <div
-        class="absolute bottom-20 left-20 w-24 h-24 bg-indigo-400/10 rounded-2xl rotate-12 animate-bounce-slow"
-      ></div>
-
-      <!-- Волны -->
-      <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-200/20 to-transparent"></div>
-
-      <!-- Сетка из треугольников и кругов -->
-      <div class="absolute inset-0 opacity-[0.03]">
-        <div class="absolute top-0 left-0 w-full h-full pattern-geometric"></div>
-      </div>
-
-      <!-- Плавающие элементы -->
-      <div class="absolute top-10 left-10 w-16 h-16 bg-blue-300/10 rounded-lg rotate-45 animate-float-reverse"></div>
-      <div class="absolute top-40 right-40 w-20 h-20 bg-indigo-300/10 rounded-full animate-bounce"></div>
-      <div class="absolute bottom-40 left-40 w-12 h-12 bg-blue-400/15 rotate-12 animate-pulse"></div>
+      <NuxtImg
+        src="https://i.pinimg.com/736x/ea/6e/75/ea6e75bb8ff0a9d1bfd8ba7d87bc9f35.jpg"
+        alt="Геометрический паттерн"
+        class="absolute inset-0 w-full h-full object-cover pattern-geometric"
+        loading="lazy"
+      />
     </div>
 
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- Заголовок секции -->
       <div class="text-center mb-12 md:mb-16">
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+        <h2 class="text-4xl text-white md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
           Профессиональная
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">консультация</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-black to-indigo-600">консультация</span>
         </h2>
-        <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-xl text-white md:text-2xl text-gray-600 max-w-3xl mx-auto">
           Экспертная помощь от сертифицированных технических специалистов
         </p>
       </div>
@@ -144,6 +121,19 @@
                   ></textarea>
                 </div>
 
+                <div class="flex items-start space-x-3">
+                  <input
+                    id="agreement"
+                    type="checkbox"
+                    v-model="form.agreement"
+                    class="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                  />
+                  <label for="agreement" class="text-sm text-gray-600">
+                    Я согласен на обработку персональных данных и принимаю условия
+                    <a href="#" class="text-blue-600 hover:underline">политики конфиденциальности</a>
+                  </label>
+                </div>
+
                 <button
                   type="submit"
                   :disabled="isSending || !form.agreement"
@@ -232,7 +222,7 @@
           <Icon name="mdi:check-circle" class="text-3xl flex-shrink-0" />
           <div class="flex-1">
             <div class="font-bold text-lg">Заявка принята!</div>
-            <div class="text-sm opacity-90 mt-2">Технический специалист свяжется с вами в течение 15 минут</div>
+            <div class="text-sm opacity-90 mt-2">Технический специалист свяжется с вами</div>
           </div>
           <button @click="showSuccess = false" class="text-white/80 hover:text-white transition-colors">
             <Icon name="mdi:close" class="text-xl" />
