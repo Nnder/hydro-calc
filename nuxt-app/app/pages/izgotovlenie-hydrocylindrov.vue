@@ -24,7 +24,8 @@ const description = `<p class="text-lg">
           производства. Изготавливаем гидроцилиндры по стандартным и индивидуальным чертежам.
         </p>`
 
-const imageUrl = 'https://cdn.stpulscen.ru/system/ckeditor_assets/pictures/494982/content_honingovannaya_trubka_prim.jpeg'
+const imageUrl =
+  'https://cdn.stpulscen.ru/system/ckeditor_assets/pictures/494982/content_honingovannaya_trubka_prim.jpeg'
 const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области'
 
 const items = ref([
@@ -62,19 +63,20 @@ const items = ref([
   },
 ])
 
-
 const blockData = {
   title: 'Изготавливаем гидроцилиндры по индивидуальным параметрам',
-  description: 'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 24 месяцев',
+  description:
+    'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 24 месяцев',
   buttonText: 'Заказать гидроцилиндр',
-  imageUrl: 'https://avatars.mds.yandex.net/get-altay/13207207/2a0000018fe778e2b0f645e5753a192a5581/XXL_height', 
-  imageAlt: 'Производство гидроцилиндров'
+  imageUrl: 'https://avatars.mds.yandex.net/get-altay/13207207/2a0000018fe778e2b0f645e5753a192a5581/XXL_height',
+  imageAlt: 'Производство гидроцилиндров',
 }
 
 const mainSlideData = {
   src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
   title: 'Профессиональный ремонт гидроцилиндров',
-  description: 'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.'
+  description:
+    'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
 }
 
 useHead({
@@ -86,11 +88,10 @@ useHead({
     },
   ],
 })
-
 </script>
 
 <template>
-    <ContentWithImage :mainSlideData="mainSlideData"/>
+  <ContentWithImage :mainSlideData="mainSlideData" />
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->

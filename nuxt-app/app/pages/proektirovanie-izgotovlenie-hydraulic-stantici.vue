@@ -92,50 +92,52 @@ const tableData = ref([
     size: '1/2"',
     pressure: '350',
     material: 'Сталь',
-    connection: 'Резьба'
+    connection: 'Резьба',
   },
   {
     type: 'Фитинг',
     size: '3/4"',
     pressure: '420',
     material: 'Нерж. сталь',
-    connection: 'Фланец'
+    connection: 'Фланец',
   },
   {
     type: 'Фланец',
     size: '1"',
     pressure: '250',
     material: 'Сталь',
-    connection: 'Болтовое'
+    connection: 'Болтовое',
   },
   {
     type: 'Адаптер',
     size: '1/4"',
     pressure: '600',
     material: 'Латунь',
-    connection: 'Резьба'
+    connection: 'Резьба',
   },
   {
     type: 'Ниппель',
     size: '3/8"',
     pressure: '500',
     material: 'Сталь',
-    connection: 'Резьба'
-  }
+    connection: 'Резьба',
+  },
 ])
 
 const blockData = {
   title: 'Комплектующие для гидравлических систем любого типа',
   description: 'Подберем и поставим любые комплектующие\nпо вашим техническим требованиям\nс гарантией качества',
   buttonText: 'Заказать комплектующие',
-  imageUrl: 'https://gidroplus.com/wp-content/uploads/2020/03/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.jpg', 
-  imageAlt: 'Дополнительные комплектующие для гидравлики'
+  imageUrl:
+    'https://gidroplus.com/wp-content/uploads/2020/03/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.jpg',
+  imageAlt: 'Дополнительные комплектующие для гидравлики',
 }
 
 const mainSlideData = {
   src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
   title: 'Профессиональный ремонт гидроцилиндров',
-  description: 'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.'
+  description:
+    'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
 }
 
 useHead({
@@ -147,11 +149,10 @@ useHead({
     },
   ],
 })
-
 </script>
 
 <template>
-    <ContentWithImage :mainSlideData="mainSlideData"/>
+  <ContentWithImage :mainSlideData="mainSlideData" />
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
