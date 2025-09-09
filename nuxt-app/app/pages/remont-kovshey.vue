@@ -335,7 +335,6 @@ useHead({
     },
   ],
 })
-
 </script>
 
 <style>

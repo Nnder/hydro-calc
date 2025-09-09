@@ -134,25 +134,25 @@ const tableData = ref([
 
 const blockData = {
   title: 'Увеличьте ресурс ваших машин',
-  description: 'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
+  description:
+    'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
   buttonText: 'Рассчитать стоимость',
   imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
-  imageAlt: 'ковш'
+  imageAlt: 'ковш',
 }
 
 const mainSlideData = {
   src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
   title: 'Профессиональный ремонт гидроцилиндров',
-  description: 'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.'
+  description:
+    'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
 }
 
 const blockDataText = {
   title: 'Что мы делаем?',
   description: `<p>Различные операции по восстановлению ковшей с применением износостойких, высокопрочных сталей и вспомогательных материалов. Во время эксплуатации при контакте конструкции с внешней средой быстро изнашиваются элементы корпуса, ломаются зубья. В большинстве случаев экономически целесообразно выполнить ремонт поврежденных частей ковша вместо приобретения нового.</p>
 <p>Оперативно и качественно осуществим замену адаптера, зубьев, днища, стенок, режущей кромки и футеровки. Обеспечиваем надежную защиту конструкции от преждевременного износа в условиях больших ударных нагрузок.</p>`,
-
 }
-
 
 useHead({
   title: 'Уплатнение',
@@ -163,16 +163,14 @@ useHead({
     },
   ],
 })
-
 </script>
 
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData"/>
+  <ContentWithImage :mainSlideData="mainSlideData" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <InformationBlock :blockData="blockData" />
-  <PartnerBlock :blockDataText="blockDataText" variant="default"/>
-  
-  
+  <PartnerBlock :blockDataText="blockDataText" variant="default" />
+
   <AccessoriesGrid :items="items" />
   <Contact />
 </template>

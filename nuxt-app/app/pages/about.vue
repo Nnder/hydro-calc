@@ -7,9 +7,9 @@
             <h2 class="text-4xl font-bold mb-8 text-dark">О компании ООО "Абсолют Техно"</h2>
             <div class="space-y-6 text-neutral-dark leading-relaxed text-lg">
               <p>
-                <strong class="text-primary-DEFAULT">ООО "Абсолют Техно"</strong> - ведущий поставщик профессионального инструмента, строительного
-                оборудования и промышленных решений в России. С 2010 года мы помогаем профессионалам и компаниям
-                находить оптимальные технические решения для реализации любых проектов.
+                <strong class="text-primary-DEFAULT">ООО "Абсолют Техно"</strong> - ведущий поставщик профессионального
+                инструмента, строительного оборудования и промышленных решений в России. С 2010 года мы помогаем
+                профессионалам и компаниям находить оптимальные технические решения для реализации любых проектов.
               </p>
               <p>
                 Наша компания объединяет многолетний опыт, глубокие отраслевые знания и стремление к инновациям,
@@ -36,7 +36,9 @@
       <div class="mb-20">
         <h2 class="text-4xl font-bold mb-12 text-center text-dark">Наши приоритеты</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent-DEFAULT hover:shadow-lg transition-all">
+          <div
+            class="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent-DEFAULT hover:shadow-lg transition-all"
+          >
             <div class="text-accent-DEFAULT text-4xl mb-4">✓</div>
             <h3 class="text-2xl font-bold mb-4 text-dark">Профессионализм</h3>
             <p class="text-neutral-dark">
@@ -52,7 +54,9 @@
               решения, повышающие эффективность их работы.
             </p>
           </div>
-          <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary-DEFAULT hover:shadow-lg transition-all">
+          <div
+            class="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary-DEFAULT hover:shadow-lg transition-all"
+          >
             <div class="text-primary-DEFAULT text-4xl mb-4">✓</div>
             <h3 class="text-2xl font-bold mb-4 text-dark">Надежность</h3>
             <p class="text-neutral-dark">
