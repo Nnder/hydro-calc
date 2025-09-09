@@ -4,7 +4,6 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
-import RvdTableWrapperObject from '~/components/Rvd-table/RvdTableWrapperObject.vue'
 import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
@@ -787,7 +786,6 @@ useHead({
     },
   ],
 })
-
 </script>
 
 <template>
