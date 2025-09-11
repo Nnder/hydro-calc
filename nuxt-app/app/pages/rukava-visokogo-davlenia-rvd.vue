@@ -792,9 +792,8 @@ useHead({
   <ContentWithImage :mainSlideData="mainSlideData" />
   <ParametersGrid :parameters="parameters" :header="header" />
   <InformationBlock :blockData="blockData" />
-  <RvdTableWrapper :table-data="tableData" />
-  <RvdTableSlider :tables="tableDataObjects" />
   <ProductionEquipment />
+  <RvdTableSlider :tables="tableDataObjects" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
   <AccessoriesGrid :items="items" />
   <Contact />
