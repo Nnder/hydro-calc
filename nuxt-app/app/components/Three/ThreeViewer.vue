@@ -48,6 +48,14 @@ onMounted(() => {
   controls.enablePan = true
   controls.enableZoom = true
 
+  controls.autoRotate = true
+  controls.autoRotateSpeed = 2.0
+
+  controls.addEventListener('start', () => {
+    // пользователь начал вращать/панорамировать/зумить
+    controls.autoRotate = false
+  })
+
   // Загрузка модели
   loadModel(props.modelPath)
 
