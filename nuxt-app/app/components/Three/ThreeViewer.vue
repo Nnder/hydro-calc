@@ -69,6 +69,39 @@ onBeforeUnmount(() => {
   renderer.dispose()
 })
 
+function fitCameraToObject(camera, controls, object, offset = 1.1) {
+  const box = new THREE.Box3().setFromObject(object)
+  const size = box.getSize(new THREE.Vector3())
+  const center = box.getCenter(new THREE.Vector3())
+
+  // радиус «сферы», в которую вписывается объект
+  const maxSize = Math.max(size.x, size.y, size.z)
+  const halfSize = maxSize * 0.5
+  const halfFov = THREE.MathUtils.degToRad(camera.fov * 0.5)
+
+  // расстояние до камеры так, чтобы объект целиком влез
+  let distance = (halfSize / Math.tan(halfFov)) * offset
+
+  // чтобы не улетала слишком далеко
+  const minDistance = maxSize * 0.5
+  const maxDistance = maxSize * 5
+  distance = THREE.MathUtils.clamp(distance, minDistance, maxDistance)
+
+  // позиция камеры по Z
+  camera.position.copy(center)
+  camera.position.z += distance
+
+  // если хочешь слегка сверху → можно добавить:
+  // camera.position.y += distance * 0.2
+
+  camera.lookAt(center)
+
+  if (controls) {
+    controls.target.copy(center)
+    controls.update()
+  }
+}
+
 function onWindowResize() {
   if (!container.value) return
   camera.aspect = container.value.clientWidth / container.value.clientHeight
@@ -86,31 +119,23 @@ function loadModel(path: string) {
   loader.load(
     path,
     gltf => {
-      console.log('model is loaded', gltf)
-      if (model) {
-        scene.remove(model)
-      }
-
+      if (model) scene.remove(model)
       model = gltf.scene
 
-      // 🔹 Центрируем и масштабируем модель
+      // центрирование + масштаб
       const box = new THREE.Box3().setFromObject(model)
-      const size = box.getSize(new THREE.Vector3())
       const center = box.getCenter(new THREE.Vector3())
+      const size = box.getSize(new THREE.Vector3())
+      model.position.sub(center)
 
-      // смещаем в центр
-      model.position.x += model.position.x - center.x
-      model.position.y += model.position.y - center.y
-      model.position.z += model.position.z - center.z
-
-      // нормализуем масштаб
       const maxDim = Math.max(size.x, size.y, size.z)
-      const scale = 2 / maxDim // подгоняем в камеру
+      const scale = 2 / maxDim
       model.scale.setScalar(scale)
 
       scene.add(model)
-      scene.add(new THREE.AxesHelper(10))
-      scene.add(new THREE.GridHelper(20, 20))
+
+      // ✨ Автоподгон камеры
+      fitCameraToObject(camera, controls, model)
 
       isLoading.value = false
     },
