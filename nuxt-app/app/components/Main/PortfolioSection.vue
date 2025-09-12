@@ -91,7 +91,7 @@ import PortfolioSlider from './PortfolioSlider.vue'
 defineProps({
   portfolio: {
     type: Array,
-    required: true,
+    // required: true,
   },
 })
 

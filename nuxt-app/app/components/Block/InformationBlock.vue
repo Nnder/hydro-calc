@@ -1,4 +1,6 @@
 <script setup>
+import ThreeViewer from '../Three/ThreeViewer.vue'
+
 defineProps({
   blockData: {
     type: Object,
@@ -29,14 +31,21 @@ const showModal = ref(false)
             </button>
           </div>
 
-          <div class="hidden md:block">
+          <div class="hidden md:block !w-[640px]">
             <NuxtImg
+              v-if="blockData.type !== '3d'"
               :src="blockData.imageUrl"
               :alt="blockData.imageAlt"
               class="w-[512] max-h-96 object-contain"
               width="640"
               height="640"
               format="webp"
+            />
+            <ThreeViewer
+              v-else
+              :modelPath="blockData.modelSrc"
+              :canvasColor="blockData.modelBgColor"
+              class="!h-[400px]"
             />
           </div>
         </div>

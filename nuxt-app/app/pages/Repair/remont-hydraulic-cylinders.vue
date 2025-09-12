@@ -235,6 +235,9 @@ const blockData = {
   buttonText: 'Рассчитать стоимость',
   imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
   imageAlt: 'Гидроцилиндр',
+  type: '3d',
+  modelSrc: '/3d/Сборка_ГЦ_реф.glb',
+  modelBgColor: '#2563EB',
 }
 
 const hydrantParts = ref([

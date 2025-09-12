@@ -6,6 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 const props = defineProps<{
   modelPath: string
+  canvasColor: string
 }>()
 
 const container = ref<HTMLDivElement | null>(null)
@@ -24,7 +25,7 @@ onMounted(() => {
 
   // Сцена
   scene = new THREE.Scene()
-  scene.background = new THREE.Color(0xf0f0f0)
+  scene.background = new THREE.Color(props.canvasColor || 0xf0f0f0)
 
   // Камера
   camera = new THREE.PerspectiveCamera(75, container.value.clientWidth / container.value.clientHeight, 0.1, 1000)
