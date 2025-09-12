@@ -7,6 +7,20 @@ import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
+definePageMeta({
+  path: '/rukava-visokogo-davlenia-rvd',
+})
+
+useHead({
+  title: 'Изготовление РВД по вашим размерам или образцу',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 const parameters = ref([
   { value: 'до 2"', description: 'Диаметр подключения, дюймов' },
   { value: 'до 40', description: 'Рабочее давление, МПа' },
@@ -776,16 +790,6 @@ const mainSlideData = {
   title: 'Изготовление РВД по вашим размерам или образцу',
   description: 'РВД 1SN-4SH, защитные оплетки, тормозные трубки и магистрали, тормозные шланги, другие комплектующие',
 }
-
-useHead({
-  title: 'Изготовление РВД по вашим размерам или образцу',
-  meta: [
-    {
-      name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
-    },
-  ],
-})
 </script>
 
 <template>

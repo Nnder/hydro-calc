@@ -17,6 +17,20 @@ import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Accordion from '~/components/Page/Accordion.vue'
 
+definePageMeta({
+  path: '/remont-svarkoy',
+})
+
+useHead({
+  title: 'Сварочные и токарные работы',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 const mainSlideData = {
   src: 'https://lorry-group.ru/wp-content/uploads/2020/parser/cat_6015_B.jpg',
   title: 'Осуществим ремонт ковшей экскаваторов, бульдозеров и другой техники',
@@ -197,16 +211,6 @@ const getHighlightStyle = index => {
     height: part.highlight.height,
   }
 }
-
-useHead({
-  title: 'Сварочные и токарные работы',
-  meta: [
-    {
-      name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
-    },
-  ],
-})
 </script>
 
 <style>

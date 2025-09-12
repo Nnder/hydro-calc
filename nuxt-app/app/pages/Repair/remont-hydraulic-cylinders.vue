@@ -79,7 +79,7 @@
                     <div v-if="part.features" class="mt-2 md:mt-3">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start mb-1 md:mb-2">
                         <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0" />
-                        <span>{{ feature }}</span>
+                        <span v-html="feature"></span>
                       </div>
                     </div>
                   </div>
@@ -108,12 +108,13 @@
                 :key="'highlight-' + index"
                 class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
                 :class="{
-                  'opacity-0': activeHighlight !== index,
-                  'opacity-100': activeHighlight === index,
+                  'opacity-0': part.selected,
+                  'opacity-100': part.selected,
                 }"
               >
                 <div
-                  class="absolute bg-red-500/50 border-2 border-red-600 rounded-md"
+                  v-if="part.selected"
+                  :class="'absolute border-2 rounded-md ' + part.color"
                   :style="getHighlightStyle(index)"
                 ></div>
               </div>
@@ -124,7 +125,7 @@
     </div>
   </div>
   <InformationBlock :blockData="blockData" />
-  <PartnerBlock :blockDataText="blockDataText" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" />
   <PortfolioSection />
   <Accordion />
@@ -135,34 +136,42 @@
 import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+import TrustSection from '~/components/Main/TrustSection.vue'
 import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import Accordion from '~/components/Page/Accordion.vue'
+import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+
+definePageMeta({
+  path: '/remont-hydraulic-cylinders',
+})
+
+useHead({
+  title: 'Профессиональный ремонт гидроцилиндров',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
 
 const blockDataText = {
   title: 'Что мы делаем?',
   description: `<p>Различные операции по восстановлению ковшей с применением износостойких, высокопрочных сталей и вспомогательных материалов. Во время эксплуатации при контакте конструкции с внешней средой быстро изнашиваются элементы корпуса, ломаются зубья. В большинстве случаев экономически целесообразно выполнить ремонт поврежденных частей ковша вместо приобретения нового.</p>
 <p>Оперативно и качественно осуществим замену адаптера, зубьев, днища, стенок, режущей кромки и футеровки. Обеспечиваем надежную защиту конструкции от преждевременного износа в условиях больших ударных нагрузок.</p>`,
-  benefits: [
-    'Благодаря точной диагностике многие неисправности мы решим на месте, не отрывая технику от производства.',
-    'Бесплатно доставим гидроагрегат, снимая с вас ответственность за организацию транспортировки.',
-    'Соблюдаем все стандарты и требования безопасности в процессе ремонта.',
-    'Используем первоклассное оборудование и технологии для точной диагностики.',
-    'Эффективно организуем обслуживание больших парков техники с индивидуальным графиком.',
-  ],
 }
 
 const mainSlideData = {
-  src: 'https://www.hansa-flex.de/fileadmin/hansaflex/Products/Drive_and_control_engineering/Pumps/Produkte_Pumpen_01.jpg',
-  title: 'Профессиональный ремонт гидронасосов',
+  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  title: 'Профессиональный ремонт гидроцилиндров',
   description:
-    'Профессиональный ремонт гидронасосов в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
+    'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
 }
 
 const globalTitle = ref({
-  gtitle: 'Гидронасосов',
-  subtitle: 'Полный цикл восстановления гидронасосов спецтехники',
+  gtitle: 'Гидроцилиндров',
+  subtitle: 'Полный цикл восстановления гидроцилиндров спецтехники',
 })
 
 const repairSteps = ref([
@@ -170,68 +179,59 @@ const repairSteps = ref([
     title: 'Доставка и приемка',
     shortDescription: 'Транспортировка и осмотр',
     description:
-      'Мы организуем доставку гидронасоса на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+      'Мы организуем доставку гидроцилиндра на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
     image: '/icons/delivery-truck.svg',
-  },
-  {
-    title: 'Разборка и мойка',
-    shortDescription: 'Предварительная подготовка',
-    description: 'Разборка гидронасоса, тщательная мойка всех деталей',
-    image: '/icons/tools.svg',
   },
   {
     title: 'Дефектовка',
     shortDescription: 'Полная диагностика',
     description:
-      'Наши специалисты проводят полную диагностику всех узлов и деталей, составляют техническое заключение и выявляют причины неисправности',
+      'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
     image: '/icons/magnifying-glass.svg',
   },
   {
     title: 'Согласование',
     shortDescription: 'Утверждение стоимости',
-    description:
-      'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта гидронасоса',
+    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
     image: '/icons/handshake.svg',
   },
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем оригинальные запчасти или аналоги неуступающие по качеству',
+    description: 'Приобретаем оригинальные запчасти и изготавливаем недостающие элементы: детали, уплотнения и др.',
     image: '/icons/gears.svg',
   },
   {
-    title: 'Восстановление',
-    shortDescription: 'Ремонт деталей',
+    title: 'Обработка',
+    shortDescription: 'Восстановление деталей',
     description:
-      'Проводим шлифовку валов, восстановление рабочих поверхностей, притирку рабочих поверхностей деталей роторной группы, замену изношенных деталей и ревизию корпусных частей',
-    image: '/icons/repair.svg',
+      'Проводим хонингование,наплавку штоков коррзионостойкими материалами , шлифовку и полировку поверхностей',
+    image: '/icons/tools.svg',
   },
   {
     title: 'Сборка',
     shortDescription: 'Комплектация',
-    description: 'Профессиональная сборка гидронасоса с использованием новых уплотнений, подшипников и комплектующих',
+    description: 'Профессиональная сборка гидроцилиндра с использованием новых уплотнений и комплектующих',
     image: '/icons/assembly.svg',
   },
   {
-    title: 'Испытания',
+    title: 'Испытания по ГОСТу 18464-96',
     shortDescription: 'Тестирование',
-    description:
-      'Проводим испытания на специализированном стенде под нагрузкой, проверяем рабочее давление, производительность и КПД',
+    description: 'Проводим испытания на специализированном стенде',
     image: '/icons/test.svg',
   },
   {
     title: 'Отгрузка',
     shortDescription: 'Возврат клиенту',
-    description:
-      'Упаковываем и доставляем отремонтированный гидронасос с гарантией качества и технической документацией',
+    description: 'Упаковываем и доставляем отремонтированный гидроцилиндр с гарантией качества',
     image: '/icons/package.svg',
   },
 ])
 
 const blockData = {
-  title: 'Изготовим нестандартное оборудование по вашему проекту',
+  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
   description:
-    'Произведём гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
   buttonText: 'Рассчитать стоимость',
   imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
   imageAlt: 'Гидроцилиндр',
@@ -239,14 +239,16 @@ const blockData = {
 
 const hydrantParts = ref([
   {
-    name: 'Дефектовка (разборка)',
+    name: 'Диагностика (дефектовка)',
     selected: false,
     show: false,
     description:
-      'Полная диагностика гидронасосов с использованием современного оборудования для выявления всех дефектов.',
+      'Полная диагностика гидроцилиндра с использованием современного оборудования для выявления всех дефектов.',
     features: [
       'Визуальный осмотр на предмет повреждений',
-      'Разборка гидронасоса, осмотр всех комплектующих на наличие поверхностных дефектов',
+      'Проверка герметичности системы',
+      'Измерение параметров штока и гильзы',
+      'Составление карт проверов гильзы и штока',
       'Составление дефектовочной ведомости',
     ],
     highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
@@ -255,47 +257,73 @@ const hydrantParts = ref([
     name: 'Подбор и замена уплотнений',
     selected: false,
     show: false,
-    description: 'Комплексная замена всех уплотнительных элементов гидронасоса.',
-    features: ['Подбор оригинальных уплатнений или аналогов', 'Замена манжет, колец и сальников'],
     highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
+    color: 'bg-orange-400/50 border-orange-400',
   },
   {
-    name: 'Ремонт или замена рабочей группы',
+    name: 'Изготовление и замена штока',
     selected: false,
     show: false,
-    description: 'Притирка рабочих поверхностей блока и распределителя или замена на оригинальные запчасти',
-    features: [],
-    highlight: { top: '1%', left: '25%', width: '45%', height: '10%' },
+    color: 'bg-green-500/50 border-green-500',
+    highlight: { top: '25%', left: '30%', width: '20%', height: '50%' },
+  },
+  {
+    name: 'Изготовление и замена поршня',
+    selected: false,
+    show: false,
+    color: 'bg-teal-600/50 border-teal-600',
+    highlight: { top: '40%', left: '45%', width: '15%', height: '10%' },
+  },
+  {
+    name: 'Ремонт гильз',
+    selected: false,
+    show: false,
+    color: 'bg-sky-700/50 border-sky-700',
+    highlight: { top: '30%', left: '50%', width: '30%', height: '40%' },
+  },
+  {
+    name: 'Замена крышек',
+    selected: false,
+    show: false,
+    color: 'bg-blue-300/50 border-blue-300',
+    highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
+  },
+  {
+    name: 'Ремонт цапф',
+    selected: false,
+    show: false,
+    color: 'bg-indigo-600/50 border-indigo-600',
+    highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
+  },
+  {
+    name: 'Замена проушин',
+    selected: false,
+    show: false,
+    color: 'bg-orange-600/50 border-orange-600',
+    highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
   },
   {
     name: 'Гидравлические испытания',
     selected: false,
     show: false,
-    description: 'Контрольные испытания на специализированном стенде.',
+    description: 'Контрольные испытания гидрацилиндров по ГОСТу',
     features: [
       'Проверка на герметичность',
-      'Контроль расходных характеристик насоса',
-      'Контроль рабочего давления',
+      'Испытание давлением P<span class="text-[10px]">раб</span> * 1,25',
+      'Контроль плавности хода',
       'Фиксация результатов с занесением данных в паспорт',
     ],
     highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },
 ])
 
-const activeHighlight = ref(null)
 const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
 
 const handlePartClick = index => {
   hydrantParts.value[index].selected = !hydrantParts.value[index].selected
   hydrantParts.value[index].show = hydrantParts.value[index].selected
-  activeHighlight.value = index
 
-  scrollToImage()
-  setTimeout(() => {
-    if (activeHighlight.value === index) {
-      activeHighlight.value = null
-    }
-  }, 3000)
+  // scrollToImage()
 }
 
 const scrollToImage = () => {
@@ -317,16 +345,6 @@ const getHighlightStyle = index => {
     height: part.highlight.height,
   }
 }
-
-useHead({
-  title: 'Профессиональный ремонт гидронасосов',
-  meta: [
-    {
-      name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
-    },
-  ],
-})
 </script>
 
 <style>

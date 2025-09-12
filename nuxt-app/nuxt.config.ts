@@ -52,8 +52,9 @@ export default defineNuxtConfig({
       '/page1',
       '/test',
       '/remont-hydraulic-cylinders',
-      '/remont-hydraulic-motors',
-      '/remont-nasosov-pumps',
+      // '/remont-hydraulic-cylinders',
+      // '/remont-hydraulic-motors',
+      // '/remont-nasosov-pumps',
     ],
   },
 
@@ -232,6 +233,10 @@ export default defineNuxtConfig({
     },
   },
 
+  routeRules: {
+    '/remont-hydraulic-cylinders': { prerender: true },
+  },
+
   ssr: true,
   nitro: {
     prerender: {
@@ -244,8 +249,9 @@ export default defineNuxtConfig({
         '/page1',
         '/test',
         '/remont-hydraulic-cylinders',
-        '/remont-hydraulic-motors',
-        '/remont-nasosov-pumps',
+        // '/remont-hydraulic-cylinders',
+        // '/remont-hydraulic-motors',
+        // '/remont-nasosov-pumps',
       ],
       ignore: ['/api/**'],
     },
@@ -253,7 +259,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Строительный магазин Абсолют техно',
+      title: 'Абсолют техно',
       htmlAttrs: {
         lang: 'ru',
       },

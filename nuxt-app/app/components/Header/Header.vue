@@ -48,44 +48,20 @@ const servicesSubMenu = [
     id: 'repair',
     name: 'Ремонт',
     items: [
-      //
       {
         id: 'hydraulics',
         name: 'Гидроцилиндров',
         link: '/remont-hydraulic-cylinders',
-        // subItems: [
-        //   { name: 'Дифектовка (разборка)', link: '/test' },
-        //   { name: 'Подбор и замена уплотнений', link: '/' },
-        //   { name: 'Ремонт или замена рабочей группы', link: '/' },
-        //   { name: 'Испытание гидравлики', link: '/' },
-        // ],
       },
       {
         id: 'nasosy',
         name: 'Гидронасосов',
-        // name: 'Насосы аксиально поршневые и аксиально рядовые поршневые',
         link: '/remont-nasosov-pumps',
-        // subItems: [
-        //   { name: 'Дифектовка', link: '/test' },
-        //   { name: 'Подбор и замена уплотнений', link: '/' },
-        //   { name: 'Ремонт или замена рабочей группы', link: '/' },
-        //   { name: 'Испытание гидравлики', link: '/' },
-        //   { name: 'Изготовление и ремонт гильз', link: '/' },
-        //   { name: 'Изготовление и ремонт крышек', link: '/' },
-        // ],
       },
       {
         id: 'cylindry',
         name: 'Гидромоторов',
         link: '/remont-hydraulic-motors',
-        // subItems: [
-        //   { name: 'Диагностика и дифектовка', link: '/test' },
-        //   { name: 'Подбор и замена уплотнений', link: '/' },
-        //   { name: 'Изготовление и замена штока', link: '/' },
-        //   { name: 'Изготовление и замена поршня', link: '/' },
-        //   { name: 'Изготовление и ремонт гильз', link: '/' },
-        //   { name: 'Изготовление и ремонт крышек', link: '/' },
-        // ],
       },
       {
         id: 'kovshey',
@@ -107,19 +83,12 @@ const servicesSubMenu = [
         id: 'rvd',
         name: 'Изготовление рукава высокого давления (РВД)',
         link: '/rukava-visokogo-davlenia-rvd',
-        // subItems: [{ name: 'Калькулятор', link: '/test' }],
       },
       {
         id: 'cylindry',
         name: 'Гидроцилиндров',
         link: '/izgotovlenie-hydrocylindrov',
-        // subItems: [
-        //   { name: 'Проектировка', link: '/test' },
-        //   { name: 'Изготовление', link: '/' },
-        //   { name: 'Испытания', link: '/' },
-        // ],
       },
-      // { name: 'Станция гидравлическая (объем от 50л до 2000л)', link: '/' },
       {
         name: 'Проектировка и изготовление гидравлических станций',
         link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
@@ -131,13 +100,13 @@ const servicesSubMenu = [
     name: 'Продажа',
     items: [
       { name: 'Уплотнений', link: '/sell-uplotnenie' },
-      { name: 'Гидронасосов', link: '/test' },
-      { name: 'Гидроцилиндров', link: '/page1' },
-      { name: 'Гидрораспределителей', link: '/page2' },
-      { name: 'Клапанов давления', link: '/' },
-      { name: 'Фильтров и фильтроэлементов', link: '/' },
-      { name: 'Комплектующие РВД', link: '/' },
-      { name: 'ГСМ и технических жидкостей', link: '/' },
+      { name: 'Гидронасосов', link: '/sell-gidronasosov' },
+      { name: 'Гидроцилиндров', link: '/sell-gidrocilindrov' },
+      { name: 'Гидрораспределителей', link: '/sell-gidroraspredelitelei' },
+      { name: 'Клапанов давления', link: '/sell-klapanov-davleniya' },
+      { name: 'Фильтров и фильтроэлементов', link: '/sell-filtrov' },
+      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
+      { name: 'ГСМ и технических жидкостей', link: '/sell-shidkostey' },
     ],
   },
 ]

@@ -7,6 +7,20 @@ import ProductionEquipment from '~/components/Production/ProductionEquipment.vue
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 
+definePageMeta({
+  path: '/izgotovlenie-hydrocylindrov',
+})
+
+useHead({
+  title: 'Изготовление рукава высокого давления (РВД)',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 const parameters = ref([
   { value: 'до 200', description: 'Диаметр поршня, мм' },
   { value: 'до 2400', description: 'Ход поршня, мм' },
@@ -78,16 +92,6 @@ const mainSlideData = {
   description:
     'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
 }
-
-useHead({
-  title: 'Изготовление рукава высокого давления (РВД)',
-  meta: [
-    {
-      name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
-    },
-  ],
-})
 </script>
 
 <template>

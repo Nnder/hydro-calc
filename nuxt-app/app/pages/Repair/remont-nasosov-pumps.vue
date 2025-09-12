@@ -79,7 +79,7 @@
                     <div v-if="part.features" class="mt-2 md:mt-3">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start mb-1 md:mb-2">
                         <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0" />
-                        <span v-html="feature"></span>
+                        <span>{{ feature }}</span>
                       </div>
                     </div>
                   </div>
@@ -108,13 +108,12 @@
                 :key="'highlight-' + index"
                 class="absolute inset-0 transition-opacity duration-300 pointer-events-none"
                 :class="{
-                  'opacity-0': part.selected,
-                  'opacity-100': part.selected,
+                  'opacity-0': activeHighlight !== index,
+                  'opacity-100': activeHighlight === index,
                 }"
               >
                 <div
-                  v-if="part.selected"
-                  :class="'absolute border-2 rounded-md ' + part.color"
+                  class="absolute bg-red-500/50 border-2 border-red-600 rounded-md"
                   :style="getHighlightStyle(index)"
                 ></div>
               </div>
@@ -124,11 +123,10 @@
       </div>
     </div>
   </div>
-  <ParametersGrid :parameters="parameters" :header="header" />
-  <PartnerBlock :blockDataText="blockDataText" />
   <InformationBlock :blockData="blockData" />
-  <Stages :steps="repairSteps" />
-  <!-- <PortfolioSection /> -->
+  <PartnerBlock :blockDataText="blockDataText" />
+  <Stages :steps="repairSteps" :globalTitle="globalTitle" />
+  <PortfolioSection />
   <Accordion />
   <Contact />
 </template>
@@ -138,15 +136,23 @@ import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
-// import PortfolioSection from '~/components/Main/PortfolioSection.vue'
-import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import Accordion from '~/components/Page/Accordion.vue'
+import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 
-const mainSlideData = {
-  src: 'https://lorry-group.ru/wp-content/uploads/2020/parser/cat_6015_B.jpg',
-  title: 'Осуществим ремонт ковшей экскаваторов, бульдозеров и другой техники',
-  description: 'Замена днища, замена режущей кромки или другие ремонтные работы, которые мы выполняем профессионально',
-}
+definePageMeta({
+  path: '/remont-nasosov-pumps',
+})
+
+useHead({
+  title: 'Профессиональный ремонт гидронасосов',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
 
 const blockDataText = {
   title: 'Что мы делаем?',
@@ -161,74 +167,100 @@ const blockDataText = {
   ],
 }
 
-const parameters = ref([
-  { value: 'до 3 тонн', description: 'Максимальный вес' },
-  { value: 'до 40', description: 'Рабочее давление, МПа' },
-  { value: 'от -50°C до +100°C', description: 'Температурный диапазон' },
-])
+const mainSlideData = {
+  src: 'https://www.hansa-flex.de/fileadmin/hansaflex/Products/Drive_and_control_engineering/Pumps/Produkte_Pumpen_01.jpg',
+  title: 'Профессиональный ремонт гидронасосов',
+  description:
+    'Профессиональный ремонт гидронасосов в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
+}
 
-const header = 'ПАРАМЕТРЫ КОВШЕЙ'
+const globalTitle = ref({
+  gtitle: 'Гидронасосов',
+  subtitle: 'Полный цикл восстановления гидронасосов спецтехники',
+})
 
 const repairSteps = ref([
   {
     title: 'Доставка и приемка',
     shortDescription: 'Транспортировка и осмотр',
     description:
-      'Мы организуем доставку ковшами наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+      'Мы организуем доставку гидронасоса на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
     image: '/icons/delivery-truck.svg',
+  },
+  {
+    title: 'Разборка и мойка',
+    shortDescription: 'Предварительная подготовка',
+    description: 'Разборка гидронасоса, тщательная мойка всех деталей',
+    image: '/icons/tools.svg',
   },
   {
     title: 'Дефектовка',
     shortDescription: 'Полная диагностика',
     description:
-      'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
+      'Наши специалисты проводят полную диагностику всех узлов и деталей, составляют техническое заключение и выявляют причины неисправности',
     image: '/icons/magnifying-glass.svg',
   },
   {
     title: 'Согласование',
     shortDescription: 'Утверждение стоимости',
-    description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
+    description:
+      'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта гидронасоса',
     image: '/icons/handshake.svg',
   },
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем сертефицированные запчасти и детали для ремонта ковшей',
+    description: 'Приобретаем оригинальные запчасти или аналоги неуступающие по качеству',
     image: '/icons/gears.svg',
   },
   {
-    title: 'Сборка и сварка',
+    title: 'Восстановление',
+    shortDescription: 'Ремонт деталей',
+    description:
+      'Проводим шлифовку валов, восстановление рабочих поверхностей, притирку рабочих поверхностей деталей роторной группы, замену изношенных деталей и ревизию корпусных частей',
+    image: '/icons/repair.svg',
+  },
+  {
+    title: 'Сборка',
     shortDescription: 'Комплектация',
-    description: 'Профессиональная сборка и сварка ковша с использованием комплектующих, а также усилиение ковша',
+    description: 'Профессиональная сборка гидронасоса с использованием новых уплотнений, подшипников и комплектующих',
     image: '/icons/assembly.svg',
+  },
+  {
+    title: 'Испытания',
+    shortDescription: 'Тестирование',
+    description:
+      'Проводим испытания на специализированном стенде под нагрузкой, проверяем рабочее давление, производительность и КПД',
+    image: '/icons/test.svg',
   },
   {
     title: 'Отгрузка',
     shortDescription: 'Возврат клиенту',
-    description: 'Упаковываем и доставляем отремонтированный ковш с гарантией качества',
+    description:
+      'Упаковываем и доставляем отремонтированный гидронасос с гарантией качества и технической документацией',
     image: '/icons/package.svg',
   },
 ])
 
 const blockData = {
-  title: 'Увеличьте ресурс ваших машин',
+  title: 'Изготовим нестандартное оборудование по вашему проекту',
   description:
-    'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
-  buttonText: 'Связаться с нами',
-  imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
-  imageAlt: 'ковш',
+    'Произведём гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+  buttonText: 'Рассчитать стоимость',
+  imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
+  imageAlt: 'Гидроцилиндр',
 }
 
 const hydrantParts = ref([
   {
-    name: 'Диагностика (дефектовка)',
+    name: 'Дефектовка (разборка)',
     selected: false,
     show: false,
-    description: 'Полная диагностика ковшас использованием современного оборудования для выявления всех дефектов.',
+    description:
+      'Полная диагностика гидронасосов с использованием современного оборудования для выявления всех дефектов.',
     features: [
       'Визуальный осмотр на предмет повреждений',
-      'Проверка герметичности системы',
-      'Измерение параметров штока и гильзы',
+      'Разборка гидронасоса, осмотр всех комплектующих на наличие поверхностных дефектов',
       'Составление дефектовочной ведомости',
     ],
     highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
@@ -237,73 +269,47 @@ const hydrantParts = ref([
     name: 'Подбор и замена уплотнений',
     selected: false,
     show: false,
+    description: 'Комплексная замена всех уплотнительных элементов гидронасоса.',
+    features: ['Подбор оригинальных уплатнений или аналогов', 'Замена манжет, колец и сальников'],
     highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
-    color: 'bg-orange-400/50 border-orange-400',
   },
   {
-    name: 'Изготовление и замена штока',
+    name: 'Ремонт или замена рабочей группы',
     selected: false,
     show: false,
-    color: 'bg-green-500/50 border-green-500',
-    highlight: { top: '25%', left: '30%', width: '20%', height: '50%' },
-  },
-  {
-    name: 'Изготовление и замена поршня',
-    selected: false,
-    show: false,
-    color: 'bg-teal-600/50 border-teal-600',
-    highlight: { top: '40%', left: '45%', width: '15%', height: '10%' },
-  },
-  {
-    name: 'Ремонт гильз',
-    selected: false,
-    show: false,
-    color: 'bg-sky-700/50 border-sky-700',
-    highlight: { top: '30%', left: '50%', width: '30%', height: '40%' },
-  },
-  {
-    name: 'Замена крышек',
-    selected: false,
-    show: false,
-    color: 'bg-blue-300/50 border-blue-300',
-    highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
-  },
-  {
-    name: 'Ремонт цапф',
-    selected: false,
-    show: false,
-    color: 'bg-indigo-600/50 border-indigo-600',
-    highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
-  },
-  {
-    name: 'Замена проушин',
-    selected: false,
-    show: false,
-    color: 'bg-orange-600/50 border-orange-600',
-    highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
+    description: 'Притирка рабочих поверхностей блока и распределителя или замена на оригинальные запчасти',
+    features: [],
+    highlight: { top: '1%', left: '25%', width: '45%', height: '10%' },
   },
   {
     name: 'Гидравлические испытания',
     selected: false,
     show: false,
-    description: 'Контрольные испытания под давлением после ремонта.',
+    description: 'Контрольные испытания на специализированном стенде.',
     features: [
       'Проверка на герметичность',
-      'Испытание рабочим давлением P<span class="text-[10px]">раб</span> * 1,25',
-      'Контроль плавности хода',
-      'Фиксация результатов',
+      'Контроль расходных характеристик насоса',
+      'Контроль рабочего давления',
+      'Фиксация результатов с занесением данных в паспорт',
     ],
     highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },
 ])
 
+const activeHighlight = ref(null)
 const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
 
 const handlePartClick = index => {
   hydrantParts.value[index].selected = !hydrantParts.value[index].selected
   hydrantParts.value[index].show = hydrantParts.value[index].selected
+  activeHighlight.value = index
 
-  // scrollToImage()
+  scrollToImage()
+  setTimeout(() => {
+    if (activeHighlight.value === index) {
+      activeHighlight.value = null
+    }
+  }, 3000)
 }
 
 const scrollToImage = () => {
@@ -325,16 +331,6 @@ const getHighlightStyle = index => {
     height: part.highlight.height,
   }
 }
-
-useHead({
-  title: 'Профессиональный ремонт ковшей',
-  meta: [
-    {
-      name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
-    },
-  ],
-})
 </script>
 
 <style>

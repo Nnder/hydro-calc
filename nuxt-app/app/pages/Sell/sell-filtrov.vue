@@ -9,6 +9,20 @@ import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 
+definePageMeta({
+  path: '/sell-filtrov',
+})
+
+useHead({
+  title: 'Уплатнение',
+  meta: [
+    {
+      name: 'description',
+      content: 'Инструменты и оборудование для строительства и ремонта',
+    },
+  ],
+})
+
 const header = 'ПАРАМЕТРЫ НАШИХ УТЕПЛИТЕЛЕЙ'
 
 const description = `<p class="text-lg">
@@ -98,16 +112,6 @@ const blockDataText = {
   description: `<p>Широкий ассортимент теплоизоляционных материалов для различных целей: утепление стен, полов, кровли, фасадов и фундаментов. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
 <p>Наши специалисты помогут подобрать оптимальный утеплитель для ваших задач, рассчитают необходимое количество материала и предоставят профессиональную консультацию по монтажу. Экономьте на отоплении и создайте комфортные условия в вашем доме!</p>`,
 }
-
-useHead({
-  title: 'Уплатнение',
-  meta: [
-    {
-      name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
-    },
-  ],
-})
 
 const slider = {
   videoSrc: '/videos/Lavrov.mp4',
