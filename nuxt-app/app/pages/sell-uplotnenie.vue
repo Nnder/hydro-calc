@@ -19,7 +19,7 @@ const description = `<p class="text-lg">
           Все наши утеплители проходят строгий контроль качества и соответствуют ГОСТам. 
         </p>`
 
-const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
+const imageUrl = 'images/uplotnenie/block.jpeg'
 const title = 'Продажа утеплителей в Нижнем Тагиле'
 
 const items = ref([
@@ -82,7 +82,7 @@ const blockData = {
   description:
     'Качественная теплоизоляция позволяет значительно снизить энергопотребление и создать комфортный микроклимат в помещении в любое время года',
   buttonText: 'Рассчитать стоимость',
-  imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
+  imageUrl: 'images/uplotnenie/i.png',
   imageAlt: 'утепление дома',
 }
 
