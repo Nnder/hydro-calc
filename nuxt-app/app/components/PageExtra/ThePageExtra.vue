@@ -3,55 +3,55 @@ import { ref } from 'vue'
 
 const items = ref([
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Втулка',
   },
 ])

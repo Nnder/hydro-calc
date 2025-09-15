@@ -38,55 +38,55 @@ const title = 'Продажа утеплителей в Нижнем Тагил�
 
 const items = ref([
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Минеральная вата',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Пенополистирол',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Базальтовые плиты',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Экструдированный пенополистирол',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Фольгированный утеплитель',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Пенофол',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Стекловата',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Пенопласт',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Керамзит',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Эковата',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Пенополиуретан',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Пробковый утеплитель',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=880a0490d1d6d679a51df2c9b1e6cdbb_l-5087168-images-thumbs&n=13',
+    image: 'vtulka.jpeg',
     title: 'Жидкая теплоизоляция',
   },
 ])

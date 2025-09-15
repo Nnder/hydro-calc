@@ -38,8 +38,7 @@ const description = `<p class="text-lg">
           производства. Изготавливаем гидроцилиндры по стандартным и индивидуальным чертежам.
         </p>`
 
-const imageUrl =
-  'https://cdn.stpulscen.ru/system/ckeditor_assets/pictures/494982/content_honingovannaya_trubka_prim.jpeg'
+const imageUrl = 'honingovannaya_trubka_prim.jpeg'
 const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области'
 
 const items = ref([

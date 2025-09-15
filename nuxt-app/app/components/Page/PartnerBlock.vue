@@ -3,9 +3,9 @@
     <div class="bg-gray-100 rounded-2xl h-auto md:h-[500px] relative overflow-hidden">
       <div class="flex flex-col md:flex-row h-full" :class="flexDirection">
         <div class="w-full md:w-1/2 h-64 md:h-full">
-          <NuxtImg 
-            :src="imageUrl" 
-            :alt="imageAlt" 
+          <NuxtImg
+            :src="imageUrl"
+            :alt="imageAlt"
             class="w-full h-full object-cover"
             sizes="sm:100vw md:50vw lg:800px"
             loading="lazy"
@@ -21,7 +21,12 @@
             <div class="text-lg text-gray-700 mb-8 leading-relaxed space-y-4" v-html="processedDescription"></div>
 
             <ul v-if="blockDataText.benefits" class="space-y-4 mb-8">
-              <li v-for="(item, index) in blockDataText.benefits" :key="index" class="flex items-start gap-3" :class="benefitsAlignment">
+              <li
+                v-for="(item, index) in blockDataText.benefits"
+                :key="index"
+                class="flex items-start gap-3"
+                :class="benefitsAlignment"
+              >
                 <div class="flex-shrink-0 mt-1">
                   <Icon name="heroicons:check-badge" class="w-6 h-6 text-green-600" />
                 </div>
@@ -39,21 +44,21 @@
 const props = defineProps({
   blockDataText: {
     type: Object,
-    required: true
+    required: true,
   },
   variant: {
     type: String,
     default: 'default',
-    validator: (value) => ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value)
+    validator: value => ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
   },
   imageUrl: {
     type: String,
-    default: 'https://traktorodetal.ru/upload/resize_cache/iblock/9d9/p6pjux0iqn0du1e8g47ihk14a3mf59jb/968_504_1/traktorodetal_zapustila_tsekh_po_remontu.webp'
+    default: 'worker_3.webp',
   },
   imageAlt: {
     type: String,
-    default: 'Спецтехника на ремонте'
-  }
+    default: 'Спецтехника на ремонте',
+  },
 })
 
 const processedDescription = computed(() => {

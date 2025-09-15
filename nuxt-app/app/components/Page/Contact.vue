@@ -3,7 +3,7 @@
     <!-- Фоновые абстрактные фигуры -->
     <div class="absolute inset-0 z-0 overflow-hidden">
       <NuxtImg
-        src="https://i.pinimg.com/736x/ea/6e/75/ea6e75bb8ff0a9d1bfd8ba7d87bc9f35.jpg"
+        src="blue_bg.jpg"
         alt="Геометрический паттерн"
         class="absolute inset-0 w-full h-full object-cover pattern-geometric"
         loading="lazy"
