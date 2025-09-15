@@ -29,7 +29,7 @@ const mainMenu = [
   {
     id: 'delivery',
     name: 'Доставка',
-    link: '/',
+    link: '/delivery',
   },
   {
     id: 'contacts',
