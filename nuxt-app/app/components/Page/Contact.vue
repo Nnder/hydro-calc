@@ -156,7 +156,7 @@
             <div class="h-full w-full flex items-center justify-center p-10 md:p-14">
               <div class="relative w-full h-80 md:h-96 lg:h-[500px]">
                 <NuxtImg
-                  src="https://wowprofi.ru/src/Frontend/Files/MediaLibrary/09/confident-male-worker-standing-factory-107420-96036.jpg"
+                  src="/worker_4.jpg"
                   alt="Технический специалист за работой"
                   class="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/20"
                   :imgAttrs="{ style: 'object-position: center 30%' }"

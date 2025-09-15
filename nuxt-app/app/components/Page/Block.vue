@@ -8,7 +8,7 @@
     <div class="space-y-24">
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <NuxtImg
-          src="honingovannaya_trubka_prim.jpeg"
+          src="/honingovannaya_trubka_prim.jpeg"
           alt="Ремонт гидроцилиндров"
           class="w-full md:w-1/2 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl border border-hydro-steel/10"
           format="webp"
@@ -44,7 +44,7 @@
 
       <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
         <NuxtImg
-          src="worker_2.jpg"
+          src="/worker_2.jpeg"
           alt="Техническое обслуживание"
           class="w-full md:w-1/2 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl border border-hydro-steel/10"
           format="webp"

@@ -149,7 +149,7 @@ const tableData = ref([
 
           <div class="hidden md:block">
             <NuxtImg
-              src="https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg"
+              src="/hydrocilindr.jpg"
               alt="Гидроцилиндр"
               class="w-64 h-64 object-contain"
               width="320"
@@ -325,7 +325,7 @@ const tableData = ref([
       <div class="w-full lg:w-1/2 flex justify-center">
         <div class="relative w-full h-64 sm:h-80 lg:h-96 overflow-hidden">
           <NuxtImg
-            src="https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg"
+            src="/rvd.jpg"
             alt="Производство РВД на оборудовании OR"
             class="w-full h-full object-cover"
             loading="lazy"

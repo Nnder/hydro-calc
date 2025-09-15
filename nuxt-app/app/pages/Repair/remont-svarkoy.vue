@@ -32,7 +32,7 @@ useHead({
 })
 
 const mainSlideData = {
-  src: 'https://lorry-group.ru/wp-content/uploads/2020/parser/cat_6015_B.jpg',
+  src: '/cat_workers.jpg',
   title: 'Осуществим ремонт ковшей экскаваторов, бульдозеров и другой техники',
   description: 'Замена днища, замена режущей кромки или другие ремонтные работы, которые мы выполняем профессионально',
 }
@@ -101,7 +101,7 @@ const blockData = {
   description:
     'Абразивное влияние грунта на материал конструкции при интенсивной эксплуатации оборудования приводит к быстрому износу ее отдельных элементов',
   buttonText: 'Связаться с нами',
-  imageUrl: 'https://cmr24.by/uploads/Articles/42/ekskavator.png',
+  imageUrl: '/ekskavator.png',
   imageAlt: 'ковш',
 }
 

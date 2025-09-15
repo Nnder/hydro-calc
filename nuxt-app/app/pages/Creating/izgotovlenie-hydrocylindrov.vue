@@ -38,40 +38,40 @@ const description = `<p class="text-lg">
           производства. Изготавливаем гидроцилиндры по стандартным и индивидуальным чертежам.
         </p>`
 
-const imageUrl = 'honingovannaya_trubka_prim.jpeg'
+const imageUrl = '/honingovannaya_trubka_prim.jpeg'
 const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области'
 
 const items = ref([
   {
-    image: 'https://avatars.mds.yandex.net/i?id=8405108591ece3b455079d0ad0508e41_l-5303693-images-thumbs&n=13',
+    image: '/shtok.jpeg',
     title: 'Шток',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=83d2b77057be96a13243be2da3ba1667_l-5754670-images-thumbs&n=13',
+    image: '/gilza.jpeg',
     title: 'Гильза',
   },
   {
-    image: 'https://cdn.izap24.ru/images/prodacts/sourse/250377/250377261_vtulka-tsilindra-bf-040410001.jpg',
+    image: '/porshen.jpg',
     title: 'Поршень',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=39f61ff2ce2f0c0ac6d7739604e86d50_l-10698550-images-thumbs&n=13',
+    image: '/krishka.jpeg',
     title: 'Крышка',
   },
   {
-    image: 'https://avatars.mds.yandex.net/get-mpic/1597983/2a0000018dec406adb92c14c0cb0b88be6e5/orig',
+    image: '/gaika.jpeg',
     title: 'Гайка',
   },
   {
-    image: 'https://specresurs96.ru/userfls/shop/large/2508_4388027-remkomplekt-gidrotsili.png',
+    image: '/uplotnenie.png',
     title: 'Уплотнения',
   },
   {
-    image: 'https://cdn1.ozone.ru/s3/multimedia-1-z/6914229587.jpg',
+    image: '/proushina.jpg',
     title: 'Проушина',
   },
   {
-    image: 'https://avatars.mds.yandex.net/get-mpic/1565610/img_id243666551572505319.jpeg/orig',
+    image: '/flanec.jpeg',
     title: 'Фланец',
   },
 ])
@@ -81,12 +81,12 @@ const blockData = {
   description:
     'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 24 месяцев',
   buttonText: 'Заказать гидроцилиндр',
-  imageUrl: 'https://avatars.mds.yandex.net/get-altay/13207207/2a0000018fe778e2b0f645e5753a192a5581/XXL_height',
+  imageUrl: '/hidrocilinder_3.jpeg',
   imageAlt: 'Производство гидроцилиндров',
 }
 
 const mainSlideData = {
-  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  src: '/hidrocilinder_4.jpeg',
   title: 'Профессиональный ремонт гидроцилиндров',
   description:
     'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',

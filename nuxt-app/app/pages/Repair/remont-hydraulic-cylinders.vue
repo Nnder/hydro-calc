@@ -163,7 +163,7 @@ const blockDataText = {
 }
 
 const mainSlideData = {
-  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  src: '/recambios-coches1.jpg',
   title: 'Профессиональный ремонт гидроцилиндров',
   description:
     'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
@@ -233,7 +233,7 @@ const blockData = {
   description:
     'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
   buttonText: 'Рассчитать стоимость',
-  imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
+  imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
   type: '3d',
   modelSrc: '/3d/Сборка_ГЦ_реф.glb',

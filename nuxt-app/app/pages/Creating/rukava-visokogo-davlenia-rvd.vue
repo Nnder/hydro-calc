@@ -38,32 +38,32 @@ const description = `<p class="text-lg">
           производства.
         </p>`
 
-const imageUrl = 'https://www.slavyane8.ru/wp-content/uploads/2019/11/XXL-1.jpg'
+const imageUrl = '/rvd.jpg'
 const title = 'Изготовление и ремонт РВД по Свердловской области'
 
 const items = ref([
   {
-    image: 'https://store.eihydraulics.ru/upload/iblock/921/921ea5cca55ff9febc69f2a8c696c8e0.jpg',
+    image: '/flanec_sae.jpg',
     title: 'Фланец SAE',
   },
   {
-    image: 'https://avatars.mds.yandex.net/get-mpic/4888456/2a0000018b191e4183bfaa4bc32ab3acd765/orig',
+    image: '/uplotnitelnoe_kolce.jpeg',
     title: 'Уплотнительное кольцо',
   },
   {
-    image: 'https://avatars.mds.yandex.net/get-mpic/11695357/2a000001904798c1d5bc7fcab8b126ee87dd/orig',
+    image: '/bistrosemnoe_soedinenie.jpeg',
     title: 'Быстросъёмное соединение',
   },
   {
-    image: 'https://avatars.mds.yandex.net/get-mpic/5207288/2a0000018e0b56f3ef5939a5538134c3f47d/orig',
+    image: '/zashitnie_obolochi.jpeg',
     title: 'Защитные оболочки',
   },
   {
-    image: 'https://avatars.mds.yandex.net/get-mpic/5243609/2a000001923476b725fafc49bf93526cd286/orig',
+    image: '/perehodnik.jpeg',
     title: 'Переходник',
   },
   {
-    image: 'https://avatars.mds.yandex.net/i?id=e18bda75bc6cc9f915ddb2f8f436ccf214d7a030-13486952-images-thumbs&n=13',
+    image: '/zalishki_2.jpeg',
     title: 'Заглушка',
   },
 ])
@@ -781,12 +781,12 @@ const blockData = {
   description:
     'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 12 месяцев',
   buttonText: 'Заказать РВД',
-  imageUrl: 'https://avatars.mds.yandex.net/i?id=204dd5e5dde778919d6fd95f544c62b8_l-12497179-images-thumbs&n=13',
+  imageUrl: '/rvd_3.jpeg',
   imageAlt: 'Производство рукавов высокого давления',
 }
 
 const mainSlideData = {
-  src: 'https://cdn11.bigcommerce.com/s-b9jusbkdeq/product_images/uploaded_images/1.jpg',
+  src: '/rvd_mass.jpg',
   title: 'Изготовление РВД по вашим размерам или образцу',
   description: 'РВД 1SN-4SH, защитные оплетки, тормозные трубки и магистрали, тормозные шланги, другие комплектующие',
 }

@@ -168,7 +168,7 @@ const blockDataText = {
 }
 
 const mainSlideData = {
-  src: 'https://harlex.ru/upload/iblock/087/u0o1rnpvl4sdtez6w7xytg87x5eyfc52.png',
+  src: '/gidrocilinder_5.png',
   title: 'Профессиональный ремонт гидромоторов',
   description:
     'Профессиональный ремонт гидромоторов в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
@@ -247,7 +247,7 @@ const blockData = {
   description:
     'Произведём гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
   buttonText: 'Рассчитать стоимость',
-  imageUrl: 'https://oboruduy.com/files/images/items/288/288279z5a7304d0.jpg',
+  imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
 }
 

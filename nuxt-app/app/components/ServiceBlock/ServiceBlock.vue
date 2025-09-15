@@ -9,15 +9,15 @@ const categories = ref([
     services: [
       {
         title: 'Ремонт Гидроцилиндров',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Ремонт Гидронасосов',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Ремонт Гидромоторов',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
     ],
   },
@@ -28,15 +28,15 @@ const categories = ref([
     services: [
       {
         title: 'РВД',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Изготовление Гидроцилиндров',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Станция гидравлическая',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
     ],
   },
@@ -47,31 +47,31 @@ const categories = ref([
     services: [
       {
         title: 'Продажа Уплотнений',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Продажа Гидронасосов',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Продажа Гидроцилиндров',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Продажа Гидрораспределителей',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Продажа Клапанов давления',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Продажа Фильтров',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
       {
         title: 'Продажа Маслов',
-        image: 'https://avatars.mds.yandex.net/i?id=36fc6465a7586ec0d699d4dd7421f889_l-4935775-images-thumbs&n=13',
+        image: '/hydrocilindr_2.jpg',
       },
     ],
   },
