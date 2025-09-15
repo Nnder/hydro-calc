@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col lg:flex-row gap-8">
         <div class="w-full lg:w-2/3 h-96 rounded-xl overflow-hidden shadow-lg">
-          <Gis :markers="markers" @marker-click="handleMarkerClick" />
+          <Gis />
         </div>
         
         <div class="w-full lg:w-1/3">
@@ -12,8 +12,6 @@
               <div 
                 v-for="(branch, index) in branches" 
                 :key="index"
-                :class="{ 'bg-blue-50 -mx-6 px-6 py-4 rounded-md': activeBranch === index }"
-                @click="setActiveBranch(index)"
                 class="cursor-pointer transition-colors duration-200 hover:bg-gray-50 p-4 rounded-lg"
               >
                 <h3 class="text-xl font-semibold text-gray-800">{{ branch.name }}</h3>
