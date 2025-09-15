@@ -1,6 +1,5 @@
 <template>
-  <section class="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
-    <!-- Фоновые абстрактные фигуры -->
+  <section class="relative py-10 md:py-24 px-4 sm:px-6 overflow-hidden">
     <div class="absolute inset-0 z-0 overflow-hidden">
       <NuxtImg
         src="blue_bg.jpg"
@@ -11,42 +10,40 @@
     </div>
 
     <div class="max-w-7xl mx-auto relative z-10">
-      <!-- Заголовок секции -->
-      <div class="text-center mb-12 md:mb-16">
-        <h2 class="text-4xl text-white md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+      <div class="text-center mb-8 md:mb-16">
+        <h2 class="text-3xl text-white md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
           Профессиональная
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-black to-indigo-600">консультация</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-400">консультация</span>
         </h2>
-        <p class="text-xl text-white md:text-2xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-lg text-white md:text-xl lg:text-2xl max-w-3xl mx-auto px-2">
           Экспертная помощь от сертифицированных технических специалистов
         </p>
       </div>
 
-      <div class="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-white/20">
-        <div class="grid grid-cols-1 lg:grid-cols-2">
-          <!-- Левая часть - форма -->
-          <div class="p-10 md:p-14 bg-white/90 relative">
+      <div class="bg-white/95 backdrop-blur-md rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-2xl overflow-hidden border border-white/20">
+        <div class="flex flex-col lg:grid lg:grid-cols-2">
+          <div class="p-6 sm:p-8 md:p-10 lg:p-14 bg-white/90 relative order-2 lg:order-1">
             <div class="relative z-10">
-              <div class="text-center lg:text-left mb-10">
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Бесплатная консультация</h3>
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
-                  <p class="text-gray-600 mb-3 font-medium">Оставьте заявку и получите:</p>
-                  <ul class="text-sm text-gray-500 space-y-2">
+              <div class="text-center lg:text-left mb-6 md:mb-10">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Бесплатная консультация</h3>
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl lg:rounded-2xl p-4 md:p-6 border border-blue-100">
+                  <p class="text-gray-600 mb-3 font-medium text-sm md:text-base">Оставьте заявку и получите:</p>
+                  <ul class="text-xs md:text-sm text-gray-500 space-y-2">
                     <li class="flex items-center">
-                      <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                        <Icon name="mdi:check" class="text-blue-600 text-sm" />
+                      <div class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                        <Icon name="mdi:check" class="text-blue-600 text-xs md:text-sm" />
                       </div>
                       Бесплатную диагностику по телефону
                     </li>
                     <li class="flex items-center">
-                      <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                        <Icon name="mdi:check" class="text-blue-600 text-sm" />
+                      <div class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                        <Icon name="mdi:check" class="text-blue-600 text-xs md:text-sm" />
                       </div>
                       Предварительную оценку стоимости
                     </li>
                     <li class="flex items-center">
-                      <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                        <Icon name="mdi:check" class="text-blue-600 text-sm" />
+                      <div class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                        <Icon name="mdi:check" class="text-blue-600 text-xs md:text-sm" />
                       </div>
                       Консультацию по решению проблемы
                     </li>
@@ -54,17 +51,17 @@
                 </div>
               </div>
 
-              <form @submit.prevent="submitForm" class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-3">Ваше имя *</label>
+              <form @submit.prevent="submitForm" class="space-y-4 md:space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div class="md:col-span-2 lg:col-span-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Ваше имя *</label>
                     <input
                       type="text"
                       v-model="form.name"
                       placeholder="Иван Иванов"
                       required
                       :class="[
-                        'w-full px-5 py-4 border-2 rounded-xl transition-all duration-300',
+                        'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
                         'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
                         'placeholder-gray-400 text-gray-700',
                         'shadow-sm hover:shadow-md',
@@ -72,21 +69,21 @@
                       ]"
                       @input="clearError('name')"
                     />
-                    <p v-if="formErrors.name" class="text-red-500 text-xs mt-2 flex items-center">
+                    <p v-if="formErrors.name" class="text-red-500 text-xs mt-1 md:mt-2 flex items-center">
                       <Icon name="mdi:alert-circle" class="mr-1" />
                       {{ formErrors.name }}
                     </p>
                   </div>
 
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-3">Телефон *</label>
+                  <div class="md:col-span-2 lg:col-span-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Телефон *</label>
                     <input
                       type="tel"
                       v-model="form.phone"
                       placeholder="+7 (999) 999-99-99"
                       required
                       :class="[
-                        'w-full px-5 py-4 border-2 rounded-xl transition-all duration-300',
+                        'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
                         'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
                         'placeholder-gray-400 text-gray-700',
                         'shadow-sm hover:shadow-md',
@@ -94,7 +91,7 @@
                       ]"
                       @input="clearError('phone')"
                     />
-                    <p v-if="formErrors.phone" class="text-red-500 text-xs mt-2 flex items-center">
+                    <p v-if="formErrors.phone" class="text-red-500 text-xs mt-1 md:mt-2 flex items-center">
                       <Icon name="mdi:alert-circle" class="mr-1" />
                       {{ formErrors.phone }}
                     </p>
@@ -102,13 +99,13 @@
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-3">Опишите проблему</label>
+                  <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Опишите проблему</label>
                   <textarea
-                    rows="4"
+                    rows="3"
                     v-model="form.description"
                     placeholder="Подробно опишите вашу проблему, оборудование и симптомы..."
                     :class="[
-                      'w-full px-5 py-4 border-2 rounded-xl transition-all duration-300 resize-none',
+                      'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300 resize-none',
                       'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
                       'placeholder-gray-400 text-gray-700',
                       'shadow-sm hover:shadow-md',
@@ -117,14 +114,14 @@
                   ></textarea>
                 </div>
 
-                <div class="flex items-start space-x-3">
+                <div class="flex items-start space-x-2 md:space-x-3">
                   <input
                     id="agreement"
                     type="checkbox"
                     v-model="form.agreement"
-                    class="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                    class="mt-0.5 md:mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                   />
-                  <label for="agreement" class="text-sm text-gray-600">
+                  <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
                     Я согласен на обработку персональных данных и принимаю условия
                     <a href="#" class="text-blue-600 hover:underline">политики конфиденциальности</a>
                   </label>
@@ -134,63 +131,62 @@
                   type="submit"
                   :disabled="isSending || !form.agreement"
                   :class="[
-                    'w-full font-bold py-5 px-8 rounded-2xl transition-all duration-400 flex items-center justify-center gap-3',
+                    'w-full font-bold py-3 md:py-4 lg:py-5 px-6 md:px-8 rounded-xl md:rounded-2xl transition-all duration-400 flex items-center justify-center gap-2 md:gap-3',
                     'transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl',
-                    'text-lg',
+                    'text-base md:text-lg',
                     isSending || !form.agreement
                       ? 'bg-gradient-to-r from-blue-300 to-blue-400 cursor-not-allowed'
                       : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-blue-500/40',
                   ]"
                 >
-                  <Icon v-if="isSending" name="svg-spinners:ring-resize" class="text-2xl" />
-                  <Icon v-else name="mdi:phone-in-talk" class="text-2xl" />
-                  {{ isSending ? 'Отправляем заявку...' : 'Получить консультацию' }}
+                  <Icon v-if="isSending" name="svg-spinners:ring-resize" class="text-xl md:text-2xl" />
+                  <Icon v-else name="mdi:phone-in-talk" class="text-xl md:text-2xl" />
+                  {{ isSending ? 'Отправляем...' : 'Получить консультацию' }}
                 </button>
               </form>
             </div>
           </div>
 
-          <!-- Правая часть - картинка и преимущества -->
-          <div class="relative bg-gradient-to-br from-blue-50/80 to-indigo-100/60">
-            <!-- Картинка -->
-            <div class="h-full w-full flex items-center justify-center p-10 md:p-14">
-              <div class="relative w-full h-80 md:h-96 lg:h-[500px]">
+          <div class="relative bg-gradient-to-br from-blue-50/80 to-indigo-100/60 order-1 lg:order-2">
+            <div class="h-64 sm:h-80 md:h-96 lg:h-full flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-14">
+              <div class="relative w-full h-full">
                 <NuxtImg
                   src="/worker_4.jpg"
                   alt="Технический специалист за работой"
-                  class="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/20"
+                  class="w-full h-full object-cover rounded-xl lg:rounded-3xl shadow-lg lg:shadow-2xl border-4 border-white/20"
                   :imgAttrs="{ style: 'object-position: center 30%' }"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent rounded-3xl"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent rounded-xl lg:rounded-3xl"></div>
               </div>
             </div>
 
-            <!-- Преимущества -->
-            <div class="absolute bottom-10 left-10 right-10">
-              <div class="bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                  <Icon name="mdi:star-circle" class="text-blue-600 mr-3 text-2xl" />
+            <div class="relative lg:absolute lg:bottom-2 left-2 ight-2 sm:lg:bottom-3 sm:lg:left-3 sm:lg:right-3 md:lg:bottom-4 md:lg:left-4 md:lg:right-4 lg:bottom-6 lg:left-6 lg:right-6 xl:bottom-8 xl:left-8 xl:right-8 mt-4 lg:mt-0 p-4 lg:p-0">
+              <div class="bg-white/95 backdrop-blur-md rounded-lg md:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-md md:shadow-lg lg:shadow-xl border border-white/20 lg:max-h-[50vh] overflow-y-auto">
+                <h3 class="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-5 flex items-center">
+                  <Icon name="mdi:star-circle" class="text-blue-600 mr-2 text-lg md:text-xl lg:text-2xl" />
                   Почему выбирают нас?
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                   <div
                     v-for="(benefit, index) in benefits"
                     :key="index"
-                    class="flex items-start space-x-4 group hover:bg-blue-50/50 p-4 rounded-2xl transition-all duration-300"
+                    class="flex items-start space-x-2 sm:space-x-3 group hover:bg-blue-50/50 p-2 sm:p-3 rounded-lg md:rounded-xl transition-all duration-300"
                   >
                     <div
-                      class="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-300"
+                      class="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-300"
                     >
-                      <Icon :name="benefit.icon" class="text-white text-base" />
+                      <Icon :name="benefit.icon" class="text-white text-xs sm:text-sm md:text-base" />
                     </div>
-                    <div>
+                    <div class="flex-1 min-w-0">
                       <div
-                        class="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300"
+                        class="text-xs sm:text-sm md:text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300"
                       >
                         {{ benefit.title }}
                       </div>
-                      <div class="text-sm text-gray-600 mt-1">{{ benefit.description }}</div>
+                      <div class="text-[11px] xs:text-xs sm:text-sm text-gray-600 mt-0.5">
+                        {{ benefit.description }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -212,16 +208,16 @@
     >
       <div
         v-if="showSuccess"
-        class="fixed top-6 right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-5 rounded-2xl shadow-2xl z-50 max-w-md border-l-4 border-emerald-400 backdrop-blur-sm"
+        class="fixed top-4 right-4 left-4 sm:left-auto bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-3 md:px-6 md:py-4 lg:px-8 lg:py-5 rounded-xl md:rounded-2xl shadow-xl z-50 border-l-4 border-emerald-400 backdrop-blur-sm"
       >
-        <div class="flex items-start space-x-4">
-          <Icon name="mdi:check-circle" class="text-3xl flex-shrink-0" />
+        <div class="flex items-start space-x-3 md:space-x-4">
+          <Icon name="mdi:check-circle" class="text-2xl md:text-3xl flex-shrink-0" />
           <div class="flex-1">
-            <div class="font-bold text-lg">Заявка принята!</div>
-            <div class="text-sm opacity-90 mt-2">Технический специалист свяжется с вами</div>
+            <div class="font-bold text-base md:text-lg">Заявка принята!</div>
+            <div class="text-xs md:text-sm opacity-90 mt-1 md:mt-2">Технический специалист свяжется с вами</div>
           </div>
           <button @click="showSuccess = false" class="text-white/80 hover:text-white transition-colors">
-            <Icon name="mdi:close" class="text-xl" />
+            <Icon name="mdi:close" class="text-lg md:text-xl" />
           </button>
         </div>
       </div>
@@ -230,7 +226,6 @@
 </template>
 
 <script setup>
-// Script часть остается без изменений
 const form = ref({
   name: '',
   phone: '',
@@ -245,13 +240,6 @@ const formErrors = ref({
 
 const isSending = ref(false)
 const showSuccess = ref(false)
-
-const stats = [
-  { value: '15 мин', label: 'Среднее время ответа' },
-  { value: '24/7', label: 'Круглосуточная поддержка' },
-  { value: '10+ лет', label: 'Опыт работы' },
-  { value: '100%', label: 'Гарантия конфиденциальности' },
-]
 
 const benefits = [
   {
