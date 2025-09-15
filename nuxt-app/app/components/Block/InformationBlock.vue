@@ -36,9 +36,7 @@ defineProps({
               v-if="blockData.type !== '3d'"
               :src="blockData.imageUrl"
               :alt="blockData.imageAlt"
-              class="w-[512] max-h-96 object-contain"
-              width="640"
-              height="640"
+              class="object-fill"
               format="webp"
             />
             <ThreeViewer
