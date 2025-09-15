@@ -31,7 +31,6 @@
     "@nuxtjs/sitemap": "^7.2.9",
     "@pinia/nuxt": "^0.10.1",
     "@popperjs/core": "^2.11.8",
-    "@samk-dev/nuxt-vcalendar": "^1.0.4",
     "@vue/devtools-api": "^7.7.7",
     "@vueuse/nuxt": "^13.0.0",
     "nodemailer": "^7.0.5",
@@ -40,10 +39,8 @@
     "nuxt-auth-sanctum": "^0.6.3",
     "nuxt-schema-org": "^5.0.5",
     "nuxt-swiper": "^2.0.0",
-    "pinia": "^3.0.1",
     "stats.js": "^0.17.0",
     "three": "^0.180.0",
-    "v-calendar": "^3.1.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "xlsx": "^0.18.5"
