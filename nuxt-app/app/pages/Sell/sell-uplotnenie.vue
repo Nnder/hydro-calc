@@ -14,7 +14,7 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Уплатнение',
+  title: 'Уплотнение',
   meta: [
     {
       name: 'description',
