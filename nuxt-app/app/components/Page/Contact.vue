@@ -26,10 +26,6 @@
         <div class="grid grid-cols-1 lg:grid-cols-2">
           <!-- Левая часть - форма -->
           <div class="p-10 md:p-14 bg-white/90 relative">
-            <!-- Декоративные элементы на форме -->
-            <div class="absolute top-5 right-5 w-16 h-16 bg-blue-400/10 rounded-full"></div>
-            <div class="absolute bottom-5 left-5 w-12 h-12 bg-indigo-400/10 rounded-2xl rotate-45"></div>
-
             <div class="relative z-10">
               <div class="text-center lg:text-left mb-10">
                 <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Бесплатная консультация</h3>
