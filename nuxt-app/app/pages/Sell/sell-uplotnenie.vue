@@ -1,10 +1,6 @@
 <script setup>
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
-import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
-import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
