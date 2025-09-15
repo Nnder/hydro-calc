@@ -3,6 +3,7 @@
     <NuxtPage />
   </NuxtLayout>
   <PerformanceChecker />
+  <CallBackModal />
 </template>
 
 <style>
@@ -14,6 +15,7 @@ body {
 <script setup>
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
 import PerformanceChecker from './components/PerformanceChecker/PerformanceChecker.vue'
+import CallBackModal from './components/Modal/CallBackModal.vue'
 // import { useCartStore } from '~/stores/cart'
 
 // const cartStore = useCartStore()

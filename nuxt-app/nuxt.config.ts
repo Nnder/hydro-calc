@@ -12,7 +12,6 @@ export default defineNuxtConfig({
   sourcemap: false,
   modules: [
     '@vueuse/nuxt',
-    '@pinia/nuxt',
     '@nuxt/image',
     '@nuxtjs/sitemap',
     '@nuxtjs/seo',
@@ -22,9 +21,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-swiper',
     '@nuxtjs/google-fonts',
-    // 'nuxt-auth-sanctum',
-    '@samk-dev/nuxt-vcalendar',
-    // '@nuxtjs/proxy',
     'nuxt-aos',
     'nuxt-schema-org',
   ],

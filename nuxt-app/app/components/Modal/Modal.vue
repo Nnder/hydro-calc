@@ -27,24 +27,26 @@ const handleOverlayClick = event => {
 </script>
 
 <template>
-  <div
-    v-if="isOpen"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 bg-opacity-50"
-    @click="handleOverlayClick"
-  >
+  <ClientOnly>
     <div
-      v-bind="$attrs"
-      class="bg-white md:rounded-lg shadow-lg w-full h-full md:h-auto p-6 max-h-screen overflow-y-auto"
+      v-show="isOpen"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 bg-opacity-50"
+      @click="handleOverlayClick"
     >
-      <div class="flex justify-between items-center">
-        <h3 class="text-xl font-semibold">{{ title }}</h3>
-        <button @click="closeModal" class="text-gray-500 hover:text-primary-hover transition-colors">
-          <Icon name="material-symbols:close-rounded" class="w-8 h-8" />
-        </button>
-      </div>
-      <div class="">
-        <slot></slot>
+      <div
+        v-bind="$attrs"
+        class="bg-white md:rounded-lg shadow-lg w-full h-full md:h-auto p-6 max-h-screen overflow-y-auto"
+      >
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-semibold">{{ title }}</h3>
+          <button @click="closeModal" class="text-gray-500 hover:text-primary-hover transition-colors">
+            <Icon name="material-symbols:close-rounded" class="w-8 h-8" />
+          </button>
+        </div>
+        <div class="">
+          <slot></slot>
+        </div>
       </div>
     </div>
-  </div>
+  </ClientOnly>
 </template>
