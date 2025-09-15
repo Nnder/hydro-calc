@@ -95,7 +95,7 @@
             <div class="relative" style="transform: rotate(90deg); transform-origin: center">
               <NuxtImg
                 src="hydrocilinder.webp"
-                class="max-h-screen w-auto object-contain"
+                class="max-h-screen w-full object-contain"
                 alt="Профессиональный ремонт гидроцилиндров"
                 loading="lazy"
                 format="webp"
