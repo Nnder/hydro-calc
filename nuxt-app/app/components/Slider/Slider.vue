@@ -57,6 +57,7 @@
             <!-- Нижний блок с кнопкой и доп информацией -->
             <div class="bottom-content">
               <button
+                @click="open()"
                 class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap flex items-center"
               >
                 {{ slider.buttonText || 'Заказать' }}
@@ -81,7 +82,7 @@ import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
 const { sm } = useScreenSize()
-
+const { open } = useModal()
 const isHydrated = ref(false)
 
 onMounted(() => {
