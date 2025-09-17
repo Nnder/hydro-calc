@@ -95,7 +95,7 @@
           <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100">
             <div class="relative" style="transform: rotate(90deg); transform-origin: center">
               <NuxtImg
-                src="hydrocilinder.webp"
+                :src="MainCalculatorImage"
                 class="max-h-screen w-full object-contain"
                 alt="Профессиональный ремонт гидроцилиндров"
                 loading="lazy"
@@ -241,6 +241,8 @@ const blockData = {
   modelBgColor: '#2563EB',
 }
 
+const MainCalculatorImage = ref('hydrocilinder.webp')
+
 const hydrantParts = ref([
   {
     name: 'Диагностика (дефектовка)',
@@ -300,6 +302,11 @@ const hydrantParts = ref([
     onSelect: () => {
       const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
       hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
+      if (val) {
+        MainCalculatorImage.value = 'hydrocilinder1.webp'
+      } else {
+        MainCalculatorImage.value = 'hydrocilinder.webp'
+      }
     },
     highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
   },
@@ -311,6 +318,11 @@ const hydrantParts = ref([
     onSelect: () => {
       const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
       hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
+      if (val) {
+        MainCalculatorImage.value = 'hydrocilinder1.webp'
+      } else {
+        MainCalculatorImage.value = 'hydrocilinder.webp'
+      }
     },
     highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
   },
