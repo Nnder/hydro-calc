@@ -1,6 +1,6 @@
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" />
-  <div class="bg-tech-light">
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" />
+  <div class="bg-tech-light" data-aos="fade-up">
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <div class="flex min-h-[600px] gap-4">
         <!-- Левая секция (список деталей) -->
@@ -125,12 +125,12 @@
       </div>
     </div>
   </div>
-  <InformationBlock :blockData="blockData" />
-  <Stages :steps="repairSteps" :globalTitle="globalTitle" />
-  <PartnerBlock :blockDataText="blockDataText" variant="default" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <PortfolioSection />
-  <Accordion />
-  <Contact />
+  <Accordion data-aos="fade-up" />
+  <Contact data-aos="fade-up" />
 </template>
 
 <script setup>
