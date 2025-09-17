@@ -43,6 +43,7 @@ defineProps({
               v-else
               :modelPath="blockData.modelSrc"
               :canvasColor="blockData.modelBgColor"
+              :screenIncrease="blockData.scale || 0.5"
               class="!h-[400px]"
             />
           </div>

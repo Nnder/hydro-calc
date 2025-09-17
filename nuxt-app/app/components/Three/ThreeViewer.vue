@@ -4,10 +4,14 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
-const props = defineProps<{
-  modelPath: string
-  canvasColor: string
-}>()
+const props = defineProps({
+  modelPath: String,
+  canvasColor: String,
+  screenIncrease: {
+    type: Number,
+    default: 0.5,
+  },
+})
 
 const container = ref<HTMLDivElement | null>(null)
 const loadingProgress = ref<number>(0) // прогресс загрузки
@@ -86,7 +90,7 @@ function fitCameraToObject(camera, controls, object, offset = 1.1) {
   // радиус «сферы», в которую вписывается объект
   const maxSize = Math.max(size.x, size.y, size.z)
   const halfSize = maxSize * 0.5
-  const halfFov = THREE.MathUtils.degToRad(camera.fov * 0.5)
+  const halfFov = THREE.MathUtils.degToRad(camera.fov * props.screenIncrease)
 
   // расстояние до камеры так, чтобы объект целиком влез
   let distance = (halfSize / Math.tan(halfFov)) * offset
