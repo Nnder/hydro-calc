@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-swiper',
     '@nuxtjs/google-fonts',
+    'nuxt-aos',
     'nuxt-schema-org',
   ],
 
