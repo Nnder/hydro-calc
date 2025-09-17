@@ -125,12 +125,12 @@
       </div>
     </div>
   </div>
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
-  <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
-  <PortfolioSection data-aos="fade-up" />
-  <Accordion data-aos="fade-up" />
-  <Contact data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" />
+  <Stages :steps="repairSteps" :globalTitle="globalTitle" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default" />
+  <PortfolioSection />
+  <Accordion />
+  <Contact />
 </template>
 
 <script setup>
