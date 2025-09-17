@@ -24,12 +24,13 @@
           <div class="grid grid-cols-1 gap-1 md:gap-2">
             <div v-for="(part, index) in hydrantParts" :key="index" class="group">
               <div
+                v-show="!part?.hidden"
                 class="p-2 md:p-3 border rounded-lg md:rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between"
                 :class="{
                   'border-hydro-power bg-hydro-power/5': part.selected,
                   'border-gray-200 hover:border-hydro-power/30': !part.selected,
                 }"
-                @click="handlePartClick(index)"
+                @click="(handlePartClick(index), part.onSelect())"
                 role="button"
                 tabindex="0"
                 @keydown.enter.space="handlePartClick(index)"
@@ -296,6 +297,10 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     color: 'bg-indigo-600/50 border-indigo-600',
+    onSelect: () => {
+      const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
+      hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
+    },
     highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
   },
   {
@@ -303,6 +308,10 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     color: 'bg-orange-600/50 border-orange-600',
+    onSelect: () => {
+      const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
+      hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
+    },
     highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
   },
   {
