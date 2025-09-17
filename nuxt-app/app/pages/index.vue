@@ -5,6 +5,7 @@ import Gis from '~/components/Map/2Gis.vue'
 import Block from '~/components/Page/Block.vue'
 import Diagnostics from '~/components/Page/Diagnostics.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
+import InformationBlock from '~/components/Block/InformationBlock.vue'
 
 const selected = ref<null | number>(null)
 
@@ -37,11 +38,24 @@ const blockDataText = {
     'Эффективно организуем обслуживание больших парков техники с индивидуальным графиком.',
   ],
 }
+
+const blockData = {
+  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
+  description:
+    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+  buttonText: 'Рассчитать стоимость',
+  imageUrl: '/hydrocilindr.jpg',
+  imageAlt: 'Гидроцилиндр',
+  type: '3d',
+  modelSrc: '/3d/Сборка_ГЦ_реф.glb',
+  modelBgColor: '#2563EB',
+}
 </script>
 
 <template>
   <Slider />
   <ServiceBlock />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Block />
   <PartnerBlock :blockDataText="blockDataText" />
   <Gis />
