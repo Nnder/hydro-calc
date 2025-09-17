@@ -8,6 +8,8 @@ import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
+import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProduct.vue'
+import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 
 definePageMeta({
   path: '/sell-komplektushie-rvd',
@@ -36,7 +38,7 @@ const title = 'Продажа комплектующих для РВД в Ниж
 
 const items = ref([
   {
-    image: 'vtulka.jpeg',
+    image: 'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
     title: 'Фитинги для РВД',
   },
   {
@@ -123,6 +125,6 @@ const slider = {
   <PartnerBlock :blockDataText="blockDataText" variant="default" />
   <InformationBlock :blockData="blockData" />
 
-  <AccessoriesGrid :items="items" />
+  <NewProductBanner :items="items" />
   <Contact />
 </template>
