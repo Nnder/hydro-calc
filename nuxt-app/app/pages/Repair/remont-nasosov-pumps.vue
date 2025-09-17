@@ -124,8 +124,8 @@
     </div>
   </div>
   <InformationBlock :blockData="blockData" />
-  <PartnerBlock :blockDataText="blockDataText" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" />
+  <PartnerBlock :blockDataText="blockDataText" />
   <PortfolioSection />
   <Accordion />
   <Contact />

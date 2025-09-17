@@ -1,8 +1,8 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" />
   <PartnerBlock :blockDataText="blockDataText" />
-  <InformationBlock :blockData="blockData" />
   <Stages :steps="repairSteps" />
+  <InformationBlock :blockData="blockData" />
   <PortfolioSection />
   <Accordion />
   <Contact />

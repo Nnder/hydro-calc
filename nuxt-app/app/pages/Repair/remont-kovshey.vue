@@ -126,8 +126,8 @@
   </div>
   <ParametersGrid :parameters="parameters" :header="header" />
   <PartnerBlock :blockDataText="blockDataText" />
-  <InformationBlock :blockData="blockData" />
   <Stages :steps="repairSteps" />
+  <InformationBlock :blockData="blockData" />
   <!-- <PortfolioSection /> -->
   <Accordion />
   <Contact />
