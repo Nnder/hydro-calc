@@ -9,15 +9,14 @@
           nextEl: '.main-next',
           prevEl: '.main-prev',
         }"
+        :key="forceUpdateKey"
       >
         <SwiperSlide v-for="(image, index) in images" :key="index">
           <img :src="image" class="w-full h-96 object-cover" />
         </SwiperSlide>
-        
       </Swiper>
     </div>
-
-    <!-- Миниатюры -->
+      
     <div class="w-full relative">
       <Swiper
         @swiper="setThumbsSwiper"
@@ -26,6 +25,7 @@
         :spaceBetween="8"
         :watchSlidesProgress="true"
         class="thumbs-swiper"
+        :key="forceUpdateKey"
       >
         <SwiperSlide v-for="(image, index) in images" :key="index">
           <div class="relative group">
@@ -38,31 +38,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Thumbs, Navigation } from 'swiper/modules'
 
+const props = defineProps({
+  images: {
+    type: Array,
+    required: true,
+    default: () => []
+  }
+})
+
 const thumbsSwiper = ref(null)
+const forceUpdateKey = ref(0)
+
 const setThumbsSwiper = (swiper) => {
   thumbsSwiper.value = swiper
 }
 
 const modules = [Thumbs, Navigation]
-const images = [
-  'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'
-]
+
+// watch(() => props.images, () => {
+//   forceUpdateKey.value++
+// }, { deep: true })
 </script>
-
-<style scoped>
-.thumbs-swiper {
-  padding: 0 24px; 
-}
-
-.thumbs-swiper .swiper-slide-thumb-active img {
-  border-color: #3b82f6 !important;
-  border-width: 2px;
-}
-</style>
