@@ -1,14 +1,23 @@
 <script setup>
-defineProps({
+const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
 })
+
+const emit = defineEmits(['click'])
+
+const handleClick = () => {
+  emit('click', props.item)
+}
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-2 flex flex-col items-center justify-center aspect-square">
+  <div 
+    class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-2 flex flex-col items-center justify-center aspect-square cursor-pointer"
+    @click="handleClick"
+  >
     <NuxtImg
       :src="item.image"
       :alt="item.title"
@@ -16,8 +25,5 @@ defineProps({
       loading="lazy"
       format="webp"
     />
-    <!-- <p class="mt-1 text-hydro-power text-xs md:text-sm font-medium text-gray-800 text-center">
-      {{ item.title }}
-    </p> -->
   </div>
 </template>

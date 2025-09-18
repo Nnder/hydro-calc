@@ -6,6 +6,12 @@ defineProps({
     default: () => []
   }
 })
+
+const emit = defineEmits(['item-click'])
+
+const handleItemClick = (item) => {
+  emit('item-click', item)
+}
 </script>
 
 <template>
@@ -15,6 +21,7 @@ defineProps({
         v-for="(item, index) in items" 
         :key="index" 
         :item="item" 
+        @click="handleItemClick"
         class="w-16 h-16 sm:w-18 sm:h-18 md:w-16 md:h-16"
       />
     </div>
