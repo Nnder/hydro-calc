@@ -35,9 +35,7 @@ const submitForm = () => {
             <span class="text-white">Контакты</span>
           </h1>
 
-          <p class="text-xl text-white max-w-2xl mx-auto mb-8">
-            Свяжитесь с нами для решения ваших технических задач
-          </p>
+          <p class="text-xl text-white max-w-2xl mx-auto mb-8">Свяжитесь с нами для решения ваших технических задач</p>
 
           <div class="flex justify-center gap-6">
             <a href="/" class="group flex items-center gap-2 text-white hover:text-white transition-colors">
@@ -198,22 +196,7 @@ const submitForm = () => {
         </div>
       </div>
 
-      <div class="mt-16">
-        <div class="rounded-xl shadow-sm overflow-hidden border border-hydro-steel/10 h-[500px] relative">
-          <Gis />
-          <div
-            class="absolute bottom-6 right-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10 flex items-center gap-3"
-          >
-            <div class="bg-hydro-power p-2 rounded-full">
-              <Icon name="heroicons:map-pin" class="w-5 h-5 text-white" />
-            </div>
-            <span class="font-medium text-tech-dark">Свердловская область</span>
-          </div>
-          <div class="absolute top-6 left-6 bg-white p-4 rounded-lg shadow-md border border-hydro-steel/10">
-            <h3 class="font-bold text-lg">Мы работаем по всей Свердловской области</h3>
-          </div>
-        </div>
-      </div>
+      <Gis />
     </div>
   </div>
 </template>

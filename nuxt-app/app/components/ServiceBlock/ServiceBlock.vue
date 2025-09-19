@@ -93,7 +93,7 @@ const activeBgText = computed(() => {
 </script>
 
 <template>
-  <div class="bg-gray-50 relative overflow-hidden min-h-screen py-8 md:py-12">
+  <div class="bg-gray-50 relative overflow-hidden py-4 md:py-6">
     <div
       class="absolute top-[40%] md:top-[30%] left-0 right-0 flex items-center justify-center pointer-events-none z-0 opacity-50 md:opacity-70"
     >

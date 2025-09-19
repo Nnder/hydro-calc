@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-center pt-8 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-screen-xl space-y-6">
+    <div class="container space-y-6">
       <div class="flex">
-        <div class="flex-1 space-y-6 py-4">
+        <div class="flex-1 flex-grow-[2] space-y-6 py-4">
           <h1 class="text-3xl md:text-5xl font-bold md:text-nowrap md:pb-6">Доставка по всей России</h1>
           <p class="text-lg md:text-xl md:font-semibold text-justify">
             Мы организуем доставку изготовленных гидроцилиндров в любой регион России — от крупных промышленных центров
@@ -20,15 +20,16 @@
             Возможна отправка до терминала или прямо до двери.
           </p>
         </div>
-        <div class="flex-1 pl-6 hidden xl:block">
+        <div class="flex-1 flex-grow pl-8 hidden xl:block">
           <NuxtImg format="webp" class="w-full h-fit" src="/delivery.png" />
         </div>
       </div>
     </div>
   </div>
-  <ContentGis />
+
+  <Gis />
 </template>
 
 <script setup lang="js">
-import ContentGis from '~/components/Page/ContentGis.vue'
+import Gis from '~/components/Map/2Gis.vue'
 </script>
