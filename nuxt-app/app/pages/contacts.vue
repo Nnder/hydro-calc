@@ -1,4 +1,5 @@
 <script setup>
+import MainForm from '~/components/Forms/MainForm.vue'
 import Gis from '~/components/Map/2Gis.vue'
 
 useHead({
@@ -10,17 +11,6 @@ useHead({
     },
   ],
 })
-
-const form = reactive({
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
-})
-
-const submitForm = () => {
-  console.log('Форма отправлена:', form)
-}
 </script>
 
 <template>
@@ -130,71 +120,7 @@ const submitForm = () => {
 
         <div class="bg-white p-10 rounded-xl shadow-sm border border-hydro-steel/10">
           <h2 class="text-3xl font-bold mb-8 text-tech-dark">Напишите нам</h2>
-          <form @submit.prevent="submitForm" class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="name" class="block text-sm font-medium text-hydro-steel mb-2">Ваше имя</label>
-                <input
-                  v-model="form.name"
-                  id="name"
-                  type="text"
-                  placeholder="Иван Иванов"
-                  required
-                  class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
-                />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-hydro-steel mb-2">Email</label>
-                <input
-                  v-model="form.email"
-                  id="email"
-                  type="email"
-                  placeholder="mailname@gmail.com"
-                  required
-                  class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
-                />
-              </div>
-            </div>
-            <div>
-              <label for="subject" class="block text-sm font-medium text-hydro-steel mb-2">Тема</label>
-              <input
-                v-model="form.subject"
-                id="subject"
-                type="text"
-                placeholder="О чем вы хотите поговорить?"
-                required
-                class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
-              />
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-hydro-steel mb-2">Сообщение</label>
-              <textarea
-                v-model="form.message"
-                id="message"
-                rows="5"
-                placeholder="Ваше сообщение..."
-                required
-                class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
-              ></textarea>
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-hydro-steel mb-2">Файлы</label>
-              <input
-                type="file"
-                id="file"
-                rows="5"
-                placeholder="Ваши файлы..."
-                class="w-full py-3 px-4 border border-hydro-steel/20 rounded-lg focus:ring-2 focus:ring-hydro-power focus:border-transparent transition bg-white"
-              />
-            </div>
-            <button
-              type="submit"
-              class="w-full bg-hydro-power hover:bg-hydro-power/90 text-white font-medium py-4 px-6 rounded-lg transition duration-300 hover:shadow-md text-lg flex items-center justify-center gap-2"
-            >
-              <Icon name="heroicons:paper-airplane" class="w-5 h-5" />
-              Отправить сообщение
-            </button>
-          </form>
+          <MainForm />
         </div>
       </div>
 

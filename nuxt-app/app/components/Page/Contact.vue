@@ -20,29 +20,39 @@
         </p>
       </div>
 
-      <div class="bg-white/95 backdrop-blur-md rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-2xl overflow-hidden border border-white/20">
+      <div
+        class="bg-white/95 backdrop-blur-md rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-2xl overflow-hidden border border-white/20"
+      >
         <div class="flex flex-col lg:grid lg:grid-cols-2">
           <div class="p-6 sm:p-8 md:p-10 lg:p-14 bg-white/90 relative order-2 lg:order-1">
             <div class="relative z-10">
               <div class="text-center lg:text-left mb-6 md:mb-10">
                 <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Бесплатная консультация</h3>
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl lg:rounded-2xl p-4 md:p-6 border border-blue-100">
+                <div
+                  class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl lg:rounded-2xl p-4 md:p-6 border border-blue-100"
+                >
                   <p class="text-gray-600 mb-3 font-medium text-sm md:text-base">Оставьте заявку и получите:</p>
                   <ul class="text-xs md:text-sm text-gray-500 space-y-2">
                     <li class="flex items-center">
-                      <div class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                      <div
+                        class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3"
+                      >
                         <Icon name="mdi:check" class="text-blue-600 text-xs md:text-sm" />
                       </div>
                       Бесплатную диагностику по телефону
                     </li>
                     <li class="flex items-center">
-                      <div class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                      <div
+                        class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3"
+                      >
                         <Icon name="mdi:check" class="text-blue-600 text-xs md:text-sm" />
                       </div>
                       Предварительную оценку стоимости
                     </li>
                     <li class="flex items-center">
-                      <div class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                      <div
+                        class="w-5 h-5 md:w-6 md:h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2 md:mr-3"
+                      >
                         <Icon name="mdi:check" class="text-blue-600 text-xs md:text-sm" />
                       </div>
                       Консультацию по решению проблемы
@@ -51,99 +61,7 @@
                 </div>
               </div>
 
-              <form @submit.prevent="submitForm" class="space-y-4 md:space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  <div class="md:col-span-2 lg:col-span-1">
-                    <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Ваше имя *</label>
-                    <input
-                      type="text"
-                      v-model="form.name"
-                      placeholder="Иван Иванов"
-                      required
-                      :class="[
-                        'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
-                        'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
-                        'placeholder-gray-400 text-gray-700',
-                        'shadow-sm hover:shadow-md',
-                        formErrors.name ? 'border-red-400 bg-red-50' : 'border-blue-100 hover:border-blue-300',
-                      ]"
-                      @input="clearError('name')"
-                    />
-                    <p v-if="formErrors.name" class="text-red-500 text-xs mt-1 md:mt-2 flex items-center">
-                      <Icon name="mdi:alert-circle" class="mr-1" />
-                      {{ formErrors.name }}
-                    </p>
-                  </div>
-
-                  <div class="md:col-span-2 lg:col-span-1">
-                    <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Телефон *</label>
-                    <input
-                      type="tel"
-                      v-model="form.phone"
-                      placeholder="+7 (999) 999-99-99"
-                      required
-                      :class="[
-                        'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
-                        'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
-                        'placeholder-gray-400 text-gray-700',
-                        'shadow-sm hover:shadow-md',
-                        formErrors.phone ? 'border-red-400 bg-red-50' : 'border-blue-100 hover:border-blue-300',
-                      ]"
-                      @input="clearError('phone')"
-                    />
-                    <p v-if="formErrors.phone" class="text-red-500 text-xs mt-1 md:mt-2 flex items-center">
-                      <Icon name="mdi:alert-circle" class="mr-1" />
-                      {{ formErrors.phone }}
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Опишите проблему</label>
-                  <textarea
-                    rows="3"
-                    v-model="form.description"
-                    placeholder="Подробно опишите вашу проблему, оборудование и симптомы..."
-                    :class="[
-                      'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300 resize-none',
-                      'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
-                      'placeholder-gray-400 text-gray-700',
-                      'shadow-sm hover:shadow-md',
-                      'border-blue-100 hover:border-blue-300',
-                    ]"
-                  ></textarea>
-                </div>
-
-                <div class="flex items-start space-x-2 md:space-x-3">
-                  <input
-                    id="agreement"
-                    type="checkbox"
-                    v-model="form.agreement"
-                    class="mt-0.5 md:mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
-                  />
-                  <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
-                    Я согласен на обработку персональных данных и принимаю условия
-                    <a href="#" class="text-blue-600 hover:underline">политики конфиденциальности</a>
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  :disabled="isSending || !form.agreement"
-                  :class="[
-                    'w-full font-bold py-3 md:py-4 lg:py-5 px-6 md:px-8 rounded-xl md:rounded-2xl transition-all duration-400 flex items-center justify-center gap-2 md:gap-3',
-                    'transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl',
-                    'text-base md:text-lg',
-                    isSending || !form.agreement
-                      ? 'bg-gradient-to-r from-blue-300 to-blue-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-blue-500/40',
-                  ]"
-                >
-                  <Icon v-if="isSending" name="svg-spinners:ring-resize" class="text-xl md:text-2xl" />
-                  <Icon v-else name="mdi:phone-in-talk" class="text-xl md:text-2xl" />
-                  {{ isSending ? 'Отправляем...' : 'Получить консультацию' }}
-                </button>
-              </form>
+              <MainForm />
             </div>
           </div>
 
@@ -157,13 +75,21 @@
                   :imgAttrs="{ style: 'object-position: center 30%' }"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent rounded-xl lg:rounded-3xl"></div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent rounded-xl lg:rounded-3xl"
+                ></div>
               </div>
             </div>
 
-            <div class="relative lg:absolute lg:bottom-2 left-2 ight-2 sm:lg:bottom-3 sm:lg:left-3 sm:lg:right-3 md:lg:bottom-4 md:lg:left-4 md:lg:right-4 lg:bottom-6 lg:left-6 lg:right-6 xl:bottom-8 xl:left-8 xl:right-8 mt-4 lg:mt-0 p-4 lg:p-0">
-              <div class="bg-white/95 backdrop-blur-md rounded-lg md:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-md md:shadow-lg lg:shadow-xl border border-white/20 lg:max-h-[50vh] overflow-y-auto">
-                <h3 class="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-5 flex items-center">
+            <div
+              class="relative lg:absolute lg:bottom-2 left-2 ight-2 sm:lg:bottom-3 sm:lg:left-3 sm:lg:right-3 md:lg:bottom-4 md:lg:left-4 md:lg:right-4 lg:left-6 lg:right-6 xl:bottom-8 xl:left-8 xl:right-8 mt-4 lg:mt-0 p-4 lg:p-0"
+            >
+              <div
+                class="bg-white/95 backdrop-blur-md rounded-lg md:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-md md:shadow-lg lg:shadow-xl border border-white/20 lg:max-h-[50vh] overflow-y-auto"
+              >
+                <h3
+                  class="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-5 flex items-center"
+                >
                   <Icon name="mdi:star-circle" class="text-blue-600 mr-2 text-lg md:text-xl lg:text-2xl" />
                   Почему выбирают нас?
                 </h3>
@@ -226,17 +152,24 @@
 </template>
 
 <script setup>
+import MainForm from '../Forms/MainForm.vue'
+
 const form = ref({
   name: '',
   phone: '',
   description: '',
   agreement: false,
+  files: [],
 })
 
 const formErrors = ref({
   name: '',
   phone: '',
 })
+
+function handleFiles(event) {
+  form.value.files = Array.from(event.target.files)
+}
 
 const isSending = ref(false)
 const showSuccess = ref(false)
@@ -318,75 +251,6 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes float-reverse {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(15px);
-  }
-}
-
-@keyframes rotate-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bounce-slow {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes pulse-slow {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: float-reverse 5s ease-in-out infinite;
-}
-
-.animate-rotate-slow {
-  animation: rotate-slow 20s linear infinite;
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 6s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse-slow 3s ease-in-out infinite;
-}
-
 /* Геометрический паттерн */
 .pattern-geometric {
   background-image:
