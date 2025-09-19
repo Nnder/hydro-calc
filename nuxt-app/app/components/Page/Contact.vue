@@ -65,7 +65,7 @@
             </div>
           </div>
 
-          <div class="relative bg-gradient-to-br from-blue-50/80 to-indigo-100/60 order-1 lg:order-2">
+          <div class="relative order-1 lg:order-2">
             <div class="h-64 sm:h-80 md:h-96 lg:h-full flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-14">
               <div class="relative w-full h-full">
                 <NuxtImg
