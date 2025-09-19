@@ -4,8 +4,12 @@
       <div class="mb-20">
         <div class="flex flex-col lg:flex-row gap-12 items-center">
           <div class="lg:w-1/2">
-            <h2 class="text-4xl font-bold mb-8 text-dark">О компании ООО "Абсолют Техно"</h2>
-            <div class="space-y-6 text-neutral-dark leading-relaxed text-lg">
+            <h2
+              class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-dark text-center lg:text-left md:text-nowrap"
+            >
+              О компании ООО "Абсолют Техно"
+            </h2>
+            <div class="space-y-6 text-neutral-dark leading-relaxed text-sm sm:text-base lg:text-lg">
               <p>
                 <strong class="text-primary-DEFAULT">ООО "Абсолют Техно"</strong> - ведущий поставщик профессионального
                 инструмента, строительного оборудования и промышленных решений в России. С 2010 года мы помогаем
@@ -35,31 +39,36 @@
 
       <div class="mb-20">
         <h2 class="text-4xl font-bold mb-12 text-center text-dark">Наши приоритеты</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent-DEFAULT hover:shadow-lg transition-all"
-          >
-            <div class="text-accent-DEFAULT text-4xl mb-4">✓</div>
-            <h3 class="text-2xl font-bold mb-4 text-dark">Профессионализм</h3>
-            <p class="text-neutral-dark">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-hydro-power hover:shadow-lg transition-all">
+            <div class="flex items-center">
+              <div class="text-hydro-power text-4xl mb-4">✓</div>
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 text-dark">Профессионализм</h3>
+            </div>
+
+            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg">
               Мы тщательно отбираем ассортимент, предлагая только проверенные решения. Наши специалисты регулярно
               проходят обучение у производителей, чтобы предоставлять клиентам экспертную консультацию.
             </p>
           </div>
           <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-hydro-power hover:shadow-lg transition-all">
-            <div class="text-hydro-power text-4xl mb-4">✓</div>
-            <h3 class="text-2xl font-bold mb-4 text-dark">Инновации</h3>
-            <p class="text-neutral-dark">
+            <div class="flex items-center">
+              <div class="text-hydro-power text-4xl mb-4">✓</div>
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 text-dark">Инновации</h3>
+            </div>
+
+            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg">
               Мы постоянно следим за тенденциями рынка, внедряем новые Технологии и предлагаем клиентам современные
               решения, повышающие эффективность их работы.
             </p>
           </div>
-          <div
-            class="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary-DEFAULT hover:shadow-lg transition-all"
-          >
-            <div class="text-primary-DEFAULT text-4xl mb-4">✓</div>
-            <h3 class="text-2xl font-bold mb-4 text-dark">Надежность</h3>
-            <p class="text-neutral-dark">
+          <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-hydro-power hover:shadow-lg transition-all">
+            <div class="flex items-center">
+              <div class="text-hydro-power text-4xl mb-4">✓</div>
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 text-dark">Надежность</h3>
+            </div>
+
+            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg">
               Гарантия качества на все товары, официальные поставки от производителей, прозрачные условия
               сотрудничества. Мы дорожим своей репутацией и доверием клиентов.
             </p>
