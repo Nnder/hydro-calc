@@ -57,7 +57,7 @@ const submitForm = () => {
 
     <div class="container mx-auto px-6 py-16">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="space-y-8">
+        <div class="space-y-4">
           <div class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10">
             <div class="flex items-start gap-6">
               <div class="bg-hydro-power/10 p-4 rounded-full flex-shrink-0">
@@ -112,15 +112,17 @@ const submitForm = () => {
             <div class="space-y-4">
               <div class="flex justify-between pb-4 border-b border-hydro-steel/10">
                 <span class="text-hydro-steel">Офис</span>
-                <span class="font-medium">Пн-Пт: 9:00-18:00</span>
+                <div class="space-x-8">
+                  <span class="font-medium">Пн-Пт: 9:00-18:00 </span>
+                  <span class="font-medium">Сб-Вс: Выходной</span>
+                </div>
               </div>
               <div class="flex justify-between pb-4 border-b border-hydro-steel/10">
                 <span class="text-hydro-steel">Техподдержка</span>
-                <span class="font-medium">Пн-Сб: 8:00-20:00</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-hydro-steel">Выходные</span>
-                <span class="font-medium">Закрыто</span>
+                <div class="space-x-8">
+                  <span class="font-medium">Пн-Сб: 8:00-20:00</span>
+                  <span class="font-medium">Вс: Выходной</span>
+                </div>
               </div>
             </div>
           </div>
