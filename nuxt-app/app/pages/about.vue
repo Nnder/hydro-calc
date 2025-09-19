@@ -9,7 +9,7 @@
             >
               О компании ООО "Абсолют Техно"
             </h2>
-            <div class="space-y-6 text-neutral-dark leading-relaxed text-sm sm:text-base lg:text-lg">
+            <div class="space-y-6 text-neutral-dark leading-relaxed text-sm sm:text-base lg:text-lg" data-aos="fade-up">
               <p>
                 <strong class="text-primary-DEFAULT">ООО "Абсолют Техно"</strong> - ведущий поставщик профессионального
                 инструмента, строительного оборудования и промышленных решений в России. С 2010 года мы помогаем
@@ -46,7 +46,7 @@
               <h3 class="text-xl sm:text-2xl font-bold mb-4 text-dark">Профессионализм</h3>
             </div>
 
-            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg">
+            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg" data-aos="fade-up">
               Мы тщательно отбираем ассортимент, предлагая только проверенные решения. Наши специалисты регулярно
               проходят обучение у производителей, чтобы предоставлять клиентам экспертную консультацию.
             </p>
@@ -57,7 +57,7 @@
               <h3 class="text-xl sm:text-2xl font-bold mb-4 text-dark">Инновации</h3>
             </div>
 
-            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg">
+            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg" data-aos="fade-up">
               Мы постоянно следим за тенденциями рынка, внедряем новые Технологии и предлагаем клиентам современные
               решения, повышающие эффективность их работы.
             </p>
@@ -68,7 +68,7 @@
               <h3 class="text-xl sm:text-2xl font-bold mb-4 text-dark">Надежность</h3>
             </div>
 
-            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg">
+            <p class="text-neutral-dark text-sm sm:text-base lg:text-lg" data-aos="fade-up">
               Гарантия качества на все товары, официальные поставки от производителей, прозрачные условия
               сотрудничества. Мы дорожим своей репутацией и доверием клиентов.
             </p>
