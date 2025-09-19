@@ -86,8 +86,9 @@ const items = ref([
 const imageMappings = {
   'Фитинги для РВД': [
     'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
+    'https://images.steamusercontent.com/ugc/948457048990882706/2E4E05B91A9B5FAFE21E7014700891D2BB1EC59F/',
+    'https://avatars.mds.yandex.net/get-entity_search/1978677/1197001937/S600xU_2x',
+    'https://images.steamusercontent.com/ugc/948457048990882706/2E4E05B91A9B5FAFE21E7014700891D2BB1EC59F/',
     'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
   ],
   'Ниппели резьбовые': [

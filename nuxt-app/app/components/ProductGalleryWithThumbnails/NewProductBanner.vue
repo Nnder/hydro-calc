@@ -116,10 +116,10 @@ const currentPanelParams = computed(() => {
 })
 
 
-// const handleItemClick = (item) => {
-//   currentProduct.value = item.title
-//   imageKey.value++ 
-// }
+const handleItemClick = (item) => {
+  currentProduct.value = item.title
+  imageKey.value++ 
+}
 
 const getImagesForProduct = (productName) => {
   return props.imageMappings[productName] || props.defaultImages
