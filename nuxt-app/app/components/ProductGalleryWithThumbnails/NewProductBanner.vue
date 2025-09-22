@@ -1,49 +1,28 @@
 <template>
-  <section class="bg-gradient-to-br from-blue-50 to-white py-10 px-4 min-h-screen">
-    <div class="container mx-auto max-w-6xl">
-      <div class="flex flex-col lg:flex-row gap-8 items-start">
-        <!-- Левая колонка -->
-        <div class="lg:w-1/2">
-          <div class="sticky top-4">
+  <section class="bg-gradient-to-br from-blue-50 to-white py-6 px-3 min-h-screen">
+    <div class="container mx-auto max-w-5xl">
+      <div class="flex flex-col lg:flex-row gap-6 items-start">
+        <div class="lg:w-1/2 ">
+          <div class="sticky top-2">
             <SwiperProduct 
               :images="currentProductImages" 
               :key="imageKey" 
-              class="rounded-xl shadow-lg overflow-hidden border border-blue-100"
+              class="rounded-lg shadow-md overflow-hidden border border-blue-100"
             />
-            
-            <!-- Технические параметры - новый дизайн -->
-            <div class="mt-6 bg-white rounded-xl p-5 shadow-md border border-blue-100">
-              <h3 class="text-lg font-semibold text-blue-800 mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                Технические параметры
-              </h3>
-              
-              <div class="space-y-3">
-                <div v-for="(param, index) in currentPanelParams" :key="index" 
-                     class="flex justify-between items-center py-2 border-b border-blue-50 last:border-b-0">
-                  <span class="text-sm text-gray-600">{{ param.label }}:</span>
-                  <span class="text-blue-800 font-medium">{{ param.value }}</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        <!-- Правая колонка -->
         <div class="lg:w-1/2">
-          <h2 class="text-2xl font-bold text-blue-800 mb-6">
+          <h2 class="text-2xl font-bold text-blue-800 ">
             Дополнительные компоненты
           </h2>
           
           <AccessoriesGrid 
             :items="items" 
             @item-click="handleItemClick"
-            class="mb-6"
+            class=""
           />
           
-          <!-- Описание -->
           <div class="bg-white rounded-xl p-5 shadow-md border border-blue-100">
             <h3 class="text-lg font-semibold text-blue-800 mb-3 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,10 +35,22 @@
               <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
             </div>
           </div>
-          
-          <!-- Кнопка действия -->
-          <div class="mt-6">
-          </div>
+                      <div class="mt-4 bg-white rounded-lg p-4 shadow-sm border border-blue-100">
+              <h3 class="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Технические параметры
+              </h3>
+              
+              <div class="space-y-2 text-sm">
+                <div v-for="(param, index) in currentPanelParams" :key="index" 
+                     class="flex justify-between items-center py-1 border-b border-blue-50 last:border-b-0">
+                  <span class="text-gray-600">{{ param.label }}:</span>
+                  <span class="text-blue-800 font-medium">{{ param.value }}</span>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -124,7 +115,6 @@ const currentTextContent = computed(() => {
 const currentPanelParams = computed(() => {
   return props.panelParamsMappings[currentProduct.value] || props.defaultPanelParams
 })
-
 
 const handleItemClick = (item) => {
   currentProduct.value = item.title

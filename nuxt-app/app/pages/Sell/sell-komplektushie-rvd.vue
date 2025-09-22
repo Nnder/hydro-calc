@@ -45,42 +45,42 @@ const items = ref([
     image: 'vtulka.jpeg',
     title: 'Ниппели резьбовые',
   },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Муфты соединительные',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Заглушки и переходники',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Фланцы гидравлические',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Быстросъемные соединения',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Штуцеры различных типов',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Оборудование для опрессовки',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Инструмент для монтажа',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Комплектующие для ремонта',
-  // },
-  // {
-  //   image: 'vtulka.jpeg',
-  //   title: 'Запасные части',
-  // },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Муфты соединительные',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Заглушки и переходники',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Фланцы гидравлические',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Быстросъемные соединения',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Штуцеры различных типов',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Оборудование для опрессовки',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Инструмент для монтажа',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Комплектующие для ремонта',
+  },
+  {
+    image: 'vtulka.jpeg',
+    title: 'Запасные части',
+  },
 ])
 
 const imageMappings = {
@@ -92,7 +92,8 @@ const imageMappings = {
     'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
   ],
   'Ниппели резьбовые': [
-    '',
+    'https://images.steamusercontent.com/ugc/948457048990882706/2E4E05B91A9B5FAFE21E7014700891D2BB1EC59F/',
+    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
   ],
   'Муфты соединительные': [
     '',
