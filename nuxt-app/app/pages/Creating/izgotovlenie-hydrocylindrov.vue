@@ -83,6 +83,9 @@ const blockData = {
   buttonText: 'Заказать гидроцилиндр',
   imageUrl: '/hidrocilinder_3.jpeg',
   imageAlt: 'Производство гидроцилиндров',
+    type: '3d',
+  modelSrc: '/3d/Сборка_ГЦ_реф.glb',
+  modelBgColor: '#2563EB',
 }
 
 const mainSlideData = {

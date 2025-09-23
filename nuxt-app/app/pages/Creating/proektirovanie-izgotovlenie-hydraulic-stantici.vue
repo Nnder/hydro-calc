@@ -142,7 +142,7 @@ const blockData = {
   title: 'Комплектующие для гидравлических систем любого типа',
   description: 'Подберем и поставим любые комплектующие\nпо вашим техническим требованиям\nс гарантией качества',
   buttonText: 'Заказать комплектующие',
-  imageUrl: '/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.jpg',
+  imageUrl: '/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.png',
   imageAlt: 'Дополнительные комплектующие для гидравлики',
 }
 
