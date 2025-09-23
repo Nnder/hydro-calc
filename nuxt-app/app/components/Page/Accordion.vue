@@ -7,7 +7,7 @@
     
     <div class="space-y-4">
       <div 
-        v-for="(item, index) in faqItems" 
+        v-for="(item, index) in model" 
         :key="item.id"
         class="w-full lg:min-w-[56rem] max-w-4xl border border-gray-200 rounded-xl bg-white overflow-hidden transition-all duration-200 hover:shadow-lg"
       >
@@ -43,7 +43,8 @@
 <script setup>
 import { ref } from 'vue';
 
-const faqItems = ref([
+
+const model = defineModel({default: [
   {
     id: 1,
     question: 'Сколько стоит ремонт?',
@@ -95,17 +96,15 @@ const faqItems = ref([
     answer: 'Гарантия <strong>3-6 месяцев</strong> при соблюдении правил эксплуатации оборудования.',
     isOpen: false
   }
-]);
+]})
+
 
 const toggle = (index) => {
-  faqItems.value.forEach((item, i) => {
-    if (i === index) {
-      item.isOpen = !item.isOpen;
-    } else {
-      item.isOpen = false; // Закрываем другие элементы (аккордеон)
-    }
+  model.value.forEach((item, i) => {
+    item.isOpen = i === index ? !item.isOpen : false
   });
 };
+
 </script>
 
 <style>

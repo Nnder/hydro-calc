@@ -129,7 +129,7 @@
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <PortfolioSection />
-  <Accordion data-aos="fade-up" />
+  <Accordion data-aos="fade-up" v-model="fagItems" />
   <Contact data-aos="fade-up" />
 </template>
 
@@ -156,6 +156,60 @@ useHead({
     },
   ],
 })
+
+const fagItems = ref([
+  {
+    id: 1,
+    question: 'Сколько стоит ремонт?????',
+    answer: 'Зависит&& от дефектовки. <strong>От 30 000 руб.</strong> за гидроцилиндр от 50 мм (не более 50-60% от стоимости нового).',
+    isOpen: false
+  },
+  {
+    id: 2,
+    question: 'Какие сроки ремонта?',
+    answer: `
+      <ul class="space-y-2">
+        <li><span class="font-medium">Мелкий ремонт</span> (замена уплотнений): 1-2 недели</li>
+        <li><span class="font-medium">Средний ремонт</span> (восстановление поверхностей): 2-3 недели</li>
+        <li><span class="font-medium">Капитальный ремонт</span> (замена деталей): 3-5 недель</li>
+        <li>Для цилиндров >150 мм диаметром и >2000 мм длиной: 6-8 недель</li>
+        <li><span class="text-blue-600 font-medium">Срочный ремонт</span> возможен от 1 дня</li>
+      </ul>
+      <p class="mt-3">Если восстановление невозможно — изготавливаем детали заново.</p>
+    `,
+    isOpen: false
+  },
+  {
+    id: 3,
+    question: 'На какую технику ремонтируете?',
+    answer: 'Дорожно-строительная, горная, карьерная, тоннеле-проходческая, металлообрабатывающая техника <strong>любых брендов</strong>.',
+    isOpen: false
+  },
+  {
+    id: 4,
+    question: 'Какие гидроцилиндры ремонтируете?',
+    answer: '<strong>Любые, кроме телескопических</strong> (МАЗ, КамАЗ, Hiva).',
+    isOpen: false
+  },
+  {
+    id: 5,
+    question: 'Есть ли уплотнения в наличии?',
+    answer: 'Все стандартные уплотнения — в наличии. Также производим <strong>нестандартные</strong> уплотнения под заказ.',
+    isOpen: false
+  },
+  {
+    id: 6,
+    question: 'Проводите испытания после ремонта?',
+    answer: 'Да, тестируем на давление с коэффициентом <strong>1.5 от номинального</strong>, проверяем протечки и статику.',
+    isOpen: false
+  },
+  {
+    id: 7,
+    question: 'Даёте гарантию на ремонт?',
+    answer: 'Гарантия <strong>3-6 месяцев</strong> при соблюдении правил эксплуатации оборудования.',
+    isOpen: false
+  }
+])
 
 const blockDataText = {
   title: 'Что мы делаем?',
