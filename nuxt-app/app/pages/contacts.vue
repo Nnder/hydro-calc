@@ -132,11 +132,21 @@ useHead({
         </div>
       </div>
 
-      <div class="flex justify-center items-start pt-8" data-aos="fade-up">
-        <div class="bg-white p-10 rounded-xl text-start w-1/2 shadow-sm border border-hydro-steel/10 mb-12">
-          <h2 class="text-3xl font-bold mb-8 text-tech-dark text-center">Напишите нам</h2>
-          <MainForm />
-        </div>
+
+    </div>
+    <div class="relative flex justify-center h-full items-start pt-8" data-aos="fade-up">
+      <NuxtImg 
+        src="14731347_rm222-mind-30.svg"
+        alt="Фон формы"
+        class="absolute inset-0 w-full h-full object-cover z-0"
+        placeholder
+        loading="lazy"
+        sizes="sm:100vw md:100vw lg:100vw"
+      />
+      
+      <div class="relative z-10 bg-white bg-opacity-90 backdrop-blur-sm p-10 rounded-xl text-start w-2/5 shadow-sm border border-hydro-steel/10 mb-12">
+        <h2 class="text-3xl font-bold mb-8 text-tech-dark text-center">Напишите нам</h2>
+        <MainForm />
       </div>
     </div>
   </div>
