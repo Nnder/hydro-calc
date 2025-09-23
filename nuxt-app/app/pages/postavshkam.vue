@@ -190,7 +190,7 @@
         </div>
 
         <div class="text-center mt-8">
-          <button
+          <button @click="open"
             class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center justify-center mx-auto"
           >
             <svg
@@ -240,6 +240,8 @@ const requirements = [
   'Техническую поддержку и обучение наших специалистов',
   'Маркетинговую поддержку и материалы',
 ]
+
+const { open } = useModal()
 </script>
 
 <style scoped>

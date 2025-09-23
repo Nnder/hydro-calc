@@ -1,3 +1,6 @@
+<script setup>
+const { open } = useModal()
+</script>
 <template>
   <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
@@ -34,10 +37,10 @@
               <span class="text-dark">Срочный ремонт за 24 часа</span>
             </li>
           </ul>
-          <button
+          <button @click="open"
             class="mt-6 px-8 py-3 bg-hydro-power text-white font-medium rounded-lg hover:bg-hydro-power/90 transition-colors shadow-md hover:shadow-lg"
           >
-            Подробнее
+            Узнать подробнее
           </button>
         </div>
       </div>
@@ -70,7 +73,7 @@
               <span class="text-dark">Контроль герметичности</span>
             </li>
           </ul>
-          <button
+          <button @click="open"
             class="mt-6 px-8 py-3 bg-hydro-power text-white font-medium rounded-lg hover:bg-hydro-power/90 transition-colors shadow-md hover:shadow-lg"
           >
             Записаться на ТО
