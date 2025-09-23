@@ -3,81 +3,66 @@ const { open } = useModal()
 </script>
 <template>
   <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">Наши услуги</h2>
-      <p class="mt-4 max-w-2xl text-xl text-dark/80 mx-auto">Профессиональный ремонт и обслуживание гидроцилиндров</p>
-    </div>
-
     <div class="space-y-24">
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <NuxtImg
-          src="/honingovannaya_trubka_prim.jpeg"
-          alt="Ремонт гидроцилиндров"
+          src="https://ireland.apollo.olxcdn.com/v1/files/eymh9prwp1152-UA/image"
+          alt="Расточка проушин гидроцилиндров"
           class="w-full md:w-1/2 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl border border-hydro-steel/10"
           format="webp"
           loading="lazy"
         />
         <div class="w-full md:w-1/2 space-y-6">
-          <h3 class="text-2xl sm:text-3xl font-bold text-dark">Ремонт гидроцилиндров</h3>
+          <h3 class="text-2xl sm:text-3xl font-bold text-dark">Расточка проушин</h3>
           <p class="text-lg text-dark/80 leading-relaxed">
-            Комплексный ремонт гидроцилиндров любой сложности с использованием оригинальных запчастей и современного
-            оборудования.
+            Восстановление геометрии проушин гидроцилиндров на современном токарном оборудовании с точностью до 0,01 мм.
+            Устраняем износ и эллипсность, возвращая первоначальные параметры.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Диагностика за 30 минут</span>
+              <span class="text-dark">Точная обработка до номинальных размеров</span>
             </li>
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Гарантия до 12 месяцев</span>
+              <span class="text-dark">Восстановление соосности отверстий</span>
             </li>
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Срочный ремонт за 24 часа</span>
+              <span class="text-dark">Установка ремонтных втулок при сильном износе</span>
             </li>
           </ul>
-          <button @click="open"
-            class="mt-6 px-8 py-3 bg-hydro-power text-white font-medium rounded-lg hover:bg-hydro-power/90 transition-colors shadow-md hover:shadow-lg"
-          >
-            Узнать подробнее
-          </button>
         </div>
       </div>
 
       <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
         <NuxtImg
-          src="/worker_2.jpeg"
-          alt="Техническое обслуживание"
+          src="https://btomo.ru/files/images/foto1.jpg"
+          alt="Восстановление штоков методом наплавки"
           class="w-full md:w-1/2 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl border border-hydro-steel/10"
           format="webp"
           loading="lazy"
         />
         <div class="w-full md:w-1/2 space-y-6">
-          <h3 class="text-2xl sm:text-3xl font-bold text-dark">Техническое обслуживание</h3>
+          <h3 class="text-2xl sm:text-3xl font-bold text-dark">Восстановление штоков методом наплавки</h3>
           <p class="text-lg text-dark/80 leading-relaxed">
-            Регулярное техническое обслуживание для продления срока службы оборудования и предотвращения неожиданных
-            поломок.
+            Качественное восстановление штоков гидроцилиндров методом плавки с последующей механической обработкой. 
+            Устраняем глубокие риски, коррозию и износ, возвращая штоку первоначальные характеристики.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Комплексная диагностика</span>
+              <span class="text-dark">Наплавка износостойкими материалами</span>
             </li>
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Замена расходных материалов</span>
+              <span class="text-dark">Шлифовка до зеркального состояния</span>
             </li>
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Контроль герметичности</span>
+              <span class="text-dark">Хромирование для защиты от коррозии</span>
             </li>
           </ul>
-          <button @click="open"
-            class="mt-6 px-8 py-3 bg-hydro-power text-white font-medium rounded-lg hover:bg-hydro-power/90 transition-colors shadow-md hover:shadow-lg"
-          >
-            Записаться на ТО
-          </button>
         </div>
       </div>
     </div>
