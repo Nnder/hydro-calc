@@ -14,7 +14,7 @@ useHead({
 
 <template>
   <div class="min-h-screen bg-tech-light">
-    <div class="bg-tech-dark text-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="800">
+    <div class="bg-tech-dark text-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
       <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(37,99,235,0.1)_0%,rgba(0,0,0,0)_50%)]"></div>
       <div class="container mx-auto px-6 py-24 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
@@ -46,7 +46,7 @@ useHead({
 
     <div class="container mx-auto px-6 py-16">
       <div class="space-y-6 mb-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="1000">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="600">
           <div class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10">
             <div class="flex items-start gap-6">
               <div class="bg-hydro-power/10 p-4 rounded-full flex-shrink-0">
@@ -74,7 +74,11 @@ useHead({
           </div>
         </div>
 
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10" data-aos="fade-up">
+        <div
+          class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10"
+          data-aos="fade-up"
+          data-aos-delay="650"
+        >
           <div class="flex items-start gap-6">
             <div class="bg-hydro-power/10 p-4 rounded-full flex-shrink-0">
               <Icon name="heroicons:phone" class="w-8 h-8 text-hydro-power" />

@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="mb-20" data-aos="fade-up">
+      <div class="mb-20" data-aos="fade-up" data-aos-delay="600">
         <h2 class="text-4xl font-bold mb-12 text-center text-dark">Наши приоритеты</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-hydro-power hover:shadow-lg transition-all">

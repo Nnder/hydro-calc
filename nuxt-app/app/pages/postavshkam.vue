@@ -75,11 +75,7 @@
               </div>
             </div>
 
-            <div
-              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-8"
-              data-aos="fade-up"
-              data-aos-delay="1400"
-            >
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-8" data-aos="fade-up">
               <div class="flex items-start">
                 <div class="flex-shrink-0">
                   <svg
@@ -114,7 +110,7 @@
       </div>
     </div>
 
-    <div class="bg-white py-8" data-aos="fade-up" data-aos-delay="1600">
+    <div class="bg-white py-8" data-aos="fade-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-6">
           <h2 class="text-2xl font-bold text-gray-900">Контактная информация</h2>
