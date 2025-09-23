@@ -3,6 +3,8 @@ import ThreeViewer from '../Three/ThreeViewer.vue'
 
 const { open } = useModal()
 
+const hint = ref(true)
+
 defineProps({
   blockData: {
     type: Object,
@@ -39,13 +41,20 @@ defineProps({
               class="object-fill"
               format="webp"
             />
-            <ThreeViewer
-              v-else
-              :modelPath="blockData.modelSrc"
-              :canvasColor="blockData.modelBgColor"
-              :screenIncrease="blockData.scale || 0.5"
-              class="!h-[400px]"
-            />
+            <div v-else class="relative" @click="() => (hint = false)">
+              <ThreeViewer
+                :modelPath="blockData.modelSrc"
+                :canvasColor="blockData.modelBgColor"
+                :screenIncrease="blockData.scale || 0.5"
+                class="!h-[400px]"
+              />
+
+              <div
+                class="absolute z-50 bottom-14 left-10 px-6 py-2 text-white font-medium rounded-2xl bg-gradient-to-r from-blue-500/80 to-indigo-600/80 backdrop-blur-md shadow-lg shadow-blue-900/40 animate-bounce"
+              >
+                Покрути меня
+              </div>
+            </div>
           </div>
         </div>
       </div>
