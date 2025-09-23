@@ -114,7 +114,13 @@ const slider = {
 <template>
   <Slide :slider="slider" data-aos="fade-up" data-aos-delay="400" />
 
-  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
+  <ProductionDescription
+    :description="description"
+    :image-url="imageUrl"
+    :title="title"
+    data-aos="fade-up"
+    data-aos-delay="600"
+  />
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />

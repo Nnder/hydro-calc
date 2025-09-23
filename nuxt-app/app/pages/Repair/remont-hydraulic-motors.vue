@@ -1,6 +1,6 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
-  <div class="bg-tech-light" data-aos="fade-up">
+  <div class="bg-tech-light" data-aos="fade-up" data-aos-delay="600">
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
       <div class="flex min-h-[600px] gap-4">
         <!-- Левая секция (список деталей) -->
