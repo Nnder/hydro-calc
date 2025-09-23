@@ -249,7 +249,12 @@ const blockData = {
   buttonText: 'Рассчитать стоимость',
   imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
+    type: '3d',
+  modelSrc: '/3d/303.4.28.90Е.100.7  (1).glb',
+  modelBgColor: '#2563EB',
 }
+
+
 
 const hydrantParts = ref([
   {
