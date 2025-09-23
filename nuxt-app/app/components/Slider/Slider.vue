@@ -178,8 +178,16 @@ const videoRef = ref(null)
   width: 100%;
   height: 600px;
   position: relative;
-  --swiper-navigation-color: white;
-  --swiper-pagination-color: white;
+  --swiper-navigation-color: rgba(255, 255, 255, 0.4);
+  --swiper-pagination-color: rgba(255, 255, 255, 0.4);
+  --swiper-navigation-size: 36px;
+}
+
+.swiper-with-video .swiper-button-next,
+.swiper-with-video .swiper-button-prev {
+  opacity: 0.6; /* прозрачность */
+  transform: scale(0.7); /* уменьшаем размер */
+  transition: opacity 0.3s ease;
 }
 
 .video-slide {
