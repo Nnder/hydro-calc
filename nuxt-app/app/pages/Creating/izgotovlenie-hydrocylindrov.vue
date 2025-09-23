@@ -83,6 +83,9 @@ const blockData = {
   buttonText: 'Заказать гидроцилиндр',
   imageUrl: '/hidrocilinder_3.jpeg',
   imageAlt: 'Производство гидроцилиндров',
+    type: '3d',
+  modelSrc: '/3d/Сборка_ГЦ_реф.glb',
+  modelBgColor: '#2563EB',
 }
 
 const mainSlideData = {
@@ -94,8 +97,8 @@ const mainSlideData = {
 </script>
 
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
-  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="600" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
+  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <ProductionEquipment data-aos="fade-up" />

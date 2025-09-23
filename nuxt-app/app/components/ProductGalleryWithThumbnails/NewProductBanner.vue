@@ -15,7 +15,7 @@
         </div>
 
         <div class="lg:w-1/2">
-          <AccessoriesGrid :items="items" @item-click="handleItemClick" class="" />
+          <AccessoriesGrid :items="items" @item-click="handleItemClick" />
 
           <div class="mt-4 bg-white rounded-lg p-4 shadow-sm border border-blue-100">
             <h3 class="text-2xl font-semibold text-blue-800 mb-1 flex items-center">

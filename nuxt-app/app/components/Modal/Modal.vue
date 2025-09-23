@@ -43,7 +43,7 @@ const handleOverlayClick = event => {
             <Icon name="material-symbols:close-rounded" class="w-8 h-8" />
           </button>
         </div>
-        <div class="">
+        <div>
           <slot></slot>
         </div>
       </div>

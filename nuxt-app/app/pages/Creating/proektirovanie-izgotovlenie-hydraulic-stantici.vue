@@ -142,7 +142,7 @@ const blockData = {
   title: 'Комплектующие для гидравлических систем любого типа',
   description: 'Подберем и поставим любые комплектующие\nпо вашим техническим требованиям\nс гарантией качества',
   buttonText: 'Заказать комплектующие',
-  imageUrl: '/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.jpg',
+  imageUrl: '/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.png',
   imageAlt: 'Дополнительные комплектующие для гидравлики',
 }
 
@@ -155,8 +155,8 @@ const mainSlideData = {
 </script>
 
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
-  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="600" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
+  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <ProductionEquipment data-aos="fade-up" />
