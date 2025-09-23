@@ -57,6 +57,8 @@ const blockData = {
   <Slider />
   <ServiceBlock data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" position="left" data-aos="fade-up" />
+
   <Block data-aos="fade-up" />
   <Contact data-aos="fade-up" />
   <Gis data-aos="fade-up" />
