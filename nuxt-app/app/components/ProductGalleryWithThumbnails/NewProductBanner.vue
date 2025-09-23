@@ -1,7 +1,9 @@
 <template>
-  <section class="bg-gradient-to-br from-blue-50 to-white py-6 px-3 min-h-screen">
+  <section class="bg-gradient-to-br from-blue-50 to-white py-6 px-3 ">
     <div class="container mx-auto max-w-5xl">
+      <h2 class="text-3xl font-bold  mb-8 text-center text-blue-800">Дополнительные компоненты</h2>
       <div class="flex flex-col lg:flex-row gap-6 items-start">
+        
         <div class="lg:w-1/2">
           <div class="sticky top-2">
             <SwiperProduct
@@ -13,35 +15,10 @@
         </div>
 
         <div class="lg:w-1/2">
-          <h2 class="text-2xl font-bold text-blue-800">Дополнительные компоненты</h2>
-
           <AccessoriesGrid :items="items" @item-click="handleItemClick" class="" />
 
-          <div class="bg-white rounded-xl p-5 shadow-md border border-blue-100">
-            <h3 class="text-lg font-semibold text-blue-800 mb-3 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 mr-2 text-blue-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                />
-              </svg>
-              Описание
-            </h3>
-
-            <div v-for="(paragraph, index) in currentTextContent" :key="index">
-              <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
-            </div>
-          </div>
           <div class="mt-4 bg-white rounded-lg p-4 shadow-sm border border-blue-100">
-            <h3 class="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+            <h3 class="text-2xl font-semibold text-blue-800 mb-1 flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-4 w-4 mr-2 text-blue-600"
@@ -66,7 +43,31 @@
             </div>
           </div>
         </div>
+        
       </div>
+      <div class="bg-white rounded-xl p-5 shadow-md border border-blue-100 mt-6">
+            <h3 class="text-2xl  font-semibold text-blue-800 mb-3 flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                />
+              </svg>
+              Описание
+            </h3>
+
+            <div v-for="(paragraph, index) in currentTextContent" :key="index">
+              <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
+            </div>
+          </div>
     </div>
   </section>
 </template>
