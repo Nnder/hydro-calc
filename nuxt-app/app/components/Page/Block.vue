@@ -19,7 +19,7 @@ const { open } = useModal()
         <div class="w-full md:w-1/2 space-y-6">
           <h3 class="text-2xl sm:text-3xl font-bold text-dark">Расточка проушин</h3>
           <p class="text-lg text-dark/80 leading-relaxed">
-            Восстановление геометрии проушин гидроцилиндров на современном токарном оборудовании с точностью до 0,01 мм.
+            Восстановление геометрии проушин гидроцилиндров на современном оборудовании с точностью до 0,01 мм, Ra 0,8.
             Устраняем износ и эллипсность, возвращая первоначальные параметры.
           </p>
           <ul class="space-y-3">
@@ -50,7 +50,7 @@ const { open } = useModal()
         <div class="w-full md:w-1/2 space-y-6">
           <h3 class="text-2xl sm:text-3xl font-bold text-dark">Восстановление штоков методом наплавки</h3>
           <p class="text-lg text-dark/80 leading-relaxed">
-            Качественное восстановление штоков гидроцилиндров методом плавки с последующей механической обработкой. 
+            Качественное восстановление штоков гидроцилиндров методом плавки с последующей механической обработкой с точностью до 0,01 мм, Ra 0,32.
             Устраняем глубокие риски, коррозию и износ, возвращая штоку первоначальные характеристики.
           </p>
           <ul class="space-y-3">
@@ -64,7 +64,7 @@ const { open } = useModal()
             </li>
             <li class="flex items-start">
               <Icon name="mdi:check-circle" class="h-6 w-6 text-hydro-power mr-2" />
-              <span class="text-dark">Хромирование для защиты от коррозии</span>
+              <span class="text-dark">Локальная наплавка дефектов</span>
             </li>
           </ul>
         </div>
