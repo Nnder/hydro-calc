@@ -6,7 +6,7 @@ const { open } = useModal()
     <div class="space-y-24">
       <div class="text-center mb-16">
       <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">Расточка и наплавка</h2>
-      <p class="mt-4 max-w-2xl text-xl text-dark/80 mx-auto">Профессиональное восстановление гидроцилиндров и ковшей</p>
+      <p class="mt-4 max-w-3xl text-xl text-dark/80 mx-auto">Профессиональное восстановление гидроцилиндров и ковшей</p>
     </div>
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <NuxtImg
