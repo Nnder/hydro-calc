@@ -90,10 +90,10 @@
           </div>
         </section>
 
-        <!-- Правая секция (изображение) -->
+        <!-- Правая секция (изображение)  style="transform: rotate(90deg); transform-origin: center" -->
         <section class="flex-1 relative">
           <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100">
-            <div class="relative" style="transform: rotate(90deg); transform-origin: center">
+            <div class="relative" >
               <NuxtImg
                 :src="MainCalculatorImage"
                 class="max-h-screen w-full object-contain"
@@ -295,7 +295,7 @@ const blockData = {
   modelBgColor: '#2563EB',
 }
 
-const MainCalculatorImage = ref('hydrocilinder.webp')
+const MainCalculatorImage = ref('/calculator/1.jpg')
 
 const hydrantParts = ref([
   {
