@@ -225,7 +225,7 @@ const mainSlideData = {
 }
 
 const globalTitle = ref({
-  gtitle: 'Гидроцилиндров',
+  gtitle: 'Этапы ремонта Гидроцилиндров',
   subtitle: 'Полный цикл восстановления гидроцилиндров спецтехники',
 })
 

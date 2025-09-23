@@ -7,7 +7,7 @@ defineProps({
   globalTitle: {
     type: Object,
     default: () => ({
-      gtitle: "Гидроцилиндр",
+      gtitle: "Этапы ремонта Гидроцилиндр",
       subtitle: "Полный цикл восстановления гидроцилиндров спецтехники",
     })
   }
@@ -18,7 +18,7 @@ defineProps({
   <div class="bg-tech-light pb-8 md:pb-12 lg:pb-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mt-6 md:mt-8 lg:mt-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-dark">Этапы ремонта {{ globalTitle.gtitle }}</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-dark">{{ globalTitle.gtitle }}</h2>
         <p class="mt-3 md:mt-4 text-base sm:text-lg md:text-xl text-dark/80 max-w-3xl mx-auto px-2">
           {{ globalTitle.subtitle }}
         </p>

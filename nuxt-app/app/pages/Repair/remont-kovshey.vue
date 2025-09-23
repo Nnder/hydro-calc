@@ -176,8 +176,8 @@ const blockDataText = {
 }
 
 const globalTitle = {
-   gtitle: "Ковшей",
-   subtitle: "Полный цикл восстановления ковшей спецтехники",
+   gtitle: "Этапы ремонта Ковшей",
+   subtitle: "Полный цикл восстановления Ковшей",
 }
 
 const parameters = ref([

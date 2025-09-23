@@ -3,7 +3,7 @@
 
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
-  <Stages :steps="repairSteps" data-aos="fade-up" />
+  <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <Accordion data-aos="fade-up" />
@@ -45,6 +45,11 @@ const blockDataText = {
   description: `<p>Профессиональные сварочные и токарные работы любой сложности. Выполняем полный комплекс услуг по ремонту и восстановлению металлических конструкций, деталей и оборудования.</p>
 <p>Сварочные работы: РДС, MIG/MAG, TIG сварка черных и цветных металлов. Ремонт металлоконструкций, трубопроводов, емкостей, промышленного оборудования. Гарантия качества швов и соответствия стандартам.</p>
 <p>Токарные работы: обработка на станках с ЧПУ, изготовление и восстановление деталей (валы, втулки, фланцы, шкивы). Работа со сталью, чугуном, бронзой, алюминием. Высокая точность и соблюдение сроков.</p>`,
+}
+
+const globalTitle = {
+   gtitle: "Сварочно и токарные работы",
+   subtitle: "Полный цикл восстановления",
 }
 
 const parameters = ref([
