@@ -116,14 +116,14 @@ const slider = {
 </script>
 
 <template>
-  <Slide :slider="slider" data-aos="fade-up" data-aos-delay="400" />
+  <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
 
   <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
-    data-aos-delay="600"
+    data-aos-delay="200"
   />
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />

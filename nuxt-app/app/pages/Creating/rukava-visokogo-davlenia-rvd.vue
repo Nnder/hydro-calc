@@ -793,8 +793,8 @@ const mainSlideData = {
 </script>
 
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
-  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="600" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
+  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <ProductionEquipment data-aos="fade-up" />
   <RvdTableSlider :tables="tableDataObjects" data-aos="fade-up" />

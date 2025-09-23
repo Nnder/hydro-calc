@@ -1,6 +1,6 @@
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
-  <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" data-aos-delay="600" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
+  <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" data-aos-delay="200" />
   <Stages :steps="repairSteps" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <PortfolioSection />
