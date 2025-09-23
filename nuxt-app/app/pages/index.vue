@@ -55,11 +55,11 @@ const blockData = {
 
 <template>
   <Slider />
-  <ServiceBlock class="animate-fade-in-up" />
+  <ServiceBlock data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
-  <Block class="animate-fade-in-up" />
+  <Block data-aos="fade-up" />
   <Contact data-aos="fade-up" />
-  <Gis class="animate-fade-in-up" />
+  <Gis data-aos="fade-up" />
 </template>
 
 <style scoped>
