@@ -126,7 +126,7 @@
   </div>
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
-  <Stages :steps="repairSteps" data-aos="fade-up" />
+  <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <Accordion data-aos="fade-up" />
@@ -173,6 +173,11 @@ const blockDataText = {
   //   'Используем первоклассное оборудование и технологии для точной диагностики.',
   //   'Эффективно организуем обслуживание больших парков техники с индивидуальным графиком.',
   // ],
+}
+
+const globalTitle = {
+   gtitle: "Ковшей",
+   subtitle: "Полный цикл восстановления ковшей спецтехники",
 }
 
 const parameters = ref([
