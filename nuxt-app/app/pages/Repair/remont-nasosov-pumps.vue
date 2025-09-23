@@ -94,7 +94,7 @@
           <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100">
             <div class="relative" style="transform: rotate(90deg); transform-origin: center">
               <NuxtImg
-                src="hydrocilinder.webp"
+                src="/calculator/2.jpg"
                 class="max-h-screen w-full object-contain"
                 alt="Профессиональный ремонт гидроцилиндров"
                 loading="lazy"
