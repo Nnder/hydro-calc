@@ -1,7 +1,7 @@
 <template>
   <div class="bg-tech-light w-full py-16">
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-20">
+      <div class="mb-20" data-aos="fade-up" data-aos-delay="400">
         <div class="flex flex-col lg:flex-row gap-12 items-center">
           <div class="lg:w-1/2">
             <h2
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="mb-20">
+      <div class="mb-20" data-aos="fade-up">
         <h2 class="text-4xl font-bold mb-12 text-center text-dark">Наши приоритеты</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-hydro-power hover:shadow-lg transition-all">

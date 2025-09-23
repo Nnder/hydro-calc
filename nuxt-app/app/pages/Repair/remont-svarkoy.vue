@@ -1,11 +1,11 @@
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" />
-  <PartnerBlock :blockDataText="blockDataText" />
-  <Stages :steps="repairSteps" />
-  <InformationBlock :blockData="blockData" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
+  <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
+  <Stages :steps="repairSteps" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <PortfolioSection />
-  <Accordion />
-  <Contact />
+  <Accordion data-aos="fade-up" />
+  <Contact data-aos="fade-up" />
 </template>
 
 <script setup>

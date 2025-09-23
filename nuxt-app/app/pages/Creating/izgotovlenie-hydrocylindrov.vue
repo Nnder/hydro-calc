@@ -94,12 +94,12 @@ const mainSlideData = {
 </script>
 
 <template>
-  <ContentWithImage :mainSlideData="mainSlideData" />
-  <ParametersGrid :parameters="parameters" :header="header" />
-  <InformationBlock :blockData="blockData" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="400" />
+  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
-  <ProductionEquipment />
-  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
-  <AccessoriesGrid :items="items" />
-  <Contact />
+  <ProductionEquipment data-aos="fade-up" />
+  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
+  <AccessoriesGrid :items="items" data-aos="fade-up" />
+  <Contact data-aos="fade-up" />
 </template>

@@ -3,8 +3,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Заголовок страницы -->
       <div class="text-center mb-16">
-        <h1 class="text-5xl font-bold text-gray-900 mb-6 animate-fade-in-up">Сотрудничество с поставщиками</h1>
-        <p class="text-xl text-gray-700 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6" data-aos="fade-up">Сотрудничество с поставщиками</h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
           Мы заинтересованы в установлении долгосрочных и взаимовыгодных партнерских отношений с производителями и
           поставщиками качественной продукции
         </p>
@@ -14,7 +14,7 @@
         <!-- Основной контент -->
         <div class="lg:col-span-2">
           <!-- Приветственный блок -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg mb-10 animate-fade-in-up animation-delay-400">
+          <div class="bg-white rounded-2xl p-8 shadow-lg mb-10" data-aos="fade-up" data-aos-delay="400">
             <div class="flex items-start mb-6">
               <div class="bg-blue-100 p-3 rounded-lg mr-4">
                 <svg
@@ -44,7 +44,7 @@
           </div>
 
           <!-- Требования к поставщикам -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg mb-10 animate-fade-in-up animation-delay-600">
+          <div class="bg-white rounded-2xl p-8 shadow-lg mb-10" data-aos="fade-up" data-aos-delay="600">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Наши требования к поставщикам</h2>
 
             <div class="mb-8">
@@ -55,7 +55,8 @@
                 <div
                   v-for="(item, index) in requirements"
                   :key="index"
-                  class="flex items-start p-4 bg-blue-50 rounded-lg border border-blue-100 animate-fade-in-up"
+                  class="flex items-start p-4 bg-blue-50 rounded-lg border border-blue-100"
+                  data-aos="fade-up"
                   :style="`animation-delay: ${800 + index * 100}ms`"
                 >
                   <div class="bg-white p-1 rounded mr-3 border border-blue-200">
@@ -74,7 +75,11 @@
               </div>
             </div>
 
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-8 animate-fade-in-up animation-delay-1400">
+            <div
+              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-8"
+              data-aos="fade-up"
+              data-aos-delay="1400"
+            >
               <div class="flex items-start">
                 <div class="flex-shrink-0">
                   <svg
@@ -109,13 +114,13 @@
       </div>
     </div>
 
-    <div class="bg-white  py-8 animate-fade-in-up animation-delay-1600">
+    <div class="bg-white py-8" data-aos="fade-up" data-aos-delay="1600">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-6">
           <h2 class="text-2xl font-bold text-gray-900">Контактная информация</h2>
           <p class="text-gray-600 mt-2">Свяжитесь с нами для обсуждения условий сотрудничества</p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="bg-blue-100 inline-flex items-center justify-center p-3 rounded-full mb-3 mx-auto">
@@ -135,10 +140,7 @@
               </svg>
             </div>
             <h3 class="font-semibold text-gray-900 mb-1">Телефон</h3>
-            <a
-              href="tel:+73512181452"
-              class="text-blue-600 hover:text-blue-800 transition-colors text-lg font-medium"
-            >
+            <a href="tel:+73512181452" class="text-blue-600 hover:text-blue-800 transition-colors text-lg font-medium">
               +7 (123) 123-12-32
             </a>
           </div>
@@ -245,40 +247,6 @@ const requirements = [
 </script>
 
 <style scoped>
-/* Анимации появления */
-.animate-fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.animation-delay-200 {
-  animation-delay: 0.2s;
-}
-
-.animation-delay-400 {
-  animation-delay: 0.4s;
-}
-
-.animation-delay-600 {
-  animation-delay: 0.6s;
-}
-
-.animation-delay-1400 {
-  animation-delay: 1.4s;
-}
-
-.animation-delay-1600 {
-  animation-delay: 1.6s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Плавная анимация для всех интерактивных элементов */
 button,
 a {

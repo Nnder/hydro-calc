@@ -112,13 +112,13 @@ const slider = {
 </script>
 
 <template>
-  <Slide :slider="slider" />
+  <Slide :slider="slider" data-aos="fade-up" data-aos-delay="400" />
 
-  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" />
-  <ContentWithImage :mainSlideData="mainSlideData" />
-  <PartnerBlock :blockDataText="blockDataText" variant="default" />
-  <InformationBlock :blockData="blockData" />
+  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
+  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
-  <AccessoriesGrid :items="items" />
+  <AccessoriesGrid :items="items" data-aos="fade-up" />
   <Contact />
 </template>
