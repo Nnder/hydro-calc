@@ -9,15 +9,23 @@ const categories = ref([
     services: [
       {
         title: 'Ремонт Гидроцилиндров',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
       },
       {
         title: 'Ремонт Гидронасосов',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://psm-online.ru/gallery/product/236/131_1.jpg',
       },
       {
         title: 'Ремонт Гидромоторов',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://pkmcom.ru/upload/iblock/6d4/6d424ccab0b5d6e287330857af204c56.jpg',
+      },
+      {
+        title: 'Ремонт Ковшей',
+        image: 'https://reschke.ru/wa-data/public/shop/products/34/07/734/images/2584/2584.330.png',
+      },
+      {
+        title: 'Ремонт сварочных и токарных работ',
+        image: 'https://tofris.ru/files/upload/svarochnye-raboty-zhigulevsk-tofris-web.jpg',
       },
     ],
   },
@@ -28,15 +36,15 @@ const categories = ref([
     services: [
       {
         title: 'РВД',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://empirey.info/images/102136_jpg_1435650718.jpg',
       },
       {
         title: 'Изготовление Гидроцилиндров',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
       },
       {
         title: 'Станция гидравлическая',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://hidroenergy.ru/wp-content/uploads/С250_В_3-scaled.jpg',
       },
     ],
   },
@@ -47,31 +55,35 @@ const categories = ref([
     services: [
       {
         title: 'Продажа Уплотнений',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://www.hydrott.ru/wp-content/uploads/2017/01/9117192.jpg',
       },
       {
         title: 'Продажа Гидронасосов',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://gidromotor.by/img/pages/347-s.jpg?ver=172837676133&w=320',
       },
       {
         title: 'Продажа Гидроцилиндров',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
       },
       {
         title: 'Продажа Гидрораспределителей',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://images.deal.by/187765148_w600_h600_187765148.jpg',
       },
       {
         title: 'Продажа Клапанов давления',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://images.prom.ua/5717709293_w640_h640_5717709293.jpg',
       },
       {
         title: 'Продажа Фильтров',
-        image: '/hydrocilindr_2.jpg',
+        image: 'https://fim.by/images/lp-photo/gidravlika.jpg',
       },
       {
-        title: 'Продажа Маслов',
-        image: '/hydrocilindr_2.jpg',
+        title: 'Продажа комплектующие рвд',
+        image: 'https://rvdmarket.ru/thumb/2/X7X17oYARuFUVi_KYI5o5g/340r/d/rvd_v_zashchite.jpg',
+      },
+      {
+        title: 'Продажа ГСМ и тех. жидкости',
+        image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
       },
     ],
   },
