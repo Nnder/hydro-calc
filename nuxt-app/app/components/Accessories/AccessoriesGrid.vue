@@ -2,27 +2,26 @@
 defineProps({
   items: {
     type: Array,
+
     required: true,
-    default: () => []
-  }
+  },
 })
-
-const emit = defineEmits(['item-click'])
-
-const handleItemClick = (item) => {
-  emit('item-click', item)
-}
 </script>
 
 <template>
-  <section class="max-w-4xl mx-auto py-2 md:py-4 px-2 sm:px-4">
-    <div class="flex flex-wrap justify-center gap-1 md:gap-2">
-      <AccessoriesItem 
-        v-for="(item, index) in items" 
-        :key="index" 
-        :item="item" 
-        @click="handleItemClick"
-        class="w-12 h-12 sm:w-14 sm:h-14"
+  <section class="max-w-7xl mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 md:mb-12">
+      <h2 class="text-2xl md:text-4xl font-bold text-hydro-power">Дополнительные комплектующие</h2>
+
+      <p class="mt-2 text-sm md:text-base">Всегда в наличии расходные материалы для РВД</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+      <AccessoriesItem
+        v-for="(item, index) in items"
+        :key="index"
+        :item="item"
+        class="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(25%-1.5rem)] lg:w-[calc(20%-1.5rem)]"
       />
     </div>
   </section>
