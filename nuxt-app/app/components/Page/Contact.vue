@@ -82,10 +82,10 @@
             </div>
 
             <div
-              class="relative lg:absolute lg:bottom-2 left-2 ight-2 sm:lg:bottom-3 sm:lg:left-3 sm:lg:right-3 md:lg:bottom-4 md:lg:left-4 md:lg:right-4 lg:left-6 lg:right-6 xl:bottom-8 xl:left-8 xl:right-8 mt-4 lg:mt-0 p-4 lg:p-0"
+              class="overflow-hidden relative lg:absolute lg:bottom-2 left-2 ight-2 sm:lg:bottom-3 sm:lg:left-3 sm:lg:right-3 md:lg:bottom-4 md:lg:left-4 md:lg:right-4 lg:left-6 lg:right-6 xl:bottom-8 xl:left-8 xl:right-8 mt-4 lg:mt-0 p-4 lg:p-0"
             >
               <div
-                class="bg-white/95 backdrop-blur-md rounded-lg md:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-md md:shadow-lg lg:shadow-xl border border-white/20 lg:max-h-[50vh] overflow-y-auto"
+                class="!overflow-hidden bg-white/95 backdrop-blur-md rounded-lg md:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-md md:shadow-lg lg:shadow-xl border border-white/20 lg:max-h-[50vh] overflow-y-auto"
               >
                 <h3
                   class="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-5 flex items-center"
