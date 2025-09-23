@@ -291,7 +291,7 @@ const blockData = {
   imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
   type: '3d',
-  modelSrc: '/3d/Сборка_ГЦ_реф.glb',
+  modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
   modelBgColor: '#2563EB',
 }
 
