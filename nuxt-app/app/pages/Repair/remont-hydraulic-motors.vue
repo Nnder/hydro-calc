@@ -94,7 +94,7 @@
           <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100">
             <div class="relative">
               <NuxtImg
-                src="/calculator/3.jpg"
+                src="/calculator/3.png"
                 class="max-h-screen w-full object-contain"
                 alt="Профессиональный ремонт гидроцилиндров"
                 loading="lazy"
@@ -249,12 +249,10 @@ const blockData = {
   buttonText: 'Рассчитать стоимость',
   imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
-    type: '3d',
+  type: '3d',
   modelSrc: '/3d/303.4.28.90Е.100.7  (1).glb',
   modelBgColor: '#2563EB',
 }
-
-
 
 const hydrantParts = ref([
   {
