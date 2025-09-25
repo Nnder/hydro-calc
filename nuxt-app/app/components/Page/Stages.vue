@@ -58,7 +58,7 @@ defineProps({
                 <h3 class="text-base md:text-lg font-semibold text-dark mb-1 md:mb-2">
                   {{ step.title }}
                 </h3>
-                <p class="text-sm md:text-base text-dark/80 leading-relaxed">
+                <p class="text-base md:text-base text-dark/80 leading-relaxed">
                   {{ step.description }}
                 </p>
               </div>
