@@ -24,9 +24,6 @@ let controls: OrbitControls
 let animationFrameId: number
 let model: THREE.Group | null = null
 
-let resizeEnabled = false
-let controlsActivated = false
-
 function onWindowResize() {
   if (!container.value) return
   camera.aspect = container.value.clientWidth / container.value.clientHeight
@@ -49,19 +46,14 @@ function fitCameraToObject(
   const halfFov = THREE.MathUtils.degToRad(camera.fov * props.screenIncrease)
 
   let distance = (halfSize / Math.tan(halfFov)) * offset
-
-  const minDistance = maxSize * 0.5
-  const maxDistance = maxSize * 5
-  distance = THREE.MathUtils.clamp(distance, minDistance, maxDistance)
+  distance = THREE.MathUtils.clamp(distance, maxSize * 0.5, maxSize * 5)
 
   camera.position.copy(center)
   camera.position.z += distance
   camera.lookAt(center)
 
-  if (controls) {
-    controls.target.copy(center)
-    controls.update()
-  }
+  controls.target.copy(center)
+  controls.update()
 }
 
 function loadModel(path: string) {
@@ -105,39 +97,36 @@ function loadModel(path: string) {
 onMounted(() => {
   if (!container.value) return
 
+  // Сцена
   scene = new THREE.Scene()
   scene.background = new THREE.Color(props.canvasColor || 0xf0f0f0)
 
+  // Камера
   camera = new THREE.PerspectiveCamera(75, container.value.clientWidth / container.value.clientHeight, 0.1, 1000)
   camera.position.set(2, 2, 5)
 
+  // Рендерер
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setSize(container.value.clientWidth, container.value.clientHeight)
-
-  renderer.domElement.style.touchAction = 'auto'
   container.value.appendChild(renderer.domElement)
 
-  const light = new THREE.DirectionalLight(0xffffff, 1)
-  light.position.set(5, 5, 5)
-  scene.add(light)
+  // Свет
+  scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5))
   scene.add(new THREE.AmbientLight(0x888888))
 
+  // OrbitControls
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
   controls.dampingFactor = 0.05
   controls.enablePan = true
-  controls.enableZoom = true
-
-  controls.autoRotate = true
+  controls.enableZoom = false
+  controls.autoRotate = true // 🔹 вращение включено сразу
   controls.autoRotateSpeed = 2.0
-  controls.enabled = false
 
-  controls.addEventListener('start', () => {
-    controls.autoRotate = false
-  })
-
+  // Загружаем модель
   loadModel(props.modelPath)
 
+  // Анимация
   const animate = () => {
     animationFrameId = requestAnimationFrame(animate)
     controls.update()
@@ -145,38 +134,21 @@ onMounted(() => {
   }
   animate()
 
-  const activateOnPointerDown = (ev: PointerEvent) => {
-    if (controlsActivated) return
-
-    controls.autoRotate = false
-    controls.enabled = true
-    controlsActivated = true
-
-    renderer.domElement.style.touchAction = 'none'
-
-    if (!resizeEnabled) {
-      window.addEventListener('resize', onWindowResize, false)
-      resizeEnabled = true
-    }
-  }
-
-  renderer.domElement.addEventListener('pointerdown', activateOnPointerDown, { once: true, passive: true })
+  // 🔹 Только при клике включаем resize
+  renderer.domElement.addEventListener(
+    'click',
+    () => {
+      window.addEventListener('resize', onWindowResize)
+      controls.enableZoom = true
+    },
+    { once: true }
+  )
 })
 
 onBeforeUnmount(() => {
   cancelAnimationFrame(animationFrameId)
-
-  try {
-    renderer?.domElement.removeEventListener('pointerdown', () => {})
-  } catch (e) {}
-
-  if (resizeEnabled) {
-    window.removeEventListener('resize', onWindowResize)
-  }
-
-  try {
-    renderer.dispose()
-  } catch (e) {}
+  if (resizeEnabled) window.removeEventListener('resize', onWindowResize)
+  renderer.dispose()
 })
 
 watch(
