@@ -142,8 +142,12 @@ onMounted(() => {
       }
       controls.enableZoom = true
     },
-    { once: true }
+    { once: false }
   )
+
+  renderer.domElement.addEventListener('pointerleave', () => {
+    controls.enableZoom = false
+  })
 })
 
 onBeforeUnmount(() => {
