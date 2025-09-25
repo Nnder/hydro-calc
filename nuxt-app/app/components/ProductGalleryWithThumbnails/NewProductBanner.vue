@@ -68,6 +68,8 @@
               <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
             </div>
           </div>
+
+        <button class="bg-white rounded-lg text-blue-800 p-5 shadow-lg mt-2">Скачать в PDF</button>
     </div>
   </section>
 </template>
