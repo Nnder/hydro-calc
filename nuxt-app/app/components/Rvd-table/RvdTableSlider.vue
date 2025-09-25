@@ -1,47 +1,53 @@
 <template>
   <div v-if="!isHydrated">
-    <div class="h-[600px] flex items-center justify-center"></div>
+    <div class="h-[800px] flex items-center justify-center"></div>
   </div>
+  
   <ClientOnly>
-    <swiper-container
-      v-show="isHydrated"
-      :loop="true"
-      :navigation="sm"
-      :pagination="true"
-      :preload-images="false"
-      class="swiper-with-video"
-      :autoplay="{
-        delay: 10000,
-        disableOnInteraction: true,
-      }"
-    >
-      <swiper-slide v-for="(tableData, index) in tables" :key="'table-' + index" class="table-slide">
-        <div class="relative z-10 p-6">
-          <div class="text-center mb-2">
-            <h2 class="text-3xl font-bold text-black mb-2 drop-shadow-md">
-              {{ tableData.title }}
-            </h2>
-            <p class="text-black text-opacity-90 max-w-2xl mx-auto drop-shadow-md">
-              {{ tableData.description }}
-            </p>
-          </div>
+    <div v-show="isHydrated" class="w-full">
+      <div class="hidden lg:block">
+        <swiper-container
+          :loop="true"
+          :navigation="sm"
+          :pagination="true"
+          :preload-images="false"
+          class="swiper-with-video"
+          :autoplay="{
+            delay: 10000,
+            disableOnInteraction: true,
+          }"
+        >
+          <swiper-slide v-for="(tableData, index) in tables" :key="'desktop-table-' + index" class="table-slide">
+            <div class="relative z-10 h-full">
+              <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-black drop-shadow-md">
+                  {{ tableData.title || `Тип ${index + 1}` }}
+                </h2>
+                <p class="text-black text-opacity-90 max-w-2xl mx-auto drop-shadow-md">
+                  {{ tableData.description }}
+                </p>
+              </div>
 
-          <div class="bg-white bg-opacity-90 rounded-lg p-4 backdrop-blur-sm">
-            <div class="overflow-x-auto">
-              <RvdTableWrapperObject :table-data-object="tableData.data" />
+              <div class="bg-white bg-opacity-90 rounded-lg backdrop-blur-sm h-full flex flex-col">
+                <div class="flex-1 overflow-auto min-h-[600px]">
+                  <RvdTableWrapperObject :table-data-object="tableData.data" />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </swiper-slide>
-    </swiper-container>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
   </ClientOnly>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 const { sm } = useScreenSize()
 import RvdTableWrapperObject from './RvdTableWrapperObject.vue'
 
@@ -61,162 +67,90 @@ defineProps({
     required: true,
   },
 })
-
-const videoRef = ref(null)
 </script>
 
 <style scoped>
 .swiper-with-video {
   width: 100%;
-  height: 600px;
+  height: 800px;
   position: relative;
   --swiper-navigation-color: #2563ed;
   --swiper-pagination-color: #2563ed;
 }
 
-.video-slide {
-  position: relative;
-  width: 100%;
+.table-slide {
   height: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.video-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+.mobile-table-swiper {
   width: 100%;
+  height: 700px;
+  --swiper-pagination-color: #2563ed;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+}
+
+.mobile-table-slide {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Убираем отступы между слайдами и скрываем соседние */
+.mobile-table-swiper::v-deep .swiper-slide {
+  width: 100% !important;
+  margin-right: 0 !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-table-swiper::v-deep .swiper-slide-active {
+  opacity: 1;
+}
+
+.mobile-table-swiper::v-deep .swiper-slide-next,
+.mobile-table-swiper::v-deep .swiper-slide-prev {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Скрываем часть следующего слайда, которая может быть видна */
+.mobile-table-swiper::v-deep .swiper-wrapper {
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.background-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  opacity: 0.9;
-  z-index: -1;
-}
-
-.slide-content {
-  position: relative;
-  z-index: 1;
-  color: rgb(49, 30, 30);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
-}
-
-.content-wrapper {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.top-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.tag {
-  background: rgba(var(--v-theme-primary), 0.2);
-  color: rgba(var(--v-theme-primary), 1);
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  width: fit-content;
-  font-weight: 600;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  max-width: 800px;
-}
-
-.description {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.5;
-  max-width: 600px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.features {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  font-size: 1.125rem;
-  list-style: none;
-  padding: 0;
-}
-
-.bottom-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.order-btn {
-  width: fit-content;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-}
-
-.additional-info {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  opacity: 0.9;
 }
 
 /* Адаптивные стили */
 @media (max-width: 768px) {
-  .swiper-with-video {
-    height: 100vh;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .description {
-    font-size: 1.25rem;
-  }
-
-  .features {
-    font-size: 1rem;
+  .mobile-table-swiper {
+    height: 650px;
   }
 }
 
 @media (max-width: 480px) {
-  .slide-content {
-    padding: 0 1.5rem;
+  .mobile-table-swiper {
+    height: 600px;
   }
+  
+  .mobile-table-slide {
+    padding: 1rem 0.5rem;
+  }
+}
 
-  .title {
-    font-size: 1.75rem;
-  }
+/* Стили для скролла таблицы */
+:deep(.overflow-x-auto) {
+  max-height: 100%;
+  height: 100%;
+}
 
-  .description {
-    font-size: 1.1rem;
-  }
+:deep(table) {
+  min-height: 500px;
+}
+
+:deep(tbody) {
+  height: auto;
 }
 </style>

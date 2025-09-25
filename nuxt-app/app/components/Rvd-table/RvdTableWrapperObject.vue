@@ -1,5 +1,6 @@
 <script setup>
 import RvsTableDesktopObject from './RvsTableDesktopObject.vue';
+import RvdTableMobileObject from './RvdTableMobileObject.vue';
 defineProps({
   tableDataObject: {
     type: Array,
@@ -14,7 +15,7 @@ defineProps({
       <RvsTableDesktopObject :tableDataObject="tableDataObject" />
     </div>
     <div class="lg:hidden space-y-4">
-      <RvdTableMobile :tableDataObject="tableDataObject" />
+      <RvdTableMobileObject :tableDataObject="tableDataObject" />
     </div>
   </section>
 </template>

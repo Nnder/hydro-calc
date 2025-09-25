@@ -8,49 +8,85 @@ defineProps({
 </script>
 
 <template>
-  <div class="overflow-x-auto">
-    <table class="min-w-full border border-gray-300 text-sm">
+  <div class="overflow-x-auto rounded-lg shadow-lg">
+    <table class="min-w-full border-collapse text-sm font-sans">
       <thead>
-        <tr class="bg-blue-500 bg-opacity-25 ">
-          <th colspan="2" class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Номинальный диаметр</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Внутренний Ø</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Оплетка Ø</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Наружный Ø</th>
-          <th colspan="2" class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Рабочее давление</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Давление испытания</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Давление разрыва</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Радиус изгиба</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">Вес</th>
+        <tr class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+          <th colspan="2" class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Номинальный диаметр</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Внутренний Ø</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Оплетка Ø</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Наружный Ø</th>
+          <th colspan="2" class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Рабочее давление</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Давление испытания</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Давление разрыва</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Радиус изгиба</th>
+          <th class="border border-blue-500 p-2 sm:p-3 text-center font-semibold text-sm uppercase tracking-wide">Вес</th>
         </tr>
-        <tr class="bg-blue-500 bg-opacity-25">
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">мм</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">дюйм</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">мм</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">мм</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">мм</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">бар</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">psi</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">бар</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">бар</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">мм</th>
-          <th class="border border-gray-300 p-1 sm:p-2 text-center whitespace-nowrap">кг/м</th>
+        <tr class="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">мм</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">дюйм</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">мм</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">мм</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">мм</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">бар</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">psi</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">бар</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">бар</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">мм</th>
+          <th class="border border-blue-400 p-2 sm:p-3 text-center font-medium">кг/м</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in tableDataObject" :key="index" :class="{'bg-gray-50': index % 2 === 1}">
-          <td class="border border-gray-300 p-1 sm:p-2 text-center bg-blue-500 bg-opacity-25">{{ item.nominalMm }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center bg-blue-500 bg-opacity-25">{{ item.nominalInch }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.innerDiameter }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.braidDiameter }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.outerDiameter }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.workingPressureBar }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.workingPressurePsi }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.testPressure }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.burstPressureBar }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.bendRadius }}</td>
-          <td class="border border-gray-300 p-1 sm:p-2 text-center">{{ item.weight }}</td>
+        <tr 
+          v-for="(item, index) in tableDataObject" 
+          :key="index" 
+          class="transition-all duration-200 hover:bg-blue-50"
+          :class="index % 2 === 0 ? 'bg-white' : 'bg-blue-25'"
+        >
+          <td class="border border-blue-200 p-2 sm:p-3 text-center font-semibold text-blue-800 bg-blue-75">
+            {{ item.nominalMm }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center font-semibold text-blue-800 bg-blue-75">
+            {{ item.nominalInch }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700">
+            {{ item.innerDiameter }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700">
+            {{ item.braidDiameter }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700">
+            {{ item.outerDiameter }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700 font-medium">
+            {{ item.workingPressureBar }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700 font-medium">
+            {{ item.workingPressurePsi }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700">
+            {{ item.testPressure }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700 font-medium">
+            {{ item.burstPressureBar }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700">
+            {{ item.bendRadius }}
+          </td>
+          <td class="border border-blue-200 p-2 sm:p-3 text-center text-gray-700">
+            {{ item.weight }}
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
+
+<style scoped>
+.bg-blue-25 {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+.bg-blue-75 {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+</style>
