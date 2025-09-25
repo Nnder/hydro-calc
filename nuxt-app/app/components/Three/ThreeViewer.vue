@@ -24,6 +24,8 @@ let controls: OrbitControls
 let animationFrameId: number
 let model: THREE.Group | null = null
 
+let resizeEnabled = false
+
 function onWindowResize() {
   if (!container.value) return
   camera.aspect = container.value.clientWidth / container.value.clientHeight
@@ -97,36 +99,33 @@ function loadModel(path: string) {
 onMounted(() => {
   if (!container.value) return
 
-  // Сцена
   scene = new THREE.Scene()
   scene.background = new THREE.Color(props.canvasColor || 0xf0f0f0)
 
-  // Камера
   camera = new THREE.PerspectiveCamera(75, container.value.clientWidth / container.value.clientHeight, 0.1, 1000)
   camera.position.set(2, 2, 5)
 
-  // Рендерер
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setSize(container.value.clientWidth, container.value.clientHeight)
   container.value.appendChild(renderer.domElement)
 
-  // Свет
-  scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5))
-  scene.add(new THREE.AmbientLight(0x888888))
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1)
+  dirLight.position.set(5, 5, 5)
+  scene.add(dirLight)
 
-  // OrbitControls
+  const ambient = new THREE.AmbientLight(0x888888)
+  scene.add(ambient)
+
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
   controls.dampingFactor = 0.05
   controls.enablePan = true
   controls.enableZoom = false
-  controls.autoRotate = true // 🔹 вращение включено сразу
+  controls.autoRotate = true
   controls.autoRotateSpeed = 2.0
 
-  // Загружаем модель
   loadModel(props.modelPath)
 
-  // Анимация
   const animate = () => {
     animationFrameId = requestAnimationFrame(animate)
     controls.update()
@@ -134,11 +133,13 @@ onMounted(() => {
   }
   animate()
 
-  // 🔹 Только при клике включаем resize
   renderer.domElement.addEventListener(
     'click',
     () => {
-      window.addEventListener('resize', onWindowResize)
+      if (!resizeEnabled) {
+        window.addEventListener('resize', onWindowResize)
+        resizeEnabled = true
+      }
       controls.enableZoom = true
     },
     { once: true }
@@ -148,7 +149,9 @@ onMounted(() => {
 onBeforeUnmount(() => {
   cancelAnimationFrame(animationFrameId)
   if (resizeEnabled) window.removeEventListener('resize', onWindowResize)
-  renderer.dispose()
+  try {
+    renderer.dispose()
+  } catch (e) {}
 })
 
 watch(
