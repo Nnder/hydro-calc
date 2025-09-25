@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-schema-org',
     'nuxt-aos',
+    '@i2d/nuxt-pdf-frame',
   ],
 
   icon: {
