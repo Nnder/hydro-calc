@@ -45,31 +45,40 @@
         </div>
         
       </div>
-      <div class="bg-white rounded-xl p-5 shadow-md border border-blue-100 mt-6">
-            <h3 class="text-2xl  font-semibold text-blue-800 mb-3 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 mr-2 text-blue-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                />
-              </svg>
-              Описание
-            </h3>
+     <div class="flex flex-col min-h-[200px] bg-white rounded-xl p-5 shadow-md border border-blue-100 mt-6">
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-800 mb-3 flex items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 mr-2 text-blue-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+        />
+      </svg>
+      Описание
+    </h3>
 
-            <div v-for="(paragraph, index) in currentTextContent" :key="index">
-              <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
-            </div>
-          </div>
+    <div v-for="(paragraph, index) in currentTextContent" :key="index">
+      <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
+    </div>
+  </div>
 
-        <button class="bg-white rounded-lg text-blue-800 p-5 shadow-lg mt-2">Скачать в PDF</button>
+  <!-- Кнопка прижимается к низу -->
+  <div class="mt-auto flex justify-end">
+    <DownloadPdfButton
+      :pdf-url="currentPdfUrl"
+      :file-name="currentPdfFileName"
+    />
+  </div>
+</div>
+
     </div>
   </section>
 </template>
@@ -78,6 +87,7 @@
 import { ref, computed } from 'vue'
 import SwiperProduct from './SwiperProduct.vue'
 import AccessoriesGrid from '../Accessories/OldAccesoriesGrid/AccessoriesGrid.vue'
+import DownloadPdfButton from '../Button/DownloadPdfButton.vue'
 
 const props = defineProps({
   items: {
@@ -116,6 +126,15 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  pdfMappings: {
+    type: Object,
+    required: true,
+    default: () => ({}),
+  },
+  defaultPdfUrl: {
+    type: String,
+    default: '',
+  },
 })
 
 const currentProduct = ref(props.initialProduct || props.items[0]?.title || '')
@@ -131,6 +150,14 @@ const currentTextContent = computed(() => {
 
 const currentPanelParams = computed(() => {
   return props.panelParamsMappings[currentProduct.value] || props.defaultPanelParams
+})
+
+const currentPdfUrl = computed(() => {
+  return props.pdfMappings[currentProduct.value] || props.defaultPdfUrl
+})
+
+const currentPdfFileName = computed(() => {
+  return `${currentProduct.value}.pdf` || 'document.pdf'
 })
 
 const handleItemClick = item => {

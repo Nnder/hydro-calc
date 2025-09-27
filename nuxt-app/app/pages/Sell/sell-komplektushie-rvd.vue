@@ -161,6 +161,15 @@ const panelParamsMappings = {
     { label: 'Температура', value: '-20°C до +300°C' },
   ],
 }
+const pdfMappings = {
+  'Фитинги для РВД': '/pdf/fittingi-dlya-rvd.pdf',
+  'Ниппели резьбовые': '/pdf/nippeli-rezbovye.pdf',
+  'Муфты соединительные': '/pdf/mufty-soedinitelnye.pdf',
+  'Заглушки и переходники': '/pdf/zaglushki-perehodniki.pdf',
+  'Фланцы гидравлические': '/pdf/flantsy-gidravlicheskie.pdf',
+}
+
+const defaultPdfUrl = '/pdf/komplektuyushchie-rvd-obshchiy.pdf'
 
 const defaultImages = [
   'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
@@ -235,6 +244,8 @@ const slider = {
     :defaultImages="defaultImages"
     :defaultTextContent="defaultTextContent"
     :defaultPanelParams="defaultPanelParams"
+    :pdfMappings="pdfMappings"
+    :defaultPdfUrl="defaultPdfUrl"
     initialProduct="Фитинги для РВД"
     data-aos="fade-up"
   />
