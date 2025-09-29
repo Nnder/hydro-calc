@@ -22,15 +22,15 @@ useHead({
 })
 
 const parameters = ref([
-  { value: 'до 200', description: 'Диаметр поршня, мм' },
-  { value: 'до 2400', description: 'Ход поршня, мм' },
+  { value: 'до 300', description: 'Диаметр поршня, мм' },
+  { value: 'до 2200', description: 'Ход поршня, мм' },
   { value: 'до 40', description: 'Max давление, МПа' },
 ])
 
 const header = 'ПАРАМЕТРЫ НАШИХ ГИДРОЦИЛИНДРОВ'
 
 const description = `<p class="text-lg">
-          Компания ООО "Энергия" специализируется на производстве высококачественных гидроцилиндров любого уровня сложности. 
+          Компания ООО "АбсолютТехно" специализируется на производстве высококачественных гидроцилиндров любого уровня сложности. 
           Используем современное оборудование и передовые технологии изготовления.
         </p>
         <p class="text-lg">
@@ -39,7 +39,7 @@ const description = `<p class="text-lg">
         </p>`
 
 const imageUrl = '/honingovannaya_trubka_prim.jpeg'
-const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области'
+const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области и всей России'
 
 const items = ref([
   {
@@ -79,7 +79,7 @@ const items = ref([
 const blockData = {
   title: 'Изготавливаем гидроцилиндры по индивидуальным параметрам',
   description:
-    'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 24 месяцев',
+    'Произведем гидроцилиндры любого типоразмера и конфигурации\nпо вашим техническим требованиям или чертежам\nс гарантией до 12 месяцев',
   buttonText: 'Заказать гидроцилиндр',
   imageUrl: '/hidrocilinder_3.jpeg',
   imageAlt: 'Производство гидроцилиндров',
@@ -90,9 +90,9 @@ const blockData = {
 
 const mainSlideData = {
   src: '/hidrocilinder_4.jpeg',
-  title: 'Профессиональный ремонт гидроцилиндров',
+  title: 'Изготовление гидроцилиндров',
   description:
-    'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
+    'Профессиональное изготовление гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро изготовим для предприятий и частных клиентов по Свердловской области и всей России.',
 }
 </script>
 
@@ -101,7 +101,7 @@ const mainSlideData = {
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
-  <ProductionEquipment data-aos="fade-up" />
+  <!-- <ProductionEquipment data-aos="fade-up" /> -->
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
   <AccessoriesGrid :items="items" data-aos="fade-up" />
   <Contact data-aos="fade-up" />

@@ -70,7 +70,7 @@ const blockDataVariant = {
 <template>
   <Slider />
   <ServiceBlock data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" class="mb-8"/>
   <InformationBlock :blockData="blockDataVariant" position="left" data-aos="fade-up" />
 
   <Block data-aos="fade-up" />
