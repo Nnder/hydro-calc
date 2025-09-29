@@ -48,42 +48,42 @@
 const cards = [
   {
     id: 1,
-    link: "/news/1",
+    link: "/",
     icon: "material-symbols:percent-rounded",
     title: "Вычет НДС до 20%",
     description: "Cможете сэкономить, если работаете на ОСН"
   },
   {
     id: 2,
-    link: "/news/2",
+    link: "/",
     icon: "material-symbols:person-outline-rounded",
     title: "Гарантия на все виды работы",
     description: "Предоставляем гарантию от 6 месяцев до 12 месяцев"
   },
   {
     id: 3,
-    link: "/news/3",
+    link: "/",
     icon: "material-symbols:description-outline-rounded",
     title: "ЭДО",
     description: "Или бумажные документы — как удобнее"
   },
   {
     id: 4,
-    link: "/news/4",
+    link: "/",
     icon: "material-symbols:schedule-outline-rounded",
     title: "Отсрочка платежа",
     description: "Для каждого клиента индивидуальные условия"
   },
     {
         id: 5,
-        link: "/news/5",
+        link: "/",
         icon: "material-symbols:description-outline-rounded",
         title: "Доставка по всей России",
         description: "Работаем со всеми транспортными компаниями"
     },
     {
         id: 6,
-        link: "/news/6",
+        link: "/",
         icon: "material-symbols:engineering-outline-rounded",
         title: "Работа с организациями и физ лицами",
         description: "Любая форма оплаты"
