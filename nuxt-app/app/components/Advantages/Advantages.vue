@@ -1,11 +1,15 @@
 <template>
-  <div class="px-6 lg:px-8 xl:px-12 bg-white py-12">
+  <div class="max-w-7xl mx-auto py-12 md:py-4 px-2 sm:px-4 bg-white ">
     <div class="grid grid-cols-1 mb-12 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
       <NuxtLink
         v-for="(card, index) in cards"
         :key="card.id"
         :to="card.link"
-        class="group relative bg-white p-6 lg:p-7 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-blue-50 hover:border-blue-100 flex flex-col justify-between min-h-[220px]"
+        class="group relative bg-white p-6 lg:p-7 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-blue-50 hover:border-blue-100 flex flex-col justify-between min-h-[220px] opacity-0 animate-slide-in-right"
+        :style="{
+          animationDelay: `${index * 100}ms`,
+          animationFillMode: 'forwards'
+        }"
       >
         <!-- Декоративные элементы только для последней карточки -->
         <div 
@@ -86,3 +90,20 @@ const cards = [
     }
 ];
 </script>
+
+<style>
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+</style>
