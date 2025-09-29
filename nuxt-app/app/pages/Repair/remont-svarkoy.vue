@@ -2,9 +2,9 @@
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
 
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <!-- <Accordion data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
