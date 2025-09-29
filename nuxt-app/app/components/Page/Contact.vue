@@ -13,7 +13,7 @@
       <div class="text-center mb-6 sm:mb-8 lg:mb-12">
         <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 text-white">
           Профессиональная
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-400">консультация</span>
+          <span class="text-white">консультация</span>
         </h2>
         <p class="text-base sm:text-lg lg:text-xl text-white max-w-3xl mx-auto px-2">
           Экспертная помощь от сертифицированных технических специалистов
