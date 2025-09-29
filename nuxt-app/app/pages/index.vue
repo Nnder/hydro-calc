@@ -64,6 +64,11 @@ const blockDataVariant = {
   type: '3d',
   modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
   modelBgColor: '#ffffff',
+  scale: 0.5,
+  loadFunc: model => {
+    model.rotation.x = Math.PI / 2.2
+    model.rotation.y = Math.PI
+  },
 }
 
 const blockDataVariantTwo = {
