@@ -8,6 +8,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import Contact from '~/components/Page/Contact.vue'
 import Advantages from '~/components/Advantages/Advantages.vue'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 const selected = ref<null | number>(null)
 
@@ -87,7 +88,7 @@ const blockDataVariantTwo = {
   <Slider />
   <ServiceBlock data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" class="mb-8"/>
-  <InformationBlock :blockData="blockDataVariant" position="left" data-aos="fade-up" class="mb-8"/>
+  <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" class="mb-8"/>
   <InformationBlock :blockData="blockDataVariantTwo" data-aos="fade-up" class="mb-8"/>
   <Block data-aos="fade-up" />
   <Advantages />
