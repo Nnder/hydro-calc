@@ -69,7 +69,7 @@
             <div class="h-48 sm:h-64 lg:h-80 xl:h-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
               <div class="relative w-full h-full">
                 <NuxtImg
-                  src="/worker_4.jpg"
+                  src="/callback.webp"
                   alt="Технический специалист за работой"
                   class="w-full h-full object-cover rounded-lg sm:rounded-xl lg:rounded-3xl shadow-md sm:shadow-lg lg:shadow-xl border-2 sm:border-4 border-white/20"
                   :imgAttrs="{ style: 'object-position: center 30%' }"
