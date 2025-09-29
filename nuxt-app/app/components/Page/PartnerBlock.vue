@@ -1,18 +1,18 @@
 <template>
   <div class="max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-    <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-auto lg:h-[500px] relative overflow-hidden">
+    <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-fit lg:max-h-[700px] relative overflow-hidden">
       <div class="flex flex-col lg:flex-row h-full" :class="flexDirection">
-        <div class="w-full lg:w-1/2 h-64 sm:h-80 lg:h-full">
+        <div class="w-full lg:w-1/2  lg:h-full">
           <NuxtImg
             :src="imageUrl"
             :alt="imageAlt"
-            class="w-full h-full object-cover"
+            class="w-full h-[700px] object-cover"
             sizes="sm:100vw lg:50vw xl:800px"
             loading="lazy"
-          />
+          /> 
         </div>
 
-        <div class="w-full lg:w-1/2 flex flex-col justify-center p-4 sm:p-6 lg:p-8" :class="contentPadding">
+        <div class="w-full lg:w-1/2 flex flex-col px-4 sm:px-6 lg:px-8" :class="contentPadding">
           <div :class="textAlignment">
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
               {{ blockDataText.title }}
@@ -30,7 +30,7 @@
                 <div class="flex-shrink-0 mt-0.5 sm:mt-1">
                   <Icon name="heroicons:check-badge" class="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                 </div>
-                <span class="text-base sm:text-base text-gray-700">{{ item }}</span>
+                <span class="text-base sm:text-base text-gray-700" v-html="item"></span>
               </li>
             </ul>
           </div>
