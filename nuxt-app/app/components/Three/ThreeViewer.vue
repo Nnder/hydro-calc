@@ -11,6 +11,7 @@ const props = defineProps({
     type: Number,
     default: 0.5,
   },
+  loadFunc: Function,
 })
 
 const container = ref<HTMLDivElement | null>(null)
@@ -70,9 +71,8 @@ function loadModel(path: string) {
     gltf => {
       if (model) scene.remove(model)
       model = gltf.scene
-      // model.rotation.x = Math.PI / 2;
-      // model.rotation.y = Math.PI;
 
+      if (props?.loadFunc) props?.loadFunc(model)
 
       const box = new THREE.Box3().setFromObject(model)
       const center = box.getCenter(new THREE.Vector3())
