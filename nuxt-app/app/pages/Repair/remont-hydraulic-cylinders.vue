@@ -128,8 +128,8 @@
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
-  <PortfolioSection />
-  <Accordion data-aos="fade-up" v-model="fagItems" />
+  <!-- <PortfolioSection /> -->
+  <!-- <Accordion data-aos="fade-up" v-model="fagItems" /> -->
   <Contact data-aos="fade-up" />
 </template>
 

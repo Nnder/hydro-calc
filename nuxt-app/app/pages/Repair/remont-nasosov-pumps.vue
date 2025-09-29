@@ -126,8 +126,8 @@
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
-  <PortfolioSection />
-  <Accordion data-aos="fade-up" />
+  <!-- <PortfolioSection /> -->
+  <!-- <Accordion data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
 

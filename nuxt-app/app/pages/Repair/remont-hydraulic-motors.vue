@@ -127,7 +127,7 @@
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
-  <Accordion data-aos="fade-up" />
+  <!-- <Accordion data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
 
