@@ -25,7 +25,6 @@ let animationFrameId: number
 let model: THREE.Group | null = null
 
 let resizeEnabled = false
-let controlsActivated = false
 
 function onWindowResize() {
   if (!container.value) return
@@ -49,19 +48,14 @@ function fitCameraToObject(
   const halfFov = THREE.MathUtils.degToRad(camera.fov * props.screenIncrease)
 
   let distance = (halfSize / Math.tan(halfFov)) * offset
-
-  const minDistance = maxSize * 0.5
-  const maxDistance = maxSize * 5
-  distance = THREE.MathUtils.clamp(distance, minDistance, maxDistance)
+  distance = THREE.MathUtils.clamp(distance, maxSize * 0.5, maxSize * 5)
 
   camera.position.copy(center)
   camera.position.z += distance
   camera.lookAt(center)
 
-  if (controls) {
-    controls.target.copy(center)
-    controls.update()
-  }
+  controls.target.copy(center)
+  controls.update()
 }
 
 function loadModel(path: string) {
@@ -113,28 +107,22 @@ onMounted(() => {
 
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setSize(container.value.clientWidth, container.value.clientHeight)
-
-  renderer.domElement.style.touchAction = 'auto'
   container.value.appendChild(renderer.domElement)
 
-  const light = new THREE.DirectionalLight(0xffffff, 1)
-  light.position.set(5, 5, 5)
-  scene.add(light)
-  scene.add(new THREE.AmbientLight(0x888888))
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1)
+  dirLight.position.set(5, 5, 5)
+  scene.add(dirLight)
+
+  const ambient = new THREE.AmbientLight(0x888888)
+  scene.add(ambient)
 
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
   controls.dampingFactor = 0.05
   controls.enablePan = true
-  controls.enableZoom = true
-
+  controls.enableZoom = false
   controls.autoRotate = true
   controls.autoRotateSpeed = 2.0
-  controls.enabled = false
-
-  controls.addEventListener('start', () => {
-    controls.autoRotate = false
-  })
 
   loadModel(props.modelPath)
 
@@ -145,35 +133,26 @@ onMounted(() => {
   }
   animate()
 
-  const activateOnPointerDown = (ev: PointerEvent) => {
-    if (controlsActivated) return
+  renderer.domElement.addEventListener(
+    'click',
+    () => {
+      if (!resizeEnabled) {
+        window.addEventListener('resize', onWindowResize)
+        resizeEnabled = true
+      }
+      controls.enableZoom = true
+    },
+    { once: false }
+  )
 
-    controls.autoRotate = false
-    controls.enabled = true
-    controlsActivated = true
-
-    renderer.domElement.style.touchAction = 'none'
-
-    if (!resizeEnabled) {
-      window.addEventListener('resize', onWindowResize, false)
-      resizeEnabled = true
-    }
-  }
-
-  renderer.domElement.addEventListener('pointerdown', activateOnPointerDown, { once: true, passive: true })
+  renderer.domElement.addEventListener('pointerleave', () => {
+    controls.enableZoom = false
+  })
 })
 
 onBeforeUnmount(() => {
   cancelAnimationFrame(animationFrameId)
-
-  try {
-    renderer?.domElement.removeEventListener('pointerdown', () => {})
-  } catch (e) {}
-
-  if (resizeEnabled) {
-    window.removeEventListener('resize', onWindowResize)
-  }
-
+  if (resizeEnabled) window.removeEventListener('resize', onWindowResize)
   try {
     renderer.dispose()
   } catch (e) {}
