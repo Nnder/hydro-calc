@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.9.0",
-    "@i2d/nuxt-pdf-frame": "^0.6.1",
     "@mdi/font": "^7.4.47",
     "@nuxt/icon": "^1.12.0",
     "@nuxt/image": "^1.10.0",
