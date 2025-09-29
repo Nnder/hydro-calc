@@ -15,6 +15,7 @@
         </div>
 
         <div class="lg:w-1/2">
+          <h2 class="text-2xl text-blue-800 font-bold text-center">{{ currentProduct }}</h2>
           <AccessoriesGrid :items="items" @item-click="handleItemClick" />
 
           <div class="mt-4 bg-white rounded-lg p-4 shadow-sm border border-blue-100">
