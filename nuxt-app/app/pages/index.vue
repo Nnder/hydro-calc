@@ -64,6 +64,21 @@ const blockDataVariant = {
   modelBgColor: '#2563EB',
 }
 
+const blockDataVariantTwo = {
+  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
+  description:
+    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+  buttonText: 'Рассчитать стоимость',
+  imageUrl: '/hydrocilindr.jpg',
+  imageAlt: 'Гидроцилиндр',
+  type: '3d',
+  modelSrc: '/3d/Сборка ковша.glb',
+  modelBgColor: '#2563EB',
+  scale: 0.3
+}
+
+
+
 
 </script>
 
@@ -71,8 +86,8 @@ const blockDataVariant = {
   <Slider />
   <ServiceBlock data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" class="mb-8"/>
-  <InformationBlock :blockData="blockDataVariant" position="left" data-aos="fade-up" />
-
+  <InformationBlock :blockData="blockDataVariant" position="left" data-aos="fade-up" class="mb-8"/>
+  <InformationBlock :blockData="blockDataVariantTwo" data-aos="fade-up" class="mb-8"/>
   <Block data-aos="fade-up" />
   <Contact data-aos="fade-up" />
   <Gis data-aos="fade-up" />

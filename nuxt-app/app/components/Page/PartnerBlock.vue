@@ -1,12 +1,12 @@
 <template>
   <div class="max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-    <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-fit lg:max-h-[700px] relative overflow-hidden">
+    <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-fit lg:max-h-[600px] relative overflow-hidden">
       <div class="flex flex-col lg:flex-row h-full" :class="flexDirection">
         <div class="w-full lg:w-1/2  lg:h-full">
           <NuxtImg
             :src="imageUrl"
             :alt="imageAlt"
-            class="w-full h-[700px] object-cover"
+            class="w-full h-[600px] object-cover"
             sizes="sm:100vw lg:50vw xl:800px"
             loading="lazy"
           /> 
