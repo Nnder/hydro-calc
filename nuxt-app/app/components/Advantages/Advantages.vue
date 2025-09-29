@@ -1,6 +1,6 @@
 <template>
   <div class="px-6 lg:px-8 xl:px-12 bg-white py-12">
-    <div class="grid grid-cols-1 mb-12 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+    <div class="grid grid-cols-1 mb-12 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
       <NuxtLink
         v-for="(card, index) in cards"
         :key="card.id"
@@ -69,6 +69,20 @@ const cards = [
     icon: "material-symbols:schedule-outline-rounded",
     title: "Отсрочка платежа",
     description: "Для каждого клиента индивидуальные условия"
-  }
+  },
+    {
+        id: 5,
+        link: "/news/5",
+        icon: "material-symbols:description-outline-rounded",
+        title: "Доставка по всей России",
+        description: "Работаем со всеми транспортными компаниями"
+    },
+    {
+        id: 6,
+        link: "/news/6",
+        icon: "material-symbols:engineering-outline-rounded",
+        title: "Работа с организациями и физ лицами",
+        description: "Любая форма оплаты"
+    }
 ];
 </script>
