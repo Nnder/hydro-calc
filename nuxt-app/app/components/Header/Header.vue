@@ -168,7 +168,11 @@ const { open } = useModal()
                   @mouseenter="openSubMenu(item.id)"
                 >
                   <span>{{ item.name }}</span>
-                  <Icon name="material-symbols:keyboard-arrow-down" class="ml-1 h-4 w-4" />
+                  <Icon 
+                    name="material-symbols:keyboard-arrow-down" 
+                    class="ml-1 h-5 w-5 transition-transform duration-300 ease-in-out"
+                    :class="{ 'rotate-180': activeMenu === item.id }"
+                  />
                 </button>
               </div>
               <NuxtLink
