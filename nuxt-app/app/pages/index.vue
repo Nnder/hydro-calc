@@ -7,6 +7,7 @@ import Diagnostics from '~/components/Page/Diagnostics.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import Contact from '~/components/Page/Contact.vue'
+import Advantages from '~/components/Advantages/Advantages.vue'
 
 const selected = ref<null | number>(null)
 
@@ -74,6 +75,7 @@ const blockDataVariant = {
   <InformationBlock :blockData="blockDataVariant" position="left" data-aos="fade-up" />
 
   <Block data-aos="fade-up" />
+  <Advantages />
   <Contact data-aos="fade-up" />
   <Gis data-aos="fade-up" />
 </template>
