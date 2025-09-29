@@ -2,7 +2,7 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <PerformanceChecker />
+  <!-- <PerformanceChecker /> -->
   <CallBackModal />
 </template>
 
