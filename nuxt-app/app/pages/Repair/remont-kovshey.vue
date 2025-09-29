@@ -4,7 +4,7 @@
     :title="'Выберите детали для ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидромотора'"
     :parts="hydrantParts"
-    main-image="/calculator/3.png"
+    main-image="/calculator/Сборка ковша.png"
     :image-alt="'Профессиональный ремонт гидромоторов'"
     image-id="hydroImage"
     highlight-mode="single"
@@ -63,8 +63,8 @@ const blockDataText = {
 }
 
 const globalTitle = {
-   gtitle: "Этапы ремонта Ковшей",
-   subtitle: "Полный цикл восстановления Ковшей",
+  gtitle: 'Этапы ремонта Ковшей',
+  subtitle: 'Полный цикл восстановления Ковшей',
 }
 
 const parameters = ref([
@@ -105,7 +105,8 @@ const repairSteps = ref([
   {
     title: 'Сборка и сварка',
     shortDescription: 'Комплектация',
-    description: 'Профессиональный ремонт ковша с использованием комплектующих, восстановление отверстий под пальцы, а также усилиение ковша',
+    description:
+      'Профессиональный ремонт ковша с использованием комплектующих, восстановление отверстий под пальцы, а также усилиение ковша',
     image: '/icons/assembly.svg',
   },
   {
@@ -127,6 +128,10 @@ const blockData = {
   modelSrc: '/3d/Сборка ковша.glb',
   modelBgColor: '#2563EB',
   scale: 0.3,
+  loadFunc: model => {
+    model.rotation.x = Math.PI / 2
+    model.rotation.y = Math.PI
+  },
 }
 
 const hydrantParts = ref([
