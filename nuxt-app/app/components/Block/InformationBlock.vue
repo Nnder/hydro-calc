@@ -10,10 +10,10 @@ defineProps({
     type: Object,
     required: true,
   },
-  position:{
+  position: {
     type: String,
-    default: 'right'
-  }
+    default: 'right',
+  },
 })
 </script>
 
@@ -21,10 +21,10 @@ defineProps({
   <section class="w-full h-[50vh] min-h-[400px]">
     <div class="w-full h-full bg-hydro-power">
       <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-        <div class="flex flex-col  items-center justify-between w-full gap-8"
-        :class="[
-          position === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'
-        ]">
+        <div
+          class="flex flex-col items-center justify-between w-full gap-8"
+          :class="[position === 'right' ? 'md:flex-row' : 'md:flex-row-reverse']"
+        >
           <div class="text-white max-w-2xl">
             <h2 class="text-2xl md:text-4xl font-bold mb-4 leading-tight">
               {{ blockData.title }}
@@ -53,6 +53,7 @@ defineProps({
                 :modelPath="blockData.modelSrc"
                 :canvasColor="blockData.modelBgColor"
                 :screenIncrease="blockData.scale || 0.5"
+                :loadFunc="blockData?.loadFunc"
                 class="!h-[400px]"
               />
 

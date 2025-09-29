@@ -76,20 +76,20 @@ const blockDataVariantTwo = {
   type: '3d',
   modelSrc: '/3d/Сборка ковша.glb',
   modelBgColor: '#2563EB',
-  scale: 0.3
+  scale: 0.3,
+  loadFunc: model => {
+    model.rotation.x = Math.PI / 2
+    model.rotation.y = Math.PI
+  },
 }
-
-
-
-
 </script>
 
 <template>
   <Slider />
   <ServiceBlock data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" class=""/>
-  <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" class=""/>
-  <InformationBlock :blockData="blockDataVariantTwo" data-aos="fade-up" class=""/>
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
+  <InformationBlock :blockData="blockDataVariantTwo" data-aos="fade-up" />
   <Block data-aos="fade-up" />
   <Advantages />
   <Contact data-aos="fade-up" />
