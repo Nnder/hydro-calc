@@ -134,7 +134,7 @@ const tableData = ref([
 const tableDataObjects = ref([
   {
     id: 'type1',
-    title: 'Тип 1: Высокопрочные шланги',
+    title: 'Тип 1SN DIN EN 853',
     data: [
       {
         nominalMm: 6,
@@ -270,6 +270,7 @@ const tableDataObjects = ref([
   },
   {
     id: 'type2',
+    title: 'Тип 1SC DIN EN 857',
     data: [
       {
         nominalMm: 6,
@@ -366,6 +367,7 @@ const tableDataObjects = ref([
   },
   {
     id: 'type3',
+    title: 'Тип 2SN DIN EN 853',
     data: [
       {
         nominalMm: 6,
@@ -501,6 +503,7 @@ const tableDataObjects = ref([
   },
   {
     id: 'type4',
+    title: 'Тип 2SC DIN EN 857',
     data: [
       {
         nominalMm: 6,
@@ -597,6 +600,7 @@ const tableDataObjects = ref([
   },
   {
     id: 'type5',
+    title: 'Тип 4 SP DIN EN 856',
     data: [
       {
         nominalMm: 10,
@@ -706,6 +710,7 @@ const tableDataObjects = ref([
   },
   {
     id: 'type6',
+    title: 'Тип 4 SH DIN EN 856',
     data: [
       {
         nominalMm: 19,
