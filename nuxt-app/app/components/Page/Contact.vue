@@ -39,7 +39,7 @@
                       >
                         <Icon name="mdi:check" class="text-blue-600 text-xs sm:text-sm" />
                       </div>
-                      Бесплатную диагностику по телефону
+                      Бесплатная консультация по телефону
                     </li>
                     <li class="flex items-center">
                       <div
