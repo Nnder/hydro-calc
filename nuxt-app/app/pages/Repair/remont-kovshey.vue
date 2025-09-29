@@ -123,6 +123,10 @@ const blockData = {
   buttonText: 'Связаться с нами',
   imageUrl: '/ekskavator.png',
   imageAlt: 'ковш',
+  type: '3d',
+  modelSrc: '/3d/Сборка ковша.glb',
+  modelBgColor: '#2563EB',
+  scale: 0.3,
 }
 
 const hydrantParts = ref([

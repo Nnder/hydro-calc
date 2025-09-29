@@ -12,7 +12,7 @@
   />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default" :image-url="'/partners_1.webp'" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <!-- <Accordion data-aos="fade-up" v-model="fagItems" /> -->
   <Contact data-aos="fade-up" />
@@ -114,16 +114,16 @@ const blockDataText = {
   title: 'Что мы делаем?',
   description: ``,
    benefits: [
-    `Поршень гидроцилиндра
+    `<p class="font-semibold">Поршень гидроцилиндра</p>
 
 Часто встречающие проблемы — задиры, излом канавок, деформация, механические повреждения металла. Проводимые ремонтные работы — шлифовка поршня, полное изготовление нового поршня, замена (модернизация под современные уплотнения)`,
-    `Комплект уплотнений
+    `<p class="font-semibold">Комплект уплотнений</p>
 
 Часто встречающие проблемы — износ РТИ, замена РТИ по умолчанию происходит при переборке деталей. Проводимые ремонтные работы — замена РТИ, подбор комплектов уплотнений`,
-    `Шток в сборе
+    `<p class="font-semibold">Шток в сборе</p>
 
 Часто встречающие проблемы — Задиры штока, механические повреждения, нарушение геометрии штока (загиб). Проводимые ремонтные работы — Шлифовка, восстановление, полная замена штока`,
-    `Крышки гидроцилиндра
+    `<p class="font-semibold">Крышки гидроцилиндра</p>
 
 Часто встречающие проблемы — задиры, механические повреждения по причине загиба штока. Проводимые ремонтные работы — восстановление, изготовление новой крышки гидроцилиндра`,
   ],
