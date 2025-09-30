@@ -1,7 +1,7 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
-    :title="'Выберите детали для ремонта'"
+    :title="'Виды работ и ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидромотора'"
     :parts="hydrantParts"
     main-image="/calculator/3.png"

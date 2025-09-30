@@ -103,6 +103,6 @@ const mainSlideData = {
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <!-- <ProductionEquipment data-aos="fade-up" /> -->
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
-  <AccessoriesGrid :items="items" data-aos="fade-up" />
+  <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
