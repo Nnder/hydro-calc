@@ -125,6 +125,6 @@ const slider = {
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
-  <AccessoriesGrid :items="items" data-aos="fade-up" />
+  <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact />
 </template>
