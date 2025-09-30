@@ -111,7 +111,6 @@ const sellSubMenu = [
     items: [
       { name: 'Гидронасосы', link: '/sell-gidronasosov' },
       { name: 'Гидроцилиндры', link: '/sell-gidrocilindrov' },
-      { name: 'Гидромоторы', link: '/sell-gidromotorov' },
     ],
   },
   {
@@ -127,7 +126,6 @@ const sellSubMenu = [
     id: 'fluids',
     name: 'ГСМ и жидкости',
     items: [
-      { name: 'Масла и смазки', link: '/sell-masla' },
       { name: 'Технические жидкости', link: '/sell-shidkostey' },
     ],
   },
