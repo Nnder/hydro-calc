@@ -96,7 +96,7 @@ const blockDataVariantTwo = {
   <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
   <InformationBlock :blockData="blockDataVariantTwo" data-aos="fade-up" />
   <Block data-aos="fade-up" />
-  <Advantages />
+  <Advantages data-aos="fade-up" />
   <Contact data-aos="fade-up" />
   <Gis data-aos="fade-up" />
 </template>
