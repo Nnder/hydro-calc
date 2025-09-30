@@ -48,7 +48,7 @@ const handlePartSelected = ({ part, index }) => {
   console.log('Part selected:', part.name)
 }
 
-const handleImageChanged = (newImage) => {
+const handleImageChanged = newImage => {
   console.log('Image changed to:', newImage)
 }
 
@@ -113,7 +113,7 @@ const fagItems = ref([
 const blockDataText = {
   title: 'Что мы делаем?',
   description: ``,
-   benefits: [
+  benefits: [
     `<p class="font-semibold">Поршень гидроцилиндра</p>
 
 Часто встречающие проблемы — задиры, излом канавок, деформация, механические повреждения металла. Проводимые ремонтные работы — шлифовка поршня, полное изготовление нового поршня, замена (модернизация под современные уплотнения)`,
@@ -205,6 +205,11 @@ const blockData = {
   type: '3d',
   modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
   modelBgColor: '#2563EB',
+  scale: 0.5,
+  loadFunc: model => {
+    model.rotation.x = Math.PI / 2.2
+    model.rotation.y = Math.PI
+  },
 }
 
 const MainCalculatorImage = ref('/calculator/1.png')
