@@ -152,6 +152,20 @@ const blockData = {
     model.rotation.x = Math.PI / 2.2
     model.rotation.y = Math.PI
   },
+  features: [
+    {
+      icon: 'mdi:tools',
+      text: 'Современное оборудование для диагностики и ремонта',
+    },
+    {
+      icon: 'mdi:shield-check',
+      text: 'Гарантия качества на все виды работ',
+    },
+    {
+      icon: 'mdi:truck-fast',
+      text: 'Оперативные сроки выполнения ремонта',
+    },
+  ],
 }
 
 const MainCalculatorImage = ref('/calculator/1.png')
