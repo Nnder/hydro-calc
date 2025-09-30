@@ -55,8 +55,8 @@ useHead({
             </div>
 
             <h3 class="text-2xl font-bold mb-4 text-gray-900">Наш офис</h3>
-            <p class="text-gray-700 text-lg mb-2">г. Москва, ул. Промышленная, д. 15</p>
-            <p class="text-gray-600">Бизнес-центр "Технопарк"</p>
+            <p class="text-gray-700 text-lg mb-2">г.Нижний Тагил, ул. Аганичева 101</p>
+            <p class="text-gray-600">Абсолют Техно</p>
           </div>
         </div>
 
@@ -88,8 +88,8 @@ useHead({
                 <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">+7 (800) 555-33-55</a>
               </div>
               <div>
-                <p class="font-medium text-gray-900 mb-1">Отдел продаж</p>
-                <a href="tel:+78005553356" class="text-blue-600 text-lg font-semibold hover:text-blue-700">+7 (800) 555-33-56</a>
+                <p class="font-medium text-gray-900 mb-1">Инженер</p>
+                <a href="tel:+78005553356" class="text-blue-600 text-lg font-semibold hover:text-blue-700">+7 (800) 555-44-66</a>
               </div>
             </div>
           </div>
