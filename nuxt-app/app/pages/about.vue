@@ -67,15 +67,7 @@
       </div>
 
       <div class="mb-20 lg:mb-28" data-aos="fade-up" data-aos-delay="600">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-            {{ priorities.title }}
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Мы строим долгосрочные отношения с клиентами, основанные на доверии и качестве
-          </p>
-        </div>
-        
+      
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
             v-for="(priority, index) in priorities.items"
@@ -121,37 +113,42 @@ useHead({
 })
 
 const priorities = {
-  title: "Наши приоритеты",
   items: [
     {
-      title: "Профессионализм",
-      icon: "mdi:account-hard-hat",
-      description: "Наши специалисты имеют многолетний опыт в ремонте гидравлики. Регулярно проходим обучение и используем профессиональное диагностическое оборудование."
+    id: 1,
+    icon: "material-symbols:percent-rounded",
+    title: "Вычет НДС до 20%",
+    description: "Cможете сэкономить, если работаете на ОСН"
+  },
+  {
+    id: 2,
+    icon: "material-symbols:person-outline-rounded",
+    title: "Гарантия на все виды работы",
+    description: "Предоставляем гарантию от 6 месяцев до 12 месяцев"
+  },
+  {
+    id: 3,
+    icon: "material-symbols:description-outline-rounded",
+    title: "ЭДО",
+    description: "Или бумажные документы — как удобнее"
+  },
+  {
+    id: 4,
+    icon: "material-symbols:schedule-outline-rounded",
+    title: "Отсрочка платежа",
+    description: "Для каждого клиента индивидуальные условия"
+  },
+    {
+        id: 5,
+        icon: "material-symbols:description-outline-rounded",
+        title: "Доставка по всей России",
+        description: "Работаем со всеми транспортными компаниями"
     },
     {
-      title: "Качество работ", 
-      icon: "mdi:quality-high",
-      description: "Используем только оригинальные запчасти и сертифицированные материалы. Даем гарантию до 12 месяцев на все виды ремонтных работ."
-    },
-    {
-      title: "Срочный ремонт",
-      icon: "mdi:clock-fast",
-      description: "Понимаем ценность вашего времени. Осуществляем срочный ремонт гидроцилиндров с выездом на объект. Минимальный простой техники."
-    },
-    {
-      title: "Доступные цены",
-      icon: "mdi:cash-multiple",
-      description: "Прямые поставки запчастей позволяют предлагать конкурентные цены. Гибкая система скидок для постоянных клиентов."
-    },
-    {
-      title: "Выездной сервис",
-      icon: "mdi:van-utility",
-      description: "Осуществляем диагностику и ремонт на территории заказчика. Современное оборудование позволяет работать в полевых условиях."
-    },
-    {
-      title: "Гарантии",
-      icon: "mdi:shield-check",
-      description: "Все работы сопровождаются официальной гарантией. Прозрачная смета и договор. Несем ответственность за результат."
+        id: 6,
+        icon: "material-symbols:engineering-outline-rounded",
+        title: "Работа с организациями и физ лицами",
+        description: "Любая форма оплаты"
     }
   ],
 }
