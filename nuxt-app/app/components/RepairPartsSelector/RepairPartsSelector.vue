@@ -1,9 +1,9 @@
 <template>
   <div class="bg-tech-light" data-aos="fade-up" data-aos-delay="200">
     <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
-      <div class="flex min-h-[600px] gap-4">
+      <div class="flex items-center">
         <!-- Левая секция (список деталей) -->
-        <section class="flex-1 p-4 bg-white rounded-2xl shadow-lg overflow-auto">
+        <section class="flex-1 p-4 h-fit bg-white rounded-2xl shadow-lg overflow-auto">
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3">
             <div class="space-y-1">
               <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-hydro-steel bg-gradient-to-r from-hydro-steel to-hydro-power bg-clip-text text-transparent">
@@ -110,11 +110,11 @@
 
         <!-- Правая секция (изображение) -->
         <section class="flex-1 relative">
-          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100 ">
+          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-start justify-center bg-gray-100 ">
             <div class="relative" :style="imageStyle">
               <NuxtImg
                 :src="mainImage"
-                class="max-h-screen w-full object-contain"
+                class="h-full max-h-[500px] w-full max-w-[500px] object-contain"
                 :alt="imageAlt"
                 loading="lazy"
                 format="webp"

@@ -17,7 +17,6 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 // import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
-import Accordion from '~/components/Page/Accordion.vue'
 
 
 definePageMeta({
@@ -112,106 +111,6 @@ const blockData = {
   buttonText: 'Связаться с нами',
   imageUrl: '/ekskavator.png',
   imageAlt: 'ремонт оборудования',
-}
-
-const hydrantParts = ref([
-  {
-    name: 'Диагностика (дефектовка)',
-    selected: false,
-    show: false,
-    description: 'Полная диагностика ковшас использованием современного оборудования для выявления всех дефектов.',
-    features: [
-      'Визуальный осмотр на предмет повреждений',
-      'Проверка герметичности системы',
-      'Измерение параметров штока и гильзы',
-      'Составление дефектовочной ведомости',
-    ],
-    highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
-  },
-  {
-    name: 'Изготовление и замена штока',
-    selected: false,
-    show: false,
-    color: 'bg-green-500/50 border-green-500',
-    highlight: { top: '25%', left: '30%', width: '20%', height: '50%' },
-  },
-  {
-    name: 'Изготовление и замена поршня',
-    selected: false,
-    show: false,
-    color: 'bg-teal-600/50 border-teal-600',
-    highlight: { top: '40%', left: '45%', width: '15%', height: '10%' },
-  },
-  {
-    name: 'Ремонт гильз',
-    selected: false,
-    show: false,
-    color: 'bg-sky-700/50 border-sky-700',
-    highlight: { top: '30%', left: '50%', width: '30%', height: '40%' },
-  },
-  {
-    name: 'Замена крышек',
-    selected: false,
-    show: false,
-    color: 'bg-blue-300/50 border-blue-300',
-    highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
-  },
-  {
-    name: 'Ремонт цапф',
-    selected: false,
-    show: false,
-    color: 'bg-indigo-600/50 border-indigo-600',
-    highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
-  },
-  {
-    name: 'Замена проушин',
-    selected: false,
-    show: false,
-    color: 'bg-orange-600/50 border-orange-600',
-    highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
-  },
-  {
-    name: 'Гидравлические испытания',
-    selected: false,
-    show: false,
-    description: 'Контрольные испытания под давлением после ремонта.',
-    features: [
-      'Проверка на герметичность',
-      'Испытание рабочим давлением P<span class="text-[10px]">раб</span> * 1,25',
-      'Контроль плавности хода',
-      'Фиксация результатов',
-    ],
-    highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
-  },
-])
-
-const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
-
-const handlePartClick = index => {
-  hydrantParts.value[index].selected = !hydrantParts.value[index].selected
-  hydrantParts.value[index].show = hydrantParts.value[index].selected
-
-  // scrollToImage()
-}
-
-const scrollToImage = () => {
-  const element = document.getElementById('hydroImage')
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    })
-  }
-}
-
-const getHighlightStyle = index => {
-  const part = hydrantParts.value[index]
-  return {
-    top: part.highlight.top,
-    left: part.highlight.left,
-    width: part.highlight.width,
-    height: part.highlight.height,
-  }
 }
 </script>
 

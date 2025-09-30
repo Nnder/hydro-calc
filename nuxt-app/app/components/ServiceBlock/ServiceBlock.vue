@@ -21,7 +21,7 @@ const categories = ref([
       },
       {
         title: 'Ремонт Ковшей',
-        image: 'https://reschke.ru/wa-data/public/shop/products/34/07/734/images/2584/2584.330.png',
+        image: 'https://image.made-in-china.com/202f0j00mcAukJpgfGrq/PC130-0-58cubic-Excavator-Bucket-with-Five-Teeth-and-Side-Cutter.webp',
       },
       {
         title: 'Ремонт сварочных и токарных работ',
