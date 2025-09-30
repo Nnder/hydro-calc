@@ -1,6 +1,5 @@
 <script setup>
 import ThreeViewer from '../Three/ThreeViewer.vue'
-import { Icon } from '@iconify/vue' // иконки через iconify (можно использовать heroicons, lucide и т.п.)
 
 const { open } = useModal()
 const hint = ref(true)
@@ -33,7 +32,7 @@ defineProps({
               {{ blockData.description }}
             </p>
 
-            <div v-if="blockData.features" class="space-y-4 mb-6">
+            <div class="space-y-4 mb-6">
               <div
                 v-for="(feature, index) in blockData.features"
                 :key="index"
@@ -52,7 +51,6 @@ defineProps({
             </button>
           </div>
 
-          <!-- Блок с картинкой / 3D -->
           <div class="hidden md:block !w-[640px]">
             <NuxtImg
               v-if="blockData.type !== '3d'"
