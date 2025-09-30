@@ -2,129 +2,101 @@
 import MainForm from '~/components/Forms/MainForm.vue'
 
 useHead({
-  title: 'Наши контакты',
+  title: 'Контакты | Абсолют Техно - ремонт гидроцилиндров',
   meta: [
     {
       name: 'description',
-      content: 'Свяжитесь с нами для консультации и сотрудничества',
+      content: 'Контакты ООО Абсолют Техно. Ремонт и продажа гидроцилиндров. Телефоны, адрес, электронная почта. Свяжитесь для консультации и сотрудничества.',
     },
   ],
 })
 </script>
 
 <template>
-  <div class="min-h-screen bg-tech-light">
-    <div class="bg-tech-dark text-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+  <div class="min-h-screen bg-white">
+    <!-- Герой секция -->
+    <div class="bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
       <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(37,99,235,0.1)_0%,rgba(0,0,0,0)_50%)]"></div>
-      <div class="container mx-auto px-6 py-24 relative z-10">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-          <div class="w-16 h-1 bg-hydro-power mx-auto mb-6 rounded-full"></div>
+          <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm mb-6 border border-white/30">
+            Свяжитесь с нами
+          </span>
 
           <h1 class="text-4xl md:text-6xl font-bold mb-6">
             <span class="text-white">Контакты</span>
           </h1>
 
-          <p class="text-xl text-white max-w-2xl mx-auto mb-8">Свяжитесь с нами для решения ваших технических задач</p>
+          <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+            Готовы ответить на ваши вопросы по ремонту и продаже гидроцилиндров
+          </p>
 
-          <div class="flex justify-center gap-6">
-            <a href="/" class="group flex items-center gap-2 text-white hover:text-white transition-colors">
-              <div class="bg-hydro-power/10 group-hover:bg-hydro-power/20 p-3 rounded-full transition-all">
-                <Icon name="heroicons:phone" class="w-5 h-5" />
+          <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="tel:+78005553355" class="group flex items-center justify-center gap-3 text-white hover:text-blue-100 transition-colors">
+              <div class="bg-white/10 group-hover:bg-white/20 p-3 rounded-full transition-all">
+                <Icon name="mdi:phone" class="w-6 h-6" />
               </div>
-              <span>+7 (800) 555-33-55</span>
+              <span class="text-lg font-semibold">+7 (800) 555-33-55</span>
             </a>
-            <a href="/" class="group flex items-center gap-2 text-white hover:text-white transition-colors">
-              <div class="bg-hydro-power/10 group-hover:bg-hydro-power/20 p-3 rounded-full transition-all">
-                <Icon name="heroicons:envelope" class="w-5 h-5" />
+            <a href="mailto:info@absolyut-tekno.ru" class="group flex items-center justify-center gap-3 text-white hover:text-blue-100 transition-colors">
+              <div class="bg-white/10 group-hover:bg-white/20 p-3 rounded-full transition-all">
+                <Icon name="mdi:email" class="w-6 h-6" />
               </div>
-              <span>mail@gmail.com</span>
+              <span class="text-lg font-semibold">info@absolyut-tekno.ru</span>
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container mx-auto px-6 py-16">
-      <div class="space-y-6 mb-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10">
-            <div class="flex items-start gap-6">
-              <div class="bg-hydro-power/10 p-4 rounded-full flex-shrink-0">
-                <Icon name="heroicons:building-office" class="w-8 h-8 text-hydro-power" />
-              </div>
-              <div>
-                <h3 class="text-2xl font-bold mb-4 text-tech-dark">Наш офис</h3>
-                <p class="text-hydro-steel text-lg mb-2">г. Нижний Тагил, Аганичева 101А</p>
-                <p class="text-hydro-steel text-lg">"Абсолют Техно"</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10">
-            <div class="flex items-start gap-6">
-              <div class="bg-hydro-power/10 p-4 rounded-full flex-shrink-0">
-                <Icon name="heroicons:envelope" class="w-8 h-8 text-hydro-power" />
-              </div>
-              <div>
-                <h3 class="text-2xl font-bold mb-4 text-tech-dark">Электронная почта</h3>
-                <p class="text-hydro-steel text-lg mb-2">mail@gmail.com</p>
-                <p class="text-hydro-steel text-lg">mail@gmail.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="bg-white p-8 rounded-xl shadow-sm border border-hydro-steel/10"
-          data-aos="fade-up"
-          data-aos-delay="650"
-        >
+    <!-- Основной контент -->
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <!-- Контактные карточки -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <!-- Адрес -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="500">
           <div class="flex items-start gap-6">
-            <div class="bg-hydro-power/10 p-4 rounded-full flex-shrink-0">
-              <Icon name="heroicons:phone" class="w-8 h-8 text-hydro-power" />
+            <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
+              <Icon name="mdi:office-building" class="w-8 h-8 text-blue-600" />
             </div>
-            <div class="w-full">
-              <h3 class="text-2xl font-bold mb-6 text-tech-dark">Телефоны</h3>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="text-center p-4 bg-hydro-power/5 rounded-lg hover:bg-hydro-power/10 transition-colors">
-                  <p class="font-medium text-tech-dark mb-2">Общий</p>
-                  <p class="text-hydro-steel text-lg font-semibold">+7 (800) 555-33-55</p>
-                </div>
-                <div class="text-center p-4 bg-hydro-power/5 rounded-lg hover:bg-hydro-power/10 transition-colors">
-                  <p class="font-medium text-tech-dark mb-2">Инженер</p>
-                  <p class="text-hydro-steel text-lg font-semibold">+7 (800) 555-44-66</p>
-                </div>
-                <div class="text-center p-4 bg-hydro-power/5 rounded-lg hover:bg-hydro-power/10 transition-colors">
-                  <p class="font-medium text-tech-dark mb-2">Техподдержка</p>
-                  <p class="text-hydro-steel text-lg font-semibold">+7 (800) 555-77-88</p>
-                </div>
-                <div class="text-center p-4 bg-hydro-power/5 rounded-lg hover:bg-hydro-power/10 transition-colors">
-                  <p class="font-medium text-tech-dark mb-2">Отдел продаж</p>
-                  <p class="text-hydro-steel text-lg font-semibold">+7 (800) 555-99-00</p>
-                </div>
-              </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Наш офис</h3>
+              <p class="text-gray-700 text-lg mb-2">г. Москва, ул. Промышленная, д. 15</p>
+              <p class="text-gray-600">Бизнес-центр "Технопарк"</p>
             </div>
           </div>
         </div>
 
-        <div class="bg-hydro-power/5 p-8 rounded-xl border border-hydro-power/10" data-aos="fade-up">
-          <h3 class="text-2xl font-bold mb-6 text-tech-dark">Часы работы</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-4">
-              <div class="flex justify-between pb-4 border-b border-hydro-steel/10">
-                <span class="text-hydro-steel font-medium">Офис</span>
-                <div class="text-right">
-                  <p class="font-medium">Пн-Пт: 9:00-18:00</p>
-                  <p class="text-hydro-steel text-sm">Сб-Вс: Выходной</p>
-                </div>
-              </div>
+        <!-- Почта -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="550">
+          <div class="flex items-start gap-6">
+            <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
+              <Icon name="mdi:email" class="w-8 h-8 text-blue-600" />
             </div>
-            <div class="space-y-4">
-              <div class="flex justify-between pb-4 border-b border-hydro-steel/10">
-                <span class="text-hydro-steel font-medium">Техподдержка</span>
-                <div class="text-right">
-                  <p class="font-medium">Пн-Сб: 8:00-20:00</p>
-                  <p class="text-hydro-steel text-sm">Вс: Выходной</p>
+            <div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Электронная почта</h3>
+              <p class="text-gray-700 text-lg mb-2">info@absolyut-tekno.ru</p>
+              <p class="text-gray-700 text-lg">sales@absolyut-tekno.ru</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Телефоны -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="600">
+          <div class="flex items-start gap-6">
+            <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
+              <Icon name="mdi:phone" class="w-8 h-8 text-blue-600" />
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Телефоны</h3>
+              <div class="space-y-3">
+                <div>
+                  <p class="font-medium text-gray-900 mb-1">Общий</p>
+                  <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">+7 (800) 555-33-55</a>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900 mb-1">Техподдержка</p>
+                  <a href="tel:+78005553356" class="text-blue-600 text-lg font-semibold hover:text-blue-700">+7 (800) 555-33-56</a>
                 </div>
               </div>
             </div>
@@ -132,29 +104,117 @@ useHead({
         </div>
       </div>
 
+      <!-- Детальная информация -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <!-- Часы работы -->
+        <div class="bg-blue-50 p-8 rounded-2xl border border-blue-200" data-aos="fade-up" data-aos-delay="650">
+          <h3 class="text-3xl font-bold mb-8 text-gray-900">Часы работы</h3>
+          <div class="space-y-6">
+            <div class="flex justify-between items-center pb-4 border-b border-blue-200">
+              <div class="flex items-center gap-3">
+                <Icon name="mdi:office-building" class="w-6 h-6 text-blue-600" />
+                <span class="text-gray-700 font-medium">Офис</span>
+              </div>
+              <div class="text-right">
+                <p class="font-semibold text-gray-900">Пн-Пт: 9:00-18:00</p>
+                <p class="text-gray-600 text-sm">Сб-Вс: Выходной</p>
+              </div>
+            </div>
+            <div class="flex justify-between items-center pb-4 border-b border-blue-200">
+              <div class="flex items-center gap-3">
+                <Icon name="mdi:tools" class="w-6 h-6 text-blue-600" />
+                <span class="text-gray-700 font-medium">Сервисный центр</span>
+              </div>
+              <div class="text-right">
+                <p class="font-semibold text-gray-900">Пн-Сб: 8:00-20:00</p>
+                <p class="text-gray-600 text-sm">Вс: 9:00-17:00</p>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <Icon name="mdi:headset" class="w-6 h-6 text-blue-600" />
+                <span class="text-gray-700 font-medium">Техподдержка</span>
+              </div>
+              <div class="text-right">
+                <p class="font-semibold text-gray-900">Пн-Сб: 8:00-20:00</p>
+                <p class="text-gray-600 text-sm">Вс: Выходной</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    </div>
-    <div class="relative flex justify-center h-full items-start pt-8" data-aos="fade-up">
-      <NuxtImg 
-        src="14731347_rm222-mind-30.svg"
-        alt="Фон формы"
-        class="absolute inset-0 w-full h-full object-cover z-0"
-        placeholder
-        loading="lazy"
-        sizes="sm:100vw md:100vw lg:100vw"
-      />
-      
-      <div class="relative z-10 bg-white bg-opacity-90 backdrop-blur-sm p-10 rounded-xl text-start w-2/5 shadow-sm border border-hydro-steel/10 mb-12">
-        <h2 class="text-3xl font-bold mb-8 text-tech-dark text-center">Напишите нам</h2>
-        <MainForm />
+        <!-- Дополнительная информация -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="700">
+          <h3 class="text-3xl font-bold mb-8 text-gray-900">Как нас найти</h3>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <Icon name="mdi:subway" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">Метро</p>
+                <p class="text-gray-700">Станция "Промышленная" (5 минут пешком)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <Icon name="mdi:bus" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">Автобус</p>
+                <p class="text-gray-700">Остановка "Технопарк" (маршруты 34, 56, 89)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <Icon name="mdi:car" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">Парковка</p>
+                <p class="text-gray-700">Бесплатная парковка для клиентов (20 мест)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Форма обратной связи -->
+      <div class="relative" data-aos="fade-up" data-aos-delay="750">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl blur-lg"></div>
+        <div class="relative bg-white bg-opacity-90 backdrop-blur-sm p-8 lg:p-12 rounded-2xl shadow-lg border border-blue-200">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 class="text-4xl font-bold mb-6 text-gray-900">Напишите нам</h2>
+              <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                Есть вопросы по ремонту гидроцилиндров? Нужна консультация специалиста? 
+                Заполните форму и мы свяжемся с вами в течение 30 минут.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <Icon name="mdi:clock-outline" class="w-6 h-6 text-blue-600" />
+                  <span class="text-gray-700">Ответ в течение 30 минут</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <Icon name="mdi:expert" class="w-6 h-6 text-blue-600" />
+                  <span class="text-gray-700">Консультация специалиста</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <Icon name="mdi:calculator" class="w-6 h-6 text-blue-600" />
+                  <span class="text-gray-700">Бесплатный расчет стоимости</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <MainForm />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style>
-.font-industrial {
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: 1px;
+<style scoped>
+/* Дополнительные стили для улучшения внешнего вида */
+.bg-gradient-to-br {
+  background-image: linear-gradient(135deg, var(--tw-gradient-stops));
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
 }
 </style>
