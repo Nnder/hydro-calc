@@ -96,19 +96,19 @@
 <script setup>
 const cards = [
   {
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/plohaya.jpeg',
     icon: 'mdi:truck-fast',
     title: 'Быстрая доставка',
     description: 'Доставляем заказы по России в кратчайшие сроки с надежными транспортными компаниями',
   },
   {
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/plohaya.jpeg',
     icon: 'mdi:credit-card-check',
     title: 'Удобная оплата',
     description: 'Принимаем различные формы оплаты: наличными, картой или безналичным расчетом',
   },
   {
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/plohaya.jpeg',
     icon: 'mdi:headset',
     title: 'Поддержка 24/7',
     description: 'Наши менеджеры всегда на связи и готовы ответить на все вопросы о доставке и оплате',

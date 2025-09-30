@@ -91,7 +91,7 @@ const blockData = {
 }
 
 const mainSlideData = {
-  src: 'https://lideron.by/wp-content/uploads/2024/02/recambios-coches1.jpg',
+  src: '/recambios-coches1.jpg',
   title: 'Профессиональная продажа клапанов давления',
   description:
     'Профессиональная продажа клапанов давления в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные клапаны по конкурентоспособным ценам с доставкой по всей Свердловской области.',

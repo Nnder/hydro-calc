@@ -9,23 +9,23 @@ const categories = ref([
     services: [
       {
         title: 'Ремонт Гидроцилиндров',
-        image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
+        image: '/services/gidrocilindr-0286.jpg',
       },
       {
         title: 'Ремонт Гидронасосов',
-        image: 'https://psm-online.ru/gallery/product/236/131_1.jpg',
+        image: '/services/hydromotor.jpg',
       },
       {
         title: 'Ремонт Гидромоторов',
-        image: 'https://pkmcom.ru/upload/iblock/6d4/6d424ccab0b5d6e287330857af204c56.jpg',
+        image: '/services/hydro.jpg',
       },
       {
         title: 'Ремонт Ковшей',
-        image: 'https://image.made-in-china.com/202f0j00mcAukJpgfGrq/PC130-0-58cubic-Excavator-Bucket-with-Five-Teeth-and-Side-Cutter.webp',
+        image: '/services/kovsh.webp',
       },
       {
         title: 'Ремонт сварочных и токарных работ',
-        image: 'https://tofris.ru/files/upload/svarochnye-raboty-zhigulevsk-tofris-web.jpg',
+        image: '/services/svarka.jpg',
       },
     ],
   },
@@ -36,54 +36,45 @@ const categories = ref([
     services: [
       {
         title: 'РВД',
-        image: 'https://empirey.info/images/102136_jpg_1435650718.jpg',
+        image: '/services/rvd.jpg',
       },
       {
         title: 'Изготовление Гидроцилиндров',
-        image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
+        image: '/services/gidrocilindr-0286.jpg',
       },
       {
         title: 'Станция гидравлическая',
-        image: 'https://hidroenergy.ru/wp-content/uploads/С250_В_3-scaled.jpg',
+        image: '/services/stanciigidravlcesky.jpg',
       },
     ],
   },
   {
-    name: 'Продажа',
     active: false,
     bgText: '',
     services: [
       {
         title: 'Продажа Уплотнений',
-        image: 'https://www.hydrott.ru/wp-content/uploads/2017/01/9117192.jpg',
+        image: '/services/uplotnenie.jpg',
       },
       {
         title: 'Продажа Гидронасосов',
-        image: 'https://gidromotor.by/img/pages/347-s.jpg?ver=172837676133&w=320',
+        image: '/services/gidromotor2.jpg',
       },
       {
         title: 'Продажа Гидроцилиндров',
-        image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
-      },
-      {
-        title: 'Продажа Гидрораспределителей',
-        image: 'https://images.deal.by/187765148_w600_h600_187765148.jpg',
-      },
-      {
-        title: 'Продажа Клапанов давления',
-        image: 'https://images.prom.ua/5717709293_w640_h640_5717709293.jpg',
+        image: '/services/gidrocilindr-0286.jpg',
       },
       {
         title: 'Продажа Фильтров',
-        image: 'https://fim.by/images/lp-photo/gidravlika.jpg',
+        image: '/services/filtrov.jpg',
       },
       {
         title: 'Продажа комплектующие рвд',
-        image: 'https://rvdmarket.ru/thumb/2/X7X17oYARuFUVi_KYI5o5g/340r/d/rvd_v_zashchite.jpg',
+        image: '/services/rvd.webp',
       },
       {
         title: 'Продажа ГСМ и тех. жидкости',
-        image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
+        image: '/services/smazka.jpg',
       },
     ],
   },

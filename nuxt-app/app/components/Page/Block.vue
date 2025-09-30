@@ -10,7 +10,7 @@ const { open } = useModal()
     </div>
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <NuxtImg
-          src="https://ireland.apollo.olxcdn.com/v1/files/eymh9prwp1152-UA/image"
+          src="/rostochka.webp"
           alt="Расточка проушин гидроцилиндров"
           class="w-full md:w-1/2 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl border border-hydro-steel/10"
           format="webp"
@@ -41,7 +41,7 @@ const { open } = useModal()
 
       <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
         <NuxtImg
-          src="https://btomo.ru/files/images/foto1.jpg"
+          src="/rostochka2.jpg"
           alt="Восстановление штоков методом наплавки"
           class="w-full md:w-1/2 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl border border-hydro-steel/10"
           format="webp"
