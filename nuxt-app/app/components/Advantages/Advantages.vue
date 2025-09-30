@@ -1,10 +1,9 @@
 <template>
   <div class="max-w-7xl mx-auto py-12 md:py-4 px-2 sm:px-4 bg-white ">
     <div class="grid grid-cols-1 mb-12 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-      <NuxtLink
+      <div
         v-for="(card, index) in cards"
         :key="card.id"
-        :to="card.link"
         class="group relative bg-white p-6 lg:p-7 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-blue-50 hover:border-blue-100 flex flex-col justify-between min-h-[220px] opacity-0 animate-slide-in-right"
         :style="{
           animationDelay: `${index * 100}ms`,
@@ -39,7 +38,7 @@
             </p>
           </div>
         </div>
-      </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -48,42 +47,36 @@
 const cards = [
   {
     id: 1,
-    link: "/",
     icon: "material-symbols:percent-rounded",
     title: "Вычет НДС до 20%",
     description: "Cможете сэкономить, если работаете на ОСН"
   },
   {
     id: 2,
-    link: "/",
     icon: "material-symbols:person-outline-rounded",
     title: "Гарантия на все виды работы",
     description: "Предоставляем гарантию от 6 месяцев до 12 месяцев"
   },
   {
     id: 3,
-    link: "/",
     icon: "material-symbols:description-outline-rounded",
     title: "ЭДО",
     description: "Или бумажные документы — как удобнее"
   },
   {
     id: 4,
-    link: "/",
     icon: "material-symbols:schedule-outline-rounded",
     title: "Отсрочка платежа",
     description: "Для каждого клиента индивидуальные условия"
   },
     {
         id: 5,
-        link: "/",
         icon: "material-symbols:description-outline-rounded",
         title: "Доставка по всей России",
         description: "Работаем со всеми транспортными компаниями"
     },
     {
         id: 6,
-        link: "/",
         icon: "material-symbols:engineering-outline-rounded",
         title: "Работа с организациями и физ лицами",
         description: "Любая форма оплаты"

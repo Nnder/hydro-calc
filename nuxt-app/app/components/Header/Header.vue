@@ -101,20 +101,7 @@ const servicesSubMenu = [
       },
     ],
   },
-  {
-    id: 'sale',
-    name: 'Продажа',
-    items: [
-      { name: 'Уплотнений', link: '/sell-uplotnenie' },
-      { name: 'Гидронасосов', link: '/sell-gidronasosov' },
-      { name: 'Гидроцилиндров', link: '/sell-gidrocilindrov' },
-      { name: 'Гидрораспределителей', link: '/sell-gidroraspredelitelei' },
-      { name: 'Клапанов давления', link: '/sell-klapanov-davleniya' },
-      { name: 'Фильтров и фильтроэлементов', link: '/sell-filtrov' },
-      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
-      { name: 'ГСМ и технических жидкостей', link: '/sell-shidkostey' },
-    ],
-  },
+  
 ]
 
 const sellSubMenu = [
@@ -124,9 +111,6 @@ const sellSubMenu = [
     items: [
       { name: 'Гидронасосы', link: '/sell-gidronasosov' },
       { name: 'Гидроцилиндры', link: '/sell-gidrocilindrov' },
-      { name: 'Гидромоторы', link: '/sell-gidromotorov' },
-      { name: 'Распределители', link: '/sell-gidroraspredelitelei' },
-      { name: 'Клапаны давления', link: '/sell-klapanov-davleniya' },
     ],
   },
   {
@@ -135,15 +119,14 @@ const sellSubMenu = [
     items: [
       { name: 'Уплотнения', link: '/sell-uplotnenie' },
       { name: 'Фильтры и фильтроэлементы', link: '/sell-filtrov' },
-      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
     ],
   },
   {
     id: 'fluids',
-    name: 'ГСМ и жидкости',
+    name: 'Комплектующие',
     items: [
-      { name: 'Масла и смазки', link: '/sell-masla' },
       { name: 'Технические жидкости', link: '/sell-shidkostey' },
+      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
     ],
   },
 ]

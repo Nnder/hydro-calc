@@ -48,7 +48,7 @@
                   :key="index"
                   class="flex items-start p-4 bg-blue-50 rounded-xl border border-blue-200 group hover:bg-blue-100 transition-colors"
                   data-aos="fade-up"
-                  :data-aos-delay="800 + index * 100"
+                  :data-aos-delay="200 + index * 100"
                 >
                   <div class="bg-white  rounded-lg mr-4 border border-blue-300 group-hover:border-blue-400 transition-colors">
                     <Icon name="mdi:check" class="w-5 h-5 text-blue-600 mt-1 mx-1" />
