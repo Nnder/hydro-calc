@@ -1,23 +1,29 @@
 <template>
   <div class="max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
     <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-fit lg:max-h-[600px] relative overflow-hidden">
-      <div class="flex flex-col lg:flex-row h-full" :class="flexDirection">
-        <div class="w-full lg:w-1/2  lg:h-full">
+      <div class="flex flex-col xl:flex-row h-fit" :class="flexDirection">
+        <!-- Левая колонка с картинкой -->
+        <div class="w-full xl:w-1/2 flex">
           <NuxtImg
             :src="imageUrl"
             :alt="imageAlt"
-            class="w-full h-[600px] object-cover"
+            class="w-full h-full object-cover"
             sizes="sm:100vw lg:50vw xl:800px"
             loading="lazy"
-          /> 
+          />
         </div>
-        <div class="w-full lg:w-1/2 flex flex-col px-4 sm:px-6 lg:px-8" :class="contentPadding">
+
+        <!-- Правая колонка с текстом -->
+        <div class="w-full xl:w-1/2 flex flex-col mt-4 lg:mt-0 px-4 sm:px-6 lg:px-8" :class="contentPadding">
           <div :class="textAlignment">
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
               {{ blockDataText.title }}
             </h2>
 
-            <div class="text-base sm:text-base lg:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed space-y-3 sm:space-y-4" v-html="processedDescription"></div>
+            <div
+              class="text-base sm:text-base lg:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed space-y-3 sm:space-y-4"
+              v-html="processedDescription"
+            ></div>
 
             <ul v-if="blockDataText.benefits" class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               <li
@@ -73,12 +79,12 @@ const flexDirection = computed(() => {
   switch (props.variant) {
     case 'image-right':
     case 'text-right':
-      return 'md:flex-row-reverse'
+      return 'lg:flex-row-reverse'
     case 'text-left':
     case 'mixed-alignment':
-      return 'md:flex-row'
+      return 'lg:flex-row'
     default:
-      return 'md:flex-row'
+      return 'lg:flex-row'
   }
 })
 
