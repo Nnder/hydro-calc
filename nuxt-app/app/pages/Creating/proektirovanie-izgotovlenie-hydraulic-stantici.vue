@@ -6,6 +6,7 @@ import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 
 definePageMeta({
   path: '/proektirovanie-izgotovlenie-hydraulic-stantici',
@@ -179,6 +180,25 @@ equipmentItems: [
 ],
 endText: 'Оформление паспорта изделия с занесением результатов испытаний.'
 }
+
+const blockDataText = {
+  title: 'Что мы делаем?',
+  description: ``,
+  benefits: [
+    `<p class="font-semibold">Поршень гидроцилиндра</p>
+
+Часто встречающие проблемы — задиры, излом канавок, деформация, механические повреждения металла. Проводимые ремонтные работы — шлифовка поршня, полное изготовление нового поршня, замена (модернизация под современные уплотнения)`,
+    `<p class="font-semibold">Комплект уплотнений</p>
+
+Часто встречающие проблемы — износ РТИ, замена РТИ по умолчанию происходит при переборке деталей. Проводимые ремонтные работы — замена РТИ, подбор комплектов уплотнений`,
+    `<p class="font-semibold">Шток в сборе</p>
+
+Часто встречающие проблемы — Задиры штока, механические повреждения, нарушение геометрии штока (загиб). Проводимые ремонтные работы — Шлифовка, восстановление, полная замена штока`,
+    `<p class="font-semibold">Крышки гидроцилиндра</p>
+
+Часто встречающие проблемы — задиры, механические повреждения по причине загиба штока. Проводимые ремонтные работы — восстановление, изготовление новой крышки гидроцилиндра`,
+  ],
+}
 </script>
 
 <template>
@@ -187,6 +207,7 @@ endText: 'Оформление паспорта изделия с занесен
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <ProductionEquipment :EquipmentData="EquipmentData" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" variant="default" :image-url="'/partners_1.webp'" data-aos="fade-up" />
   <!-- <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" /> -->
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
