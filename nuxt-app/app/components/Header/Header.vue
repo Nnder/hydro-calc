@@ -25,7 +25,7 @@ const mainMenu = [
   {
     id: 'sell',
     name: 'Продажа',
-    hasSubmenu: true,
+    link: '/'
   },
   {
     id: 'about',
@@ -105,30 +105,7 @@ const servicesSubMenu = [
 ]
 
 const sellSubMenu = [
-  {
-    id: 'hydraulics',
-    name: 'Гидравлика',
-    items: [
-      { name: 'Гидронасосы', link: '/sell-gidronasosov' },
-      { name: 'Гидроцилиндры', link: '/sell-gidrocilindrov' },
-    ],
-  },
-  {
-    id: 'components',
-    name: 'Комплектующие',
-    items: [
-      { name: 'Уплотнения', link: '/sell-uplotnenie' },
-      { name: 'Фильтры и фильтроэлементы', link: '/sell-filtrov' },
-    ],
-  },
-  {
-    id: 'fluids',
-    name: 'Комплектующие',
-    items: [
-      { name: 'Технические жидкости', link: '/sell-shidkostey' },
-      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
-    ],
-  },
+ 
 ]
 
 const toggleMobileMenu = () => {
@@ -167,7 +144,7 @@ const { open } = useModal()
       <div class="xl:container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center space-x-4">
-            <button class="lg:hidden text-tech-dark" @click="toggleMobileMenu">
+            <button class="xl:hidden text-tech-dark" @click="toggleMobileMenu">
               <Icon name="material-symbols:menu" class="w-6 h-6" />
             </button>
             <NuxtLink to="/" class="flex items-center h-16">
@@ -394,49 +371,6 @@ const { open } = useModal()
                         </transition>
                       </li>
                     </template>
-                  </ul>
-                </div>
-              </template>
-            </div>
-          </div>
-        </div>
-      </transition>
-
-      <transition
-        enter-active-class="transition-all duration-300 ease-out"
-        enter-from-class="opacity-0 -translate-y-2 z-40"
-        enter-to-class="opacity-100 translate-y-0 z-50"
-        leave-active-class="transition-all duration-200 ease-in"
-        leave-from-class="opacity-100 translate-y-0 z-50"
-        leave-to-class="opacity-0 -translate-y-2 z-40"
-      >
-        <div
-          v-show="activeMenu === 'sell'"
-          class="absolute left-0 right-0 top-full bg-white shadow-xl py-6"
-          :class="activeMenu === 'sell' ? 'z-50' : 'z-40'"
-          @mouseenter="openSubMenu('sell')"
-          @mouseleave="closeSubMenu"
-        >
-          <div class="container mx-auto px-4">
-            <div class="flex flex-wrap gap-8">
-              <template v-for="category in sellSubMenu" :key="category.id">
-                <div class="flex-1 min-w-[250px]">
-                  <h3 class="text-lg font-bold mb-4 text-tech-dark border-b border-hydro-power pb-2">
-                    {{ category.name }}
-                  </h3>
-                  <ul class="space-y-3">
-                    <li v-for="item in category.items" :key="item.name">
-                      <NuxtLink
-                        :to="item.link"
-                        class="text-hydro-steel hover:text-hydro-power flex items-center text-base transition-colors duration-200"
-                      >
-                        <Icon
-                          name="material-symbols:arrow-forward-ios-rounded"
-                          class="min-w-4 min-h-4 mr-2 text-hydro-power transition-transform duration-200 group-hover:translate-x-0.5"
-                        />
-                        {{ item.name }}
-                      </NuxtLink>
-                    </li>
                   </ul>
                 </div>
               </template>
