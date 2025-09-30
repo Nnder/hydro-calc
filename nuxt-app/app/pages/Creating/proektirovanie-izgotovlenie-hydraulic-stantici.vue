@@ -139,10 +139,24 @@ const tableData = ref([
 
 const blockData = {
   title: 'Изготовление и модернизация гидравлических станций любой сложности',
-  description: 'Помощь в составлении технического задания, крупноузловая сборка на предприятии, пусконаладочные работы',
+  description: '',
   buttonText: 'Заказать комплектующие',
   imageUrl: '/hydrostation.png',
   imageAlt: 'Дополнительные комплектующие для гидравлики',
+  features: [
+    {
+      icon: 'material-symbols:check-circle-rounded',
+      text: 'Помощь в составлении технического задания',
+    },
+    {
+      icon: 'material-symbols:check-circle-rounded',
+      text: 'крупноузловая сборка на предприятии',
+    },
+    {
+      icon: 'material-symbols:check-circle-rounded',
+      text: 'пусконаладочные работы',
+    },
+  ],
 }
 
 const mainSlideData = {
