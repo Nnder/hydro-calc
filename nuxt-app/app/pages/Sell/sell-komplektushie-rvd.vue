@@ -58,23 +58,44 @@ const items = [
     title: 'Переходник',
   },
   {
-    image: '/zalishki_2.jpeg',
+    image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
     title: 'Заглушка',
   },
 ]
 
 const imageMappings = {
   'Фланец SAE': [
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
+    'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
+    'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
+    'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
+    
   ],
   'Уплотнительное кольцо': [
-    'https://images.steamusercontent.com/ugc/948457048990882706/2E4E05B91A9B5FAFE21E7014700891D2BB1EC59F/',
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
+    'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
+    'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
+    'https://lazer-technology.ru/images/detailed/2/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
   ],
-  'Быстросъёмное соединение': [''],
-  'Защитные оболочки': [''],
-  'Переходник': [''],
-  'Заглушка': [''],
+  'Быстросъёмное соединение': [
+    'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
+    'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
+    'https://st22.stpulscen.ru/images/product/445/686/695_original.jpg',
+  ],
+  'Защитные оболочки': [
+    'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
+    'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
+    'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
+  ],
+  'Переходник': [
+    'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkTEjHvpdcaB47RDPkymk8ZF8X2PTpH2uNg&s',
+    'https://www.vod-dom.ru/wa-data/public/shop/products/54/56/15654/images/39119/39119.970.png',
+  ],
+  'Заглушка': [
+    'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
+    'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5omeSJ_ya_TxRQ02PTxtuRLbjl5-yc4QYQ&s',
+    
+  ],
 }
 
 const textContentMappings = {
@@ -215,7 +236,6 @@ const slider = {
     data-aos="fade-up"
     data-aos-delay="200"
   />
-  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
