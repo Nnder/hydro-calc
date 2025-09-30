@@ -1,8 +1,8 @@
 <script setup>
 import ThreeViewer from '../Three/ThreeViewer.vue'
+import { Icon } from '@iconify/vue' // иконки через iconify (можно использовать heroicons, lucide и т.п.)
 
 const { open } = useModal()
-
 const hint = ref(true)
 
 defineProps({
@@ -32,6 +32,18 @@ defineProps({
             <p class="text-lg mb-6 opacity-90">
               {{ blockData.description }}
             </p>
+
+            <div v-if="blockData.features" class="space-y-4 mb-6">
+              <div
+                v-for="(feature, index) in blockData.features"
+                :key="index"
+                class="flex items-start gap-3"
+              >
+                <Icon :icon="feature.icon" class="text-2xl shrink-0 text-blue-400" />
+                <p class="text-base opacity-90">{{ feature.text }}</p>
+              </div>
+            </div>
+
             <button
               @click="open()"
               class="border-2 border-white text-black px-6 py-2 rounded-lg bg-white hover:bg-hydro-power hover:text-white transition-colors duration-300"
@@ -40,6 +52,7 @@ defineProps({
             </button>
           </div>
 
+          <!-- Блок с картинкой / 3D -->
           <div class="hidden md:block !w-[640px]">
             <NuxtImg
               v-if="blockData.type !== '3d'"
@@ -58,6 +71,7 @@ defineProps({
               />
 
               <div
+                v-if="hint"
                 class="absolute z-50 bottom-14 left-10 px-6 py-2 text-white font-medium rounded-2xl bg-gradient-to-r from-blue-500/80 to-indigo-600/80 backdrop-blur-md shadow-lg shadow-blue-900/40 animate-bounce"
               >
                 Покрути меня
