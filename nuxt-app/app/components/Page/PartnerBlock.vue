@@ -11,7 +11,6 @@
             loading="lazy"
           /> 
         </div>
-
         <div class="w-full lg:w-1/2 flex flex-col px-4 sm:px-6 lg:px-8" :class="contentPadding">
           <div :class="textAlignment">
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">

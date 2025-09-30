@@ -22,12 +22,11 @@ useHead({
 })
 
 const parameters = ref([
-  { value: 'более 1000', description: 'Наименований в каталоге' },
-  { value: 'до 40', description: 'Размерный ряд, мм' },
-  { value: '24/7', description: 'Доступность на складе' },
+  { value: 'до 2 тонн', description: 'Допускаемый объем бака' },
+  { value: 'до 40', description: 'Рабочее давление, МПа' },
 ])
 
-const header = 'АССОРТИМЕНТ ДОПОЛНИТЕЛЬНЫХ КОМПЛЕКТУЮЩИХ'
+const header = 'Наши технические возможности'
 
 const description = `<p class="text-lg">
           Компания ООО "Энергия" предлагает широкий выбор дополнительных комплектующих для гидравлических систем.
@@ -139,18 +138,26 @@ const tableData = ref([
 ])
 
 const blockData = {
-  title: 'Комплектующие для гидравлических систем любого типа',
-  description: 'Подберем и поставим любые комплектующие\nпо вашим техническим требованиям\nс гарантией качества',
+  title: 'Изготовление и модернизация гидравлических станций любой сложности',
+  description: 'Помощь в составлении технического задания, крупноузловая сборка на предприятии, пусконаладочные работы',
   buttonText: 'Заказать комплектующие',
-  imageUrl: '/gidravlicheskoe-oborudovanie-kupit-iz-nalichiya-gidroplyus.png',
+  imageUrl: '/hydrostation.png',
   imageAlt: 'Дополнительные комплектующие для гидравлики',
 }
 
 const mainSlideData = {
   src: '/recambios-coches1.jpg',
-  title: 'Профессиональный ремонт гидроцилиндров',
+  title: 'Проектирование и изготовление гидравлических станцый',
   description:
-    'Профессиональный ремонт гидроцилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» качественно и быстро обслуживает предприятия и частных клиентов по всей Свердловской области.',
+    'Компания «ООО АбсолютТехно» качественно и быстро спроектирует и изготовит гидравлические станции по вашему техническому задания для предприятий и частных клиентов по всей Свердловской области.',
+}
+
+const EquipmentData = {
+title: 'О производстве гидростанций',
+description: 'Компания «ООО АбсолютТехно» имеет опыт в проектировании и производстве гидравлического оборудования. Гидростанции проектируются по индивидуальным параметрам с учетом нагрузки и условий эксплуатации. При изготовлении станций используются сертифицированные материалы и агрегаты',
+equipmentItems: [
+  ''
+]
 }
 </script>
 
@@ -159,8 +166,8 @@ const mainSlideData = {
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
-  <ProductionEquipment data-aos="fade-up" />
+  <ProductionEquipment :EquipmentData="EquipmentData" data-aos="fade-up" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
-  <AccessoriesGrid :items="items" data-aos="fade-up" />
+  <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
