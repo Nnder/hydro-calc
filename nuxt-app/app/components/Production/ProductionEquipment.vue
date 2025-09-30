@@ -13,7 +13,7 @@ const equipmentItems = [
   'испытательный стенд высокого давления - контроль качества сборки РВД.',
 ]
 
-// Наши возможности
+// Процесс изготовления
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const equipmentItems = [
         
       </p>
 
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Оборудование:</h2>
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">{{EquipmentData?.equipmentName || 'Оборудование:'}}</h2>
 
       <ul class="space-y-3 mb-6">
         <li v-for="(item, index) in EquipmentData?.equipmentItems || equipmentItems" :key="index" class="flex items-start">
@@ -36,8 +36,9 @@ const equipmentItems = [
       </ul>
 
       <p class="text-gray-700">
-        Важное вспомогательное оборудование для производства РВД — размотчик, позволяющий быстро отбирать шланг из бухты
-        и подавать на отрезку.
+        {{ EquipmentData?.endText ||  `Важное вспомогательное оборудование для производства РВД — размотчик, позволяющий быстро отбирать шланг из бухты
+        и подавать на отрезку.`}}
+        
       </p>
     </div>
   </section>
