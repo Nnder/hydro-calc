@@ -54,7 +54,7 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12" data-aos="fade-up" data-aos-delay="800">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12" data-aos="fade-up">
             <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
               <Icon name="mdi:clock-outline" class="text-3xl text-blue-600 mb-3" />
               <h4 class="font-bold text-gray-900 mb-2">Сроки доставки</h4>
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <Gis data-aos="fade-up" data-aos-delay="800" />
+      <Gis data-aos="fade-up" />
     </main>
   </div>
 </template>

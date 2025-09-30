@@ -68,7 +68,7 @@ useHead({
         </div>
 
         <!-- Почта -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="550">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up">
           <div class="flex items-start gap-6">
             <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
               <Icon name="mdi:email" class="w-8 h-8 text-blue-600" />
@@ -82,7 +82,7 @@ useHead({
         </div>
 
         <!-- Телефоны -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="600">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up">
           <div class="flex items-start gap-6">
             <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
               <Icon name="mdi:phone" class="w-8 h-8 text-blue-600" />
@@ -107,7 +107,7 @@ useHead({
       <!-- Детальная информация -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
         <!-- Часы работы -->
-        <div class="bg-blue-50 p-8 rounded-2xl border border-blue-200" data-aos="fade-up" data-aos-delay="650">
+        <div class="bg-blue-50 p-8 rounded-2xl border border-blue-200" data-aos="fade-up">
           <h3 class="text-3xl font-bold mb-8 text-gray-900">Часы работы</h3>
           <div class="space-y-6">
             <div class="flex justify-between items-center pb-4 border-b border-blue-200">
@@ -144,7 +144,7 @@ useHead({
         </div>
 
         <!-- Дополнительная информация -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="700">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100" data-aos="fade-up">
           <h3 class="text-3xl font-bold mb-8 text-gray-900">Как нас найти</h3>
           <div class="space-y-6">
             <div class="flex items-start gap-4">
@@ -173,7 +173,7 @@ useHead({
       </div>
 
       <!-- Форма обратной связи -->
-      <div class="relative" data-aos="fade-up" data-aos-delay="750">
+      <div class="relative" data-aos="fade-up">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl blur-lg"></div>
         <div class="relative bg-white bg-opacity-90 backdrop-blur-sm p-8 lg:p-12 rounded-2xl shadow-lg border border-blue-200">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

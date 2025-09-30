@@ -74,7 +74,7 @@
             :key="index"
             class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 relative overflow-hidden"
             data-aos="fade-up"
-            :data-aos-delay="400 + (index * 200)"
+            :data-aos-delay="200 + (index * 100)"
           >
             <div class="absolute top-0 right-0 w-20 h-20 bg-blue-50 rounded-bl-full"></div>
             
