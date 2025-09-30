@@ -154,7 +154,6 @@ const hydrantParts = ref([
       'Разборка гидромоторов, осмотр всех комплектующих на наличие поверхностных дефектов',
       'Составление дефектовочной ведомости',
     ],
-    highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
   },
   {
     name: 'Подбор и замена уплотнений',
@@ -162,7 +161,6 @@ const hydrantParts = ref([
     show: false,
     description: 'Комплексная замена всех уплотнительных элементов гидромоторов.',
     features: ['Подбор оригинальных уплатнений или аналогов', 'Замена манжет, колец и сальников'],
-    highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
   },
   {
     name: 'Ремонт или замена рабочей группы',
@@ -170,7 +168,6 @@ const hydrantParts = ref([
     show: false,
     description: 'Притирка рабочих поверхностей блока и распределителя или замена на оригинальные запчасти',
     features: [],
-    highlight: { top: '1%', left: '25%', width: '45%', height: '10%' },
   },
   {
     name: 'Гидравлические испытания',
@@ -183,45 +180,8 @@ const hydrantParts = ref([
       'Контроль рабочего давления',
       'Фиксация результатов с занесением данных в паспорт',
     ],
-    highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },
 ])
-
-const activeHighlight = ref(null)
-const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
-
-const handlePartClick = index => {
-  hydrantParts.value[index].selected = !hydrantParts.value[index].selected
-  hydrantParts.value[index].show = hydrantParts.value[index].selected
-  activeHighlight.value = index
-
-  scrollToImage()
-  setTimeout(() => {
-    if (activeHighlight.value === index) {
-      activeHighlight.value = null
-    }
-  }, 3000)
-}
-
-const scrollToImage = () => {
-  const element = document.getElementById('hydroImage')
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    })
-  }
-}
-
-const getHighlightStyle = index => {
-  const part = hydrantParts.value[index]
-  return {
-    top: part.highlight.top,
-    left: part.highlight.left,
-    width: part.highlight.width,
-    height: part.highlight.height,
-  }
-}
 </script>
 
 <style>

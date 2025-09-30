@@ -169,35 +169,6 @@ const hydrantParts = ref([
     color: 'bg-orange-400/50 border-orange-400',
   },
 ])
-
-const selectedCount = computed(() => hydrantParts.value.filter(part => part.selected).length)
-
-const handlePartClick = index => {
-  hydrantParts.value[index].selected = !hydrantParts.value[index].selected
-  hydrantParts.value[index].show = hydrantParts.value[index].selected
-
-  // scrollToImage()
-}
-
-const scrollToImage = () => {
-  const element = document.getElementById('hydroImage')
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    })
-  }
-}
-
-const getHighlightStyle = index => {
-  const part = hydrantParts.value[index]
-  return {
-    top: part.highlight.top,
-    left: part.highlight.left,
-    width: part.highlight.width,
-    height: part.highlight.height,
-  }
-}
 </script>
 
 <style>
