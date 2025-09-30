@@ -177,7 +177,7 @@ equipmentItems: [
   'Сборка станции, проверка роботоспособности, испытания под нагрузкой',
   'Крупноузловая отгрузка станции',
 ],
-endText: ''
+endText: 'Оформление паспорта изделия с занесением результатов испытаний.'
 }
 </script>
 
@@ -187,7 +187,7 @@ endText: ''
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <!-- <RvdTableWrapper :table-data="tableData" /> -->
   <ProductionEquipment :EquipmentData="EquipmentData" data-aos="fade-up" />
-  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
+  <!-- <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" /> -->
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
