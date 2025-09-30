@@ -119,14 +119,14 @@ const sellSubMenu = [
     items: [
       { name: 'Уплотнения', link: '/sell-uplotnenie' },
       { name: 'Фильтры и фильтроэлементы', link: '/sell-filtrov' },
-      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
     ],
   },
   {
     id: 'fluids',
-    name: 'ГСМ и жидкости',
+    name: 'Комплектующие',
     items: [
       { name: 'Технические жидкости', link: '/sell-shidkostey' },
+      { name: 'Комплектующие РВД', link: '/sell-komplektushie-rvd' },
     ],
   },
 ]
