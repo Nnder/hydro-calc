@@ -38,7 +38,7 @@ defineProps({
                 :key="index"
                 class="flex items-start gap-3"
               >
-                <Icon :alt="'icon' + index" :name="'icon' + index" :icon="feature.icon" class="text-2xl shrink-0 text-white" />
+                <Icon :name="feature.icon" class="text-2xl shrink-0 text-white" />
                 <p class="text-base opacity-90">{{ feature.text }}</p>
               </div>
             </div>
