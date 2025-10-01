@@ -1,4 +1,24 @@
 <script setup>
+// const { calculatorData, addData, clearData } = useCalculatorSelector()
+// const generatedData = computed(()=> {
+//   const result = calculatorData.value.selected.reduce((val,acc)=> {
+//       acc = acc + val + '\n'
+//     }, '')
+
+//     console.log(result)
+
+//   if(!!calculatorData.value.name || true){
+//     const result = calculatorData.value.selected.reduce((val,acc)=> {
+//       acc = acc + val + '\n'
+//     }, '')
+
+//     console.log(result)
+//     return result
+//   }
+// })
+
+// console.log(generatedData)
+
 const form = ref({
   name: '',
   phone: '',
