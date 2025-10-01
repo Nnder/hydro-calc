@@ -1,17 +1,17 @@
 <template>
   <div class="bg-tech-light" data-aos="fade-up" data-aos-delay="200">
-    <div class="w-4/5 mx-auto py-8 md:py-6 px-4 sm:px-3 lg:px-4 rounded-2xl mt-8 mb-4">
-      <div class="flex items-center">
-        <section class="flex-1 p-4 h-fit bg-white rounded-2xl shadow-lg overflow-auto">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3">
+    <div class="w-4/5 mx-auto py-4 md:py-6 px-3 sm:px-3 lg:px-4 rounded-2xl mt-4 mb-4">
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <section class="w-full lg:flex-1 p-3 sm:p-4 h-fit bg-white rounded-2xl shadow-lg overflow-auto">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
             <div class="space-y-1">
-              <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-hydro-steel bg-gradient-to-r from-hydro-steel to-hydro-power bg-clip-text text-transparent">
+              <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-hydro-steel bg-gradient-to-r from-hydro-steel to-hydro-power bg-clip-text text-transparent">
                 {{ title }}
               </h2>
-              <p class="text-sm md:text-base text-hydro-steel/80 font-medium">{{ subtitle }}</p>
+              <p class="text-xs sm:text-sm md:text-base text-hydro-steel/80 font-medium">{{ subtitle }}</p>
             </div>
             <div
-              class="bg-gradient-to-r from-hydro-power/10 to-hydro-steel/10 text-hydro-power px-3 py-2 rounded-full text-sm font-semibold shadow-sm min-w-[120px] text-center"
+              class="bg-gradient-to-r from-hydro-power/10 to-hydro-steel/10 text-hydro-power px-3 py-2 rounded-full text-sm font-semibold shadow-sm min-w-[100px] sm:min-w-[120px] text-center"
             >
               {{ selectedCount }}/{{ parts.length }}
             </div>
@@ -21,7 +21,7 @@
             <div v-for="(part, index) in parts" :key="index" class="group">
               <div
                 v-show="!part?.hidden"
-                class="p-3 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between hover:shadow-md bg-white shadow-sm"
+                class="p-2 sm:p-3 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between hover:shadow-md bg-white shadow-sm"
                 :class="{
                   'shadow-md bg-gradient-to-r from-hydro-power/5 to-hydro-steel/5 ring-2 ring-hydro-power/20': part.selected,
                   'hover:shadow-lg': !part.selected,
@@ -31,19 +31,18 @@
                 tabindex="0"
                 @keydown.enter="handlePartClick(part, index)"
               >
-                <div class="flex items-center gap-3 flex-1 min-w-0">
-                  <!-- Иконка -->
+                <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                   <div
-                    class="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
+                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
                     :class="{
                       'bg-hydro-power text-white shadow-hydro-power/30': part.selected,
                       'bg-tech-light text-hydro-steel/60 group-hover:bg-hydro-power/10 group-hover:text-hydro-power': !part.selected,
                     }"
                   >
-                    <Icon :name="getPartIcon(part)" class="text-xl" />
+                    <Icon :name="getPartIcon(part)" class="text-lg sm:text-xl" />
                   </div>
                   <div class="flex-1 min-w-0">
-                    <div class="text-base font-semibold text-hydro-steel transition-colors duration-300 truncate"
+                    <div class="text-sm sm:text-base font-semibold text-hydro-steel transition-colors duration-300 truncate"
                          :class="{'text-hydro-power': part.selected}">
                       {{ part.name }}
                     </div>
@@ -52,16 +51,16 @@
                     </div>
                   </div>
                 </div>
-                <div class="ml-2 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                <div class="ml-1 sm:ml-2 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
                   <Icon
                     v-if="part.selected"
                     name="mdi:check-circle"
-                    class="text-xl text-hydro-power"
+                    class="text-lg sm:text-xl text-hydro-power"
                   />
                   <Icon
                     v-else
                     name="mdi:plus-circle-outline"
-                    class="text-xl text-gray-300 group-hover:text-hydro-power/70"
+                    class="text-lg sm:text-xl text-gray-300 group-hover:text-hydro-power/70"
                   />
                 </div>
               </div>
@@ -76,7 +75,7 @@
               >
                 <div v-if="part.show && part.description" class="overflow-hidden">
                   <div
-                    class="relative mt-2 p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
+                    class="relative mt-2 p-3 sm:p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
                   >
                     <button 
                       @click="part.show = false" 
@@ -85,11 +84,11 @@
                       <Icon name="mdi:close" class="text-base" />
                     </button>
                     
-                    <p class="text-hydro-steel/80 text-sm pr-6 mb-3">{{ part.description }}</p>
+                    <p class="text-hydro-steel/80 text-xs sm:text-sm pr-6 mb-3">{{ part.description }}</p>
                     
                     <div v-if="part.features" class="space-y-1">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
-                        <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0 text-base" />
+                        <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0 text-sm sm:text-base" />
                         <span class="text-hydro-steel/80 text-xs font-medium" v-html="feature"></span>
                       </div>
                     </div>
@@ -97,7 +96,7 @@
                     <div v-if="part.price" class="mt-3 pt-2 border-t border-gray-200">
                       <div class="flex justify-between items-center">
                         <span class="text-hydro-steel/60 text-xs">Стоимость:</span>
-                        <span class="text-hydro-power font-bold text-base">{{ part.price }}</span>
+                        <span class="text-hydro-power font-bold text-sm sm:text-base">{{ part.price }}</span>
                       </div>
                     </div>
                   </div>
@@ -107,12 +106,12 @@
           </div>
         </section>
 
-        <section class="flex-1 relative">
-          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-start justify-center bg-gray-100 ">
-            <div class="relative" :style="imageStyle">
+        <section class="w-full md:flex-1 relative">
+          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-start justify-center bg-gray-100 min-h-[300px] sm:min-h-[400px]">
+            <div class="relative w-full h-full" :style="imageStyle">
               <NuxtImg
                 :src="mainImage"
-                class="h-full max-h-[500px] w-full max-w-[500px] object-contain"
+                class="h-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] object-contain"
                 :alt="imageAlt"
                 loading="lazy"
                 format="webp"
@@ -172,7 +171,7 @@ const props = defineProps({
   },
   imageAlt: {
     type: String,
-    default: 'Профессиональный ремонт'
+    default: 'Профессиональный ремонта'
   },
   imageId: {
     type: String,
@@ -184,7 +183,7 @@ const props = defineProps({
   },
   highlightMode: {
     type: String,
-    default: 'multiple' // 'multiple' или 'single'
+    default: 'multiple'
   }
 })
 
@@ -193,7 +192,7 @@ const emit = defineEmits(['part-selected', 'image-changed'])
 const activeHighlight = ref(null)
 const selectedCount = computed(() => props.parts.filter(part => part.selected).length)
 
-// Функция для получения иконок в зависимости от типа детали
+
 const getPartIcon = (part) => {
   const iconMap = {
     'engine': 'mdi:engine',
@@ -207,7 +206,7 @@ const getPartIcon = (part) => {
     'electronics': 'mdi:chip',
   }
   
-  // Ищем по ключевым словам в названии
+
   const name = part.name.toLowerCase()
   for (const [key, icon] of Object.entries(iconMap)) {
     if (name.includes(key)) {
@@ -215,7 +214,7 @@ const getPartIcon = (part) => {
     }
   }
   
-  // Возвращаем иконку из пропсов или дефолтную
+  
   return part.icon || 'mdi:car-wrench'
 }
 
@@ -236,14 +235,14 @@ const handlePartClick = (part, index) => {
     }, 3000)
   }
 
-  // Вызываем кастомную функцию если есть
+
   if (part.onSelect) {
     part.onSelect()
   }
 
   emit('part-selected', { part, index })
 
-  // Прокрутка к изображению
+
   scrollToImage()
 }
 
@@ -267,7 +266,6 @@ const getHighlightStyle = (part) => {
   }
 }
 
-// Watch для изменения главного изображения
 watch(() => props.mainImage, (newImage) => {
   emit('image-changed', newImage)
 })
@@ -298,5 +296,21 @@ if(props.selectorData)
 
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+/* Улучшения для мобильных устройств */
+@media (max-width: 640px) {
+  .w-4\/5 {
+    width: 90%;
+  }
+  
+  .py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
 }
 </style>
