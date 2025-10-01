@@ -184,6 +184,7 @@ const props = defineProps({
   highlightMode: {
     type: String,
     default: 'multiple'
+  }
 })
 
 const emit = defineEmits(['part-selected', 'image-changed'])
@@ -265,7 +266,6 @@ const getHighlightStyle = (part) => {
   }
 }
 
-// Watch для изменения главного изображения
 watch(() => props.mainImage, (newImage) => {
   emit('image-changed', newImage)
 })
