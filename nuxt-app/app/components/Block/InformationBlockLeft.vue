@@ -39,6 +39,7 @@
               />
 
               <div
+                v-if="hint"
                 class="absolute z-50 bottom-14 left-10 px-6 py-2 text-white font-medium rounded-2xl bg-gradient-to-r from-blue-500/80 to-indigo-600/80 backdrop-blur-md shadow-lg shadow-blue-900/40 animate-bounce"
               >
                 Покрути меня
