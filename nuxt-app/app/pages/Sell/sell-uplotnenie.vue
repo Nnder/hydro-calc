@@ -127,8 +127,9 @@ const slider = {
     data-aos="fade-up"
     data-aos-delay="200"
   />
-  
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
+  <!-- Уплотнительные элементы -->
+   
+  <!-- <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" /> -->
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
