@@ -1,4 +1,14 @@
 <script setup>
+const { calculatorData, addData, clearData } = useCalculatorSelector()
+
+watch(calculatorData, (newVal) => {
+  const result = calculatorData.value.selected.reduce((acc,val)=> {
+      return acc += val + '\n'
+    }, '') 
+
+  form.value.description = result
+}, { deep: true })
+
 const form = ref({
   name: '',
   phone: '',
@@ -15,6 +25,11 @@ const formErrors = ref({
 function handleFiles(event) {
   form.value.files = Array.from(event.target.files)
 }
+
+const removeFile = (index) =>{
+  form.value.files = form.value.files.filter((val, i)=> i !== index)
+}
+
 
 const isSending = ref(false)
 const showSuccess = ref(false)
@@ -150,7 +165,7 @@ const submitForm = async () => {
         v-model="form.description"
         placeholder="Подробно опишите вашу проблему..."
         :class="[
-          'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300 resize-none',
+          'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
           'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
           'placeholder-gray-400 text-gray-700',
           'shadow-sm hover:shadow-md',
@@ -167,18 +182,20 @@ const submitForm = async () => {
 
       <!-- Кастомная кнопка -->
       <label
-        for="file-upload"
+        for="file-upload" 
         class="flex items-center justify-center w-full px-4 py-3 md:px-5 md:py-4 border-2 border-blue-300 rounded-lg md:rounded-xl cursor-pointer transition-all duration-300 text-slate-600 hover:text-blue-600 hover:border-blue-800 shadow-sm hover:shadow-md"
-      >
+        :class="[form.files.length ? 'bg-blue-300' : 'bg-white' ]"
+        >
         <Icon name="mdi:paperclip" class="mr-2 text-lg" />
-        Выберите файлы
+        {{ form.files.length ? 'Файлы выбраны' : 'Выберите файлы' }}
       </label>
 
       <!-- Список выбранных файлов -->
       <ul v-if="form.files.length" class="mt-3 space-y-1 text-sm text-gray-600">
-        <li v-for="(file, i) in form.files" :key="i" class="flex items-center gap-2">
+        <li v-for="(file, i) in form.files" :key="i" class="flex items-center gap-2" @click="removeFile(i)">
           <Icon name="mdi:file" class="text-gray-400" />
           {{ file.name }}
+          <Icon name="mdi:close" class="text-gray-400" />
         </li>
       </ul>
     </div>

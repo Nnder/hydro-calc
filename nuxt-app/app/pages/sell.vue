@@ -21,49 +21,37 @@ const categories = ref([
         title: 'Уплотнения гидравлические',
         image: 'https://www.hydrott.ru/wp-content/uploads/2017/01/9117192.jpg',
         description: 'Широкий ассортимент уплотнительных элементов для гидроцилиндров',
-        link: '/catalog/seals'
+        link: '/sell/sell-uplotnenie'
       },
       {
         title: 'Гидронасосы',
         image: 'https://gidromotor.by/img/pages/347-s.jpg?ver=172837676133&w=320',
         description: 'Гидравлические насосы ведущих производителей',
-        link: '/catalog/pumps'
+        link: '/sell/sell-gidronasosov'
       },
       {
         title: 'Гидроцилиндры',
         image: 'https://ozpp.ru/images/ozpp/gidrocilindr-0286.jpg',
         description: 'Готовые гидроцилиндры различных типоразмеров',
-        link: '/catalog/cylinders'
-      },
-      {
-        title: 'Гидрораспределители',
-        image: 'https://images.deal.by/187765148_w600_h600_187765148.jpg',
-        description: 'Распределители гидравлические всех типов',
-        link: '/catalog/distributors'
-      },
-      {
-        title: 'Клапаны давления',
-        image: 'https://images.prom.ua/5717709293_w640_h640_5717709293.jpg',
-        description: 'Предохранительные и регулирующие клапаны',
-        link: '/catalog/valves'
+        link: '/sell/sell-gidrocilindrov'
       },
       {
         title: 'Фильтры гидравлические',
         image: 'https://fim.by/images/lp-photo/gidravlika.jpg',
         description: 'Фильтры для гидравлических систем',
-        link: '/catalog/filters'
+        link: '/sell/sell-filtrov'
       },
       {
         title: 'Комплектующие РВД',
         image: 'https://rvdmarket.ru/thumb/2/X7X17oYARuFUVi_KYI5o5g/340r/d/rvd_v_zashchite.jpg',
         description: 'Фитинги и соединительные элементы для РВД',
-        link: '/catalog/hose-components'
+        link: '/sell/sell-komplektushie-rvd'
       },
       {
         title: 'ГСМ и технические жидкости',
         image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
         description: 'Масла и жидкости для гидравлических систем',
-        link: '/catalog/oils'
+        link: '/sell/sell-shidkostey'
       },
     ],
   },
@@ -89,7 +77,8 @@ const activeServices = computed(() => {
       </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <div
+        <NuxtLink 
+                :to="service.link"            
             v-for="(service, index) in activeServices"
             :key="index"
             class="group bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col"
@@ -114,15 +103,13 @@ const activeServices = computed(() => {
                 {{ service.description }}
             </p>
 
-            <NuxtLink 
-                :to="service.link"
-                class="group/link inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-all duration-300 hover:gap-3"
-            >
-                <span>Подробнее</span>
-                <Icon name="mdi:arrow-right" class="w-4 h-4  transition-transform group-hover/link:translate-x-1" />
-            </NuxtLink>
+            <div  class="group/link inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-all duration-300 hover:gap-3">
+              <span>Подробнее</span>
+              <Icon name="mdi:arrow-right" class="w-4 h-4  transition-transform group-hover/link:translate-x-1" />
             </div>
-        </div>
+                
+            </div>
+        </NuxtLink>
     </div>
 
       

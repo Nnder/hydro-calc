@@ -12,7 +12,7 @@ import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProdu
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 
 definePageMeta({
-  path: '/sell-komplektushie-rvd',
+  path: '/sell/sell-komplektushie-rvd',
 })
 
 useHead({

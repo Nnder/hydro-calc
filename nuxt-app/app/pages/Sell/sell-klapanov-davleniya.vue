@@ -10,7 +10,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 
 definePageMeta({
-  path: '/sell-klapanov-davleniya',
+  path: '/sell/sell-klapanov-davleniya',
 })
 
 useHead({
