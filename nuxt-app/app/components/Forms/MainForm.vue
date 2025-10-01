@@ -1,23 +1,13 @@
 <script setup>
-// const { calculatorData, addData, clearData } = useCalculatorSelector()
-// const generatedData = computed(()=> {
-//   const result = calculatorData.value.selected.reduce((val,acc)=> {
-//       acc = acc + val + '\n'
-//     }, '')
+const { calculatorData, addData, clearData } = useCalculatorSelector()
 
-//     console.log(result)
+watch(calculatorData, (newVal) => {
+  const result = calculatorData.value.selected.reduce((acc,val)=> {
+      return acc += val + '\n'
+    }, '') 
 
-//   if(!!calculatorData.value.name || true){
-//     const result = calculatorData.value.selected.reduce((val,acc)=> {
-//       acc = acc + val + '\n'
-//     }, '')
-
-//     console.log(result)
-//     return result
-//   }
-// })
-
-// console.log(generatedData)
+  form.value.description = result
+}, { deep: true })
 
 const form = ref({
   name: '',
