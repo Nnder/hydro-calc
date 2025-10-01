@@ -77,7 +77,8 @@ const activeServices = computed(() => {
       </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <div
+        <NuxtLink 
+                :to="service.link"            
             v-for="(service, index) in activeServices"
             :key="index"
             class="group bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col"
@@ -102,15 +103,13 @@ const activeServices = computed(() => {
                 {{ service.description }}
             </p>
 
-            <NuxtLink 
-                :to="service.link"
-                class="group/link inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-all duration-300 hover:gap-3"
-            >
-                <span>Подробнее</span>
-                <Icon name="mdi:arrow-right" class="w-4 h-4  transition-transform group-hover/link:translate-x-1" />
-            </NuxtLink>
+            <div  class="group/link inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-all duration-300 hover:gap-3">
+              <span>Подробнее</span>
+              <Icon name="mdi:arrow-right" class="w-4 h-4  transition-transform group-hover/link:translate-x-1" />
             </div>
-        </div>
+                
+            </div>
+        </NuxtLink>
     </div>
 
       
