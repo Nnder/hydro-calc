@@ -53,6 +53,36 @@ const categories = ref([
         description: 'Масла и жидкости для гидравлических систем',
         link: '/sell/sell-shidkostey'
       },
+      {
+        title: 'Режущие элементы для дорожной и строительной техники',
+        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+        description: 'Ножи, коронки, зубъя, бокорезы',
+        link: '/sell/sell-shidkostey'
+      },
+      {
+        title: 'Ковшевая обвязка (пальцев, втулки)',
+        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+        description: 'Ножи, коронки, зубъя, бокорезы',
+        link: '/sell/sell-shidkostey'
+      },
+      {
+        title: 'Ходовые элементы спецтехники',
+        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+        description: 'Ножи, коронки, зубъя, бокорезы',
+        link: '/sell/sell-shidkostey'
+      },
+      {
+        title: 'Запчасти для ДВС',
+        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+        description: 'Ножи, коронки, зубъя, бокорезы',
+        link: '/sell/sell-shidkostey'
+      },
+      {
+        title: 'Топливные системы',
+        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+        description: 'Ножи, коронки, зубъя, бокорезы',
+        link: '/sell/sell-shidkostey'
+      },
     ],
   },
 ])
