@@ -29,7 +29,7 @@
                 @click="handlePartClick(part, index)"
                 role="button"
                 tabindex="0"
-                @keydown.enter.space="handlePartClick(part, index)"
+                @keydown.enter="handlePartClick(part, index)"
               >
                 <div class="flex items-center gap-3 flex-1 min-w-0">
                   <!-- Иконка -->
@@ -145,6 +145,14 @@
 
 <script setup>
 const props = defineProps({
+  name:{
+    type: String,
+    default: '',
+  },
+  selectorData: {
+    type: Boolean,
+    default: false
+  },
   title: {
     type: String,
     default: 'Выберите детали для ремонта'
@@ -215,6 +223,9 @@ const handlePartClick = (part, index) => {
   part.selected = !part.selected
   part.show = part.selected
 
+  if(props.selectorData)
+  addData({name:props.name, selected:part.name})
+
   // Для режима одиночного выделения
   if (props.highlightMode === 'single') {
     activeHighlight.value = index
@@ -260,6 +271,8 @@ const getHighlightStyle = (part) => {
 watch(() => props.mainImage, (newImage) => {
   emit('image-changed', newImage)
 })
+
+const { addData } = useCalculatorSelector()
 </script>
 
 <style scoped>

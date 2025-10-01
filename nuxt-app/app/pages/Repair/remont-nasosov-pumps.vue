@@ -8,7 +8,7 @@
   :image-alt="'Профессиональный ремонт гидронасосов'"
   image-id="hydroImage"
   :highlight-mode="'single'"
-  @part-selected="handlePartSelected"
+  @part-selected=""
 />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
@@ -184,6 +184,15 @@ const hydrantParts = ref([
     ],
   },
 ])
+
+const handlePartSelected = ({ part, index }) => {
+  // Дополнительная логика при выборе детали
+  console.log('Part selected:', part.name)
+}
+
+const handleImageChanged = newImage => {
+  console.log('Image changed to:', newImage)
+}
 </script>
 
 <style>
