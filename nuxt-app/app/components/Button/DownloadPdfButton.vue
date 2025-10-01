@@ -1,7 +1,7 @@
 <template>
   <button
     @click="downloadPdf"
-    class="bg-blue-800 rounded-lg font-semibold text-white p-3 shadow-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
+    class="bg-blue-600 rounded-lg font-semibold text-white p-3 shadow-lg hover:bg-blue-500 transition-colors duration-200 flex items-center justify-center gap-2"
     :disabled="loading"
   >
     <Icon
