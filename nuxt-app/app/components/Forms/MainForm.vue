@@ -1,12 +1,12 @@
 <script setup>
-const { calculatorData, addData, clearData } = useCalculatorSelector()
+const { calculatorData} = useCalculatorSelector()
 
-watch(calculatorData, (newVal) => {
+watch(calculatorData, () => {
   const result = calculatorData.value.selected.reduce((acc,val)=> {
       return acc += val + '\n'
     }, '') 
 
-  form.value.description = result
+  form.value.description = `Здравствуйте необходимый перечень работ по ${calculatorData.value.name}:\n${result}`
 }, { deep: true })
 
 const form = ref({

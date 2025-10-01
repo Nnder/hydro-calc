@@ -1,7 +1,7 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
-    name="Гидроцилиндр"
+    name="гидроцилиндрам"
     :title="'Выберите детали для ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
     :parts="hydrantParts"

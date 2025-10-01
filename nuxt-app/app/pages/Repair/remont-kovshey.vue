@@ -9,7 +9,7 @@
     image-id="hydroImage"
     highlight-mode="single"
     @part-selected="handlePartSelected"
-    name="Ковши"
+    name="ковшам"
     :selectorData="true"
   />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
