@@ -4,7 +4,7 @@
   </div>
   
   <ClientOnly>
-    <div v-show="isHydrated" class="w-full">
+    <div v-show="isHydrated" class="w-full" data-aos="fade-up">
       <div class="hidden lg:block">
         <swiper-container
           :loop="true"

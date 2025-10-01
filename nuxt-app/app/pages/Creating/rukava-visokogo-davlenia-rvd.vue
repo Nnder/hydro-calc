@@ -802,7 +802,7 @@ const mainSlideData = {
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <ProductionEquipment data-aos="fade-up" />
-  <RvdTableSlider :tables="tableDataObjects" data-aos="fade-up" />
+  <RvdTableSlider :tables="tableDataObjects" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
   <AccessoriesGrid :items="items" data-aos="fade-up" />
   <Contact data-aos="fade-up" />
