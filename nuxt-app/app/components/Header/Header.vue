@@ -25,7 +25,7 @@ const mainMenu = [
   {
     id: 'sell',
     name: 'Продажа',
-    link: '/'
+    link: '/sell'
   },
   {
     id: 'about',
