@@ -4,7 +4,7 @@ export const useCalculatorSelector = () => {
     selected: [],
   }))
 
-  const newState = (state) => (calculatorData.value = state)
+  const newData = (state) => (calculatorData.value = state)
   const addData = (params) => {
     if(params.name === calculatorData.value.name){
         const current = calculatorData.value.selected
@@ -21,5 +21,12 @@ export const useCalculatorSelector = () => {
     console.log(calculatorData.value)
   }
 
-  return { calculatorData, newState, addData }
+  const clearData = () => (calculatorData.value = {
+    name: '',
+    selected: [],
+  })
+
+  
+
+  return { calculatorData, newData, addData, clearData }
 }

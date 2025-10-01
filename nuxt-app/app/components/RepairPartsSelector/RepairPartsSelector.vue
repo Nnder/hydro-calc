@@ -270,7 +270,13 @@ watch(() => props.mainImage, (newImage) => {
   emit('image-changed', newImage)
 })
 
-const { addData } = useCalculatorSelector()
+const { addData, clearData } = useCalculatorSelector()
+
+if(props.selectorData)
+ onBeforeRouteLeave(()=>{
+    clearData()
+    console.log('data was cleared')
+  })
 </script>
 
 <style scoped>
