@@ -6,6 +6,7 @@ import ProductionEquipment from '~/components/Production/ProductionEquipment.vue
 import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
+import AccessoriesGrid from '~/components/Accessories/AccessoriesGrid.vue'
 
 definePageMeta({
   path: '/rukava-visokogo-davlenia-rvd',
