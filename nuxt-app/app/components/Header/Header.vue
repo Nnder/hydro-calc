@@ -71,7 +71,7 @@ const servicesSubMenu = [
       },
       {
         id: 'kovshey',
-        name: 'Ковшей',
+        name: 'Навестного оборудования',
         link: '/remont-kovshey',
       },
       {

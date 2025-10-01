@@ -20,7 +20,7 @@ const categories = ref([
         image: '/services/hydro.jpg',
       },
       {
-        title: 'Ремонт Ковшей',
+        title: 'Ремонт навестного оборудования',
         image: '/services/kovsh.webp',
       },
       {
