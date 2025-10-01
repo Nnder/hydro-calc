@@ -9,6 +9,8 @@
     image-id="hydroImage"
     highlight-mode="single"
     @part-selected="handlePartSelected"
+    name="Ковши"
+    :selectorData="true"
   />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
@@ -169,6 +171,15 @@ const hydrantParts = ref([
     color: 'bg-orange-400/50 border-orange-400',
   },
 ])
+
+const handlePartSelected = ({ part, index }) => {
+  // Дополнительная логика при выборе детали
+  console.log('Part selected:', part.name)
+}
+
+const handleImageChanged = newImage => {
+  console.log('Image changed to:', newImage)
+}
 </script>
 
 <style>

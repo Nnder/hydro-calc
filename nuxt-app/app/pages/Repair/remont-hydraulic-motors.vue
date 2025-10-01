@@ -182,6 +182,15 @@ const hydrantParts = ref([
     ],
   },
 ])
+
+const handlePartSelected = ({ part, index }) => {
+  // Дополнительная логика при выборе детали
+  console.log('Part selected:', part.name)
+}
+
+const handleImageChanged = newImage => {
+  console.log('Image changed to:', newImage)
+}
 </script>
 
 <style>

@@ -10,15 +10,6 @@
           animationFillMode: 'forwards'
         }"
       >
-        <!-- Декоративные элементы только для последней карточки -->
-        <div 
-          v-if="index === cards.length - 1" 
-          class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-white/20 to-transparent rounded-full -translate-y-20 translate-x-20"
-        ></div>
-        <div 
-          v-if="index === cards.length - 1" 
-          class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-white/15 to-transparent rounded-full translate-y-12 -translate-x-12"
-        ></div>
         
         <div class="flex flex-col gap-5">
           <div class="flex items-center gap-4">

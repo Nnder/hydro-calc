@@ -49,6 +49,7 @@ const categories = ref([
     ],
   },
   {
+    name: 'Продажа',
     active: false,
     bgText: '',
     services: [

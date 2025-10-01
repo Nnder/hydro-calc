@@ -1,13 +1,13 @@
 <template>
-  <section class="w-full h-[50vh] min-h-[400px]">
+  <section class="w-full h-full min-h-[300px]">
     <div class="w-full h-full bg-white">
       <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div
-          class="flex flex-col items-center justify-between w-full gap-8"
-          :class="[position === 'right' ? 'md:flex-row' : 'md:flex-row-reverse']"
+          class=" flex flex-col items-start lg:items-center justify-between w-full gap-8"
+          :class="[position === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse']"
         >
-          <div class="text-black max-w-2xl">
-            <h2 class="text-2xl md:text-4xl font-bold mb-4 leading-tight">
+          <div class="w-full lg:w-1/2 mt-8 lg:mt-0 xl:max-w-2xl">
+            <h2 class="text-2xl xl:text-4xl font-bold mb-4 leading-tight">
               {{ blockData.title }}
             </h2>
             <p class="text-lg mb-6 opacity-90">
@@ -21,7 +21,7 @@
             </button>
           </div>
 
-          <div class="hidden md:block !w-[640px]">
+          <div class="w-full lg:w-1/2 xl:!w-[640px]">
             <NuxtImg
               v-if="blockData.type !== '3d'"
               :src="blockData.imageUrl"
@@ -39,6 +39,7 @@
               />
 
               <div
+                v-if="hint"
                 class="absolute z-50 bottom-14 left-10 px-6 py-2 text-white font-medium rounded-2xl bg-gradient-to-r from-blue-500/80 to-indigo-600/80 backdrop-blur-md shadow-lg shadow-blue-900/40 animate-bounce"
               >
                 Покрути меня
