@@ -24,7 +24,7 @@ defineProps({
           class=" flex flex-col items-start lg:items-center justify-between w-full gap-8"
           :class="[position === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse']"
         >
-          <div class="mt-8 lg:mt-0 text-white xl:max-w-2xl">
+          <div class="w-full lg:w-1/2 mt-8 lg:mt-0 text-white xl:max-w-2xl">
             <h2 class="text-2xl xl:text-4xl font-bold mb-4 leading-tight">
               {{ blockData.title }}
             </h2>
@@ -51,7 +51,7 @@ defineProps({
             </button>
           </div>
 
-          <div class="w-full xl:!w-[640px]">
+          <div class="w-full lg:w-1/2 xl:!w-[640px]">
             <NuxtImg
               v-if="blockData.type !== '3d'"
               :src="blockData.imageUrl"
