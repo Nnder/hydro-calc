@@ -51,7 +51,7 @@ defineProps({
             </button>
           </div>
 
-          <div class="hidden md:block !w-[640px]">
+          <div class="w-full xl:!w-[640px]">
             <NuxtImg
               v-if="blockData.type !== '3d'"
               :src="blockData.imageUrl"
