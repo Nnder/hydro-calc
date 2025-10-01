@@ -1,10 +1,10 @@
 <template>
   <div class="bg-tech-light" data-aos="fade-up" data-aos-delay="200">
-    <div class="w-4/5 mx-auto py-4 md:py-6 px-3 sm:px-3 lg:px-4 rounded-2xl mt-4 mb-4">
-      <div class="flex flex-col md:flex-row items-center gap-4">
-        <section class="w-full lg:flex-1 p-3 sm:p-4 h-fit bg-white rounded-2xl shadow-lg overflow-auto">
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
-            <div class="space-y-1">
+    <div class="w-11/12 mx-auto py-8 md:py-12 px-5 sm:px-8 lg:px-10 rounded-2xl mt-8 mb-8 md:mt-12 md:mb-12">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <section class="w-full md:flex-1 p-5 sm:p-7 h-fit bg-white rounded-2xl shadow-lg overflow-visible">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-7 gap-5">
+            <div class="space-y-3">
               <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-hydro-steel bg-gradient-to-r from-hydro-steel to-hydro-power bg-clip-text text-transparent">
                 {{ title }}
               </h2>
@@ -17,11 +17,11 @@
             </div>
           </div>
 
-          <div class="space-y-2">
+          <div class="space-y-4">
             <div v-for="(part, index) in parts" :key="index" class="group">
               <div
                 v-show="!part?.hidden"
-                class="p-2 sm:p-3 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between hover:shadow-md bg-white shadow-sm"
+                class="p-4 sm:p-5 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between hover:shadow-md bg-white shadow-sm"
                 :class="{
                   'shadow-md bg-gradient-to-r from-hydro-power/5 to-hydro-steel/5 ring-2 ring-hydro-power/20': part.selected,
                   'hover:shadow-lg': !part.selected,
@@ -31,9 +31,9 @@
                 tabindex="0"
                 @keydown.enter="handlePartClick(part, index)"
               >
-                <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
                   <div
-                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
                     :class="{
                       'bg-hydro-power text-white shadow-hydro-power/30': part.selected,
                       'bg-tech-light text-hydro-steel/60 group-hover:bg-hydro-power/10 group-hover:text-hydro-power': !part.selected,
@@ -42,16 +42,16 @@
                     <Icon :name="getPartIcon(part)" class="text-lg sm:text-xl" />
                   </div>
                   <div class="flex-1 min-w-0">
-                    <div class="text-sm sm:text-base font-semibold text-hydro-steel transition-colors duration-300 truncate"
+                    <div class="text-sm sm:text-base font-semibold text-hydro-steel transition-colors duration-300 break-words overflow-visible whitespace-normal"
                          :class="{'text-hydro-power': part.selected}">
                       {{ part.name }}
                     </div>
-                    <div v-if="part.category" class="text-xs text-hydro-steel/60 font-medium mt-0.5 truncate">
+                    <div v-if="part.category" class="text-xs text-hydro-steel/60 font-medium mt-1 break-words overflow-visible whitespace-normal">
                       {{ part.category }}
                     </div>
                   </div>
                 </div>
-                <div class="ml-1 sm:ml-2 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                <div class="ml-2 sm:ml-3 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
                   <Icon
                     v-if="part.selected"
                     name="mdi:check-circle"
@@ -73,27 +73,27 @@
                 leave-from-class="opacity-100 max-h-96"
                 leave-to-class="opacity-0 max-h-0"
               >
-                <div v-if="part.show && part.description" class="overflow-hidden">
+                <div v-if="part.show && part.description" class="overflow-visible">
                   <div
-                    class="relative mt-2 p-3 sm:p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
+                    class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
                   >
                     <button 
                       @click="part.show = false" 
-                      class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
+                      class="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
                     >
-                      <Icon name="mdi:close" class="text-base" />
+                      <Icon name="mdi:close" class="text-lg" />
                     </button>
                     
-                    <p class="text-hydro-steel/80 text-xs sm:text-sm pr-6 mb-3">{{ part.description }}</p>
+                    <p class="text-hydro-steel/80 text-xs sm:text-sm pr-8 mb-4 break-words overflow-visible whitespace-normal">{{ part.description }}</p>
                     
-                    <div v-if="part.features" class="space-y-1">
+                    <div v-if="part.features" class="space-y-2">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
                         <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0 text-sm sm:text-base" />
-                        <span class="text-hydro-steel/80 text-xs font-medium" v-html="feature"></span>
+                        <span class="text-hydro-steel/80 text-xs font-medium break-words overflow-visible whitespace-normal" v-html="feature"></span>
                       </div>
                     </div>
                     
-                    <div v-if="part.price" class="mt-3 pt-2 border-t border-gray-200">
+                    <div v-if="part.price" class="mt-4 pt-3 border-t border-gray-200">
                       <div class="flex justify-between items-center">
                         <span class="text-hydro-steel/60 text-xs">Стоимость:</span>
                         <span class="text-hydro-power font-bold text-sm sm:text-base">{{ part.price }}</span>
@@ -107,11 +107,11 @@
         </section>
 
         <section class="w-full md:flex-1 relative">
-          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-start justify-center bg-gray-100 min-h-[300px] sm:min-h-[400px]">
-            <div class="relative w-full h-full" :style="imageStyle">
+          <div class="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gray-100 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
+            <div class="relative w-full h-full flex items-center justify-center" :style="imageStyle">
               <NuxtImg
                 :src="mainImage"
-                class="h-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] object-contain"
+                class="h-full max-h-[400px] sm:max-h-[500px] md:max-h-[600px] w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] object-contain"
                 :alt="imageAlt"
                 loading="lazy"
                 format="webp"
@@ -171,7 +171,7 @@ const props = defineProps({
   },
   imageAlt: {
     type: String,
-    default: 'Профессиональный ремонта'
+    default: 'Профессиональный ремонт'
   },
   imageId: {
     type: String,
@@ -225,7 +225,6 @@ const handlePartClick = (part, index) => {
   if(props.selectorData)
   addData({name:props.name, selected:part.name})
 
-  // Для режима одиночного выделения
   if (props.highlightMode === 'single') {
     activeHighlight.value = index
     setTimeout(() => {
@@ -298,19 +297,15 @@ if(props.selectorData)
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
-/* Улучшения для мобильных устройств */
+@media (max-width: 768px) {
+  .w-11\/12 {
+    width: 94%;
+  }
+}
+
 @media (max-width: 640px) {
-  .w-4\/5 {
-    width: 90%;
-  }
-  
-  .py-4 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  .mt-4 {
-    margin-top: 1rem;
+  .w-11\/12 {
+    width: 97%;
   }
 }
 </style>
