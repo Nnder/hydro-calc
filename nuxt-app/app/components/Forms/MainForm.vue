@@ -2,11 +2,14 @@
 const { calculatorData} = useCalculatorSelector()
 
 watch(calculatorData, () => {
-  const result = calculatorData.value.selected.reduce((acc,val)=> {
+  if(calculatorData.value.selected.length){
+    const result = calculatorData.value.selected.reduce((acc,val)=> {
       return acc += val + '\n'
     }, '') 
 
-  form.value.description = `Здравствуйте необходимый перечень работ по ${calculatorData.value.name}:\n${result}`
+    form.value.description = `Здравствуйте необходимый перечень работ по ${calculatorData.value.name}:\n${result}`
+  }
+  
 }, { deep: true })
 
 const form = ref({
@@ -17,19 +20,19 @@ const form = ref({
   files: [],
 })
 
-const formErrors = ref({
+const formErrors = ref({ 
   name: '',
   phone: '',
 })
 
 function handleFiles(event) {
+  console.log(event.target.files)
   form.value.files = Array.from(event.target.files)
 }
 
 const removeFile = (index) =>{
   form.value.files = form.value.files.filter((val, i)=> i !== index)
 }
-
 
 const isSending = ref(false)
 const showSuccess = ref(false)
