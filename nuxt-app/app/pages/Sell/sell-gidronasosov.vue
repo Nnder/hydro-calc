@@ -100,7 +100,7 @@ const blockData = {
 }
 
 const mainSlideData = {
-  src: '/recambios-coches1.jpg',
+  src: '/nasosi/block1.png',
   title: 'Подбор и продажа гидронасосов',
   description:
     'Профессиональная продажа гидравлических насосов в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные гидронасосы по конкурентоспособным ценам с доставкой по всей Свердловской области.',
@@ -113,8 +113,7 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
+  img: '/nasosi/block2.jpg',
   tag: 'Профессионально',
   title: 'Продажа гидронасосов',
   text: 'Широкий выбор гидравлических насосов',
