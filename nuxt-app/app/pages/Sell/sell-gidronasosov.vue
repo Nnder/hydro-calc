@@ -135,7 +135,7 @@ const bannerProps = {
         'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
       ],
       parameters: [
-        { label: 'Размер', value: 'SAE 1/2"' },
+        { label: 'Материал корпуса', value: 'Чугун' },
         { label: 'Давление', value: 'до 600 бар' },
         { label: 'Материал', value: 'Сталь 45' },
         { label: 'Температура', value: '-40°C до +120°C' },
