@@ -45,100 +45,125 @@ const handleItemClick = item => {
   }
 }
 
+const activeGridItem = computed(() => {
+  const product = props.bannerProps.products.find(p => p.type === currentProductType.value)
+  return product?.gridItem || null
+})
+
 if (props.bannerProps.initialProductType) {
   currentProductType.value = props.bannerProps.initialProductType
 }
 </script>
 
 <template>
-  <section class="bg-gradient-to-br from-blue-50 to-white py-6 px-3">
-    <div class="container mx-auto max-w-5xl">
-      <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">
-        Дополнительные компоненты
-      </h2>
+  <section class="min-h-screen relative overflow-hidden">
+    <NuxtImg
+      src="https://img.freepik.com/free-photo/abstract-sale-busioness-background-banner-design-multipurpose_1340-16799.jpg?semt=ais_hybrid&w=740&q=80"
+      alt="Background"
+      class="absolute inset-0 w-full h-full object-cover"
+      priority
+      />
 
-      <div class="flex flex-col lg:flex-row gap-6 items-start">
-        <div class="lg:w-1/2">
-          <div class="sticky top-2">
-            <SwiperProduct
+    <div class="relative z-10 container mx-auto max-w-7xl py-12 px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4">
+          Дополнительные 
+          <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">компоненты</span>
+        </h2>
+        
+        <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
+        <div class="relative">
+          <div class="sticky top-8">
+            <div class="relative rounded-3xl overflow-hidden group">
+              <SwiperProduct
               :images="currentProductImages"
               :key="imageKey"
-              class="rounded-lg shadow-md overflow-hidden border border-blue-100"
+              class="rounded-lg shadow-md overflow-hidden"
             />
+            </div>
           </div>
         </div>
 
-        <div class="lg:w-1/2">
-          <h2 class="text-2xl text-blue-800 font-bold text-center">
-            {{ currentProduct?.title }}
-          </h2>
-          <AccessoriesGrid :items="gridItems" @item-click="handleItemClick" />
+        <div class="space-y-6">
+          <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-6  hover:transition-all duration-300">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+              <div>
+                <h1 class="text-3xl font-bold text-white">
+                  {{ currentProduct?.title }}
+                </h1>
+              </div>
+            </div>
+          </div>
 
-          <div class="mt-4 bg-white rounded-lg p-4 shadow-sm border border-blue-100">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-1 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 mr-2 text-blue-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
+          <AccessoriesGrid 
+            :items="gridItems" 
+            :active-item="activeGridItem"
+            @item-click="handleItemClick"
+            class="bg-white/5 backdrop-blur-xl rounded-3xl p-6  hover: transition-all duration-300"
+          />
+
+          <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-8 hover: transition-all duration-300">
+            <h3 class="text-xl font-semibold text-white mb-6 flex items-center">
+              <div class="p-2 bg-cyan-500/20 rounded-xl mr-3 ">
+                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                </svg>
+              </div>
               Технические параметры
             </h3>
 
-            <div class="space-y-2 text-sm">
+            <div class="space-y-0 overflow-hidden rounded-2xl  bg-white/5">
               <div
                 v-for="(param, index) in currentParameters"
                 :key="index"
-                class="flex justify-between items-center py-1 border-b border-blue-50 last:border-b-0"
+                class="flex justify-between items-center py-4 px-6  hover:bg-white/5 transition-colors duration-200 group"
               >
-                <span class="text-gray-600">{{ param.label }}:</span>
-                <span class="text-blue-800 font-medium">{{ param.value }}</span>
+                <span class="text-white/70 font-medium group-hover:text-white transition-colors">
+                  {{ param.label }}:
+                </span>
+                <span class="text-cyan-400 font-semibold text-right">
+                  {{ param.value }}
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="flex flex-col min-h-[200px] bg-white rounded-xl p-5 shadow-md border border-blue-100 mt-6"
-      >
-        <div>
-          <h3 class="text-2xl font-semibold text-blue-800 mb-3 flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-2 text-blue-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+        <div class="lg:col-span-2 bg-white/5 backdrop-blur-xl rounded-3xl p-8 hover:transition-all duration-300">
+          <h3 class="text-xl font-semibold text-white mb-6 flex items-center">
+            <div class="p-2 bg-purple-500/20 rounded-xl mr-3">
+              <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            Описание продукта
+            <div class="ml-auto">
+            <DownloadPdfButton
+                :pdf-url="currentPdfUrl"
+                :file-name="currentPdfFileName"
+                class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
               />
-            </svg>
-            Описание
+            </div>
           </h3>
 
-          <div v-for="(paragraph, index) in currentDescription" :key="index">
-            <p class="text-gray-700 mb-3 text-sm">{{ paragraph }}</p>
-          </div>
-        </div>
+          
 
-        <div class="mt-auto flex justify-end">
-          <DownloadPdfButton
-            :pdf-url="currentPdfUrl"
-            :file-name="currentPdfFileName"
-          />
+          <div class="space-y-4">
+            <p 
+              v-for="(paragraph, index) in currentDescription" 
+              :key="index"
+              class="text-white/80 leading-relaxed text-lg"
+            >
+              {{ paragraph }}
+            </p>
+          </div>
         </div>
       </div>
     </div>

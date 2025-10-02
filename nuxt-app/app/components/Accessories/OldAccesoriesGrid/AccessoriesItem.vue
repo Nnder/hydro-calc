@@ -1,25 +1,43 @@
 <script setup>
-const props = defineProps({
+defineProps({
   item: {
     type: Object,
-    required: true,
+    required: true
   },
+  isActive: {
+    type: Boolean,
+    default: false
+  }
 })
+
 const emit = defineEmits(['click'])
-const handleClick = () => emit('click', props.item)
 </script>
 
 <template>
-  <div
-    class="bg-white rounded-md shadow-sm hover:shadow-md transition p-1 flex items-center justify-center cursor-pointer aspect-square"
-    @click="handleClick"
+  <button
+    @click="emit('click', item)"
+    :class="[
+      'rounded-lg border-2 transition-all duration-200 hover:scale-105',
+      'flex items-center justify-center bg-white shadow-sm',
+      isActive 
+        ? 'border-blue-500 ring-2 ring-blue-200 shadow-lg scale-110 bg-blue-50' 
+        : 'border-gray-200 hover:border-gray-300'
+    ]"
   >
-    <NuxtImg
-      :src="item.image"
+    <NuxtImg 
+      v-if="item.image" 
+      :src="item.image" 
       :alt="item.title"
-      class="w-6 h-6 md:w-8 md:h-8 object-contain"
-      loading="lazy"
-      format="webp"
+      class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
-  </div>
+    <span 
+      v-else 
+      :class="[
+        'text-xs',
+        isActive ? 'text-blue-600 font-semibold' : 'text-gray-500'
+      ]"
+    >
+      {{ item.title }}
+    </span>
+  </button>
 </template>

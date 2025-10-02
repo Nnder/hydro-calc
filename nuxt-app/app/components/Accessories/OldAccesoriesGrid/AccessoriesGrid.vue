@@ -7,6 +7,10 @@ defineProps({
     required: true,
     default: () => [],
   },
+  activeItem: {
+    type: Object,
+    default: null
+  }
 })
 
 const emit = defineEmits(['item-click'])
@@ -20,6 +24,7 @@ const handleItemClick = (item) => emit('item-click', item)
         v-for="(item, i) in items"
         :key="i"
         :item="item"
+        :is-active="activeItem && activeItem.title === item.title"
         @click="handleItemClick"
         class="w-12 h-12 sm:w-14 sm:h-14"
       />
