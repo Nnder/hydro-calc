@@ -79,23 +79,23 @@ const hydrantParts = ref([
     {
     name: 'Грязесьемники',
     features: [
-  'для гидроцилиндров',
-'для штока',
-'для направляющих',
-'для оптических линеек',
+  'Для гидроцилиндров',
+'Для штока',
+'Для направляющих',
+'Для оптических линеек',
     ],
     selected: false,
     show: false,
     color: 'bg-indigo-600/50 border-indigo-600',
-    onSelect: () => {
-      const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
-      hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
-      if (val) {
-        MainCalculatorImage.value = '/calculator/1.png'
-      } else {
-        MainCalculatorImage.value = '/calculator/1.png'
-      }
-    },
+    // onSelect: () => {
+    //   const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
+    //   hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
+    //   if (val) {
+    //     MainCalculatorImage.value = '/calculator/1.png'
+    //   } else {
+    //     MainCalculatorImage.value = '/calculator/1.png'
+    //   }
+    // },
     highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
   },
    {
@@ -106,12 +106,12 @@ const hydrantParts = ref([
 `,
 
 features: [
-  'односторонние (манжета воротниковая QS01-P (S06-P))',
-'двухсторонние',
-'уплотнение штока гидроцилиндра',
-'уплотнение штока пневмоцилиндра',
-'составные уплотнения штока',
-'не составные уплотнения штока',
+  'Односторонние (манжета воротниковая QS01-P (S06-P))',
+'Двухсторонние',
+'Уплотнение штока гидроцилиндра',
+'Уплотнение штока пневмоцилиндра',
+'Составные уплотнения штока',
+'Не составные уплотнения штока',
     ],
     selected: false,
     show: false,
@@ -137,7 +137,7 @@ features: [
     color: 'bg-orange-400/50 border-orange-400',
   },
 
-  
+
   {
     name: 'Опорные кольца',
     selected: false,
