@@ -12,7 +12,7 @@ const props = defineProps({
     <NuxtImg
       :src="item.image"
       :alt="item.title"
-      class="w-12 h-12 md:w-16 md:h-16 object-contain"
+      class="w-24 h-24 md:w-36 md:h-36 object-contain"
       loading="lazy"
       format="webp"
     />
