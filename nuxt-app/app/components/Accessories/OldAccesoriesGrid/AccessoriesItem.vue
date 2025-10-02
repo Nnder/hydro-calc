@@ -5,17 +5,13 @@ const props = defineProps({
     required: true,
   },
 })
-
 const emit = defineEmits(['click'])
-
-const handleClick = () => {
-  emit('click', props.item)
-}
+const handleClick = () => emit('click', props.item)
 </script>
 
 <template>
-  <div 
-    class="bg-white rounded-md shadow-sm hover:shadow transition-shadow p-1 flex flex-col items-center justify-center aspect-square cursor-pointer"
+  <div
+    class="bg-white rounded-md shadow-sm hover:shadow-md transition p-1 flex items-center justify-center cursor-pointer aspect-square"
     @click="handleClick"
   >
     <NuxtImg
