@@ -5,6 +5,10 @@ import AccessoriesGrid from '../Accessories/OldAccesoriesGrid/AccessoriesGrid.vu
 import DownloadPdfButton from '../Button/DownloadPdfButton.vue'
 
 const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
   bannerProps: {
     type: Object,
     required: true,
@@ -56,6 +60,16 @@ if (props.bannerProps.initialProductType) {
 </script>
 
 <template>
+  <section class="bg-gradient-to-br from-blue-50 to-white py-6 px-3">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">
+        {{ title }}
+      </h2>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start">
+        <div class="lg:w-1/2">
+          <div class="sticky top-2">
+            <SwiperProduct
   <section class="min-h-screen relative overflow-hidden">
     <NuxtImg
       src="https://img.freepik.com/free-photo/abstract-sale-busioness-background-banner-design-multipurpose_1340-16799.jpg?semt=ais_hybrid&w=740&q=80"

@@ -17,8 +17,8 @@ defineProps({
 </script>
 
 <template>
-  <section class="w-full h-full min-h-[300px]">
-    <div class="w-full h-full min-h-[300px] bg-hydro-power">
+  <section class="w-full h-full">
+    <div class="w-full h-full min-h-[300px] flex items-center bg-hydro-power">
       <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div
           class=" flex flex-col items-start lg:items-center justify-between w-full gap-8"
@@ -52,13 +52,15 @@ defineProps({
           </div>
 
           <div class="w-full lg:w-1/2 xl:!w-[640px]">
-            <NuxtImg
-              v-if="blockData.type !== '3d'"
+            <div class="flex justify-center" v-if="blockData.type !== '3d'">
+              <NuxtImg
               :src="blockData.imageUrl"
               :alt="blockData.imageAlt"
               class="object-fill"
               format="webp"
             />
+            </div>
+           
             <div v-else class="relative" @click="() => (hint = false)">
               <ThreeViewer
                 :modelPath="blockData.modelSrc"

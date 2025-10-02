@@ -41,40 +41,7 @@ const description = `<p class="text-lg">
 const imageUrl = '/honingovannaya_trubka_prim.jpeg'
 const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области и всей России'
 
-const items = ref([
-  {
-    image: '/shtok.jpeg',
-    title: 'Шток',
-  },
-  {
-    image: '/gilza.jpeg',
-    title: 'Гильза',
-  },
-  {
-    image: '/porshen.jpg',
-    title: 'Поршень',
-  },
-  {
-    image: '/krishka.jpeg',
-    title: 'Крышка',
-  },
-  {
-    image: '/gaika.jpeg',
-    title: 'Гайка',
-  },
-  {
-    image: '/uplotnenie.png',
-    title: 'Уплотнения',
-  },
-  {
-    image: '/proushina.jpg',
-    title: 'Проушина',
-  },
-  {
-    image: '/flanec.jpeg',
-    title: 'Фланец',
-  },
-])
+
 
 const blockData = {
   title: 'Изготавливаем гидроцилиндры по индивидуальным параметрам',
