@@ -27,13 +27,12 @@ defineProps({
 
     <div 
       v-else 
-      class="flex flex-wrap justify-center gap-4 md:gap-6"
+      class="flex flex-wrap flex-row justify-center gap-4 md:gap-6"
     >
       <AccessoriesItem
         v-for="(item, index) in items"
         :key="index"
         :item="item"
-        class="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(25%-1.5rem)] lg:w-[calc(25%-1.5rem)]"
       />
     </div>
   </section>

@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 flex flex-row items-center">
+  <div class="w-full bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 flex flex-row-reverse items-start">
     <NuxtImg
       :src="item.image"
       :alt="item.title"
@@ -17,7 +17,7 @@ const props = defineProps({
       format="webp"
     />
 
-    <p class="mt-2 text-hydro-power text-sm md:text-base font-medium text-gray-800 text-center">
+    <p class="mt-8 text-hydro-power text-sm md:text-base font-medium text-gray-800 text-center">
       {{ item.title }}
     </p>
   </div>
