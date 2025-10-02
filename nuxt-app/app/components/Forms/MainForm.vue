@@ -111,14 +111,17 @@ const submitForm = async () => {
     isSending.value = false
   }
 }
+
+const id =  useId();
 </script>
 
 <template>
-  <form @submit.prevent="submitForm" class="space-y-4 md:space-y-6">
+  <form @submit.prevent="submitForm" class="space-y-4 md:space-y-6" :id="`form-${id}`">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
       <div class="md:col-span-2 lg:col-span-1">
         <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Ваше имя *</label>
         <input
+        :id="`name-${id}`"
           type="text"
           v-model="form.name"
           placeholder="Иван Иванов"
@@ -141,6 +144,7 @@ const submitForm = async () => {
       <div class="md:col-span-2 lg:col-span-1">
         <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Телефон *</label>
         <input
+        :id="`phone-${id}`"
           type="tel"
           v-model="form.phone"
           placeholder="+7 (999) 999-99-99"
@@ -164,6 +168,7 @@ const submitForm = async () => {
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Опишите проблему</label>
       <textarea
+      :id="`description-${id}`"
         rows="3"
         v-model="form.description"
         placeholder="Подробно опишите вашу проблему..."
@@ -181,11 +186,11 @@ const submitForm = async () => {
       <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3"> Добавьте файлы </label>
 
       <!-- Скрытый input -->
-      <input id="file-upload" type="file" class="hidden" multiple @change="handleFiles" />
+      <input :id="`file-${id}`" type="file" class="hidden" multiple @change="handleFiles" />
 
       <!-- Кастомная кнопка -->
       <label
-        for="file-upload" 
+        :for="`file-${id}`" 
         class="flex items-center justify-center w-full px-4 py-3 md:px-5 md:py-4 border-2 border-blue-300 rounded-lg md:rounded-xl cursor-pointer transition-all duration-300 text-slate-600 hover:text-blue-600 hover:border-blue-800 shadow-sm hover:shadow-md"
         :class="[form.files.length ? 'bg-blue-300' : 'bg-white' ]"
         >
