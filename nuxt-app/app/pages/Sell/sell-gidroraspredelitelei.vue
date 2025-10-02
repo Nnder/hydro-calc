@@ -121,7 +121,7 @@ const slider = {
     data-aos="fade-up"
     data-aos-delay="200"
   />
-  <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" />
+  <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
