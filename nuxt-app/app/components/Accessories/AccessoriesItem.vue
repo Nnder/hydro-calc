@@ -17,7 +17,7 @@ const props = defineProps({
       format="webp"
     />
 
-    <p class="mt-8 text-hydro-steel text-sm md:text-base font-medium text-gray-800 text-center">
+    <p class="mt-8 text-hydro-steel text-base md:text-lg font-medium text-gray-800 text-center">
       {{ item.title }}
     </p>
   </div>
