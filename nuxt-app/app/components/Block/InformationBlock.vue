@@ -18,7 +18,7 @@ defineProps({
 
 <template>
   <section class="w-full h-full min-h-[300px]">
-    <div class="w-full h-full bg-hydro-power">
+    <div class="w-full h-full min-h-[300px] bg-hydro-power">
       <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div
           class=" flex flex-col items-start lg:items-center justify-between w-full gap-8"
