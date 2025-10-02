@@ -36,7 +36,7 @@ const categories = ref([
         link: '/sell/sell-gidrocilindrov'
       },
       {
-        title: 'Фильтры гидравлические',
+        title: 'Фильтрующие элементы',
         image: 'https://fim.by/images/lp-photo/gidravlika.jpg',
         description: 'Фильтры для гидравлических систем',
         link: '/sell/sell-filtrov'
@@ -72,13 +72,13 @@ const categories = ref([
         link: '/sell/sell-shidkostey'
       },
       {
-        title: 'Запчасти для ДВС',
+        title: 'Шнеки',
         image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
         description: 'Ножи, коронки, зубъя, бокорезы',
         link: '/sell/sell-shidkostey'
       },
       {
-        title: 'Топливные системы',
+        title: 'Буры',
         image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
         description: 'Ножи, коронки, зубъя, бокорезы',
         link: '/sell/sell-shidkostey'
