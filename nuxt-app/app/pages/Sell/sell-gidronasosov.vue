@@ -25,14 +25,13 @@ useHead({
 })
 
 const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных гидравлических насосов в Нижнем Тагиле. 
-          Мы предлагаем широкий ассортимент гидронасосов для любых промышленных задач.
+         Наши специалисты помогут подобрать оптимальный гидронасос для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидронасосами!
         </p>
         <p class="text-lg">
           Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
         </p>`
 
-const imageUrl = 'images/uplotnenie/block.jpeg'
+const imageUrl = '/nasosi/block1.png'
 const title = 'Продажа гидронасосов в Нижнем Тагиле'
 
 const items = ref([
@@ -260,8 +259,6 @@ const bannerProps = {
   />
 
   <NewProductBanner :bannerProps="bannerProps" title="Варианты насосов" data-aos="fade-up" />
-
-
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
