@@ -8,11 +8,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 flex flex-col items-center">
+  <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 flex flex-row items-center">
     <NuxtImg
       :src="item.image"
       :alt="item.title"
-      class="w-24 h-24 md:w-36 md:h-36 object-contain"
+      class="w-36 h-36 md:w-48 md:h-48 object-contain"
       loading="lazy"
       format="webp"
     />

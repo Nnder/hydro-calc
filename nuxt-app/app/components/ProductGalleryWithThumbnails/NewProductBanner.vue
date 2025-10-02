@@ -5,6 +5,10 @@ import AccessoriesGrid from '../Accessories/OldAccesoriesGrid/AccessoriesGrid.vu
 import DownloadPdfButton from '../Button/DownloadPdfButton.vue'
 
 const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
   bannerProps: {
     type: Object,
     required: true,
@@ -54,7 +58,7 @@ if (props.bannerProps.initialProductType) {
   <section class="bg-gradient-to-br from-blue-50 to-white py-6 px-3">
     <div class="container mx-auto max-w-5xl">
       <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">
-        Дополнительные компоненты
+        {{ title }}
       </h2>
 
       <div class="flex flex-col lg:flex-row gap-6 items-start">
