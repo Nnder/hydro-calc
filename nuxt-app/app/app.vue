@@ -2,8 +2,8 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <!-- <PerformanceChecker /> -->
   <CallBackModal />
+  <!-- <PerformanceChecker /> -->
 </template>
 
 <style>
@@ -23,6 +23,14 @@ import CallBackModal from './components/Modal/CallBackModal.vue'
 // onMounted(() => {
 //   cartStore.setCart()
 // })
+
+const { clearData } = useCalculatorSelector()
+const router = useRouter()
+
+router.beforeEach((to, from, next) => {
+  clearData()
+  next()
+})
 
 const route = useRoute()
 

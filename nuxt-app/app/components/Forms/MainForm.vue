@@ -1,5 +1,5 @@
 <script setup>
-const { calculatorData} = useCalculatorSelector()
+const { calculatorData } = useCalculatorSelector()
 
 watch(calculatorData, () => {
   if(calculatorData.value.selected.length){
@@ -8,6 +8,8 @@ watch(calculatorData, () => {
     }, '') 
 
     form.value.description = `Здравствуйте необходимый перечень работ по ${calculatorData.value.name}:\n${result}`
+  } else {
+    form.value.description = ''
   }
   
 }, { deep: true })
@@ -89,7 +91,7 @@ const clearError = field => {
     formErrors.value[field] = ''
   }
 }
-
+ 
 const submitForm = async () => {
   if (!validateForm()) return
 
