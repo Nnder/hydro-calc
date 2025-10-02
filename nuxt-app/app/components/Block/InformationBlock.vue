@@ -51,14 +51,16 @@ defineProps({
             </button>
           </div>
 
-          <div class="w-full lg:w-1/2 xl:!w-[640px] flex justify-center">
-            <NuxtImg
-              v-if="blockData.type !== '3d'"
+          <div class="w-full lg:w-1/2 xl:!w-[640px]">
+            <div class="flex justify-center" v-if="blockData.type !== '3d'">
+              <NuxtImg
               :src="blockData.imageUrl"
               :alt="blockData.imageAlt"
               class="object-fill"
               format="webp"
             />
+            </div>
+           
             <div v-else class="relative" @click="() => (hint = false)">
               <ThreeViewer
                 :modelPath="blockData.modelSrc"
