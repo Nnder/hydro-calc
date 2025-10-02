@@ -56,8 +56,7 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
+  img: '/images/uplotnenie/slider-uplatnenie.png',
   tag: 'Профессионально',
   title: 'Продажа уплотнений',
   text: 'Полный ассортимент уплотнительных элементов для гидравлики',

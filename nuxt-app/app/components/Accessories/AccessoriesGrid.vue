@@ -16,18 +16,6 @@ defineProps({
     </div> -->
 
     <div 
-      v-if="items.length === 6" 
-      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6 justify-center items-center "
-    >
-      <AccessoriesItem
-        v-for="(item, index) in items"
-        :key="index"
-        :item="item"
-      />
-    </div>
-
-    <div 
-      v-else 
       class="flex flex-1 flex-wrap justify-center gap-6"
     >
       <AccessoriesItem
