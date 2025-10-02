@@ -10,22 +10,28 @@ const categories = ref([
       {
         title: 'Ремонт Гидроцилиндров',
         image: '/services/gidrocilindr-0286.jpg',
+        link: '/remont-hydraulic-cylinders',
       },
       {
         title: 'Ремонт Гидронасосов',
         image: '/services/hydromotor.jpg',
+        link: '/remont-hydraulic-motors'
       },
       {
         title: 'Ремонт Гидромоторов',
         image: '/services/hydro.jpg',
+        link: '/remont-nasosov-pumps'
+
       },
       {
         title: 'Ремонт навестного оборудования',
         image: '/services/kovsh.webp',
+        link: '/remont-kovshey'
       },
       {
         title: 'Ремонт сварочных и токарных работ',
         image: '/services/svarka.jpg',
+        link: '/remont-svarkoy'
       },
     ],
   },
@@ -37,14 +43,17 @@ const categories = ref([
       {
         title: 'РВД',
         image: '/services/rvd.jpg',
+        link: '/rukava-visokogo-davlenia-rvd'
       },
       {
         title: 'Изготовление Гидроцилиндров',
         image: '/services/gidrocilindr-0286.jpg',
+        link: '/izgotovlenie-hydrocylindrov'
       },
       {
         title: 'Станция гидравлическая',
         image: '/services/stanciigidravlcesky.jpg',
+        link: '/proektirovanie-izgotovlenie-hydraulic-stantici'
       },
     ],
   },
@@ -56,26 +65,32 @@ const categories = ref([
       {
         title: 'Продажа Уплотнений',
         image: '/services/uplotnenie.jpg',
+        link: '/sell/sell-uplotnenie'
       },
       {
         title: 'Продажа Гидронасосов',
         image: '/services/gidromotor2.jpg',
+        link: '/sell/sell-gidronasosov'
       },
       {
         title: 'Продажа Гидроцилиндров',
         image: '/services/gidrocilindr-0286.jpg',
+        link: '/sell/sell-gidrocilindrov'
       },
       {
         title: 'Продажа Фильтров',
         image: '/services/filtrov.jpg',
+        link: '/sell/sell-filtrov'
       },
       {
         title: 'Продажа комплектующие рвд',
         image: '/services/rvd.webp',
+        link: '/sell/sell-komplektushie-rvd'
       },
       {
         title: 'Продажа ГСМ и тех. жидкости',
         image: '/services/smazka.jpg',
+        link: '/sell/sell-shidkostey'
       },
     ],
   },
@@ -139,9 +154,10 @@ const activeBgText = computed(() => {
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
-          <div
+          <NuxtLink
             v-for="(service, index) in activeServices"
             :key="index"
+            :to="service.link"
             class="group relative rounded-xl shadow-md md:shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-64 md:h-80"
           >
             <NuxtImg
@@ -165,7 +181,7 @@ const activeBgText = computed(() => {
                 Подробнее
               </button>
             </div>
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>

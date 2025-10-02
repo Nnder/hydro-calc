@@ -11,7 +11,7 @@ const { open } = useModal()
     <div class="absolute inset-0 bg-black/80 after:absolute after:inset-0 after:bg-black/60">
       <NuxtImg
         format="webp"
-        src="/images/uplotnenie/slider-uplatnenie.png"
+        :src="slider?.img || '/images/uplotnenie/slider-uplatnenie.png'"
         alt="background"
         class="w-full h-full object-cover"
       />

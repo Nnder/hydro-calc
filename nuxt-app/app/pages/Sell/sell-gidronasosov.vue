@@ -100,7 +100,7 @@ const blockData = {
 }
 
 const mainSlideData = {
-  src: '/recambios-coches1.jpg',
+  src: '/nasosi/block1.png',
   title: 'Подбор и продажа гидронасосов',
   description:
     'Профессиональная продажа гидравлических насосов в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные гидронасосы по конкурентоспособным ценам с доставкой по всей Свердловской области.',
@@ -113,8 +113,7 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
+  img: '/nasosi/block2.jpg',
   tag: 'Профессионально',
   title: 'Продажа гидронасосов',
   text: 'Широкий выбор гидравлических насосов',
@@ -136,7 +135,7 @@ const bannerProps = {
         'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
       ],
       parameters: [
-        { label: 'Размер', value: 'SAE 1/2"' },
+        { label: 'Материал корпуса', value: 'Чугун' },
         { label: 'Давление', value: 'до 600 бар' },
         { label: 'Материал', value: 'Сталь 45' },
         { label: 'Температура', value: '-40°C до +120°C' },
