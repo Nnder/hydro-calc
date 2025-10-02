@@ -56,7 +56,7 @@ const categories = ref([
       {
         title: 'Режущие элементы для дорожной и строительной техники',
         image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
-        description: 'Ножи, коронки, зубъя, бокорезы',
+        description: 'Ножи, коронки, зубъя, бокорезы, пиши, шнеки,',
         link: '/sell/sell-shidkostey'
       },
       {
