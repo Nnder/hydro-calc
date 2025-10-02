@@ -119,7 +119,7 @@ if (props.bannerProps.initialProductType) {
           <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-8 hover: transition-all duration-300">
             <h3 class="text-xl font-semibold text-white mb-6 flex items-center">
               <div class="p-2 px-4 bg-cyan-500/20 rounded-xl mr-3 ">
-               <Icon name="mdi-cogs"/>
+               <Icon name="mdi:cogs"/>
               </div>
               Технические параметры
             </h3>

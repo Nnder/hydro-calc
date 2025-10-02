@@ -136,8 +136,8 @@ const bannerProps = {
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Материал', value: 'Сталь 45' },
+        { label: 'Рабочее давление', value: 'до 360 бар' },
+        { label: 'Расходная характеристика', value: '' },
         { label: 'Температура', value: '-40°C до +120°C' },
       ],
       description: [
