@@ -12,13 +12,13 @@ const props = defineProps({
     <NuxtImg
       :src="item.image"
       :alt="item.title"
-      class="w-32 h-32 md:w-40 md:h-40 object-contain rounded-lg bg-gray-50 p-2 hover:scale-105 transition-transform duration-300"
+      class="w-32 h-32 md:w-40 md:h-40 object-contain rounded-lg p-2 hover:scale-105 transition-transform duration-300"
       loading="lazy"
       format="webp"
     />
 
     <div class="flex-1 text-center md:text-left">
-      <h3 class="text-xl font-semibold text-gray-900 mb-3">
+      <h3 class="text-xl font-semibold mb-3">
         {{ item.title }}
       </h3>
       
