@@ -255,7 +255,7 @@ const bannerProps = {
   /> -->
 
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" data-aos-delay="200"/>
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
   <NewProductBanner :bannerProps="bannerProps" title="Варианты насосов" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
