@@ -257,8 +257,11 @@ const slider = {
   /> -->
 
   <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+ 
+
+  
+  <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
-  <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <Contact data-aos="fade-up" />
 </template>
