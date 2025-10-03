@@ -113,8 +113,7 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
+  img: 'https://static.tildacdn.com/tild6637-3562-4264-b431-613535373630/cylinder_01-1024x640.jpg',
   tag: 'Профессионально',
   title: 'Продажа гидроцилиндров',
   text: 'Широкий выбор гидравлических цилиндров',
@@ -308,7 +307,7 @@ const bannerProps = {
     data-aos-delay="200"
   /> -->
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="https://image.made-in-china.com/2f0j00fcMqmYbGCDko/Bobcat-763-T300-610-Tilt-Cylinder.webp" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
