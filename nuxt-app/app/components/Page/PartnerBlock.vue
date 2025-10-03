@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
     <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-fit lg:max-h-[600px] relative overflow-hidden">
-      <div class="flex flex-col xl:flex-row h-fit" :class="flexDirection">
+      <div class="flex flex-col h-fit" :class="flexDirection">
         <!-- Левая колонка с картинкой -->
         <div class="w-full xl:w-1/2 flex">
           <NuxtImg

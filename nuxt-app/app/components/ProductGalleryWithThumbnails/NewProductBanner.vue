@@ -89,11 +89,11 @@ if (props.bannerProps.initialProductType) {
         <div class="relative">
           <div class="sticky top-8">
             <div class="relative rounded-3xl overflow-hidden group">
-              <SwiperProduct
+              <!-- <SwiperProduct
               :images="currentProductImages"
               :key="imageKey"
               class="rounded-lg shadow-md overflow-hidden"
-            />
+            /> -->
             </div>
           </div>
         </div>

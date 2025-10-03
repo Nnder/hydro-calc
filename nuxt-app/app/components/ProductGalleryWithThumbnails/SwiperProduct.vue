@@ -3,13 +3,15 @@
     <div class="flex flex-col gap-4">
       <div class="w-full relative">
         <Swiper
-          :modules="modules"
+           v-show="isHydrated"
+          :loop="true"
+          :pagination="true"                  
+          :preload-images="false"
           class="main-swiper rounded-lg"
           :navigation="{
             nextEl: '.main-next',
             prevEl: '.main-prev',
           }"
-          :thumbs="{ swiper: thumbsSwiper }"
           :slidesPerView="1"
           :slidesPerGroup="1" 
           :spaceBetween="0"
@@ -38,7 +40,6 @@
           :slidesPerView="Math.min(4, images.length)"
           :spaceBetween="8"
           :watchSlidesProgress="true"
-          @swiper="setThumbsSwiper"
           class="thumbs-swiper"
         >
           <SwiperSlide v-for="(image, index) in images" :key="index">
@@ -65,11 +66,16 @@ const props = defineProps({
   }
 })
 
-const thumbsSwiper = ref(null)
+const isHydrated = ref(false)
 
-const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper
-}
+onMounted(() => {
+  isHydrated.value = true
+  // Динамический импорт Swiper
+  import('swiper/element/bundle').then(({ register }) => {
+    register()
+  })
+})
+
 </script>
 
 <style scoped>
