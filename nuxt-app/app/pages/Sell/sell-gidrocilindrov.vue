@@ -126,7 +126,7 @@ const slider = {
 const bannerProps = {
   products: [
     {
-      title: 'Фланцы SAE',
+      title: 'Защитные сильфоны (гофры)',
       type: 'flange',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
@@ -135,10 +135,9 @@ const bannerProps = {
         'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
       ],
       parameters: [
-        { label: 'Размер', value: 'SAE 1/2"' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Материал', value: 'Сталь 45' },
-        { label: 'Температура', value: '-40°C до +120°C' },
+        { label: 'Материал', value: 'Параарамидная / тентовая ткань' },
+        { label: 'Рабочая температура', value: '-100°C до +250°C' },
+        { label: 'Защита от', value: 'Механических повреждений и мелкодисперсной пыли' },
       ],
       description: [
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
@@ -150,7 +149,7 @@ const bannerProps = {
       }
     },
     {
-      title: 'Уплотнительное кольцо',
+      title: 'Пальцы',
       type: 'seal',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
@@ -174,7 +173,7 @@ const bannerProps = {
       }
     },
     {
-      title: 'Быстросъёмное соединение',
+      title: 'Втулки',
       type: 'quick_connect',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
@@ -198,8 +197,8 @@ const bannerProps = {
       }
     },
     {
-      title: 'Защитные оболочки',
-      type: 'protection',
+      title: 'Дополнительная Гидролиния',
+      type: 'protection2',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
@@ -222,53 +221,29 @@ const bannerProps = {
       }
     },
     {
-      title: 'Переходник',
-      type: 'adapter',
-      pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
+      title: 'ГСМ',
+      type: 'protection',
+      pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
-        'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkTEjHvpdcaB47RDPkymk8ZF8X2PTpH2uNg&s',
-        'https://www.vod-dom.ru/wa-data/public/shop/products/54/56/15654/images/39119/39119.970.png',
+        'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
+        'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
+        'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
       ],
       parameters: [
-        { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
-        { label: 'Материал', value: 'Сталь, латунь' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Покрытие', value: 'Цинк, никель' },
+        { label: 'Материал', value: 'Полиуретан, ПВХ' },
+        { label: 'Диаметр', value: '6-32 мм' },
+        { label: 'Температура', value: '-40°C до +90°C' },
+        { label: 'Цвет', value: 'Черный, оранжевый' },
       ],
       description: [
-        'Переходники позволяют соединять гидравлические компоненты с различными типами резьб и стандартов соединений.',
-        'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая, трубная).',
+        'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
+        'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
       gridItem: { 
-        image: '/perehodnik.jpeg', 
-        title: 'Переходник'
+        image: '/zashitnie_obolochi.jpeg', 
+        title: 'Защитные оболочки2'
       }
     },
-    {
-      title: 'Заглушка',
-      type: 'plug',
-      pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
-      images: [
-        'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
-        'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5omeSJ_ya_TxRQ02PTxtuRLbjl5-yc4QYQ&s',
-      ],
-      parameters: [
-        { label: 'Тип резьбы', value: 'Метрическая, трубная' },
-        { label: 'Материал', value: 'Сталь, пластик' },
-        { label: 'Размер', value: 'М8 - М42' },
-        { label: 'Температура', value: '-50°C до +150°C' },
-      ],
-      description: [
-        'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
-        'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
-      ],
-      gridItem: { 
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg', 
-        title: 'Заглушка'
-      }
-    }
   ],
   
   gridItems: function() {

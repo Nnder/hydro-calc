@@ -99,11 +99,11 @@ if (props.bannerProps.initialProductType) {
         <div class="space-y-6">
           <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-6  hover:transition-all duration-300">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div>
-                <h1 class="text-3xl font-bold text-white">
+             
+                <h1 class="text-3xl text-center w-full font-bold text-white">
                   {{ currentProduct?.title }}
                 </h1>
-              </div>
+              
             </div>
           </div>
 
@@ -128,7 +128,7 @@ if (props.bannerProps.initialProductType) {
                 :key="index"
                 class="flex justify-between items-center py-4 px-6  hover:bg-white/5 transition-colors duration-200 group"
               >
-                <span class="text-white/70 font-medium group-hover:text-white transition-colors">
+                <span class="text-white/70 text-nowrap font-medium group-hover:text-white transition-colors">
                   {{ param.label }}:
                 </span>
                 <span class="text-cyan-400 font-semibold text-right">
