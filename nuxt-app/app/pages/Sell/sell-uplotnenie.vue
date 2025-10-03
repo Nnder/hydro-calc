@@ -6,6 +6,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import AccessoriesGrid from '~/components/Accessories/AccessoriesGrid.vue'
 import { accessoriesItems } from '~/data/mocks'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
   path: '/sell/sell-uplotnenie',
@@ -21,16 +22,8 @@ useHead({
   ],
 })
 
-const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных уплотнительных элементов в Нижнем Тагиле. 
-          Мы предлагаем широкий ассортимент уплотнений для гидравлических систем любого типа и сложности.
-        </p>
-        <p class="text-lg">
-          Все наши уплотнения проходят строгий контроль качества и соответствуют международным стандартам. 
-        </p>`
-
 const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа уплотнений в Нижнем Тагиле'
+
 
 
 const blockData = {
@@ -50,9 +43,14 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  title: 'Что мы предлагаем?',
-  description: `<p>Широкий ассортимент уплотнительных элементов для гидравлических систем: уплотнительные кольца, манжеты, сальники, демпферы и другие комплектующие. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
-<p>Наши специалисты помогут подобрать оптимальные уплотнения для вашего оборудования, подберут аналоги и предоставят профессиональную консультацию по установке. Обеспечьте надежную работу вашей техники с нашими уплотнениями!</p>`,
+  title: 'Продажа уплотнений в Нижнем Тагиле',
+  description: `<p class="text-lg">
+          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных уплотнительных элементов в Нижнем Тагиле. 
+          Мы предлагаем широкий ассортимент уплотнений для гидравлических систем любого типа и сложности.
+        </p>
+        <p class="text-lg">
+          Все наши уплотнения проходят строгий контроль качества и соответствуют международным стандартам. 
+        </p>`
 }
 
 const slider = {
@@ -241,13 +239,16 @@ const items = ref([
 
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
 
-  <ProductionDescription
+  <!-- <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
     data-aos-delay="200"
-  />
+  /> -->
+
+  <PartnerBlock :blockDataText="blockDataText" :imageUrl="imageUrl" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+
   <!-- Уплотнительные элементы -->
 
   <RepairPartsSelector
@@ -265,7 +266,8 @@ const items = ref([
   <AccessoriesGrid :items="items"/>
    
   <!-- <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" /> -->
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+  <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <!-- блок картинками в ряд на всю ширину при нажатии нужно чтобы раскрывалась элемента появлялся текст -->
 

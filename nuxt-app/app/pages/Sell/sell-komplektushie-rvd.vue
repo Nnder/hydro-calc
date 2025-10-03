@@ -10,6 +10,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProduct.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
   path: '/sell/sell-komplektushie-rvd',
@@ -225,7 +226,7 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  title: 'Что мы предлагаем?',
+  title: 'Продажа запчастей для рвд',
   description: `<p>Фитинги, ниппели, муфты, переходники, фланцы и другие компоненты.</p>
 <p>Наши специалисты помогут подобрать аналоги и обеспечат консультацию.</p>`,
 }
@@ -248,17 +249,22 @@ const slider = {
 <template>
   <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
 
-  <ProductionDescription
+  <!-- <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
     data-aos-delay="200"
-  />
+  /> -->
 
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+ 
 
+  
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
+  <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+
+  <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
+
   <Contact data-aos="fade-up" />
 </template>
