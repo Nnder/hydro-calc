@@ -1,5 +1,5 @@
 <template>
-  <div>
+
     <ContentWithImageSpecial 
       :main-slide-data="mainSlideData" 
       data-aos="fade-up" 
@@ -45,6 +45,9 @@
 
     <InformationBlockSpecial 
       :block-data="currentInfoBlock"
+      :position="currentPosition"
+      :active-section="activeSection"
+      @section-change="setActiveSection"
       data-aos="fade-up"
     />
     
@@ -58,7 +61,6 @@
       :block-data-text="currentPartnerBlock"
       data-aos="fade-up"
     />
-  </div>
 </template>
 
 <script setup>

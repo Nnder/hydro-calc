@@ -13,7 +13,17 @@ defineProps({
     type: String,
     default: 'right',
   },
+  activeSection: {
+    type: String,
+    default: 'kovshi',
+  },
 })
+
+const emit = defineEmits(['section-change'])
+
+const setActiveSection = (section) => {
+  emit('section-change', section)
+}
 </script>
 
 <template>
@@ -52,6 +62,37 @@ defineProps({
           </div>
 
           <div class="w-full lg:w-1/2 xl:!w-[640px]">
+            <!-- Кнопки переключения для 3D модели -->
+            <div v-if="blockData.type === '3d'" class="flex justify-center mb-4 space-x-2">
+              <button
+                @click="setActiveSection('kovshi')"
+                class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200"
+                :class="activeSection === 'kovshi' 
+                  ? 'bg-white text-hydro-power shadow-lg' 
+                  : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'"
+              >
+                Ковши
+              </button>
+              <button
+                @click="setActiveSection('hydrovrashateli')"
+                class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200"
+                :class="activeSection === 'hydrovrashateli' 
+                  ? 'bg-white text-hydro-power shadow-lg' 
+                  : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'"
+              >
+                Гидровращатели
+              </button>
+              <button
+                @click="setActiveSection('hydromoloty')"
+                class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200"
+                :class="activeSection === 'hydromoloty' 
+                  ? 'bg-white text-hydro-power shadow-lg' 
+                  : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'"
+              >
+                Гидромолоты
+              </button>
+            </div>
+
             <div class="flex justify-center" v-if="blockData.type !== '3d'">
               <NuxtImg
               :src="blockData.imageUrl"
