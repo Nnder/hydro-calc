@@ -24,15 +24,7 @@ useHead({
   ],
 })
 
-const description = `<p class="text-lg">
-         Наши специалисты помогут подобрать оптимальный гидронасос для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидронасосами!
-        </p>
-        <p class="text-lg">
-          Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
-        </p>`
-
 const imageUrl = '/nasosi/block1.png'
-const title = 'Продажа гидронасосов в Нижнем Тагиле'
 
 const items = ref([
   {
@@ -106,9 +98,14 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  title: 'Что мы предлагаем?',
-  description: `<p>Широкий ассортимент гидравлических насосов для различных отраслей промышленности: строительная техника, станкостроение, прессовое оборудование, автомобильная промышленность. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
-<p>Наши специалисты помогут подобрать оптимальный гидронасос для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидронасосами!</p>`,
+  title: 'Продажа гидронасосов в Нижнем Тагиле',
+  description:  `<p class="text-lg">
+         Наши специалисты помогут подобрать оптимальный гидронасос для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидронасосами!
+        </p>
+        <p class="text-lg">
+          Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
+        </p>`,
+  position: 'right'
 }
 
 const slider = {
@@ -250,17 +247,17 @@ const bannerProps = {
 <template>
   <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
 
-  <ProductionDescription
+  <!-- <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
     data-aos-delay="200"
-  />
+  /> -->
 
-  <!-- <NewProductBanner :bannerProps="bannerProps" title="Варианты насосов" data-aos="fade-up" /> -->
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" data-aos-delay="200"/>
+  <NewProductBanner :bannerProps="bannerProps" title="Варианты насосов" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->

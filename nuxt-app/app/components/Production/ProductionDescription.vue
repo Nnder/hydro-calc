@@ -21,9 +21,9 @@ defineProps({
           <NuxtImg
             :src="imageUrl"
             alt="Производство РВД на оборудовании OR"
-            class="w-full h-full object-contain lg:object-fill"
+            class="w-full h-full object-cover"
+            sizes="sm:100vw lg:50vw xl:800px"
             loading="lazy"
-            sizes="sm:100vw md:50vw lg:800px"
             format="webp"
             quality="80"
           />
