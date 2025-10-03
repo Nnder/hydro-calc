@@ -126,9 +126,9 @@ const bannerProps = {
       type: 'flange',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
-        'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
-        'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
-        'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
+        'https://rexroth-parts.com/66789-large_default/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
+        'https://specgidravlika.ru/wp-content/uploads/2023/06/gidronasos_A7V.jpg',
+        'https://www.worldbid.com/oc-content/uploads/3120/117321.jpg',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
@@ -137,12 +137,12 @@ const bannerProps = {
         { label: 'Рабочие обороты', value: 'от 1500 до 4200 об/мин' },
       ],
       description: [
- 'Аксиально-поршневой насос — это гидравлическое устройство, в котором механическая энергия преобразуется в энергию движущейся жидкости посредством работы нескольких поршней, расположенных по кругу в блоке цилиндров. ',
+ 'Аксиально-поршневой насос — это  гидравлическое устройство, в котором механическая энергия преобразуется в энергию движущейся жидкости посредством работы нескольких поршней, расположенных по кругу в блоке цилиндров. ',
 'Он отличается эффективностью, компактностью и способностью работать под высоким давлением (до 350 бар и выше), что делает его незаменимым в гидравлических системах строительной, сельскохозяйственной и промышленной техники.',
       ],
       gridItem: { 
-        image: '/flanec_sae.jpg', 
-        title: 'Фланец SAE'
+        image: 'https://rexroth-parts.com/66789-large_default/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg', 
+        title: 'Аксиально-поршневые насосы'
       }
     },
 
@@ -151,9 +151,9 @@ const bannerProps = {
       type: 'quick_connect',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
-        'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
-        'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
-        'https://st22.stpulscen.ru/images/product/445/686/695_original.jpg',
+        'https://surasnab.ru/wp-content/uploads/2018/06/radialno-porshnevoy.jpg',
+        'https://gline.pro/image/catalog/products/PR4-3x.jpg',
+        'https://image.made-in-china.com/2f0j00BywVMOQKiFgv/Authentic-Moog-Variable-Displacement-Pump-0514-900-001-0514-700-001-0514-600-00.webp',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
@@ -167,8 +167,8 @@ const bannerProps = {
 'Применение: радиально-плунжерные насосы используют в гидроприводах прессов, прокатных станах, зажимных устройствах станков и других системах, где требуется обеспечить высокое давление.'
       ],
       gridItem: { 
-        image: '/bistrosemnoe_soedinenie.jpeg', 
-        title: 'Быстросъёмное соединение'
+        image: 'https://surasnab.ru/wp-content/uploads/2018/06/radialno-porshnevoy.jpg', 
+        title: 'Радиально-поршневые насосы'
       }
     },
     {
@@ -176,9 +176,10 @@ const bannerProps = {
       type: 'protection',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
-        'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
-        'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
-        'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
+        'http://sibgidromash.com/upload/iblock/52b/52bdf87a9f3107635529f65d67fbe02e.png',
+        'https://olnisa.ru/olnisa/images/img-18/28032025-15-1/rexroth-f228-01.jpg',
+        'https://fgrus.ru/images/Bondioli%20&%20Pavesi111.webp',
+        'https://a.allegroimg.com/s1024/0c190e/a327cda94ed88752ddc447b1fe28'
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун или алюминий' },
@@ -194,8 +195,8 @@ const bannerProps = {
  '- Насосы с внутренним зацеплением. Одна шестерня размещена внутри другой, что уменьшает габариты насоса. Обеспечивают более плавную подачу жидкости. Используются в топливных системах, химической промышленности.'
       ],
       gridItem: { 
-        image: '/zashitnie_obolochi.jpeg', 
-        title: 'Защитные оболочки'
+        image: 'http://sibgidromash.com/upload/iblock/52b/52bdf87a9f3107635529f65d67fbe02e.png', 
+        title: 'Шестеренные насосы'
       }
     },
         {
@@ -203,9 +204,9 @@ const bannerProps = {
       type: 'seal',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
-        'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
-        'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
-        'https://lazer-technology.ru/images/detailed/2/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
+        'https://ommatech.ru/upload/resize_cache/iblock/538/1200_1200_140cd750bba9870f18aada2478b24840a/538d141fbef4c65e97eee1e22cca083e.jpg',
+        'https://img.directindustry.es/images_di/photo-g/11598-15029301.jpg',
+        'https://hidrosan.net/upload/vq-double-vane-jpg-9459.jpg',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
@@ -219,7 +220,7 @@ const bannerProps = {
 'Пластинчатые насосы используются для перекачки чистых сред с показателями малой и средней вязкости при небольшом давлении. Также они могут работать со средами критически низкой вязкости, к которым относятся всевозможные растворители и спирты.',
       ],
       gridItem: { 
-        image: '/uplotnitelnoe_kolce.jpeg', 
+        image: 'https://ommatech.ru/upload/resize_cache/iblock/538/1200_1200_140cd750bba9870f18aada2478b24840a/538d141fbef4c65e97eee1e22cca083e.jpg', 
         title: 'Пластинчатые насосы'
       }
     },
