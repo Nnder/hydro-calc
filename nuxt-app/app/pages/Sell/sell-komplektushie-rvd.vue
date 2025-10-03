@@ -10,6 +10,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProduct.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
   path: '/sell/sell-komplektushie-rvd',
@@ -261,7 +262,9 @@ const slider = {
 
   
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+
+  <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <Contact data-aos="fade-up" />
 </template>

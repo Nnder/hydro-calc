@@ -9,6 +9,7 @@ import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
   path: '/sell/sell-gidronasosov',
@@ -263,7 +264,9 @@ const bannerProps = {
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
   <NewProductBanner :bannerProps="bannerProps" title="Варианты насосов" data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+  <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
+
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact />

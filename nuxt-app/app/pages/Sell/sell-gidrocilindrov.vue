@@ -5,6 +5,7 @@ import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
   path: '/sell/sell-gidrocilindrov',
@@ -309,7 +310,9 @@ const bannerProps = {
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock :blockDataText="blockDataText" imageUrl="https://image.made-in-china.com/2f0j00fcMqmYbGCDko/Bobcat-763-T300-610-Tilt-Cylinder.webp" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+  <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
+
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact />

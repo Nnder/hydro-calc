@@ -6,6 +6,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import AccessoriesGrid from '~/components/Accessories/AccessoriesGrid.vue'
 import { accessoriesItems } from '~/data/mocks'
+import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
   path: '/sell/sell-uplotnenie',
@@ -265,7 +266,8 @@ const items = ref([
   <AccessoriesGrid :items="items"/>
    
   <!-- <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" /> -->
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+  <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <!-- блок картинками в ряд на всю ширину при нажатии нужно чтобы раскрывалась элемента появлялся текст -->
 
