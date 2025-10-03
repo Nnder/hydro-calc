@@ -76,7 +76,7 @@ const MainCalculatorImage = ref('/calculator/1.png')
 
 const hydrantParts = ref([
     {
-    name: 'Грязесьемники',
+    name: 'Грязесъемники',
     features: [
   'Для гидроцилиндров',
 'Для штока',
