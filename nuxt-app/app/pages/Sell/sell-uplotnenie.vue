@@ -229,7 +229,7 @@ const items = ref([
   },
   {
     image: 'https://quers.ru/upload/iblock/3b8/bcje6rm00fsha1d6qftsy9ha2iicp79z/gryazesemnik2_0-_1_.png',
-    title: 'Грязесьемникиы',
+    title: 'Грязесъемники',
   },
 ])
 </script>

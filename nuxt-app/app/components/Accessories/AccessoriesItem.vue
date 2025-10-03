@@ -8,17 +8,23 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 flex flex-row-reverse items-start">
+  <div class="w-full bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 flex flex-col lg:flex-row-reverse items-center gap-6">
     <NuxtImg
       :src="item.image"
       :alt="item.title"
-      class="w-36 h-36 md:w-48 md:h-48 object-contain"
+      class="w-32 h-32 md:w-40 md:h-40 object-contain rounded-lg bg-gray-50 p-2 hover:scale-105 transition-transform duration-300"
       loading="lazy"
       format="webp"
     />
 
-    <p class="mt-8 text-hydro-steel text-base md:text-lg font-medium text-gray-800 text-center">
-      {{ item.title }}
-    </p>
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="text-xl font-semibold text-gray-900 mb-3">
+        {{ item.title }}
+      </h3>
+      
+      <p class="line-clamp-2">
+        {{ item.description }}
+      </p>
+    </div>
   </div>
 </template>
