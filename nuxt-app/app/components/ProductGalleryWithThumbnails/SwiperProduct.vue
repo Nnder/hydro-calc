@@ -1,62 +1,47 @@
 <template>
+  <div v-if="!isHydrated">
+    <!-- Fallback контент -->
+    <div class="h-[500px] flex items-center justify-center bg-gray-100 rounded-lg"></div>
+  </div>
   <ClientOnly>
-    <div class="flex flex-col gap-4">
-      <div class="w-full relative">
-        <Swiper
-           v-show="isHydrated"
-          :loop="true"
-          :pagination="true"                  
-          :preload-images="false"
-          class="main-swiper rounded-lg"
-          :navigation="{
-            nextEl: '.main-next',
-            prevEl: '.main-prev',
-          }"
-          :slidesPerView="1"
-          :slidesPerGroup="1" 
-          :spaceBetween="0"
-        >
-          <SwiperSlide v-for="(image, index) in images" :key="index">
-            <img :src="image" class="w-full h-96 object-cover" />
-          </SwiperSlide>
-          
-          <!-- Navigation arrows for main swiper -->
-          <div class="main-next absolute top-1/2 right-4 z-10 transform -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-md cursor-pointer transition-all duration-200 group">
-            <svg class="w-6 h-6 text-gray-800 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <div class="main-prev absolute top-1/2 left-4 z-10 transform -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-md cursor-pointer transition-all duration-200 group">
-            <svg class="w-6 h-6 text-gray-800 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </div>
-        </Swiper>
-      </div>
-        
-      <div class="w-full relative">
-        <Swiper
-          :modules="modules"
-          :slidesPerView="Math.min(4, images.length)"
-          :spaceBetween="8"
-          :watchSlidesProgress="true"
-          class="thumbs-swiper"
-        >
-          <SwiperSlide v-for="(image, index) in images" :key="index">
-            <div class="relative group">
-              <img :src="image" class="w-full h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all group-hover:border-blue-400" />
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </div>
-    </div>
+    <swiper-container
+      v-show="isHydrated"
+      :loop="true"
+      :navigation="true"
+      :pagination="true"
+      :preload-images="false"
+      class="swiper-product"
+    >
+      <swiper-slide v-for="(image, index) in images" :key="index">
+        <img :src="image" class="w-full h-96 object-cover rounded-lg" />
+      </swiper-slide>
+    </swiper-container>
+
+    <swiper-container
+      v-show="isHydrated"
+      class="thumbs-swiper mt-4"
+      :slides-per-view="Math.min(4, images.length)"
+      :space-between="8"
+      watch-slides-progress
+    >
+      <swiper-slide v-for="(image, index) in images" :key="index">
+        <div class="relative group">
+          <img
+            :src="image"
+            class="w-full h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all group-hover:border-blue-400"
+          />
+        </div>
+      </swiper-slide>
+    </swiper-container>
   </ClientOnly>
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Thumbs, Navigation } from 'swiper/modules'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/thumbs'
 
 const props = defineProps({
   images: {
@@ -70,22 +55,22 @@ const isHydrated = ref(false)
 
 onMounted(() => {
   isHydrated.value = true
-  // Динамический импорт Swiper
+  // динамический импорт Swiper Element API
   import('swiper/element/bundle').then(({ register }) => {
     register()
   })
 })
-
 </script>
 
 <style scoped>
-.main-next:hover, .main-prev:hover {
-  background-color: white;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.swiper-product {
+  width: 100%;
+  height: 400px;
+  --swiper-navigation-color: rgba(0, 0, 0, 0.6);
+  --swiper-pagination-color: rgba(0, 0, 0, 0.6);
 }
 
-:deep(.swiper-slide-thumb-active .group) {
+:deep(.swiper-slide-thumb-active img) {
   border-color: #3b82f6 !important;
   border-width: 2px;
 }
