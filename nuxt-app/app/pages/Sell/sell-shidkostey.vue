@@ -98,7 +98,7 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  title: 'Что мы предлагаем?',
+  title: 'Продажа ГСМ',
   description: `<p>Широкий ассортимент горюче-смазочных материалов и технических жидкостей для различных отраслей промышленности: гидравлические масла, моторные масла, трансмиссионные жидкости, пластичные смазки, специальные жидкости. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
 <p>Наши специалисты помогут подобрать оптимальные жидкости для вашего оборудования, предоставят техническую документацию и профессиональную консультацию по применению. Обеспечьте надежную работу вашей техники с нашими ГСМ и техническими жидкостями!</p>`,
 }
@@ -118,15 +118,16 @@ const slider = {
 <template>
   <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
 
-  <ProductionDescription
+  <!-- <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
     data-aos-delay="200"
-  />
+  /> -->
+  
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" data-aos-delay="200"/>
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->

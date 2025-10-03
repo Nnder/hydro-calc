@@ -225,7 +225,7 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  title: 'Что мы предлагаем?',
+  title: 'Продажа запчастей для рвд',
   description: `<p>Фитинги, ниппели, муфты, переходники, фланцы и другие компоненты.</p>
 <p>Наши специалисты помогут подобрать аналоги и обеспечат консультацию.</p>`,
 }
@@ -248,15 +248,15 @@ const slider = {
 <template>
   <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
 
-  <ProductionDescription
+  <!-- <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
     data-aos-delay="200"
-  />
+  /> -->
 
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" data-aos-delay="200"/>
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />

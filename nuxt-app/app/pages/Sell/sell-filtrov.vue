@@ -98,7 +98,7 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  title: 'Что мы предлагаем?',
+  title: 'Продажа фильтров в нижнем тагиле',
   description: `<p>Широкий ассортимент фильтров и фильтроэлементов для очистки гидравлических жидкостей: всасывающие, напорные, сливные, воздушные фильтры различных степеней очистки. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
 <p>Наши специалисты помогут подобрать оптимальные фильтры для вашей системы, рассчитают необходимую тонкость фильтрации и предоставят профессиональную консультацию по обслуживанию. Обеспечьте чистоту и надежность вашего оборудования с нашими фильтрами!</p>`,
 }
@@ -118,15 +118,15 @@ const slider = {
 <template>
   <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
 
-  <ProductionDescription
+  <!-- <ProductionDescription
     :description="description"
     :image-url="imageUrl"
     :title="title"
     data-aos="fade-up"
     data-aos-delay="200"
-  />
+  /> -->
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" variant="default" data-aos="fade-up" />
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="default" data-aos="fade-up" data-aos-delay="200"/>
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
