@@ -104,8 +104,7 @@ const blockDataText = {
         </p>
         <p class="text-lg">
           Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
-        </p>`,
-  position: 'right'
+        </p>`
 }
 
 const slider = {
