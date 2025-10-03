@@ -3,7 +3,10 @@
     <div class="flex flex-col gap-4">
       <div class="w-full relative">
         <Swiper
-          :modules="modules"
+           v-show="isHydrated"
+          :loop="true"
+          :pagination="true"                  
+          :preload-images="false"
           class="main-swiper rounded-lg"
           :navigation="{
             nextEl: '.main-next',
@@ -63,6 +66,16 @@ const props = defineProps({
     required: true,
     default: () => []
   }
+})
+
+const isHydrated = ref(false)
+
+onMounted(() => {
+  isHydrated.value = true
+  // Динамический импорт Swiper
+  import('swiper/element/bundle').then(({ register }) => {
+    register()
+  })
 })
 
 const thumbsSwiper = ref(null)
