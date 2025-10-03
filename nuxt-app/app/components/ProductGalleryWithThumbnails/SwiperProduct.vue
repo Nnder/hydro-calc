@@ -12,7 +12,6 @@
             nextEl: '.main-next',
             prevEl: '.main-prev',
           }"
-          :thumbs="{ swiper: thumbsSwiper }"
           :slidesPerView="1"
           :slidesPerGroup="1" 
           :spaceBetween="0"
@@ -41,7 +40,6 @@
           :slidesPerView="Math.min(4, images.length)"
           :spaceBetween="8"
           :watchSlidesProgress="true"
-          @swiper="setThumbsSwiper"
           class="thumbs-swiper"
         >
           <SwiperSlide v-for="(image, index) in images" :key="index">
@@ -78,11 +76,6 @@ onMounted(() => {
   })
 })
 
-const thumbsSwiper = ref(null)
-
-const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper
-}
 </script>
 
 <style scoped>
