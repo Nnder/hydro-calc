@@ -84,7 +84,6 @@ if (props.bannerProps.initialProductType) {
           Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования
         </p>
       </div>
-
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
         <div class="relative">
           <div class="sticky top-8">
@@ -97,7 +96,6 @@ if (props.bannerProps.initialProductType) {
             </div>
           </div>
         </div>
-
         <div class="space-y-6">
           <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-6  hover:transition-all duration-300">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
