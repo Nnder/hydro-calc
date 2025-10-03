@@ -210,20 +210,22 @@ const getPartIcon = (part) => {
 }
 
 const handlePartClick = (part, index) => {
-  part.selected = !part.selected
-  part.show = part.selected
+  if (computedHighlightMode.value === 'single') {
+    part.selected = !part.selected
+    part.show = part.selected
+    
+    if (part.selected) {
+      activeHighlight.value = index
+    } else {
+      activeHighlight.value = null
+    }
+  } else {
+    part.selected = !part.selected
+    part.show = part.selected
+  }
 
   if(computedSelectorData.value)
     addData({name: computedName.value, selected: part.name})
-
-  if (computedHighlightMode.value === 'single') {
-    activeHighlight.value = index
-    setTimeout(() => {
-      if (activeHighlight.value === index) {
-        activeHighlight.value = null
-      }
-    }, 3000)
-  }
 
   if (part.onSelect) {
     part.onSelect()

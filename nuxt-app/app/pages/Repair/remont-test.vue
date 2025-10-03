@@ -56,7 +56,7 @@ useHead({
 
 const activeEquipment = ref('kovshi')
 
-const equipmentStates = ref({
+const equipmentStates = reactive({
   kovshi: {
     parts: [
       {
@@ -87,7 +87,7 @@ const equipmentStates = ref({
         icon: 'mdi:knife'
       },
       {
-        name: 'Усиление стенок и днища',
+        name: 'Усиление стенок и днейща',
         selected: false,
         show: false,
         description: 'Усиление конструктивных элементов ковша для повышения износостойкости.',
@@ -197,7 +197,7 @@ const equipmentStates = ref({
 const kovshiGlobalTable = computed(() => ({
   title: 'Выберите детали для ремонта ковшей',
   subtitle: 'Отметьте необходимые компоненты ковша',
-  parts: equipmentStates.value.kovshi.parts,
+  parts: equipmentStates.kovshi.parts,
   mainImage: '/calculator/Сборка ковша.png',
   imageAlt: 'Профессиональный ремонт ковшей',
   imageId: 'kovshiImage',
@@ -209,7 +209,7 @@ const kovshiGlobalTable = computed(() => ({
 const hydrocilindryGlobalTable = computed(() => ({
   title: 'Выберите детали для ремонта гидроцилиндров',
   subtitle: 'Отметьте необходимые компоненты гидроцилиндра',
-  parts: equipmentStates.value.hydrocilindry.parts,
+  parts: equipmentStates.hydrocilindry.parts,
   mainImage: '/calculator/гидроцилиндр.png',
   imageAlt: 'Профессиональный ремонт гидроцилиндров',
   imageId: 'hydrocilindryImage',
@@ -218,10 +218,11 @@ const hydrocilindryGlobalTable = computed(() => ({
   selectorData: true
 }))
 
+
 const hydromotoryGlobalTable = computed(() => ({
   title: 'Выберите детали для ремонта гидромоторов',
   subtitle: 'Отметьте необходимые компоненты гидромотора',
-  parts: equipmentStates.value.hydromotory.parts,
+  parts: equipmentStates.hydromotory.parts,
   mainImage: '/calculator/гидромотор.png',
   imageAlt: 'Профессиональный ремонт гидромоторов',
   imageId: 'hydromotoryImage',
