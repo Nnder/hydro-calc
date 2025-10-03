@@ -87,7 +87,7 @@ const blockData = {
   imageAlt: 'Гидронасос',
   type: '3d',
   modelSrc: '/3d/r902411613.glb',
-  modelBgColor: '#2563EB',
+  modelBgColor: '#fff',
   scale: 0.4,
 }
 
