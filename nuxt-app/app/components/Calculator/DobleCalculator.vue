@@ -1,52 +1,68 @@
 <script setup>
 const tableData = ref([
   {
-    pistonDiameter: '123',
-    ratio1: '123',
-    ratio2: '123',
-    ratio3: '123',
-    ratio4: '123',
-    ratio5: '123',
-    ratio6: '123',
+    title: 'Диаметр поршня, мм',
+    values: ['32', '40', '50', '63', '80', '100']
+  },
+  {
+    title: 'Диаметр штока, мм',
+    values: ['16', '25', '28', '28', '30', '35', '40', '40', '45', '50', '70']
   }
 ])
-
 </script>
-<template>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">Таблица типовых соотношений размеров поршня и штока</h2>
-        <div class="flex flex-col">
-          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead class="bg-gray-50">
-                    <tr>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Диаметр поршня (мм)</th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">32</th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">40</th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">50</th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">63</th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">80</th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">100</th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                    <tr v-for="(row, index) in tableData" :key="index" :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ row.pistonDiameter }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ row.ratio1 }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ row.ratio2 }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ row.ratio3 }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ row.ratio4 }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ row.ratio5 }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ row.ratio6 }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>    
 
+<template>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+      Таблица типовых соотношений размеров поршня и штока
+    </h2>
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200">
+            <table class="min-w-full divide-y divide-gray-200">
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="grid grid-cols-7 gap-4 justify-between items-center p-4">
+                  <td class="text-center font-medium text-gray-900 ">Диаметр поршня, мм</td>
+                  <td class="text-center">32</td>
+                  <td class="text-center">40</td>
+                  <td class="text-center">50</td>
+                  <td class="text-center">63</td>
+                  <td class="text-center">80</td>
+                  <td class="text-center">100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
         </div>
+      </div>    
     </div>
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200">
+            <table class="min-w-full divide-y divide-gray-200">
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="grid grid-cols-12  gap-4 justify-between items-center p-4">
+                  <td class="text-center font-medium text-gray-900 text-nowrap">Диаметрштока, мм</td>
+                  <td class="text-center">16</td>
+                  <td class="text-center">25</td>
+                  <td class="text-center">28</td>
+                  <td class="text-center">28</td>
+                  <td class="text-center">30</td>
+                  <td class="text-center">35</td>
+                  <td class="text-center">40</td>
+                  <td class="text-center">40</td>
+                  <td class="text-center">45</td>
+                  <td class="text-center">50</td>
+                  <td class="text-center">70</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
 </template>
