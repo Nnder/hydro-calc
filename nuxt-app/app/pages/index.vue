@@ -135,13 +135,12 @@ const sectionsData = {
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидромолота',
       type: '3d',
-      modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
+      modelSrc: '/3d/гидромолот.glb',
       modelBgColor: '#2563EB',
       loadFunc: model => {
         model.rotation.x = Math.PI / 2.2
-        model.rotation.y = Math.PI
       },
-      scale: 0.5,
+      scale: 0.45,
     },
   },
   hydrovrashateli: {
