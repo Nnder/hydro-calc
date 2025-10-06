@@ -32,7 +32,7 @@ import Accordion from '~/components/Page/Accordion.vue'
 import RepairPartsSelector from '~/components/RepairPartsSelector/RepairPartsSelector.vue'
 
 definePageMeta({
-  path: '/remont-kovshey',
+  path: '/remont-kovshey-old',
 })
 
 useHead({

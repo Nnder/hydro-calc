@@ -23,12 +23,12 @@ const extensionForceN = computed(() => {
   const D = formData.pistonDiameter / 1000
   const P = formData.pressure * 1e6
   const pistonArea = (Math.PI * Math.pow(D, 2)) / 4
-  return (pistonArea * P).toFixed(0)
+  return Math.round((pistonArea * P))
 })
 
 const extensionForceKg = computed(() => {
   if (!extensionForceN.value) return ''
-  return (extensionForceN.value / 9.81).toFixed(0)
+  return  Math.round(extensionForceN.value / 9.81)
 })
 
 const retractionForceN = computed(() => {
@@ -39,12 +39,12 @@ const retractionForceN = computed(() => {
   const pistonArea = (Math.PI * Math.pow(D, 2)) / 4
   const rodArea = (Math.PI * Math.pow(d, 2)) / 4
   const annulusArea = pistonArea - rodArea
-  return (annulusArea * P).toFixed(0)
+  return  Math.round(annulusArea * P)
 })
 
 const retractionForceKg = computed(() => {
   if (!retractionForceN.value) return ''
-  return (retractionForceN.value / 9.81).toFixed(0)
+  return  Math.round(retractionForceN.value / 9.81)
 })
 
 const flowRate = computed(() => {
@@ -54,7 +54,7 @@ const flowRate = computed(() => {
   const pistonArea = (Math.PI * Math.pow(D, 2)) / 4
   const volume = pistonArea * L
   const flowM3PerSec = volume / formData.extensionTime
-  return (flowM3PerSec * 60000).toFixed(2)
+  return  Math.round(flowM3PerSec * 60000)
 })
 
 // Состояние для уведомлений

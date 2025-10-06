@@ -6,7 +6,7 @@
       data-aos-delay="200" 
     />
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
       <div class="mx-auto text-center">
         <button
           class="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
@@ -72,7 +72,7 @@ import RepairPartsSelectorSpecial from '~/components/SpecialPages/RepairPartsSel
 import StagesSpecial from '~/components/SpecialPages/StagesSpecial.vue'
 
 definePageMeta({
-  path: '/special-repair',
+  path: '/remont-kovshey',
 })
 
 useHead({
@@ -344,7 +344,7 @@ const sectionsData = {
         'Гарантия на все виды работ',
       ],
     },
-    position: 'left',
+    position: 'right',
   },
   hydromoloty: {
     globalTable: {
