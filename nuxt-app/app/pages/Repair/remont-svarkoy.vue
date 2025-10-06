@@ -8,7 +8,6 @@
   <!-- <PortfolioSection /> -->
   <!-- <Accordion data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
-  <Calculator data-aos="fade-up" />
 </template>
 
 <script setup>
@@ -16,7 +15,6 @@ import Stages from '~/components/Page/Stages.vue'
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
-import Calculator from '~/components/Calculator/Calculator.vue'
 // import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 
