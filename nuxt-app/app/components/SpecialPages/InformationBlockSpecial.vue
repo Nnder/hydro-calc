@@ -61,7 +61,7 @@ const setActiveSection = (section) => {
             </button>
           </div>
 
-          <div class="w-full lg:w-1/2 xl:!w-[640px]">
+          <div class="w-full lg:w-1/2 xl:!w-[640px] pt-4">
             <!-- Кнопки переключения для 3D модели -->
             <div v-if="blockData.type === '3d'" class="flex justify-center mb-4 space-x-2">
               <button
