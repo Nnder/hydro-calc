@@ -61,6 +61,7 @@
       :block-data-text="currentPartnerBlock"
       data-aos="fade-up"
     />
+  <Contact data-aos="fade-up" />
 </template>
 
 <script setup>
@@ -70,6 +71,7 @@ import ParametersGridSpecial from '~/components/SpecialPages/ParametersGridSpeci
 import PartnerBlockSpecial from '~/components/SpecialPages/PartnerBlockSpecial.vue'
 import RepairPartsSelectorSpecial from '~/components/SpecialPages/RepairPartsSelectorSpecial.vue'
 import StagesSpecial from '~/components/SpecialPages/StagesSpecial.vue'
+import Contact from '~/components/Page/Contact.vue'
 
 definePageMeta({
   path: '/remont-kovshey',

@@ -9,6 +9,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import Contact from '~/components/Page/Contact.vue'
 import Advantages from '~/components/Advantages/Advantages.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
+import InformationBlockSpecial from '~/components/SpecialPages/InformationBlockSpecial.vue'
 
 const selected = ref<null | number>(null)
 
@@ -87,14 +88,98 @@ const blockDataVariantTwo = {
     model.rotation.y = Math.PI
   },
 }
+
+
+const activeSection = ref('kovshi')
+
+const setActiveSection = (section) => {
+  activeSection.value = section
+}
+
+const currentInfoBlock = computed(() => sectionsData[activeSection.value].infoBlock)
+
+
+const sectionsData = {
+  kovshi: {
+    infoBlock: {
+      title: 'Сложный ремонт ковшей',
+      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      features: [
+        { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
+        { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
+        { icon: 'mdi:wrench', text: 'Восстановление корпуса и креплений' },
+      ],
+      buttonText: 'Заказать ремонт гидромолота',
+      imageUrl: '/hydromolot_diagram.png',
+      imageAlt: 'Схема ремонта гидромолота',
+      type: '3d',
+      modelSrc: '/3d/Сборка ковша.glb',
+      modelBgColor: '#2563EB',
+      scale: 0.3,
+      loadFunc: model => {
+        model.rotation.x = Math.PI / 2
+        model.rotation.y = Math.PI
+      },
+    },
+  },
+  hydromoloty: {
+    infoBlock: {
+      title: 'Сложный ремонт гидромолотов',
+      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      features: [
+        { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
+        { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
+        { icon: 'mdi:wrench', text: 'Восстановление корпуса и креплений' },
+      ],
+      buttonText: 'Заказать ремонт гидромолота',
+      imageUrl: '/hydromolot_diagram.png',
+      imageAlt: 'Схема ремонта гидромолота',
+      type: '3d',
+      modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
+      modelBgColor: '#2563EB',
+      loadFunc: model => {
+        model.rotation.x = Math.PI / 2.2
+        model.rotation.y = Math.PI
+      },
+      scale: 0.5,
+    },
+  },
+  hydrovrashateli: {
+    infoBlock: {
+      title: 'Сложный ремонт гидровращателей',
+      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      features: [
+        { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
+        { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
+        { icon: 'mdi:wrench', text: 'Восстановление корпуса и креплений' },
+      ],
+      buttonText: 'Заказать ремонт гидромолота',
+      imageUrl: '/hydromolot_diagram.png',
+      imageAlt: 'Схема ремонта гидромолота',
+      type: '3d',
+      modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
+      modelBgColor: '#2563EB',
+      loadFunc: model => {
+        model.rotation.x = Math.PI / 2.2
+        model.rotation.y = Math.PI
+      },
+      scale: 0.5,
+    },
+  }
+}
 </script>
 
 <template>
   <Slider />
   <ServiceBlock data-aos="fade-up" />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <InformationBlockSpecial
+      :block-data="currentInfoBlock"
+      :active-section="activeSection"
+      @section-change="setActiveSection"
+      data-aos="fade-up"
+    />
   <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
-  <InformationBlock :blockData="blockDataVariantTwo" data-aos="fade-up" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Block data-aos="fade-up" />
   <Advantages data-aos="fade-up" />
   <Contact data-aos="fade-up" />
