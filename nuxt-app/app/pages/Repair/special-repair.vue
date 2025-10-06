@@ -72,7 +72,7 @@ import RepairPartsSelectorSpecial from '~/components/SpecialPages/RepairPartsSel
 import StagesSpecial from '~/components/SpecialPages/StagesSpecial.vue'
 
 definePageMeta({
-  path: '/special-repair',
+  path: '/remont-kovshey',
 })
 
 useHead({
