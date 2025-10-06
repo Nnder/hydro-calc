@@ -5,11 +5,13 @@
   </div>
   <ClientOnly>
     <swiper-container
-      v-show="isHydrated"
+       v-show="isHydrated"
+      ref="mainSwiperEl"
       :loop="true"
       :navigation="true"
       :pagination="true"
       :preload-images="false"
+      :thumbs-swiper="thumbsSwiper"
       class="swiper-product"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
@@ -23,12 +25,14 @@
       :slides-per-view="Math.min(4, images.length)"
       :space-between="8"
       watch-slides-progress
+      free-mode="true"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
         <div class="relative group">
           <img
             :src="image"
             class="w-full h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all group-hover:border-blue-400"
+            @click="slideTo(index)"
           />
         </div>
       </swiper-slide>
@@ -52,6 +56,15 @@ const props = defineProps({
 })
 
 const isHydrated = ref(false)
+const mainSwiperEl = ref(null)
+const thumbsSwiper = ref(null)
+
+const slideTo = (index) => {
+  if (mainSwiperEl.value && mainSwiperEl.value.swiper) {
+    mainSwiperEl.value.swiper.slideTo(index)
+  }
+}
+
 
 onMounted(() => {
   isHydrated.value = true
