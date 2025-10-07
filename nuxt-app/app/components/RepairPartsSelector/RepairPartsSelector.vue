@@ -17,7 +17,7 @@
             </div>
           </div>
 
-          <div class="space-y-4">
+          <div class="space-y-4" :class="parts.length > 6 ? 'space-y-2' : 'space-y-4'">
             <div v-for="(part, index) in parts" :key="index" class="group">
               <div
                 v-show="!part?.hidden"
@@ -25,42 +25,54 @@
                 :class="{
                   'shadow-md bg-gradient-to-r from-hydro-power/5 to-hydro-steel/5 ring-2 ring-hydro-power/20': part.selected,
                   'hover:shadow-lg': !part.selected,
+                  'p-3 sm:p-4': parts.length > 6,
+                  'p-4 sm:p-5': parts.length <= 6
                 }"
                 @click="handlePartClick(part, index)"
                 role="button"
                 tabindex="0"
                 @keydown.enter="handlePartClick(part, index)"
               >
-                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0" :class="parts.length > 6 ? 'gap-2 sm:gap-3' : 'gap-3 sm:gap-4'">
                   <div
-                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
+                    class="rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
                     :class="{
                       'bg-hydro-power text-white shadow-hydro-power/30': part.selected,
                       'bg-tech-light text-hydro-steel/60 group-hover:bg-hydro-power/10 group-hover:text-hydro-power': !part.selected,
+                      'w-8 h-8 sm:w-10 sm:h-10': parts.length > 6,
+                      'w-10 h-10 sm:w-12 sm:h-12': parts.length <= 6
                     }"
                   >
-                    <Icon :name="getPartIcon(part)" class="text-lg sm:text-xl" />
+                    <Icon :name="getPartIcon(part)" :class="parts.length > 6 ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'" />
                   </div>
                   <div class="flex-1 min-w-0">
-                    <div class="text-sm sm:text-base font-semibold text-hydro-steel transition-colors duration-300 break-words overflow-visible whitespace-normal"
-                         :class="{'text-hydro-power': part.selected}">
+                    <div class="font-semibold text-hydro-steel transition-colors duration-300 break-words overflow-visible whitespace-normal"
+                         :class="{
+                           'text-hydro-power': part.selected,
+                           'text-sm': parts.length > 6,
+                           'text-sm sm:text-base': parts.length <= 6
+                         }">
                       {{ part.name }}
                     </div>
-                    <div v-if="part.category" class="text-xs text-hydro-steel/60 font-medium mt-1 break-words overflow-visible whitespace-normal">
+                    <div v-if="part.category" class="text-hydro-steel/60 font-medium mt-1 break-words overflow-visible whitespace-normal"
+                         :class="parts.length > 6 ? 'text-xs' : 'text-xs'">
                       {{ part.category }}
                     </div>
                   </div>
                 </div>
-                <div class="ml-2 sm:ml-3 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                <div class="ml-2 sm:ml-3 transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
+                     :class="parts.length > 6 ? 'ml-1 sm:ml-2' : 'ml-2 sm:ml-3'">
                   <Icon
                     v-if="part.selected"
                     name="mdi:check-circle"
-                    class="text-lg sm:text-xl text-hydro-power"
+                    :class="parts.length > 6 ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'"
+                    class="text-hydro-power"
                   />
                   <Icon
                     v-else
                     name="mdi:plus-circle-outline"
-                    class="text-lg sm:text-xl text-gray-300 group-hover:text-hydro-power/70"
+                    :class="parts.length > 6 ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'"
+                    class="text-gray-300 group-hover:text-hydro-power/70"
                   />
                 </div>
               </div>
@@ -76,27 +88,37 @@
                 <div v-if="part.show && (part.description || part?.features?.length)" class="overflow-visible">
                   <div
                     class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
+                    :class="parts.length > 6 ? 'mt-2 p-3 sm:p-4' : 'mt-3 p-4 sm:p-5'"
                   >
                     <button 
                       @click="part.show = false" 
                       class="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
+                      :class="parts.length > 6 ? 'top-2 right-2 w-6 h-6' : 'top-3 right-3 w-7 h-7'"
                     >
-                      <Icon name="mdi:close" class="text-lg" />
+                      <Icon name="mdi:close" :class="parts.length > 6 ? 'text-base' : 'text-lg'" />
                     </button>
                     
-                    <p class="text-hydro-steel/80 text-xs sm:text-sm pr-8 mb-4 break-words overflow-visible whitespace-normal">{{ part.description }}</p>
+                    <p class="text-hydro-steel/80 pr-8 mb-4 break-words overflow-visible whitespace-normal"
+                       :class="parts.length > 6 ? 'text-xs' : 'text-xs sm:text-sm'">
+                      {{ part.description }}
+                    </p>
                     
-                    <div v-if="part.features" class="space-y-2">
+                    <div v-if="part.features" class="space-y-2" :class="parts.length > 6 ? 'space-y-1' : 'space-y-2'">
                       <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
-                        <Icon name="mdi:check-circle" class="text-hydro-power mt-0.5 mr-2 shrink-0 text-sm sm:text-base" />
-                        <span class="text-hydro-steel/80 text-xs font-medium break-words overflow-visible whitespace-normal" v-html="feature"></span>
+                        <Icon name="mdi:check-circle" 
+                              class="text-hydro-power mt-0.5 mr-2 shrink-0"
+                              :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'" />
+                        <span class="text-hydro-steel/80 font-medium break-words overflow-visible whitespace-normal"
+                              :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
+                              v-html="feature"></span>
                       </div>
                     </div>
                     
-                    <div v-if="part.price" class="mt-4 pt-3 border-t border-gray-200">
+                    <div v-if="part.price" class="mt-4 pt-3 border-t border-gray-200"
+                         :class="parts.length > 6 ? 'mt-3 pt-2' : 'mt-4 pt-3'">
                       <div class="flex justify-between items-center">
-                        <span class="text-hydro-steel/60 text-xs">Стоимость:</span>
-                        <span class="text-hydro-power font-bold text-sm sm:text-base">{{ part.price }}</span>
+                        <span class="text-hydro-steel/60" :class="parts.length > 6 ? 'text-xs' : 'text-xs'">Стоимость:</span>
+                        <span class="text-hydro-power font-bold" :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'">{{ part.price }}</span>
                       </div>
                     </div>
                   </div>
@@ -192,7 +214,6 @@ const emit = defineEmits(['part-selected', 'image-changed'])
 const activeHighlight = ref(null)
 const selectedCount = computed(() => props.parts.filter(part => part.selected).length)
 
-
 const getPartIcon = (part) => {
   const iconMap = {
     'engine': 'mdi:engine',
@@ -206,14 +227,12 @@ const getPartIcon = (part) => {
     'electronics': 'mdi:chip',
   }
   
-
   const name = part.name.toLowerCase()
   for (const [key, icon] of Object.entries(iconMap)) {
     if (name.includes(key)) {
       return icon
     }
   }
-  
   
   return part.icon || 'mdi:car-wrench'
 }
@@ -234,13 +253,11 @@ const handlePartClick = (part, index) => {
     }, 3000)
   }
 
-
   if (part.onSelect) {
     part.onSelect()
   }
 
   emit('part-selected', { part, index })
-
 
   scrollToImage()
 }
@@ -270,7 +287,6 @@ watch(() => props.mainImage, (newImage) => {
 })
 
 const { addData } = useCalculatorSelector()
-
 </script>
 
 <style scoped>
