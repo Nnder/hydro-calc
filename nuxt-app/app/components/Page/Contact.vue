@@ -66,7 +66,7 @@
           </div>
 
           <div class="relative order-1 lg:order-2">
-            <div class="h-48 sm:h-64 lg:h-80 xl:h-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
+            <div class="h-48 sm:h-64 md:h-80 lg:h-full max-h-[700px] xl:h-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
               <div class="relative w-full h-full">
                 <NuxtImg
                   src="/callback.webp"
