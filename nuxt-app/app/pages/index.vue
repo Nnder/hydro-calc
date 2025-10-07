@@ -101,10 +101,6 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2
         model.rotation.y = Math.PI
       },
-      img: {
-        src: '/3d/preload/kovsh.png',
-        alt: 'Ковш 3д предзагрузка'
-      }
     },
   },
   hydromoloty: {
@@ -126,10 +122,6 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2.2
       },
       scale: 0.45,
-      img: {
-        src: '/3d/preload/hydromolot.png',
-        alt: 'Гидромолото 3д предзагрузка'
-      }
     },
   },
   hydrovrashateli: {
@@ -152,10 +144,6 @@ const sectionsData = {
         model.rotation.y = Math.PI
       },
       scale: 0.5,
-      img: {
-        src: '/3d/preload/hydrovrashateli.png',
-        alt: 'Гидровращатель 3д предзагрузка'
-      }
     },
   }
 }

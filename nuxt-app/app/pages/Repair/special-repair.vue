@@ -203,10 +203,6 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2
         model.rotation.y = Math.PI
       },
-      img: {
-        src: '/3d/preload/kovsh.png',
-        alt: 'Ковш 3д предзагрузка'
-      }
     },
     parameters: [
       { value: 'до 5 м³', description: 'Объем восстанавливаемых ковшей' },
@@ -331,10 +327,6 @@ const sectionsData = {
         model.rotation.y = Math.PI
       },
       scale: 0.5,
-      img: {
-        src: '/3d/preload/hydrovrashateli.png',
-        alt: 'Гидровращатели 3д предзагрузка'
-      }
     },
     parameters: [
       { value: 'до 350 мм', description: 'Диаметр обрабатываемых роторов' },
@@ -458,10 +450,6 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2.2
       },
       scale: 0.45,
-      img: {
-        src: '/3d/preload/hydromolot.png',
-        alt: 'Гидровращатели 3д предзагрузка'
-      }
     },
     parameters: [
       { value: 'до 5000 Дж', description: 'Энергия удара после восстановления' },
