@@ -21,19 +21,19 @@
             <div v-for="(part, index) in parts" :key="index" class="group">
               <div
                 v-show="!part?.hidden"
-                class="p-4 sm:p-5 rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between hover:shadow-md bg-white shadow-sm"
+                class="rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-between hover:shadow-md bg-white shadow-sm"
                 :class="{
                   'shadow-md bg-gradient-to-r from-hydro-power/5 to-hydro-steel/5 ring-2 ring-hydro-power/20': part.selected,
                   'hover:shadow-lg': !part.selected,
-                  'p-3 sm:p-4': parts.length > 6,
-                  'p-4 sm:p-5': parts.length <= 6
+                  'p-2 sm:p-3': parts.length > 6,
+                  'p-4 sm:p-5': parts.length <= 6,
                 }"
                 @click="handlePartClick(part, index)"
                 role="button"
                 tabindex="0"
                 @keydown.enter="handlePartClick(part, index)"
               >
-                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0" :class="parts.length > 6 ? 'gap-2 sm:gap-3' : 'gap-3 sm:gap-4'">
+                <div class="flex items-center flex-1 min-w-0" :class="parts.length > 6 ? 'gap-2 sm:gap-3' : 'gap-3 sm:gap-4'">
                   <div
                     class="rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0"
                     :class="{
@@ -60,7 +60,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="ml-2 sm:ml-3 transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
+                <div class="transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
                      :class="parts.length > 6 ? 'ml-1 sm:ml-2' : 'ml-2 sm:ml-3'">
                   <Icon
                     v-if="part.selected"
