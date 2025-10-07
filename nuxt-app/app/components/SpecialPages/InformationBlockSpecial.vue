@@ -108,6 +108,7 @@ const setActiveSection = (section) => {
                 :canvasColor="blockData.modelBgColor"
                 :screenIncrease="blockData.scale || 0.5"
                 :loadFunc="blockData?.loadFunc"
+                :img="blockData.img"
                 class="!h-[400px]"
               />
 

@@ -138,6 +138,10 @@ const blockData = {
   type: '3d',
   modelSrc: '/3d/303.4.28.90Е.100.7  (1).glb',
   modelBgColor: '#2563EB',
+   img: {
+        src: '/3d/preload/hydromotor.png',
+        alt: 'Гидромотор 3д предзагрузка'
+      }
 }
 
 const hydrantParts = ref([

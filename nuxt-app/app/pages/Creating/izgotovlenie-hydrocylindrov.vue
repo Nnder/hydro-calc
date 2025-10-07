@@ -53,6 +53,11 @@ const blockData = {
     type: '3d',
   modelSrc: '/3d/Сборка_ГЦ_реф.glb',
   modelBgColor: '#2563EB',
+   modelBgColor: '#2563EB',
+   img: {
+    src: '/3d/preload/hydrocilinder2.png',
+    alt: 'Гидроцилиндр 3д предзагрузка'
+  }
 }
 
 const mainSlideData = {
