@@ -3,7 +3,7 @@
     <div class="w-full h-full bg-white">
       <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div
-          class=" flex flex-col items-start lg:items-center justify-between w-full gap-8"
+          class=" flex flex-col py-4 items-start lg:items-center justify-between w-full gap-8"
           :class="[position === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse']"
         >
           <div class="w-full lg:w-1/2 mt-8 lg:mt-0 xl:max-w-2xl">

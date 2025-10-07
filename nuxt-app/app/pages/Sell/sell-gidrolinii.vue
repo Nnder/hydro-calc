@@ -8,113 +8,34 @@ import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
+import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProduct.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
-  path: '/sell/sell-filtrov',
+  path: '/sell/sell-gidrolinii',
 })
 
 useHead({
-  title: 'Продажа фильтров и фильтроэлементов',
+  title: 'Продажа и подбор гидролний',
   meta: [
     {
       name: 'description',
-      content: 'Фильтры и фильтроэлементы для гидравлических систем в Нижнем Тагиле',
+      content: 'Комплектующие для рукавов высокого давления в Нижнем Тагиле',
     },
   ],
 })
 
 const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных фильтров и фильтроэлементов в Нижнем Тагиле. 
-          Мы предлагаем широкий ассортимент фильтрующих элементов для любой гидравлической системы.
-        </p>
-        <p class="text-lg">
-          Все наши фильтры проходят строгий контроль качества и обеспечивают эффективную очистку рабочих жидкостей. 
-        </p>`
+  Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных комплектующих для РВД в Нижнем Тагиле. 
+  Мы предлагаем полный ассортимент фитингов, ниппелей, муфт и других компонентов.
+</p>
+<p class="text-lg">
+  Все наши комплектующие проходят строгий контроль качества и соответствуют стандартам безопасности. 
+</p>`
 
 const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа фильтров и фильтроэлементов в Нижнем Тагиле'
-
-const items = ref([
-  {
-    image: 'vtulka.jpeg',
-    title: 'Всасывающие фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Напорные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Сливные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Воздушные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры тонкой очистки',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры грубой очистки',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Магнитные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтроэлементы сменные',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры-грязеуловители',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры для спецтехники',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры для станков',
-  },
-])
-
-const blockData = {
-  title: 'Чистота гидравлических систем - залог долговечности',
-  description:
-    'Качественные фильтры и фильтроэлементы обеспечивают надежную защиту вашего оборудования от загрязнений и продлевают срок службы',
-  buttonText: 'Подобрать фильтр',
-  imageUrl: '/filtra/filtra2.png',
-  imageAlt: 'гидравлические фильтры',
-}
-
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Профессиональная продажа фильтров',
-  description:
-    'Профессиональная продажа фильтров и фильтроэлементов в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные фильтры по конкурентоспособным ценам с доставкой по всей Свердловской области.',
-}
-
-const blockDataText = {
-  title: 'Продажа фильтров в нижнем тагиле',
-  description: `<p>Широкий ассортимент фильтров и фильтроэлементов для очистки гидравлических жидкостей: всасывающие, напорные, сливные, воздушные фильтры различных степеней очистки. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
-<p>Наши специалисты помогут подобрать оптимальные фильтры для вашей системы, рассчитают необходимую тонкость фильтрации и предоставят профессиональную консультацию по обслуживанию. Обеспечьте чистоту и надежность вашего оборудования с нашими фильтрами!</p>`,
-}
-
-const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
-  tag: 'Профессионально',
-  title: 'Продажа фильтров',
-  text: 'Широкий выбор фильтрующих элементов',
-  features: ['Подбор по степени очистки', 'Гарантия эффективности', 'Техническая поддержка'],
-  buttonText: 'Оставить заявку',
-  additionalInfo: 'Регулярное обслуживание',
-}
+const title = 'Продажа комплектующих для РВД в Нижнем Тагиле'
 
 const bannerProps = {
   products: [
@@ -288,6 +209,41 @@ const bannerProps = {
   initialProductType: 'flange'
 }
 
+const blockData = {
+  title: 'Произведем ремонт существуюших гидролиний или изготовим гидролинии под ваши задачи.',
+  description:
+    'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
+  buttonText: 'Подобрать комплектующие',
+  imageUrl: 'images/uplotnenie/i.png',
+  imageAlt: 'комплектующие для РВД',
+}
+
+const mainSlideData = {
+  src: '/recambios-coches1.jpg',
+  title: 'Профессиональная продажа комплектующих РВД',
+  description:
+    'Компания «ООО Абсолют Техно» предлагает качественные компоненты по конкурентным ценам.',
+}
+
+const blockDataText = {
+  title: 'Продажа запчастей для рвд',
+  description: `<p>Фитинги, ниппели, муфты, переходники, фланцы и другие компоненты.</p>
+<p>Наши специалисты помогут подобрать аналоги и обеспечат консультацию.</p>`,
+}
+
+const slider = {
+  videoSrc: '/videos/Lavrov.mp4',
+  img: '/hydrocilinder.png',
+  tag: 'Профессионально',
+  title: 'Продажа комплектующих РВД',
+  text: 'Полный ассортимент компонентов для РВД',
+  features: ['Подбор за 30 минут', 'Гарантия качества', 'Техническая консультация'],
+  buttonText: 'Оставить заявку',
+  additionalInfo: 'Монтаж и обслуживание',
+}
+
+
+    
 </script>
 
 <template>
@@ -300,13 +256,15 @@ const bannerProps = {
     data-aos="fade-up"
     data-aos-delay="200"
   /> -->
-  <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="https://fim.by/images/lp-photo/gidravlika.jpg" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+
+  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+ 
+
+  
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
-
-  <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
