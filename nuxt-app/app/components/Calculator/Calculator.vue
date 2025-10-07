@@ -161,7 +161,7 @@ watch([() => formData.pistonDiameter, () => formData.rodDiameter], ([piston, rod
               </div>
 
               <div>
-                <label class="block text-sm font-semibold text-slate-700">Давление (МПа)</label>
+                <label class="block text-sm font-semibold text-slate-700">Рабочее давление (МПа)</label>
                 <input 
                   type="number"
                   class="w-full px-3 py-2.5 border border-slate-200 rounded-lg 
