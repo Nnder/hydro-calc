@@ -56,7 +56,7 @@ const steps = [
     },
      {
         header: 'Этап 2. Выезд на объект',
-        // img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4862.jpg',
+        img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4862.jpg',
         endText: 'Там конструктор проводит необходимые замеры, собирает дополнительную информацию и учитывает пожелания клиента, особенно если речь идет о нестандартных решениях.'
     },
     {
@@ -89,7 +89,13 @@ const steps = [
 
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
-  <Step v-for="(step, index) in steps" :stepData="step" :key="index+'-step-izgotovlenie'" class="mb-8"/>
+  <Step 
+      v-for="(step, index) in steps" 
+      :stepData="step" 
+      :index="index"
+      :key="index+'-step-izgotovlenie'" 
+      class="mb-8"
+    />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <ProductionEquipment data-aos="fade-up" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
