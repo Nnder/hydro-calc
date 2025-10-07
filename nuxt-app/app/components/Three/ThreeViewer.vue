@@ -11,6 +11,13 @@ const props = defineProps({
     type: Number,
     default: 0.5,
   },
+  img: {
+    type: Object,
+    default: {
+      src: '',
+      alt: '',
+    }
+  },
   loadFunc: Function,
 })
 
@@ -63,7 +70,7 @@ function loadModel(path: string) {
   if (!path) return
   const loader = new GLTFLoader()
 
-  isLoading.value = true
+  
   loadingProgress.value = 0
 
   loader.load(
@@ -171,10 +178,11 @@ watch(
 
 <template>
   <div ref="container" class="w-full h-[600px] relative">
-    <div v-if="isLoading" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 z-10">
-      <div>
-        <p>Загрузка: {{ loadingProgress }}%</p>
-      </div>
+    <div v-if="isLoading" :class="[`bg-[${canvasColor}]`]" class="w-full absolute inset-0 flex items-center justify-cente bg-opacity-80 z-10">
+    
+         <NuxtImg v-if="props.img.src" class="w-full h-full object-contain" :src="props.img.src" :alt="props.img.alt"/>
+        <p v-else>Загрузка: {{ loadingProgress }}%</p>
+      
     </div>
   </div>
 </template>

@@ -141,6 +141,10 @@ const blockData = {
   modelSrc: '/3d/r902411613.glb',
   modelBgColor: '#2563EB',
   scale: 0.4,
+  img: {
+        src: '/3d/preload/hydronanos.png',
+        alt: 'Гидронасос 3д предзагрузка'
+      }
 }
 
 const hydrantParts = ref([

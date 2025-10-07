@@ -42,6 +42,10 @@ const blockData = {
   type: '3d',
   modelSrc: '/3d/Сборка_ГЦ_реф.glb',
   modelBgColor: '#2563EB',
+   img: {
+    src: '/3d/preload/hydrocilinder2.png',
+    alt: 'Гидроцилиндр 3д предзагрузка'
+  }
 }
 
 const blockDataVariant = {
@@ -59,24 +63,12 @@ const blockDataVariant = {
     model.rotation.x = Math.PI / 2.2
     model.rotation.y = Math.PI
   },
+  img: {
+    src: '/3d/preload/hydrocilinder.png',
+    alt: 'Гидроцилиндр 3д предзагрузка'
+  }
 }
 
-const blockDataVariantTwo = {
-  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
-  description:
-    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
-  buttonText: 'Рассчитать стоимость',
-  imageUrl: '/hydrocilindr.jpg',
-  imageAlt: 'Гидроцилиндр',
-  type: '3d',
-  modelSrc: '/3d/Сборка ковша.glb',
-  modelBgColor: '#2563EB',
-  scale: 0.3,
-  loadFunc: model => {
-    model.rotation.x = Math.PI / 2
-    model.rotation.y = Math.PI
-  },
-}
 
 
 const activeSection = ref('kovshi')
@@ -109,6 +101,10 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2
         model.rotation.y = Math.PI
       },
+      img: {
+        src: '/3d/preload/kovsh.png',
+        alt: 'Ковш 3д предзагрузка'
+      }
     },
   },
   hydromoloty: {
@@ -130,6 +126,10 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2.2
       },
       scale: 0.45,
+      img: {
+        src: '/3d/preload/hydromolot.png',
+        alt: 'Гидромолото 3д предзагрузка'
+      }
     },
   },
   hydrovrashateli: {
@@ -152,6 +152,10 @@ const sectionsData = {
         model.rotation.y = Math.PI
       },
       scale: 0.5,
+      img: {
+        src: '/3d/preload/hydrovrashateli.png',
+        alt: 'Гидровращатель 3д предзагрузка'
+      }
     },
   }
 }
