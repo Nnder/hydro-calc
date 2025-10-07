@@ -9,15 +9,6 @@ import Advantages from '~/components/Advantages/Advantages.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 import InformationBlockSpecial from '~/components/SpecialPages/InformationBlockSpecial.vue'
 
-const selected = ref<null | number>(null)
-
-const mockData = [
-  { src: 'hydrocilinder.png', title: 'Гидроцилиндер' },
-  { src: 'hydromotor.png', title: 'Гидромотор' },
-  { src: 'hydronasos.png', title: 'Гидронасос' },
-  { src: 'reductor.png', title: 'Редуктор' },
-]
-
 useHead({
   title: `Абсолют техно`,
   meta: [
