@@ -213,7 +213,7 @@ const blockData = {
   title: 'Произведем ремонт существуюших гидролиний или изготовим гидролинии под ваши задачи.',
   description:
     'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
-  buttonText: 'Подобрать комплектующие',
+  buttonText: 'Свяжитесь с нами',
   imageUrl: 'images/uplotnenie/i.png',
   imageAlt: 'комплектующие для РВД',
 }
@@ -247,7 +247,7 @@ const slider = {
 </script>
 
 <template>
-  <Slide :slider="slider" data-aos="fade-up" data-aos-delay="200" />
+  <Slider data-aos="fade-up" data-aos-delay="200" />
 
   <!-- <ProductionDescription
     :description="description"

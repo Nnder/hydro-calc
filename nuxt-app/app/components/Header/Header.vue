@@ -91,6 +91,11 @@ const servicesSubMenu = [
         link: '/rukava-visokogo-davlenia-rvd',
       },
       {
+        id: 'gidrolinii',
+        name: 'Изготовление гидравлических трубок (гидролиний)',
+        link: '/gidrolinii',
+      },
+      {
         id: 'cylindry',
         name: 'Гидроцилиндров',
         link: '/izgotovlenie-hydrocylindrov',
