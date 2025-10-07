@@ -1,12 +1,9 @@
 <script setup>
 import Contact from '~/components/Page/Contact.vue'
 import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
-import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
-import RvdTableSlider from '~/components/Rvd-table/RvdTableSlider.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
-import AccessoriesGrid from '~/components/Accessories/AccessoriesGrid.vue'
+import Step from '~/components/Steps/Step.vue'
 
 definePageMeta({
   path: '/gidrolinii',
@@ -22,13 +19,6 @@ useHead({
   ],
 })
 
-const parameters = ref([
-  { value: 'до 2"', description: 'Диаметр подключения, дюймов' },
-  { value: 'до 40', description: 'Рабочее давление, МПа' },
-  { value: 'от -50°C до +100°C', description: 'Температурный диапазон' },
-])
-
-const header = 'ПАРАМЕТРЫ ИЗГОТОВЛЯЕМЫХ РВД'
 
 const description = `<p class="text-lg">
           Компания ООО "Абсолют Техно" располагает современным производственным комплексом. Специализируемся на
@@ -41,34 +31,6 @@ const description = `<p class="text-lg">
 
 const imageUrl = '/rvd.jpg'
 const title = 'Изготовление и ремонт РВД по Свердловской области'
-
-const items = ref([
-  {
-    image: '/flanec_sae.jpg',
-    title: 'Фланец SAE',
-  },
-  {
-    image: '/uplotnitelnoe_kolce.jpeg',
-    title: 'Уплотнительное кольцо',
-  },
-  {
-    image: '/bistrosemnoe_soedinenie.jpeg',
-    title: 'Быстросъёмное соединение',
-  },
-  {
-    image: '/zashitnie_obolochi.jpeg',
-    title: 'Защитные оболочки',
-  },
-  {
-    image: '/perehodnik.jpeg',
-    title: 'Переходник',
-  },
-  {
-    image: '/zalishki_2.jpeg',
-    title: 'Заглушка',
-  },
-])
-
 
 const blockData = {
   title: 'Производим рукава высокого давления по индивидуальным параметрам',
@@ -84,25 +46,52 @@ const mainSlideData = {
   title: 'Изготовление гидравлических трубок по вашим размерам или образцу',
   description: 'Производим ремонт гидравлических трубок, изготовление и монтаж дополнительных гидравлических линий (гидролиний)',
 }
+
+const steps = [
+  {
+        text: `Процесс производства гидролиний, предназначенных для дополнительного навесного оборудования, может показаться на первый взгляд несложным процессом, ведь это просто трубопроводы и рукава высокого давления.Однако давайте взглянем подробнее на хронологию этого процесса, используя в качестве примера новый проект.`,
+        header: 'Этап 1. Сбор данных',
+        img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4862.jpg',
+        endText: 'После подтверждения заказа высококвалифицированные конструкторы начинают сбор и анализ технической документации, включая гидравлические и электрические схемы, а также каталоги запасных частей.'
+    },
+     {
+        header: 'Этап 2. Выезд на объект',
+        // img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4862.jpg',
+        endText: 'Там конструктор проводит необходимые замеры, собирает дополнительную информацию и учитывает пожелания клиента, особенно если речь идет о нестандартных решениях.'
+    },
+    {
+        header: 'Этап 3. Конструкторская документация',
+        img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4863.jpg',
+        endText: 'Как только конструктор возвращается в конструкторское бюро, он незамедлительно приступает к созданию конструкторской документации, включая спецификации, чертежи трубопроводов и кронштейнов.'
+    },
+
+    {
+        header: 'Этап 4. Производство',
+        img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4864.jpg',
+        endText: `<p>Процесс изготовления гидроразводки состоит из нескольких этапов:</p>
+<ul class="list-disc list-inside pl-1 grid gap-2">
+<li>Производство трубопроводов и кронштейнов</li>
+<li>Включает сварку, гибку на ЧПУ станке, дробеструйную обработку и покраску в цвет техники порошковым покрытием.</li>
+<li>Производство РВД</li>
+<li>Включает подбор компонентов (фитингов, муфт, рукавов), сборку и опрессовку. Все комплектующие проходят тщательную проверку на соответствие технической документации перед отправкой на склад.</li>
+<li>После того, как все комплектующие с производства поступают на склад, происходит сборка гидроразводки в присутствии ответственного конструктора.</li>
+<li>Готовый продукт упаковывается и отправляется на центральный склад компании.</li>
+</ul>`,
+    },
+
+    {
+        header: 'Этап 5. Монтаж',
+        img: 'https://www.tradicia-k.ru/images/articles/original/000/949/4865.jpg',
+        endText: 'Обученные специалисты Сервисного центра в сопровождении конструктора выезжают на монтаж. Этот процесс включает в себя установку, настройку, прошивку (в некоторых случаях) и обучение персонала. Все это происходит под строгим контролем для обеспечения высокого качества и эффективности системы. Таким образом, производство гидроразводок — это сложный, многоэтапный процесс, который требует высокой квалификации специалистов, тщательного контроля и внимания к деталям.'
+    },
+]
 </script>
 
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
-  <div class="container mx-auto px-4 md:px-6 max-w-7xl flex flex-col gap-4 my-4">
-     <p class="text-lg font-medium">Процесс производства гидролиний, предназначенных для дополнительного навесного оборудования, может показаться на первый взгляд несложным процессом, ведь это просто трубопроводы и рукава высокого давления.
-
-Однако давайте взглянем подробнее на хронологию этого процесса, используя в качестве примера новый проект.</p>
-    <h2 class="text-4xl font-bold">
-      Этап 1. Сбор данных
-    </h2>
-   
-    <NuxtImg src="https://www.tradicia-k.ru/images/articles/original/000/949/4862.jpg"/>
-
-    <p class="text-lg font-medium">После подтверждения заказа высококвалифицированные конструкторы начинают сбор и анализ технической документации, включая гидравлические и электрические схемы, а также каталоги запасных частей.</p>
-  </div>
+  <Step v-for="(step, index) in steps" :stepData="step" :key="index+'-step-izgotovlenie'" class="mb-8"/>
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <ProductionEquipment data-aos="fade-up" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
-  <AccessoriesGrid :items="items" data-aos="fade-up" />
   <Contact data-aos="fade-up" />
 </template>
