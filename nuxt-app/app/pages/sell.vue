@@ -48,6 +48,12 @@ const categories = ref([
         link: '/sell/sell-komplektushie-rvd'
       },
       {
+        title: 'Гидролинии',
+        image: 'https://rvdmarket.ru/thumb/2/X7X17oYARuFUVi_KYI5o5g/340r/d/rvd_v_zashchite.jpg',
+        description: 'Подбор и изготовление дополнительных гидролиний',
+        link: '/sell/sell-gidrolinii'
+      },
+      {
         title: 'ГСМ и технические жидкости',
         image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
         description: 'Масла и жидкости для гидравлических систем',
