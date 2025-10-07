@@ -310,7 +310,7 @@ watch([() => formData.pistonDiameter, () => formData.rodDiameter], ([piston, rod
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-md p-6 border border-blue-100/50 flex items-center justify-center min-h-[450px]">
+        <div class="bg-white rounded-xl shadow-md p-6 border border-blue-100/50 items-center justify-center min-h-[450px] hidden md:flex">
           <NuxtImg 
             src="/scheme.jpg" 
             alt="Схема гидроцилиндра" 
