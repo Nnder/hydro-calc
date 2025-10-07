@@ -109,10 +109,6 @@ const servicesSubMenu = [
   
 ]
 
-const sellSubMenu = [
- 
-]
-
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
   if (!isMobileMenuOpen.value) {
