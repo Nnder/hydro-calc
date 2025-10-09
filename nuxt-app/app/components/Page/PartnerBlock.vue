@@ -5,7 +5,7 @@
         <!-- Левая колонка с картинкой -->
         <div class="w-full xl:w-1/2 flex">
           <NuxtImg
-            :src="imageUrl"
+            :src="computedImageUrl"
             :alt="imageAlt"
             class="w-full h-full object-cover"
             sizes="sm:100vw lg:50vw xl:800px"
@@ -50,29 +50,34 @@ const props = defineProps({
   blockDataText: {
     type: Object,
     required: true,
-    default: {
-  title: 'Продажа гидронасосов в Нижнем Тагиле',
-  description:  `<p class="text-lg">
+    default: () => ({
+      title: 'Продажа гидронасосов в Нижнем Тагиле',
+      description: `<p class="text-lg">
          Наши специалисты помогут подобрать оптимальный гидронасос для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидронасосами!
         </p>
         <p class="text-lg">
           Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
-        </p>`
-}
+        </p>`,
+    }),
   },
   variant: {
     type: String,
     default: 'default',
-    validator: value => ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
+    validator: (value) =>
+      ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
   },
   imageUrl: {
     type: String,
-    default: 'worker_3.webp',
+    default: '/worker_3.webp',
   },
   imageAlt: {
     type: String,
     default: 'Спецтехника на ремонте',
   },
+})
+
+const computedImageUrl = computed(() => {
+  return props.blockDataText.imageurl || props.imageUrl
 })
 
 const processedDescription = computed(() => {
