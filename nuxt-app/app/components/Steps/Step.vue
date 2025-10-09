@@ -21,6 +21,8 @@ defineProps({
 
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+
+    <p class="text-center mb-6 text-4xl">Процесс изготовление гидролиний</p>
     <div class="flex flex-col md:flex-row gap-12 items-center" 
          :class="index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'">
       
@@ -56,6 +58,7 @@ defineProps({
 
           <div class="bg-white/80 backdrop-blur-sm text-lg text-slate-600 p-6 shadow-xl shadow-blue-500/5 border border-white/20 rounded-xl">
             <div 
+              v-if="stepData.endText"
               class="prose prose-lg prose-slate max-w-none prose-p:text-slate-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-ul:marker:text-blue-500 prose-li:marker:font-medium"
               v-html="stepData.endText"
             ></div>
