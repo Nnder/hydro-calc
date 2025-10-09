@@ -53,13 +53,14 @@ import PartnerBlockSpecial from '~/components/SpecialPages/PartnerBlockSpecial.v
 import RepairPartsSelectorSpecial from '~/components/SpecialPages/RepairPartsSelectorSpecial.vue'
 import StagesSpecial from '~/components/SpecialPages/StagesSpecial.vue'
 import Contact from '~/components/Page/Contact.vue'
+import { useRoute } from '#app'
 
 definePageMeta({
-  path: '/remont-kovshey',
+  path: `/remont-kovshey/:active?`,
 })
 
 useHead({
-  title: 'Профессиональный ремонт гидравлического оборудования',
+  title: 'Профессиональный ремонт навестного оборудования',
   meta: [
     {
       name: 'description',
@@ -68,9 +69,11 @@ useHead({
   ],
 })
 
+const route = useRoute()
+
 const { clearData } = useCalculatorSelector()
 
-const activeSection = ref('kovshi')
+const activeSection = ref(route.params.active || 'kovshi')
 
 const setActiveSection = section => {
   activeSection.value = section

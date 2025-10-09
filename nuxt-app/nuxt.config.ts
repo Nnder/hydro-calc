@@ -251,6 +251,10 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/remont-hydraulic-cylinders': { prerender: true },
+    '/remont-kovshey': { prerender: true },
+    '/remont-kovshey/kovshi': { prerender: true },
+    '/remont-kovshey/hydrovrashateli': { prerender: true },
+    '/remont-kovshey/hydromoloty': { prerender: true },
   },
 
   ssr: true,
@@ -265,9 +269,13 @@ export default defineNuxtConfig({
         '/page1',
         '/test',
         '/remont-hydraulic-cylinders',
-        // '/remont-hydraulic-cylinders',
-        // '/remont-hydraulic-motors',
-        // '/remont-nasosov-pumps',
+        '/remont-kovshey',
+        '/remont-kovshey/kovshi',
+        '/remont-kovshey/hydrovrashateli',
+        '/remont-kovshey/hydromoloty',
+        '/remont-hydraulic-cylinders',
+        '/remont-hydraulic-motors',
+        '/remont-nasosov-pumps',
       ],
       ignore: ['/api/**'],
     },
