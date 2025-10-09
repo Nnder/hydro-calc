@@ -243,10 +243,7 @@ const sectionsData = {
           selected: false,
           show: false,
           description: 'Изготовление и восстановление деталей редуктора',
-          features: [
-            'Подбор и замена уплотнений',
-            'Замена деталей редуктора, сателлитов и шестерней',
-          ],
+          features: ['Подбор и замена уплотнений', 'Замена деталей редуктора, сателлитов и шестерней'],
           highlight: { top: '25%', left: '35%', width: '30%', height: '50%' },
           color: 'bg-green-400/50 border-green-400',
           icon: 'mdi:vector-arrange-above',
@@ -256,10 +253,7 @@ const sectionsData = {
           selected: false,
           show: false,
           description: 'Замена подшипников и восстановление посадочных мест',
-          features: [
-            'Подбор и замена подшипников',
-            'Восстановление посадочных мест подшипников',
-          ],
+          features: ['Подбор и замена подшипников', 'Восстановление посадочных мест подшипников'],
           highlight: { top: '15%', left: '30%', width: '40%', height: '10%' },
           color: 'bg-purple-400/50 border-purple-400',
           icon: 'mdi:cog',
@@ -302,7 +296,8 @@ const sectionsData = {
     },
     infoBlock: {
       title: 'Сложный ремонт гидровращателей',
-      description: 'Восстановление гидромоторов, редукторов и корпусных деталей гидромолотов. Профессиональный подход к ремонту гидровращателя.',
+      description:
+        'Восстановление гидромоторов, редукторов и корпусных деталей гидромолотов. Профессиональный подход к ремонту гидровращателя.',
       features: [
         { icon: 'mdi:hammer', text: 'Восстановление роторной группы гидромотора' },
         { icon: 'mdi:vector-arrange-above', text: 'Ремонт редукторов' },
@@ -312,7 +307,7 @@ const sectionsData = {
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидровщатале',
       type: '3d',
-      modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
+      modelSrc: '/3d/ТС135.000.00.000_(fn-1).glb',
       modelBgColor: '#2563EB',
       loadFunc: model => {
         model.rotation.x = Math.PI / 2.2
