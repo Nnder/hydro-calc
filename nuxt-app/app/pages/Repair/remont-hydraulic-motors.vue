@@ -1,6 +1,8 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
+    name="Здравствуйте необходимый перечень работ по гидромоторам"
+    :selectorData="true"
     :title="'Виды работ и ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидромотора'"
     :parts="hydrantParts"

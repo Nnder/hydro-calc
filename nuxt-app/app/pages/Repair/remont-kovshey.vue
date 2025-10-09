@@ -1,6 +1,8 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
+    name="Здравствуйте необходимый перечень работ по ковшам"
+    :selectorData="true"
     :title="'Выберите детали для ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидромотора'"
     :parts="hydrantParts"
@@ -9,7 +11,6 @@
     image-id="hydroImage"
     highlight-mode="single"
     @part-selected="handlePartSelected"
-    name="ковшам"
     :selectorData="true"
   />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />

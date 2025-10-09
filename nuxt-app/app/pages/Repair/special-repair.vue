@@ -152,7 +152,9 @@ const sectionsData = {
       imageId: 'kovshiImage',
       highlightMode: 'single',
       name: 'ковшам',
-      selectorData: true
+      selectorData: true,
+      name:"Здравствуйте необходимый перечень работ по ковшам",
+      selectorData:true,
     },
     steps: [
       {
@@ -226,6 +228,8 @@ const sectionsData = {
   },
   hydrovrashateli: {
     globalTable: {
+      name:"Здравствуйте необходимый перечень работ по гидровращателям",
+      selectorData:true,
       title: 'Выберите детали для ремонта гидровращателей',
       subtitle: 'Отметьте необходимые компоненты гидровращателя',
       parts: [
@@ -350,6 +354,8 @@ const sectionsData = {
   },
   hydromoloty: {
     globalTable: {
+      name:"Здравствуйте необходимый перечень работ по гидромолотам",
+      selectorData:true,
       title: 'Выберите детали для ремонта гидромолотов',
       subtitle: 'Отметьте необходимые компоненты гидромолота',
       parts: [
