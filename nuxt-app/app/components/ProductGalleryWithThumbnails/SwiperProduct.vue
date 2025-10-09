@@ -31,7 +31,7 @@
         <div class="relative group">
           <img
             :src="image"
-            class="w-full h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all group-hover:border-blue-400"
+            class="w-full h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all hover:border-blue-400"
             @click="slideTo(index)"
           />
         </div>
