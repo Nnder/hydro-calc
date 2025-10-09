@@ -1,14 +1,14 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
-    name="гидроцилиндрам"
+    name="Здравствуйте необходимый перечень работ по гидроцилиндрам"
+    :selectorData="true"
     :title="'Выберите детали для ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
     :parts="hydrantParts"
     :main-image="MainCalculatorImage"
     :image-alt="'Профессиональный ремонт гидроцилиндров'"
     image-id="hydroImage"
-    :selectorData="true"
     @part-selected="handlePartSelected"
     @image-changed="handleImageChanged"
   />

@@ -1,5 +1,6 @@
 <script setup>
 import DobleCalculator from './DobleCalculator.vue'
+const { newData, clearData, } = useCalculatorSelector()
 const formData = reactive({
   pistonDiameter: '',
   rodDiameter: '',
@@ -17,17 +18,41 @@ const results = reactive({
   flowRate: ''
 })
 
+const setNewData = ()=>{
+  const result = {
+    name: 'Параметры гидроцилиндра: ',
+    selected: [
+      '- Диаметр поршня (мм): ' + formData.pistonDiameter,
+      '- Диаметр штока (мм): ' + formData.pistonDiameter,
+      '- Рабочее давление (МПа): ' + formData.pistonDiameter,
+      '- Ход (мм): ' + formData.pistonDiameter,
+      '- Время выдвижения (c): ' + formData.pistonDiameter,
+      '- Сила выдвижения Fт (кгс): ' + extensionForceKg.value,
+      '- Сила втягивания Fвт (кгс): ' + retractionForceKg.value,
+      '- Требуемая производительность гидростанции (л/мин): ' + flowRate.value,
+    ],
+  }
+
+  result.selected = result.selected.filter((val) => val.split(':')[1].trim().length !== 0)
+  if(result.selected.length > 0)
+    newData(result)
+  else
+    clearData()
+}
+
 // Вычисляемые свойства
 const extensionForceN = computed(() => {
   if (!formData.pistonDiameter || !formData.pressure) return ''
   const D = formData.pistonDiameter / 1000
   const P = formData.pressure * 1e6
   const pistonArea = (Math.PI * Math.pow(D, 2)) / 4
+  setNewData()
   return Math.round((pistonArea * P))
 })
 
 const extensionForceKg = computed(() => {
   if (!extensionForceN.value) return ''
+  setNewData()
   return  Math.round(extensionForceN.value / 9.81)
 })
 
@@ -39,11 +64,13 @@ const retractionForceN = computed(() => {
   const pistonArea = (Math.PI * Math.pow(D, 2)) / 4
   const rodArea = (Math.PI * Math.pow(d, 2)) / 4
   const annulusArea = pistonArea - rodArea
+  setNewData()
   return  Math.round(annulusArea * P)
 })
 
 const retractionForceKg = computed(() => {
   if (!retractionForceN.value) return ''
+  setNewData()
   return  Math.round(retractionForceN.value / 9.81)
 })
 
@@ -54,6 +81,7 @@ const flowRate = computed(() => {
   const pistonArea = (Math.PI * Math.pow(D, 2)) / 4
   const volume = pistonArea * L
   const flowM3PerSec = volume / formData.extensionTime
+  setNewData()
   return  Math.round(flowM3PerSec * 60000)
 })
 
@@ -67,6 +95,7 @@ const clearForm = () => {
   Object.keys(formData).forEach(key => {
     formData[key] = ''
   })
+  clearData()
 }
 
 // Функции для копирования в буфер обмена
@@ -92,7 +121,7 @@ const copyToClipboard = async (text) => {
 // Автоматическая валидация диаметра штока
 watch([() => formData.pistonDiameter, () => formData.rodDiameter], ([piston, rod]) => {
   if (piston && rod && Number(rod) >= Number(piston)) {
-    formData.rodDiameter = (Number(piston) * 0.7).toFixed(0)
+    formData.rodDiameter = Math.round(Number(piston) * 0.7)
   }
 })
 </script>
