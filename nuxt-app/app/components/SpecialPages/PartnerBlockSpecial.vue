@@ -1,11 +1,11 @@
 <template>
   <div class="max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
     <div class="bg-gray-100 rounded-xl sm:rounded-2xl h-fit lg:max-h-[600px] relative overflow-hidden">
-      <div class="flex flex-col xl:flex-row h-fit" :class="flexDirection">
+      <div class="flex flex-col h-fit" :class="flexDirection">
         <!-- Левая колонка с картинкой -->
         <div class="w-full xl:w-1/2 flex">
           <NuxtImg
-            :src="imageUrl"
+            :src="computedImageUrl"
             :alt="imageAlt"
             class="w-full h-full object-cover"
             sizes="sm:100vw lg:50vw xl:800px"
@@ -50,20 +50,34 @@ const props = defineProps({
   blockDataText: {
     type: Object,
     required: true,
+    default: () => ({
+      title: 'Продажа гидронасосов в Нижнем Тагиле',
+      description: `<p class="text-lg">
+         Наши специалисты помогут подобрать оптимальный гидронасос для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидронасосами!
+        </p>
+        <p class="text-lg">
+          Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
+        </p>`,
+    }),
   },
   variant: {
     type: String,
     default: 'default',
-    validator: value => ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
+    validator: (value) =>
+      ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
   },
   imageUrl: {
     type: String,
-    default: 'worker_3.webp',
+    default: '/worker_3.webp',
   },
   imageAlt: {
     type: String,
     default: 'Спецтехника на ремонте',
   },
+})
+
+const computedImageUrl = computed(() => {
+  return props.blockDataText.imageurl || props.imageUrl
 })
 
 const processedDescription = computed(() => {
