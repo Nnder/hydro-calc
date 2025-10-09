@@ -8,6 +8,7 @@ watch(calculatorData, () => {
     }, '') 
 
     form.value.description = `Здравствуйте необходимый перечень работ по ${calculatorData.value.name}:\n${result}`
+    console.log(form.value.description)
   } else {
     form.value.description = ''
   }
