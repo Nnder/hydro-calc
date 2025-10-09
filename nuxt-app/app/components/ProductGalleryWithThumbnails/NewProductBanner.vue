@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import SwiperProduct from './SwiperProduct.vue'
-import AccessoriesGrid from '../Accessories/OldAccesoriesGrid/AccessoriesGrid.vue'
+import OldAccessoriesGrid from '../Accessories/OldAccesoriesGrid/AccessoriesGrid.vue'
 import DownloadPdfButton from '../Button/DownloadPdfButton.vue'
 
 const props = defineProps({
@@ -60,78 +60,65 @@ if (props.bannerProps.initialProductType) {
 </script>
 
 <template>
-  <section class="min-h-screen relative overflow-hidden">
-    <div class="container mx-auto max-w-5xl">
-      <NuxtImg
-      src="https://img.freepik.com/free-photo/abstract-sale-busioness-background-banner-design-multipurpose_1340-16799.jpg?semt=ais_hybrid&w=740&q=80"
-      alt="Background"
-      class="absolute inset-0 w-full h-full object-cover"
-      priority
-      />
-      <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">
-        {{ title }}
-      </h2>
-
-    </div>
-    <div class="relative z-10 container mx-auto max-w-7xl py-12 px-4">
+  <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
+    <div class="container mx-auto max-w-7xl py-12 px-4 relative z-10">
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold text-white mb-4">
+        <h2 class="text-5xl font-bold text-blue-900 mb-4">
           Дополнительные 
-          <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">компоненты</span>
+          <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">компоненты</span>
         </h2>
         
-        <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl text-blue-700/80 max-w-3xl mx-auto leading-relaxed">
           Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования
         </p>
       </div>
+      
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
         <div class="relative">
           <div class="sticky top-8">
-            <div class="relative rounded-3xl overflow-hidden group">
+            <div class="relative rounded-2xl overflow-hidden group shadow-xl">
+              <div class="absolute inset-0"></div>
               <SwiperProduct
-              :images="currentProductImages"
-              :key="imageKey"
-              class="rounded-lg shadow-md overflow-hidden"
-            />
+                :images="currentProductImages"
+                :key="imageKey"
+                class="rounded-2xl "
+              />
             </div>
           </div>
         </div>
+
         <div class="space-y-6">
-          <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-6  hover:transition-all duration-300">
-            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-             
-                <h1 class="text-3xl text-center w-full font-bold text-white">
-                  {{ currentProduct?.title }}
-                </h1>
-              
-            </div>
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl">
+            <h1 class="text-3xl text-center font-bold text-blue-900">
+              {{ currentProduct?.title }}
+            </h1>
           </div>
 
-          <AccessoriesGrid 
+          <OldAccessoriesGrid 
             :items="gridItems" 
             :active-item="activeGridItem"
             @item-click="handleItemClick"
-            class="bg-white/5 backdrop-blur-xl rounded-3xl p-6  hover: transition-all duration-300"
+            class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl"
           />
 
-          <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-8 hover: transition-all duration-300">
-            <h3 class="text-xl font-semibold text-white mb-6 flex items-center">
-              <div class="p-2 px-4 bg-cyan-500/20 rounded-xl mr-3 ">
-               <Icon name="mdi:cogs"/>
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-blue-900 mb-6 flex items-center">
+              <div class="p-2 px-4 bg-blue-100 rounded-xl mr-3 text-blue-700">
+                <Icon name="mdi:cogs"/>
               </div>
               Технические параметры
             </h3>
 
-            <div class="space-y-0 overflow-hidden rounded-2xl  bg-white/5">
+            <div class="space-y-0 overflow-hidden rounded-xl border border-blue-100 bg-blue-50/50">
               <div
                 v-for="(param, index) in currentParameters"
                 :key="index"
-                class="flex justify-between items-center py-4 px-6  hover:bg-white/5 transition-colors duration-200 group"
+                class="flex justify-between items-center py-4 px-6 border-b border-blue-100 last:border-b-0 hover:bg-blue-100/50 transition-colors duration-200 group"
               >
-                <span class="text-white/70 text-nowrap font-medium group-hover:text-white transition-colors">
+                <span class="text-blue-800 font-medium group-hover:text-blue-900 transition-colors">
                   {{ param.label }}:
                 </span>
-                <span class="text-cyan-400 font-semibold text-right">
+                <span class="text-blue-700 font-semibold text-right">
                   {{ param.value }}
                 </span>
               </div>
@@ -140,35 +127,32 @@ if (props.bannerProps.initialProductType) {
         </div>
       </div>
 
-      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
-        <div class="lg:col-span-2 bg-white/5 backdrop-blur-xl rounded-3xl p-8 hover:transition-all duration-300">
-          <h3 class="text-xl font-semibold text-white mb-6 flex items-center">
-            <div class="p-2 bg-purple-500/20 rounded-xl mr-3">
-              <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+          <h3 class="text-xl font-semibold text-blue-900 flex items-center mb-4 lg:mb-0">
+            <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
             </div>
             Описание продукта
-            <div class="ml-auto">
-            <DownloadPdfButton
-                :pdf-url="currentPdfUrl"
-                :file-name="currentPdfFileName"
-                class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
-              />
-            </div>
           </h3>
-
           
+          <DownloadPdfButton
+            :pdf-url="currentPdfUrl"
+            :file-name="currentPdfFileName"
+            class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+          />
+        </div>
 
-          <div class="space-y-4">
-            <p 
-              v-for="(paragraph, index) in currentDescription" 
-              :key="index"
-              class="text-white/80 leading-relaxed text-lg"
-            >
-              {{ paragraph }}
-            </p>
-          </div>
+        <div class="space-y-4">
+          <p 
+            v-for="(paragraph, index) in currentDescription" 
+            :key="index"
+            class="text-blue-800/80 leading-relaxed text-lg"
+          >
+            {{ paragraph }}
+          </p>
         </div>
       </div>
     </div>
