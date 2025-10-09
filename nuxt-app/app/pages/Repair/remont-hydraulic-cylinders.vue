@@ -156,8 +156,8 @@ const blockData = {
   },
   img: {
     src: '/3d/preload/hydrocilinder.png',
-    alt: 'Гидроцилиндр 3д предзагрузка'
-  }
+    alt: 'Гидроцилиндр 3д предзагрузка',
+  },
 }
 
 const MainCalculatorImage = ref('/calculator/1.png')
@@ -259,7 +259,6 @@ const hydrantParts = ref([
     highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
   },
 ])
-
 </script>
 
 <style>

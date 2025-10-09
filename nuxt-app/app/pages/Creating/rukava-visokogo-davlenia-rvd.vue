@@ -46,32 +46,32 @@ const items = ref([
   {
     image: '/flanec_sae.jpg',
     title: 'Фланец SAE',
-    url: '/sell/sell-komplektushie-rvd',
+    url: '/sell/sell-komplektushie-rvd#variants',
   },
   {
     image: '/uplotnitelnoe_kolce.jpeg',
     title: 'Уплотнительное кольцо',
-    url: '/sell/sell-komplektushie-rvd',
+    url: '/sell/sell-komplektushie-rvd#variants',
   },
   {
     image: '/bistrosemnoe_soedinenie.jpeg',
     title: 'Быстросъёмное соединение',
-    url: '/sell/sell-komplektushie-rvd',
+    url: '/sell/sell-komplektushie-rvd#variants',
   },
   {
     image: '/zashitnie_obolochi.jpeg',
     title: 'Защитные оболочки',
-    url: '/sell/sell-komplektushie-rvd',
+    url: '/sell/sell-komplektushie-rvd#variants',
   },
   {
     image: '/perehodnik.jpeg',
     title: 'Переходник',
-    url: '/sell/sell-komplektushie-rvd',
+    url: '/sell/sell-komplektushie-rvd#variants',
   },
   {
     image: '/zalishki_2.jpeg',
     title: 'Заглушка',
-    url: '/sell/sell-komplektushie-rvd',
+    url: '/sell/sell-komplektushie-rvd#variants',
   },
 ])
 
