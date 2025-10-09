@@ -20,21 +20,24 @@ const results = reactive({
 
 const setNewData = ()=>{
   const result = {
-    name: 'Гидроцилиндр',
+    name: 'Параметры гидроцилиндра: ',
     selected: [
-      'Диаметр поршня (мм): ' + formData.pistonDiameter,
-      'Диаметр штока (мм): ' + formData.pistonDiameter,
-      'Рабочее давление (МПа): ' + formData.pistonDiameter,
-      'Ход (мм): ' + formData.pistonDiameter,
-      'Время выдвижения (c): ' + formData.pistonDiameter,
-      'Сила выдвижения Fт (кгс): ' + extensionForceKg.value,
-      'Сила втягивания Fвт (кгс): ' + retractionForceKg.value,
-      'Требуемая производительность гидростанции (л/мин): ' + flowRate.value,
+      '- Диаметр поршня (мм): ' + formData.pistonDiameter,
+      '- Диаметр штока (мм): ' + formData.pistonDiameter,
+      '- Рабочее давление (МПа): ' + formData.pistonDiameter,
+      '- Ход (мм): ' + formData.pistonDiameter,
+      '- Время выдвижения (c): ' + formData.pistonDiameter,
+      '- Сила выдвижения Fт (кгс): ' + extensionForceKg.value,
+      '- Сила втягивания Fвт (кгс): ' + retractionForceKg.value,
+      '- Требуемая производительность гидростанции (л/мин): ' + flowRate.value,
     ],
   }
 
   result.selected = result.selected.filter((val) => val.split(':')[1].trim().length !== 0)
-  newData(result)
+  if(result.selected.length > 0)
+    newData(result)
+  else
+    clearData()
 }
 
 // Вычисляемые свойства
