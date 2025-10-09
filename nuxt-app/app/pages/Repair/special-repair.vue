@@ -1,66 +1,47 @@
 <template>
+  <ContentWithImageSpecial :main-slide-data="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
 
-    <ContentWithImageSpecial 
-      :main-slide-data="mainSlideData" 
-      data-aos="fade-up" 
-      data-aos-delay="200" 
-    />
-
-    <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto text-center">
-        <button
-          class="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
-          :class="{'ring-2 ring-offset-2 ring-hydro-power scale-105': activeSection === 'kovshi'}"
-          @click="setActiveSection('kovshi')"
-        >
-          Ковши
-        </button>
-        <button
-          class="mt-8 ml-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
-          :class="{'ring-2 ring-offset-2 ring-hydro-power scale-105': activeSection === 'hydrovrashateli'}"
-          @click="setActiveSection('hydrovrashateli')"
-        >
-          Гидровращатели
-        </button>
-        <button
-          class="mt-8 ml-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
-          :class="{'ring-2 ring-offset-2 ring-hydro-power scale-105': activeSection === 'hydromoloty'}"
-          @click="setActiveSection('hydromoloty')"
-        >
-          Гидромолоты
-        </button>
-      </div>
+  <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto text-center">
+      <button
+        class="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
+        :class="{ 'ring-2 ring-offset-2 ring-hydro-power scale-105': activeSection === 'kovshi' }"
+        @click="setActiveSection('kovshi')"
+      >
+        Ковши
+      </button>
+      <button
+        class="mt-8 ml-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
+        :class="{ 'ring-2 ring-offset-2 ring-hydro-power scale-105': activeSection === 'hydrovrashateli' }"
+        @click="setActiveSection('hydrovrashateli')"
+      >
+        Гидровращатели
+      </button>
+      <button
+        class="mt-8 ml-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
+        :class="{ 'ring-2 ring-offset-2 ring-hydro-power scale-105': activeSection === 'hydromoloty' }"
+        @click="setActiveSection('hydromoloty')"
+      >
+        Гидромолоты
+      </button>
     </div>
+  </div>
 
-    <RepairPartsSelectorSpecial 
-      :GlobalTable="currentGlobalTable"
-      data-aos="fade-up"
-    />
+  <RepairPartsSelectorSpecial :GlobalTable="currentGlobalTable" data-aos="fade-up" />
 
-    <StagesSpecial 
-      :steps="currentSteps" 
-      :globalTitle="currentTitle"
-      data-aos="fade-up" 
-    />
+  <StagesSpecial :steps="currentSteps" :globalTitle="currentTitle" data-aos="fade-up" />
 
-    <InformationBlockSpecial 
-      :block-data="currentInfoBlock"
-      :position="currentPosition"
-      :active-section="activeSection"
-      @section-change="setActiveSection"
-      data-aos="fade-up"
-    />
-    
-    <ParametersGridSpecial 
-      :parameters="currentParameters"
-      :header="currentHeader"
-      data-aos="fade-up"
-    />
-    
-    <PartnerBlockSpecial 
-      :block-data-text="currentPartnerBlock"
-      data-aos="fade-up"
-    />
+  <InformationBlockSpecial
+    :block-data="currentInfoBlock"
+    :position="currentPosition"
+    :active-section="activeSection"
+    @section-change="setActiveSection"
+    data-aos="fade-up"
+  />
+
+  <ParametersGridSpecial :parameters="currentParameters" :header="currentHeader" data-aos="fade-up" />
+
+  <PartnerBlockSpecial :block-data-text="currentPartnerBlock" data-aos="fade-up" />
   <Contact data-aos="fade-up" />
 </template>
 
@@ -87,9 +68,11 @@ useHead({
   ],
 })
 
+const { clearData } = useCalculatorSelector()
+
 const activeSection = ref('kovshi')
 
-const setActiveSection = (section) => {
+const setActiveSection = section => {
   activeSection.value = section
 }
 
@@ -106,66 +89,62 @@ const sectionsData = {
       subtitle: 'Отметьте необходимые компоненты ковша',
       parts: [
         {
-          name: 'Диагностика (дефектовка)',
+          name: 'Диагностика1 (дефектовка)',
           selected: false,
           show: false,
-          description: 'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
+          description:
+            'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
           features: [
             'Визуальный осмотр на предмет повреждений',
             'Промер отверстий под пальцы с выявлением степени износа',
             'Составление дефектовочной ведомости',
           ],
           highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
-          icon: 'mdi:magnify'
+          icon: 'mdi:magnify',
         },
         {
           name: 'Ремонт или замена режущих ножей',
           selected: false,
           show: false,
           description: 'Восстановление или замена изношенных режущих кромок ковша.',
-          features: [
-            'Замена изношенных ножей',
-            'Восстановление режущей кромки',
-            'Усиление конструкции',
-          ],
+          features: ['Замена изношенных ножей', 'Восстановление режущей кромки', 'Усиление конструкции'],
           highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
           color: 'bg-orange-400/50 border-orange-400',
-          icon: 'mdi:knife'
+          icon: 'mdi:knife',
         },
         {
           name: 'Усиление стенок и днища',
           selected: false,
           show: false,
           description: 'Усиление конструктивных элементов ковша для повышения износостойкости.',
-          features: [
-            'Наварка дополнительных листов',
-            'Усиление ребер жесткости',
-            'Замена изношенных участков',
-          ],
+          features: ['Наварка дополнительных листов', 'Усиление ребер жесткости', 'Замена изношенных участков'],
           highlight: { top: '45%', left: '25%', width: '50%', height: '20%' },
           color: 'bg-blue-400/50 border-blue-400',
-          icon: 'mdi:hammer-wrench'
+          icon: 'mdi:hammer-wrench',
         },
       ],
       mainImage: '/calculator/Сборка ковша.png',
       imageAlt: 'Профессиональный ремонт ковшей',
       imageId: 'kovshiImage',
       highlightMode: 'single',
-      name:"Здравствуйте необходимый перечень работ по ковшам",
-      selectorData:true,
+      name: 'Здравствуйте необходимый перечень работ по ковшам',
+      selectorData: true,
     },
     steps: [
       {
         title: 'Доставка и приемка',
-        description: 'Мы организуем доставку ковша на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+        description:
+          'Мы организуем доставку ковша на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
       },
       {
         title: 'Дефектовка',
-        description: 'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
+        description:
+          'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
       },
       {
         title: 'Согласование',
-        description: 'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
+        description:
+          'После диагностики мы предоставляем детальную смету и согласовываем с вами стоимость и сроки ремонта',
       },
       {
         title: 'Закупка материалов',
@@ -173,7 +152,8 @@ const sectionsData = {
       },
       {
         title: 'Сборка и сварка',
-        description: 'Профессиональный ремонт ковша с использованием комплектующих, восстановление отверстий под пальцы, а также усиление ковша',
+        description:
+          'Профессиональный ремонт ковша с использованием комплектующих, восстановление отверстий под пальцы, а также усиление ковша',
       },
       {
         title: 'Отгрузка',
@@ -186,7 +166,8 @@ const sectionsData = {
     },
     infoBlock: {
       title: 'Сложный ремонт ковшей',
-      description: 'Восстановление режущих элементов, усиление днища и стенок ковша, восстановление отверстий под пальцы. Профессиональный подход к ремонту ударного оборудования.',
+      description:
+        'Восстановление режущих элементов, усиление днища и стенок ковша, восстановление отверстий под пальцы. Профессиональный подход к ремонту ударного оборудования.',
       buttonText: 'Заказать ремонт гидромолота',
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидромолота',
@@ -222,8 +203,8 @@ const sectionsData = {
   },
   hydrovrashateli: {
     globalTable: {
-      name:"Здравствуйте необходимый перечень работ по гидровращателям",
-      selectorData:true,
+      name: 'Здравствуйте необходимый перечень работ по гидровращателям',
+      selectorData: true,
       title: 'Выберите детали для ремонта гидровращателей',
       subtitle: 'Отметьте необходимые компоненты гидровращателя',
       parts: [
@@ -231,7 +212,8 @@ const sectionsData = {
           name: 'Диагностика (дефектовка)',
           selected: false,
           show: false,
-          description: 'Полная диагностика гидровращателя с использованием современного оборудования для выявления всех дефектов.',
+          description:
+            'Полная диагностика гидровращателя с использованием современного оборудования для выявления всех дефектов.',
           features: [
             'Визуальный осмотр на предмет повреждений',
             'Разборка гидровращателя, осмотр всех комплектующих на наличие поверхностных дефектов',
@@ -239,7 +221,7 @@ const sectionsData = {
             'Составление дефектовочной ведомости',
           ],
           highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
-          icon: 'mdi:magnify'
+          icon: 'mdi:magnify',
         },
         {
           name: 'Роторная группа',
@@ -251,7 +233,7 @@ const sectionsData = {
             'Подбор и замена уплотнений',
           ],
           highlight: { top: '20%', left: '40%', width: '20%', height: '60%' },
-          icon: 'mdi:rotate-3d'
+          icon: 'mdi:rotate-3d',
         },
         {
           name: 'Ремонт редуктора',
@@ -264,7 +246,7 @@ const sectionsData = {
           ],
           highlight: { top: '25%', left: '35%', width: '30%', height: '50%' },
           color: 'bg-green-400/50 border-green-400',
-          icon: 'mdi:vector-arrange-above'
+          icon: 'mdi:vector-arrange-above',
         },
         {
           name: 'Подшипниковые узлы',
@@ -277,7 +259,7 @@ const sectionsData = {
           ],
           highlight: { top: '15%', left: '30%', width: '40%', height: '10%' },
           color: 'bg-purple-400/50 border-purple-400',
-          icon: 'mdi:cog'
+          icon: 'mdi:cog',
         },
       ],
       mainImage: '/calculator/Сборка ковша.png',
@@ -357,8 +339,8 @@ const sectionsData = {
   },
   hydromoloty: {
     globalTable: {
-      name:"Здравствуйте необходимый перечень работ по гидромолотам",
-      selectorData:true,
+      name: 'Здравствуйте необходимый перечень работ по гидромолотам',
+      selectorData: true,
       title: 'Выберите детали для ремонта гидромолотов',
       subtitle: 'Отметьте необходимые компоненты гидромолота',
       parts: [
@@ -366,14 +348,15 @@ const sectionsData = {
           name: 'Диагностика (дефектовка)',
           selected: false,
           show: false,
-          description: 'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
+          description:
+            'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
           features: [
             'Визуальный осмотр на предмет повреждений',
             'Промер отверстий под пальцы с выявлением степени износа',
             'Составление дефектовочной ведомости',
           ],
           highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
-          icon: 'mdi:magnify'
+          icon: 'mdi:magnify',
         },
         {
           name: 'Ударный механизм',
@@ -386,21 +369,17 @@ const sectionsData = {
             'Ремонт рабочих поверхностей',
           ],
           highlight: { top: '30%', left: '40%', width: '30%', height: '40%' },
-          icon: 'mdi:hammer'
+          icon: 'mdi:hammer',
         },
         {
           name: 'Распределительный узел',
           selected: false,
           show: false,
           description: 'Восстановление распределительного механизма',
-          features: [
-            'Шлифовка распределительных поверхностей',
-            'Восстановление каналов',
-            'Замена изношенных деталей',
-          ],
+          features: ['Шлифовка распределительных поверхностей', 'Восстановление каналов', 'Замена изношенных деталей'],
           highlight: { top: '20%', left: '25%', width: '50%', height: '20%' },
           color: 'bg-yellow-400/50 border-yellow-400',
-          icon: 'mdi:vector-arrange-above'
+          icon: 'mdi:vector-arrange-above',
         },
         {
           name: 'Корпус и крепления',
@@ -414,7 +393,7 @@ const sectionsData = {
           ],
           highlight: { top: '60%', left: '45%', width: '20%', height: '15%' },
           color: 'bg-red-400/50 border-red-400',
-          icon: 'mdi:wrench'
+          icon: 'mdi:wrench',
         },
       ],
       mainImage: '/calculator/Сборка ковша.png',
@@ -454,7 +433,8 @@ const sectionsData = {
     },
     infoBlock: {
       title: 'Сложный ремонт гидромолотов',
-      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      description:
+        'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
       features: [
         { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
         { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
@@ -490,10 +470,13 @@ const sectionsData = {
       ],
     },
     position: 'right',
-  }
+  },
 }
 
-const currentGlobalTable = computed(() => sectionsData[activeSection.value].globalTable)
+const currentGlobalTable = computed(() => {
+  clearData()
+  return sectionsData[activeSection.value].globalTable
+})
 const currentSteps = computed(() => sectionsData[activeSection.value].steps)
 const currentTitle = computed(() => sectionsData[activeSection.value].title)
 const currentInfoBlock = computed(() => sectionsData[activeSection.value].infoBlock)
