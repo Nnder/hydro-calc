@@ -11,7 +11,6 @@
     image-id="hydroImage"
     highlight-mode="single"
     @part-selected="handlePartSelected"
-    :selectorData="true"
   />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
