@@ -151,8 +151,8 @@ const sectionsData = {
       imageAlt: 'Профессиональный ремонт ковшей',
       imageId: 'kovshiImage',
       highlightMode: 'single',
-      name: 'ковшам',
-      selectorData: true
+      name:"Здравствуйте необходимый перечень работ по ковшам",
+      selectorData:true,
     },
     steps: [
       {
@@ -222,6 +222,8 @@ const sectionsData = {
   },
   hydrovrashateli: {
     globalTable: {
+      name:"Здравствуйте необходимый перечень работ по гидровращателям",
+      selectorData:true,
       title: 'Выберите детали для ремонта гидровращателей',
       subtitle: 'Отметьте необходимые компоненты гидровращателя',
       parts: [
@@ -285,8 +287,6 @@ const sectionsData = {
       imageAlt: 'Профессиональный ремонт гидровращателей',
       imageId: 'hydrovrashateliImage',
       highlightMode: 'single',
-      name: 'гидровращателям',
-      selectorData: true
     },
     steps: [
       {
@@ -360,6 +360,8 @@ const sectionsData = {
   },
   hydromoloty: {
     globalTable: {
+      name:"Здравствуйте необходимый перечень работ по гидромолотам",
+      selectorData:true,
       title: 'Выберите детали для ремонта гидромолотов',
       subtitle: 'Отметьте необходимые компоненты гидромолота',
       parts: [
@@ -422,8 +424,6 @@ const sectionsData = {
       imageAlt: 'Профессиональный ремонт гидромолотов',
       imageId: 'hydromolotyImage',
       highlightMode: 'single',
-      name: 'гидромолотам',
-      selectorData: true
     },
     steps: [
       {
