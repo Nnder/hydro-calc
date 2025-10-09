@@ -151,8 +151,6 @@ const sectionsData = {
       imageAlt: 'Профессиональный ремонт ковшей',
       imageId: 'kovshiImage',
       highlightMode: 'single',
-      name: 'ковшам',
-      selectorData: true,
       name:"Здравствуйте необходимый перечень работ по ковшам",
       selectorData:true,
     },
@@ -275,8 +273,6 @@ const sectionsData = {
       imageAlt: 'Профессиональный ремонт гидровращателей',
       imageId: 'hydrovrashateliImage',
       highlightMode: 'single',
-      name: 'гидровращателям',
-      selectorData: true
     },
     steps: [
       {
@@ -401,8 +397,6 @@ const sectionsData = {
       imageAlt: 'Профессиональный ремонт гидромолотов',
       imageId: 'hydromolotyImage',
       highlightMode: 'single',
-      name: 'гидромолотам',
-      selectorData: true
     },
     steps: [
       {
