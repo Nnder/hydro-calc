@@ -68,6 +68,8 @@ useHead({
   ],
 })
 
+const { clearData } = useCalculatorSelector()
+
 const activeSection = ref('kovshi')
 
 const setActiveSection = section => {
@@ -210,7 +212,8 @@ const sectionsData = {
           name: 'Диагностика (дефектовка)',
           selected: false,
           show: false,
-          description: 'Полная диагностика гидровращателя с использованием современного оборудования для выявления всех дефектов.',
+          description:
+            'Полная диагностика гидровращателя с использованием современного оборудования для выявления всех дефектов.',
           features: [
             'Визуальный осмотр на предмет повреждений',
             'Разборка гидровращателя, осмотр всех комплектующих на наличие поверхностных дефектов',
@@ -218,7 +221,7 @@ const sectionsData = {
             'Составление дефектовочной ведомости',
           ],
           highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
-          icon: 'mdi:magnify'
+          icon: 'mdi:magnify',
         },
         {
           name: 'Роторная группа',
@@ -338,14 +341,15 @@ const sectionsData = {
           name: 'Диагностика (дефектовка)',
           selected: false,
           show: false,
-          description: 'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
+          description:
+            'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
           features: [
             'Визуальный осмотр на предмет повреждений',
             'Промер отверстий под пальцы с выявлением степени износа',
             'Составление дефектовочной ведомости',
           ],
           highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
-          icon: 'mdi:magnify'
+          icon: 'mdi:magnify',
         },
         {
           name: 'Ударный механизм',
@@ -462,7 +466,10 @@ const sectionsData = {
   },
 }
 
-const currentGlobalTable = computed(() => sectionsData[activeSection.value].globalTable)
+const currentGlobalTable = computed(() => {
+  clearData()
+  return sectionsData[activeSection.value].globalTable
+})
 const currentSteps = computed(() => sectionsData[activeSection.value].steps)
 const currentTitle = computed(() => sectionsData[activeSection.value].title)
 const currentInfoBlock = computed(() => sectionsData[activeSection.value].infoBlock)
