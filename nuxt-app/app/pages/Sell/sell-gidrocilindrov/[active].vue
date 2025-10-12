@@ -1,7 +1,5 @@
 <script setup>
 import Contact from '~/components/Page/Contact.vue'
-import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
@@ -9,7 +7,7 @@ import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 import Calculator from '~/components/Calculator/Calculator.vue'
 
 definePageMeta({
-  path: '/sell/sell-gidrocilindrov',
+  path: '/sell/sell-gidrocilindrov/:active?',
 })
 
 useHead({
@@ -22,63 +20,8 @@ useHead({
   ],
 })
 
-const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных гидравлических цилиндров в Нижнем Тагиле. 
-          Мы предлагаем широкий ассортимент гидроцилиндров для любой спецтехники и оборудования.
-        </p>
-        <p class="text-lg">
-          Все наши гидроцилиндры проходят строгий контроль качества и соответствуют техническим требованиям. 
-        </p>`
-
-const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа гидроцилиндров в Нижнем Тагиле'
-
-const items = ref([
-  {
-    image: 'vtulka.jpeg',
-    title: 'Телескопические цилиндры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Цилиндры двустороннего действия',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Цилиндры одностороннего действия',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Плунжерные гидроцилиндры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Цилиндры для экскаваторов',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Цилиндры для погрузчиков',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Цилиндры для бульдозеров',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Цилиндры для кранов',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Специальные гидроцилиндры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Ремонтные комплекты',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Запчасти для цилиндров',
-  },
-])
+const route = useRoute()
+const activeSection = ref(route.params.active || 'Сильфоны')
 
 const blockData = {
   title: 'Ремонт гидроцилиндров для спецтехники и промышленного производства',
@@ -97,8 +40,8 @@ const blockData = {
   },
   img: {
     src: '/3d/preload/hydrocilinder.png',
-    alt: 'Гидроцилиндр 3д предзагрузка'
-  }
+    alt: 'Гидроцилиндр 3д предзагрузка',
+  },
 }
 
 const mainSlideData = {
@@ -110,12 +53,12 @@ const mainSlideData = {
 
 const blockDataText = {
   title: 'Продажа гидлроцилиндров в Нижнем Тагиле',
-  description:  `<p class="text-lg">
+  description: `<p class="text-lg">
          Наши специалисты помогут подобрать оптимальный гидроцилиндр для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидроцилиндрами!
         </p>
         <p class="text-lg">
           Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
-        </p>`
+        </p>`,
 }
 
 const slider = {
@@ -132,7 +75,7 @@ const bannerProps = {
   products: [
     {
       title: 'Защитные сильфоны (гофры)',
-      type: 'flange',
+      type: 'Сильфоны',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
         'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
@@ -148,14 +91,14 @@ const bannerProps = {
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
         'Применяются в промышленном оборудовании, строительной технике и гидравлических системах. Обеспечивают надежное и герметичное соединение при рабочих давлениях до 600 бар.',
       ],
-      gridItem: { 
-        image: '/flanec_sae.jpg', 
-        title: 'Фланец SAE'
-      }
+      gridItem: {
+        image: '/flanec_sae.jpg',
+        title: 'Фланец SAE',
+      },
     },
     {
       title: 'Пальцы',
-      type: 'seal',
+      type: 'Пальцы',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
@@ -172,14 +115,14 @@ const bannerProps = {
         'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или EPDM для различных рабочих сред и температурных условий.',
         'Обеспечивают герметичность соединений в гидравлических системах, предотвращают утечки масла и других рабочих жидкостей.',
       ],
-      gridItem: { 
-        image: '/uplotnitelnoe_kolce.jpeg', 
-        title: 'Уплотнительное кольцо'
-      }
+      gridItem: {
+        image: '/uplotnitelnoe_kolce.jpeg',
+        title: 'Уплотнительное кольцо',
+      },
     },
     {
       title: 'Втулки',
-      type: 'quick_connect',
+      type: 'Втулки',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
@@ -196,14 +139,14 @@ const bannerProps = {
         'Быстросъёмные соединения позволяют быстро и безопасно подсоединять и отсоединять гидравлические линии без утечки жидкости.',
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
-      gridItem: { 
-        image: '/bistrosemnoe_soedinenie.jpeg', 
-        title: 'Быстросъёмное соединение'
-      }
+      gridItem: {
+        image: '/bistrosemnoe_soedinenie.jpeg',
+        title: 'Быстросъёмное соединение',
+      },
     },
     {
       title: 'Дополнительная Гидролиния',
-      type: 'protection2',
+      type: 'Гидролинии',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
@@ -220,14 +163,14 @@ const bannerProps = {
         'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
-      gridItem: { 
-        image: '/zashitnie_obolochi.jpeg', 
-        title: 'Защитные оболочки'
-      }
+      gridItem: {
+        image: '/zashitnie_obolochi.jpeg',
+        title: 'Защитные оболочки',
+      },
     },
     {
       title: 'ГСМ',
-      type: 'protection',
+      type: 'ГСМ',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
@@ -244,37 +187,34 @@ const bannerProps = {
         'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
-      gridItem: { 
-        image: '/zashitnie_obolochi.jpeg', 
-        title: 'Защитные оболочки2'
-      }
+      gridItem: {
+        image: '/zashitnie_obolochi.jpeg',
+        title: 'Защитные оболочки2',
+      },
     },
   ],
-  
-  gridItems: function() {
+
+  gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-  
-  defaultImages: [
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  ],
-  
+
+  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
+
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',
   ],
-  
+
   defaultParameters: [
     { label: 'Размер', value: 'Стандартный' },
     { label: 'Материал', value: 'Высокопрочный' },
     { label: 'Давление', value: 'до 300 бар' },
   ],
-  
-  defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
-  
-  initialProductType: 'flange'
-}
 
+  defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
+
+  initialProductType: activeSection.value,
+}
 </script>
 
 <template>
@@ -288,12 +228,17 @@ const bannerProps = {
     data-aos-delay="200"
   /> -->
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="https://image.made-in-china.com/2f0j00fcMqmYbGCDko/Bobcat-763-T300-610-Tilt-Cylinder.webp" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+  <PartnerBlock
+    :blockDataText="blockDataText"
+    imageUrl="https://image.made-in-china.com/2f0j00fcMqmYbGCDko/Bobcat-763-T300-610-Tilt-Cylinder.webp"
+    variant="image-right"
+    data-aos="fade-up"
+    data-aos-delay="200"
+  />
   <Calculator data-aos="fade-up" />
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
-
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact />

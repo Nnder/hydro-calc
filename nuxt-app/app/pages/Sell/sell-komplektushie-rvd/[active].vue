@@ -21,20 +21,6 @@ useHead({
 
 const route = useRoute()
 const activeSection = ref(route.params.active || 'Фланец')
-const setActiveSection = section => {
-  activeSection.value = section
-}
-
-const description = `<p class="text-lg">
-  Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных комплектующих для РВД в Нижнем Тагиле. 
-  Мы предлагаем полный ассортимент фитингов, ниппелей, муфт и других компонентов.
-</p>
-<p class="text-lg">
-  Все наши комплектующие проходят строгий контроль качества и соответствуют стандартам безопасности. 
-</p>`
-
-const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа комплектующих для РВД в Нижнем Тагиле'
 
 const bannerProps = {
   products: [
