@@ -1,19 +1,12 @@
 <script setup>
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 import Contact from '~/components/Page/Contact.vue'
-import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
-import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
-import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
-import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProduct.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
-  path: '/sell/sell-komplektushie-rvd',
+  path: '/sell/sell-komplektushie-rvd/:active?',
 })
 
 useHead({
@@ -25,6 +18,12 @@ useHead({
     },
   ],
 })
+
+const route = useRoute()
+const activeSection = ref(route.params.active || 'Фланец')
+const setActiveSection = section => {
+  activeSection.value = section
+}
 
 const description = `<p class="text-lg">
   Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных комплектующих для РВД в Нижнем Тагиле. 
@@ -41,7 +40,7 @@ const bannerProps = {
   products: [
     {
       title: 'Фланцы SAE',
-      type: 'flange',
+      type: 'Фланец',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
         'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
@@ -65,7 +64,7 @@ const bannerProps = {
     },
     {
       title: 'Уплотнительное кольцо',
-      type: 'seal',
+      type: 'Уплотнение',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
@@ -89,7 +88,7 @@ const bannerProps = {
     },
     {
       title: 'Быстросъёмное соединение',
-      type: 'quick_connect',
+      type: 'Быстросъемник',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
@@ -113,7 +112,7 @@ const bannerProps = {
     },
     {
       title: 'Защитные оболочки',
-      type: 'protection',
+      type: 'Оболочки',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
@@ -137,7 +136,7 @@ const bannerProps = {
     },
     {
       title: 'Переходник',
-      type: 'adapter',
+      type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
@@ -161,7 +160,7 @@ const bannerProps = {
     },
     {
       title: 'Заглушка',
-      type: 'plug',
+      type: 'Заглушки',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
@@ -204,7 +203,7 @@ const bannerProps = {
 
   defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
 
-  initialProductType: 'flange',
+  initialProductType: activeSection.value,
 }
 
 const blockData = {
