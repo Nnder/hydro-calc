@@ -131,15 +131,15 @@ const bannerProps = {
       ],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 90' },
-        { label: 'Max.давление', value: 'до 3 бар' },
-        { label: 'Материал', value: 'Сталь 45' },
+        { label: 'Max.давление', value: 'до 30 бар' },
+        { label: 'Материал', value: 'Нержавеющая сталь'},
         { label: 'Температура', value: '-25°C до +120°C' },
       ],
       description: [
         'Применяются для грубой фильтрации. Долговечны и легко очищаются, но не подходят для тонкой фильтрации.'
       ],
       gridItem: { 
-        image: '/flanec_sae.jpg', 
+        image: 'https://t-filter.ru/image/cache/catalog/filter/filtr-gidravlicheskij-(kartridzh)/SH63314-1200x800.jpg', 
         title: 'Металлические сетки'
       }
     },
@@ -148,22 +148,22 @@ const bannerProps = {
       type: 'seal',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
-        '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
-        'https://www.alexisfilters.co.uk/media/catalog/product/p/5/p502424.jpg',
-        'https://static.insales-cdn.com/images/products/1/6379/524466411/cre050-sxx200_0.jpg',
+        '../public/paper1.jpeg',
+        'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg',
+        'https://stroydomsam.ru/image/cache/catalog/Wirtgenlogo/wirtgen118266-900x700.jpg',
       ],
       parameters: [
-        { label: 'Материал', value: 'NBR, Viton, EPDM' },
-        { label: 'Температура', value: '-30°C до +200°C' },
-        { label: 'Давление', value: 'до 700 бар' },
-        { label: 'Стандарт', value: 'DIN, ISO' },
+        { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 25' },
+        { label: 'Max.давление', value: 'до 18 бар' },
+        { label: 'Материал', value: 'Фильтровальная бумага' },
+        { label: 'Температура', value: '-25°C до +120°C' },
       ],
       description: [
         'Обеспечивают тонкую фильтрацию, но имеют ограниченный срок службы и требуют регулярной замены',
         'Основное применение — всасывающие и сливные фильтры.',
       ],
       gridItem: { 
-        image: '/uplotnitelnoe_kolce.jpeg', 
+        image: 'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg', 
         title: 'Уплотнительное кольцо'
       }
     },
@@ -172,22 +172,22 @@ const bannerProps = {
       type: 'quick_connect',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
-        'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
-        'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
-        'https://st22.stpulscen.ru/images/product/445/686/695_original.jpg',
+        '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
+        'https://www.alexisfilters.co.uk/media/catalog/product/p/5/p502424.jpg',
+        'https://static.insales-cdn.com/images/products/1/6379/524466411/cre050-sxx200_0.jpg',
       ],
       parameters: [
-        { label: 'Тип', value: 'ISO 16028' },
-        { label: 'Давление', value: 'до 350 бар' },
-        { label: 'Размер', value: '1/4" - 1"' },
-        { label: 'Материал', value: 'Сталь, нерж. сталь' },
+        { label: 'Тонкость фильтрации, МКМ', value: 'от 3 до 20' },
+        { label: 'Max.давление', value: 'до 420 бар' },
+        { label: 'Материал', value: 'Стекловолокнистный, PWR' },
+        { label: 'Температура', value: '-25°C до +95°C' },
       ],
       description: [
         'Обладают высокой прочностью и устойчивостью к химическим веществам.',
         'Обеспечивают тонкую фильтрацию. В гидравлических системах применяются редко.',
       ],
       gridItem: { 
-        image: '/bistrosemnoe_soedinenie.jpeg', 
+        image: '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png', 
         title: 'Быстросъёмное соединение'
       }
     },
@@ -201,17 +201,17 @@ const bannerProps = {
         'https://filter64.ru/images/stories/virtuemart/product/00-00001472_4.jpg',
       ],
       parameters: [
-        { label: 'Тип резьбы', value: 'Метрическая, трубная' },
-        { label: 'Материал', value: 'Сталь, пластик' },
-        { label: 'Размер', value: 'М8 - М42' },
-        { label: 'Температура', value: '-50°C до +150°C' },
+        { label: 'Тонкость фильтрации, МКМ', value: 'от 3 до 20' },
+        { label: 'Max.давление', value: 'до 420 бар' },
+        { label: 'Материал', value: 'Фибровое волокно' },
+        { label: 'Температура', value: '-25°C до +95°C' },
       ],
       description: [
         'Используется для ультратонкой фильтрации. Обеспечивает высокий уровень очистки жидкости.',
         'Применяется в напорных фильтрах высокотехнологичной гидравлики, где степень очистки масла является ключевым параметром.',
       ],
       gridItem: { 
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg', 
+        image: '../public/fibro1.jpeg', 
         title: 'Заглушка'
       }
     }
