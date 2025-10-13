@@ -1,11 +1,11 @@
 <template>
   <div v-if="!isHydrated">
     <!-- Fallback контент -->
-    <div class="h-[500px] flex items-center justify-center bg-gray-100 rounded-lg"></div>
+    <div class="aspect-square w-full flex items-center justify-center bg-gray-100 rounded-lg"></div>
   </div>
   <ClientOnly>
     <swiper-container
-       v-show="isHydrated"
+      v-show="isHydrated"
       ref="mainSwiperEl"
       :loop="true"
       :navigation="true"
@@ -15,7 +15,13 @@
       class="swiper-product"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
-        <img :src="image" class="w-full h-96 object-cover rounded-lg" />
+        <NuxtImg
+          :src="image"
+          :alt="`Image ${index + 1}`"
+          class="w-full h-full object-cover rounded-lg"
+          loading="lazy"
+          sizes="100vw md:50vw lg:33vw"
+        />
       </swiper-slide>
     </swiper-container>
 
@@ -29,9 +35,12 @@
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
         <div class="relative group">
-          <img
+          <NuxtImg
             :src="image"
-            class="w-full h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all hover:border-blue-400"
+            :alt="`Thumbnail ${index + 1}`"
+            class="w-full h-16 sm:h-20 object-cover cursor-pointer rounded border-2 border-transparent transition-all hover:border-blue-400"
+            loading="lazy"
+            sizes="20vw"
             @click="slideTo(index)"
           />
         </div>
@@ -78,8 +87,7 @@ onMounted(() => {
 <style scoped>
 .swiper-product {
   width: 100%;
-  height: 400px;
-  --swiper-navigation-color: rgba(0, 0, 0, 0.6);
+  aspect-ratio: 1; 
   --swiper-pagination-color: rgba(0, 0, 0, 0.6);
 }
 
