@@ -156,7 +156,10 @@ const sectionsData = {
   />
   <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
+<<<<<<< HEAD
   <!-- <Block data-aos="fade-up" /> -->
+=======
+>>>>>>> 66fb330029fa6d358a6d0bb83d1e77fbf49d3fa1
   <Advantages data-aos="fade-up" />
   <Contact data-aos="fade-up" />
   <Gis data-aos="fade-up" />

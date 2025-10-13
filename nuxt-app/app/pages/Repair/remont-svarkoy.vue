@@ -2,6 +2,7 @@
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
 
   <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" />
+  <Block data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
@@ -17,7 +18,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 // import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
-
+import Block from '~/components/Page/Block.vue'
 
 definePageMeta({
   path: '/remont-svarkoy',
@@ -36,11 +37,13 @@ useHead({
 const mainSlideData = {
   src: 'https://www.classifieds24.ru/images/7090/7089332/thumb_4.jpg',
   title: 'Осуществим ремонт деталей гидравлического оборудования методом наплавки',
-  description: 'Восстановление рабочих поверхностей штоков, отверстий под пальцы, сварка корпусов гидроцилиндров, проушин, расточка или хонинговка гильз',
+  description:
+    'Восстановление рабочих поверхностей штоков, отверстий под пальцы, сварка корпусов гидроцилиндров, проушин, расточка или хонинговка гильз',
 }
 
 const blockDataText = {
-  imageurl: 'https://hackaday.com/wp-content/uploads/2019/05/how-machining-went-from-art-to-science-lathe-chips-featured.jpeg',
+  imageurl:
+    'https://hackaday.com/wp-content/uploads/2019/05/how-machining-went-from-art-to-science-lathe-chips-featured.jpeg',
   title: 'Что мы делаем?',
   description: `<p>Профессиональные сварочные и токарные работы любой сложности. Выполняем полный комплекс услуг по ремонту и восстановлению металлических конструкций, деталей и оборудования.</p>
 <p>Сварочные работы: РДС, MIG/MAG, TIG сварка черных металлов. Ремонт металлоконструкций, трубопроводов, емкостей, промышленного оборудования. Гарантия качества швов и соответствия стандартам.</p>
@@ -48,15 +51,15 @@ const blockDataText = {
 }
 
 const globalTitle = {
-   gtitle: "Сварочно и токарные работы",
-   subtitle: "Полный цикл восстановления",
+  gtitle: 'Сварочно и токарные работы',
+  subtitle: 'Полный цикл восстановления',
 }
 
 const parameters = ref([
   { value: '350 мм', description: 'Диаметр обрабатываемых деталей' },
   { value: 'до 3 метров', description: 'Максимальная длина обработки' },
   { value: '8-й квалитет', description: 'Класс точности токарных работ' },
-  { value: 'Ra 0,4-1,6 мкм', description: 'Шероховатость поверхности' }
+  { value: 'Ra 0,4-1,6 мкм', description: 'Шероховатость поверхности' },
 ])
 
 const header = 'ПАРАМЕТРЫ ТОКАРНЫХ И СВАРОЧНЫХ РАБОТ'
@@ -65,13 +68,15 @@ const repairSteps = ref([
   {
     title: 'Доставка и приемка',
     shortDescription: 'Транспортировка и осмотр',
-    description: 'Мы организуем доставку оборудования на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
+    description:
+      'Мы организуем доставку оборудования на наш склад, проводим первичный осмотр и присваиваем ремонтный номер для отслеживания',
     image: '/icons/delivery-truck.svg',
   },
   {
     title: 'Дефектовка',
     shortDescription: 'Полная диагностика',
-    description: 'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
+    description:
+      'Наши специалисты проводят полную диагностику, составляют конструкторскую документацию и выявляют причины выхода из строя',
     image: '/icons/magnifying-glass.svg',
   },
   {
@@ -83,13 +88,15 @@ const repairSteps = ref([
   {
     title: 'Закупка материалов',
     shortDescription: 'Комплектующие',
-    description: 'Приобретаем сертифицированные материалы: электроды, проволоку, металлопрокат для сварочных и токарных работ',
+    description:
+      'Приобретаем сертифицированные материалы: электроды, проволоку, металлопрокат для сварочных и токарных работ',
     image: '/icons/gears.svg',
   },
   {
     title: 'Сварочные и токарные работы',
     shortDescription: 'Производство',
-    description: 'Выполняем комплекс работ: сварка конструкций, токарная обработка деталей, восстановление геометрии изделий',
+    description:
+      'Выполняем комплекс работ: сварка конструкций, токарная обработка деталей, восстановление геометрии изделий',
     image: '/icons/welding.svg',
   },
   {
@@ -108,7 +115,8 @@ const repairSteps = ref([
 
 const blockData = {
   title: 'Увеличьте ресурс ваших машин',
-  description: 'Профессиональные сварочные и токарные работы позволяют значительно продлить срок службы оборудования. Своевременный ремонт и восстановление деталей предотвращают серьезные поломки и сокращают простои техники',
+  description:
+    'Профессиональные сварочные и токарные работы позволяют значительно продлить срок службы оборудования. Своевременный ремонт и восстановление деталей предотвращают серьезные поломки и сокращают простои техники',
   buttonText: 'Связаться с нами',
   imageUrl: '/ekskavator.png',
   imageAlt: 'ремонт оборудования',
