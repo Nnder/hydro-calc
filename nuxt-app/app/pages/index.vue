@@ -42,10 +42,10 @@ const blockData = {
   type: '3d',
   modelSrc: '/3d/Сборка_ГЦ_реф.glb',
   modelBgColor: '#2563EB',
-   img: {
+  img: {
     src: '/3d/preload/hydrocilinder2.png',
-    alt: 'Гидроцилиндр 3д предзагрузка'
-  }
+    alt: 'Гидроцилиндр 3д предзагрузка',
+  },
 }
 
 const blockDataVariant = {
@@ -65,26 +65,24 @@ const blockDataVariant = {
   },
   img: {
     src: '/3d/preload/hydrocilinder.png',
-    alt: 'Гидроцилиндр 3д предзагрузка'
-  }
+    alt: 'Гидроцилиндр 3д предзагрузка',
+  },
 }
-
-
 
 const activeSection = ref('kovshi')
 
-const setActiveSection = (section) => {
+const setActiveSection = section => {
   activeSection.value = section
 }
 
 const currentInfoBlock = computed(() => sectionsData[activeSection.value].infoBlock)
 
-
 const sectionsData = {
   kovshi: {
     infoBlock: {
       title: 'Сложный ремонт ковшей',
-      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      description:
+        'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
       features: [
         { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
         { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
@@ -106,7 +104,8 @@ const sectionsData = {
   hydromoloty: {
     infoBlock: {
       title: 'Сложный ремонт гидромолотов',
-      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      description:
+        'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
       features: [
         { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
         { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
@@ -116,7 +115,7 @@ const sectionsData = {
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидромолота',
       type: '3d',
-      modelSrc: '/3d/гидромолот.glb',
+      modelSrc: '/3d/ТС135.000.00.000_(fn-1).glb',
       modelBgColor: '#2563EB',
       loadFunc: model => {
         model.rotation.x = Math.PI / 2.2
@@ -127,7 +126,8 @@ const sectionsData = {
   hydrovrashateli: {
     infoBlock: {
       title: 'Сложный ремонт гидровращателей',
-      description: 'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
+      description:
+        'Восстановление ударных механизмов, распределителей и корпусных деталей гидромолотов. Профессиональный подход к ремонту ударного оборудования.',
       features: [
         { icon: 'mdi:hammer', text: 'Восстановление ударно-поршневой группы' },
         { icon: 'mdi:vector-arrange-above', text: 'Ремонт распределительных узлов' },
@@ -145,7 +145,7 @@ const sectionsData = {
       },
       scale: 0.5,
     },
-  }
+  },
 }
 </script>
 
@@ -153,11 +153,11 @@ const sectionsData = {
   <Slider />
   <ServiceBlock data-aos="fade-up" />
   <InformationBlockSpecial
-      :block-data="currentInfoBlock"
-      :active-section="activeSection"
-      @section-change="setActiveSection"
-      data-aos="fade-up"
-    />
+    :block-data="currentInfoBlock"
+    :active-section="activeSection"
+    @section-change="setActiveSection"
+    data-aos="fade-up"
+  />
   <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Block data-aos="fade-up" />
