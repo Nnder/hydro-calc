@@ -70,7 +70,6 @@ const bannerProps = {
     {
       title: 'Аксиально-поршневые насосы',
       type: 'Аксиально-поршневые',
-      pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
         'https://rexroth-parts.com/66789-large_default/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
         'https://specgidravlika.ru/wp-content/uploads/2023/06/gidronasos_A7V.jpg',
@@ -95,7 +94,6 @@ const bannerProps = {
     {
       title: 'Радиально-поршневые насосы',
       type: 'Радиально-поршневые',
-      pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://surasnab.ru/wp-content/uploads/2018/06/radialno-porshnevoy.jpg',
         'https://gline.pro/image/catalog/products/PR4-3x.jpg',
@@ -120,7 +118,6 @@ const bannerProps = {
     {
       title: 'Шестеренные насосы',
       type: 'Шестеренные',
-      pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'http://sibgidromash.com/upload/iblock/52b/52bdf87a9f3107635529f65d67fbe02e.png',
         'https://olnisa.ru/olnisa/images/img-18/28032025-15-1/rexroth-f228-01.jpg',
@@ -148,7 +145,6 @@ const bannerProps = {
     {
       title: 'Пластинчатые насосы',
       type: 'Пластинчатые',
-      pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         'https://ommatech.ru/upload/resize_cache/iblock/538/1200_1200_140cd750bba9870f18aada2478b24840a/538d141fbef4c65e97eee1e22cca083e.jpg',
         'https://img.directindustry.es/images_di/photo-g/11598-15029301.jpg',
