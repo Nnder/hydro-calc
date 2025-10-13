@@ -31,13 +31,13 @@ const bannerProps = {
       images: [
         'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
         'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
-        'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
+        'https://hf-cdn-prod.azureedge.net/medias/PF-DFS-ST-U-3000-6000-PSI-900x900-1753825338202.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8Njc0ODA5fGltYWdlL2pwZWd8YUdReUwyaGpZUzh4TURReU9UY3hNekU0TmpnME5pOVFSbDlFUmxOZlUxUmZWVjh6TURBd1gxODJNREF3WDFCVFNWODVNREI0T1RBd1h6RTNOVE00TWpVek16Z3lNREl1YW5CbnxkMWZmOGNlZDlhNWMyZTA4OTg3MmQ5MzM0MDI5OTcyNzZhY2RmY2QxNzI4NTRhNDBmZTViMWE2NDc3ZDA5NWIz',
       ],
       parameters: [
-        { label: 'Размер', value: 'SAE 1/2"' },
+        { label: 'Размер', value: 'SAE от 1/2" до 4"' },
         { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Материал', value: 'Сталь 45' },
-        { label: 'Температура', value: '-40°C до +120°C' },
+        { label: 'Материал', value: 'Сталь' },
+        { label: 'Тип присоединения', value: 'Резьбовой, сварной' },
       ],
       description: [
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
@@ -55,16 +55,16 @@ const bannerProps = {
       images: [
         'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
         'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
-        'https://lazer-technology.ru/images/detailed/2/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
+        'https://image.made-in-china.com/2f0j00MRwbpqkhMBon/SAE-J518-3000psi-6000psi-Female-Welding-Counter-Flange.webp',
       ],
       parameters: [
-        { label: 'Материал', value: 'NBR, Viton, EPDM' },
+        { label: 'Материал', value: 'NBR, Viton, FKM' },
         { label: 'Температура', value: '-30°C до +200°C' },
-        { label: 'Давление', value: 'до 700 бар' },
-        { label: 'Стандарт', value: 'DIN, ISO' },
+        { label: 'Давление', value: 'до 420 бар' },
+        { label: 'Стандарт', value: 'DIN, ISO, ГОСТ' },
       ],
       description: [
-        'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или EPDM для различных рабочих сред и температурных условий.',
+        'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или FKM для различных рабочих сред и температурных условий.',
         'Обеспечивают герметичность соединений в гидравлических системах, предотвращают утечки масла и других рабочих жидкостей.',
       ],
       gridItem: {
@@ -77,15 +77,16 @@ const bannerProps = {
       type: 'Быстросъемник',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
-        'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
-        'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
-        'https://st22.stpulscen.ru/images/product/445/686/695_original.jpg',
+        'https://a.allegroimg.com/original/03d5e9/9f182c094bd199b2ed3869e951c4',
+        'https://многотракторов.рф/upload/iblock/a69/rg26vy27thd3t8utpz296p9v36i7yys0.jpg',
+        'https://media.rs-online.com/image/upload/bo_1.5px_solid_white,b_auto,c_pad,dpr_2,f_auto,h_399,q_auto,w_710/c_pad,h_399,w_710/R7335659-01?pgw=1',
+        'i.png'
       ],
       parameters: [
-        { label: 'Тип', value: 'ISO 16028' },
         { label: 'Давление', value: 'до 350 бар' },
-        { label: 'Размер', value: '1/4" - 1"' },
+        { label: 'Типоразмер', value: '1/4" - 2"' },
         { label: 'Материал', value: 'Сталь, нерж. сталь' },
+        { label: 'Стандарт', value: 'DIN, ISO' },
       ],
       description: [
         'Быстросъёмные соединения позволяют быстро и безопасно подсоединять и отсоединять гидравлические линии без утечки жидкости.',
