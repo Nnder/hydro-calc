@@ -28,7 +28,7 @@ const categories = ref([
         link: '/remont-kovshey',
       },
       {
-        title: 'Ремонт сварочных и токарных работ',
+        title: 'Сварочные и токарные работы',
         image:
           'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
         link: '/remont-svarkoy',

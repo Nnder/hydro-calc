@@ -110,7 +110,7 @@ const sectionsData = {
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидромолота',
       type: '3d',
-      modelSrc: '/3d/ТС135.000.00.000_(fn-1).glb',
+      modelSrc: '/3d/гидромолот.glb',
       modelBgColor: '#2563EB',
       loadFunc: model => {
         model.rotation.x = Math.PI / 2.2
