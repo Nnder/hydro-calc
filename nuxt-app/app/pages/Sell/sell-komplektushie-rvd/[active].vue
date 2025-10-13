@@ -124,11 +124,7 @@ const bannerProps = {
       title: 'Переходник',
       type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
-      images: [
-        'https://kelmochka.ru/wp-content/uploads/2021/09/trubnaya-rezba-37-1.jpg',
-        '',
-        '',
-      ],
+      images: ['https://kelmochka.ru/wp-content/uploads/2021/09/trubnaya-rezba-37-1.jpg', '', ''],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
         { label: 'Материал', value: 'Сталь, латунь' },
@@ -198,12 +194,6 @@ const blockData = {
   buttonText: 'Подобрать комплектующие',
   imageUrl: '/fluidex-dicsa-gallery-1-2.png',
   imageAlt: 'комплектующие для РВД',
-}
-
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Профессиональная продажа комплектующих РВД',
-  description: 'Компания «ООО Абсолют Техно» предлагает качественные компоненты по конкурентным ценам.',
 }
 
 const blockDataText = {
