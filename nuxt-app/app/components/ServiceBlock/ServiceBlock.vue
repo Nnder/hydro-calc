@@ -46,14 +46,19 @@ const categories = ref([
         link: '/rukava-visokogo-davlenia-rvd',
       },
       {
-        title: 'Изготовление Гидроцилиндров',
+        title: 'Гидроцилиндров',
         image: '/services/gidrocilindr-0286.jpg',
         link: '/izgotovlenie-hydrocylindrov',
       },
       {
-        title: 'Станция гидравлическая',
+        title: 'Станции гидравлической',
         image: '/services/stanciigidravlcesky.jpg',
         link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
+      },
+      {
+        title: 'Гидравлических трубок (гидролиний)',
+        image: 'https://kupit-gidroliniyu.ru/wp-content/uploads/2024/12/gidrolinii-bsm-dlya-ekskavatora.webp',
+        link: '/gidrolinii',
       },
     ],
   },
