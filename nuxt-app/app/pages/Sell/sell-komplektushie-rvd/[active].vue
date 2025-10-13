@@ -231,7 +231,7 @@ const slider = {
 
   <PartnerBlock
     :blockDataText="blockDataText"
-    imageUrl="/nasosi/block1.png"
+    imageUrl="/sa2-no-bg.png"
     variant="image-right"
     data-aos="fade-up"
     data-aos-delay="200"
