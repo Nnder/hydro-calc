@@ -63,9 +63,10 @@ const bannerProps = {
       type: 'Сетки',
       pdfUrl: '',
       images: [
-        'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
-        'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
-        'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
+        'https://avatars.mds.yandex.net/i?id=7cf862c66881b42f460e929b0fa3cd95_l-5496540-images-thumbs&n=13',
+        'https://st39.stpulscen.ru/images/localized/010/652/073_original.jpg',
+        'https://static.insales-cdn.com/images/products/1/6563/570186147/950120114_filter-element-filtruyuschij.jpg_',
+        'https://t-filter.ru/image/cache/catalog/filter/filtr-gidravlicheskij-(kartridzh)/SH63314-1200x800.jpg',
       ],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 90' },
@@ -86,9 +87,9 @@ const bannerProps = {
       type: 'Уплотнения',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
-        'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
-        'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
-        'https://lazer-technology.ru/images/detailed/2/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
+        '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
+        'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg',
+        'https://stroydomsam.ru/image/cache/catalog/Wirtgenlogo/wirtgen118266-900x700.jpg',
       ],
       parameters: [
         { label: 'Материал', value: 'NBR, Viton, EPDM' },
@@ -97,8 +98,8 @@ const bannerProps = {
         { label: 'Стандарт', value: 'DIN, ISO' },
       ],
       description: [
-        'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или EPDM для различных рабочих сред и температурных условий.',
-        'Обеспечивают герметичность соединений в гидравлических системах, предотвращают утечки масла и других рабочих жидкостей.',
+        'Обеспечивают тонкую фильтрацию, но имеют ограниченный срок службы и требуют регулярной замены',
+        'Основное применение — всасывающие и сливные фильтры.',
       ],
       gridItem: {
         image: '/uplotnitelnoe_kolce.jpeg',
@@ -121,8 +122,8 @@ const bannerProps = {
         { label: 'Материал', value: 'Сталь, нерж. сталь' },
       ],
       description: [
-        'Быстросъёмные соединения позволяют быстро и безопасно подсоединять и отсоединять гидравлические линии без утечки жидкости.',
-        'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
+        'Обладают высокой прочностью и устойчивостью к химическим веществам.',
+        'Обеспечивают тонкую фильтрацию. В гидравлических системах применяются редко.',
       ],
       gridItem: {
         image: '/bistrosemnoe_soedinenie.jpeg',
@@ -145,8 +146,8 @@ const bannerProps = {
         { label: 'Температура', value: '-50°C до +150°C' },
       ],
       description: [
-        'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
-        'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
+        'Используется для ультратонкой фильтрации. Обеспечивает высокий уровень очистки жидкости.',
+        'Применяется в напорных фильтрах высокотехнологичной гидравлики, где степень очистки масла является ключевым параметром.',
       ],
       gridItem: {
         image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
