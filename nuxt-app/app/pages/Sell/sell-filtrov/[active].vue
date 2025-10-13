@@ -46,7 +46,6 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
   img: 'https://oilpower.ru/upload/iblock/854/0bwqmtqhxilk2604kostb52n7fry9gi5.jpg',
   tag: 'Профессионально',
   title: 'Продажа фильтров',

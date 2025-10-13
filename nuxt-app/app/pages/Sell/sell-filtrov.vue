@@ -107,7 +107,6 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
   img: 'https://oilpower.ru/upload/iblock/854/0bwqmtqhxilk2604kostb52n7fry9gi5.jpg',
   tag: 'Профессионально',
   title: 'Продажа фильтров',
@@ -132,16 +131,16 @@ const bannerProps = {
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 90' },
         { label: 'Max.давление', value: 'до 30 бар' },
-        { label: 'Материал', value: 'Нержавеющая сталь'},
+        { label: 'Материал', value: 'Нержавеющая сталь' },
         { label: 'Температура', value: '-25°C до +120°C' },
       ],
       description: [
-        'Применяются для грубой фильтрации. Долговечны и легко очищаются, но не подходят для тонкой фильтрации.'
+        'Применяются для грубой фильтрации. Долговечны и легко очищаются, но не подходят для тонкой фильтрации.',
       ],
-      gridItem: { 
-        image: 'https://t-filter.ru/image/cache/catalog/filter/filtr-gidravlicheskij-(kartridzh)/SH63314-1200x800.jpg', 
-        title: 'Металлические сетки'
-      }
+      gridItem: {
+        image: 'https://t-filter.ru/image/cache/catalog/filter/filtr-gidravlicheskij-(kartridzh)/SH63314-1200x800.jpg',
+        title: 'Металлические сетки',
+      },
     },
     {
       title: 'Бумажные фильтры',
@@ -162,10 +161,10 @@ const bannerProps = {
         'Обеспечивают тонкую фильтрацию, но имеют ограниченный срок службы и требуют регулярной замены',
         'Основное применение — всасывающие и сливные фильтры.',
       ],
-      gridItem: { 
-        image: 'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg', 
-        title: 'Уплотнительное кольцо'
-      }
+      gridItem: {
+        image: 'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg',
+        title: 'Уплотнительное кольцо',
+      },
     },
     {
       title: 'Синтетические материалы (полиэстер, нейлон)',
@@ -186,10 +185,10 @@ const bannerProps = {
         'Обладают высокой прочностью и устойчивостью к химическим веществам.',
         'Обеспечивают тонкую фильтрацию. В гидравлических системах применяются редко.',
       ],
-      gridItem: { 
-        image: '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png', 
-        title: 'Быстросъёмное соединение'
-      }
+      gridItem: {
+        image: '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
+        title: 'Быстросъёмное соединение',
+      },
     },
     {
       title: 'Фибра стекловолокна.',
@@ -210,37 +209,34 @@ const bannerProps = {
         'Используется для ультратонкой фильтрации. Обеспечивает высокий уровень очистки жидкости.',
         'Применяется в напорных фильтрах высокотехнологичной гидравлики, где степень очистки масла является ключевым параметром.',
       ],
-      gridItem: { 
-        image: '../public/fibro1.jpeg', 
-        title: 'Заглушка'
-      }
-    }
+      gridItem: {
+        image: '../public/fibro1.jpeg',
+        title: 'Заглушка',
+      },
+    },
   ],
-  
-  gridItems: function() {
+
+  gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-  
-  defaultImages: [
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  ],
-  
+
+  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
+
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',
   ],
-  
+
   defaultParameters: [
     { label: 'Размер', value: 'Стандартный' },
     { label: 'Материал', value: 'Высокопрочный' },
     { label: 'Давление', value: 'до 300 бар' },
   ],
-  
-  defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
-  
-  initialProductType: 'flange'
-}
 
+  defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
+
+  initialProductType: 'flange',
+}
 </script>
 
 <template>
@@ -254,11 +250,16 @@ const bannerProps = {
     data-aos-delay="200"
   /> -->
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="https://fim.by/images/lp-photo/gidravlika.jpg" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+  <PartnerBlock
+    :blockDataText="blockDataText"
+    imageUrl="https://fim.by/images/lp-photo/gidravlika.jpg"
+    variant="image-right"
+    data-aos="fade-up"
+    data-aos-delay="200"
+  />
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
-
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />

@@ -38,7 +38,6 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
   img: '/hydrocilinder.png',
   tag: 'Профессионально',
   title: 'Продажа ГСМ и жидкостей',

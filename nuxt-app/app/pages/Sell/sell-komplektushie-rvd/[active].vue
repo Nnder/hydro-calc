@@ -164,7 +164,8 @@ const bannerProps = {
         'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
       ],
       gridItem: {
-        image: 'https://hf-cdn-prod.azureedge.net/medias/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIzNDQ2fGltYWdlL2pwZWd8YURRMkwyaGtaaTh4TURRMU5EQXdOVFkzT0RFeE1DOVFSbDlZVmtoTVRGOWZXRlpJVEY5ZldGWklVMTg1TURCNE9UQXdYekUzTlRRd09EUTRPRFU1T1RZdWFuQm58MjE3MjA2NmE3NjhjOWU3NGMxYjk2MmNmOGM5OGE4NWFmNTljZGE3NTIwZDY5N2NlYmQ5NDUzZDVmOWQ2ZWIxMw',
+        image:
+          'https://hf-cdn-prod.azureedge.net/medias/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIzNDQ2fGltYWdlL2pwZWd8YURRMkwyaGtaaTh4TURRMU5EQXdOVFkzT0RFeE1DOVFSbDlZVmtoTVRGOWZXRlpJVEY5ZldGWklVMTg1TURCNE9UQXdYekUzTlRRd09EUTRPRFU1T1RZdWFuQm58MjE3MjA2NmE3NjhjOWU3NGMxYjk2MmNmOGM5OGE4NWFmNTljZGE3NTIwZDY5N2NlYmQ5NDUzZDVmOWQ2ZWIxMw',
         title: 'Заглушка',
       },
     },
@@ -207,7 +208,7 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
+  videoSrc: '/videos/7910487231128.mp4',
   img: '/hydrocilinder.png',
   tag: 'Профессионально',
   title: 'Продажа комплектующих РВД',

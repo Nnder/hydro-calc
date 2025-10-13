@@ -58,10 +58,10 @@ const bannerProps = {
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
         'Применяются в промышленном оборудовании, строительной технике и гидравлических системах. Обеспечивают надежное и герметичное соединение при рабочих давлениях до 600 бар.',
       ],
-      gridItem: { 
-        image: '/flanec_sae.jpg', 
-        title: 'Фланец SAE'
-      }
+      gridItem: {
+        image: '/flanec_sae.jpg',
+        title: 'Фланец SAE',
+      },
     },
     {
       title: 'Уплотнительное кольцо',
@@ -82,10 +82,10 @@ const bannerProps = {
         'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или EPDM для различных рабочих сред и температурных условий.',
         'Обеспечивают герметичность соединений в гидравлических системах, предотвращают утечки масла и других рабочих жидкостей.',
       ],
-      gridItem: { 
-        image: '/uplotnitelnoe_kolce.jpeg', 
-        title: 'Уплотнительное кольцо'
-      }
+      gridItem: {
+        image: '/uplotnitelnoe_kolce.jpeg',
+        title: 'Уплотнительное кольцо',
+      },
     },
     {
       title: 'Быстросъёмное соединение',
@@ -106,10 +106,10 @@ const bannerProps = {
         'Быстросъёмные соединения позволяют быстро и безопасно подсоединять и отсоединять гидравлические линии без утечки жидкости.',
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
-      gridItem: { 
-        image: '/bistrosemnoe_soedinenie.jpeg', 
-        title: 'Быстросъёмное соединение'
-      }
+      gridItem: {
+        image: '/bistrosemnoe_soedinenie.jpeg',
+        title: 'Быстросъёмное соединение',
+      },
     },
     {
       title: 'Защитные оболочки',
@@ -130,10 +130,10 @@ const bannerProps = {
         'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
-      gridItem: { 
-        image: '/zashitnie_obolochi.jpeg', 
-        title: 'Защитные оболочки'
-      }
+      gridItem: {
+        image: '/zashitnie_obolochi.jpeg',
+        title: 'Защитные оболочки',
+      },
     },
     {
       title: 'Переходник',
@@ -154,10 +154,10 @@ const bannerProps = {
         'Переходники позволяют соединять гидравлические компоненты с различными типами резьб и стандартов соединений.',
         'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая, трубная).',
       ],
-      gridItem: { 
-        image: '/perehodnik.jpeg', 
-        title: 'Переходник'
-      }
+      gridItem: {
+        image: '/perehodnik.jpeg',
+        title: 'Переходник',
+      },
     },
     {
       title: 'Заглушка',
@@ -178,41 +178,38 @@ const bannerProps = {
         'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
         'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
       ],
-      gridItem: { 
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg', 
-        title: 'Заглушка'
-      }
-    }
+      gridItem: {
+        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
+        title: 'Заглушка',
+      },
+    },
   ],
-  
-  gridItems: function() {
+
+  gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-  
-  defaultImages: [
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  ],
-  
+
+  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
+
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',
   ],
-  
+
   defaultParameters: [
     { label: 'Размер', value: 'Стандартный' },
     { label: 'Материал', value: 'Высокопрочный' },
     { label: 'Давление', value: 'до 300 бар' },
   ],
-  
+
   defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
-  
-  initialProductType: 'flange'
+
+  initialProductType: 'flange',
 }
 
 const blockData = {
   title: 'Произведем ремонт существуюших гидролиний или изготовим гидролинии под ваши задачи.',
-  description:
-    'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
+  description: 'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
   buttonText: 'Свяжитесь с нами',
   imageUrl: 'images/uplotnenie/i.png',
   imageAlt: 'комплектующие для РВД',
@@ -221,8 +218,7 @@ const blockData = {
 const mainSlideData = {
   src: '/recambios-coches1.jpg',
   title: 'Профессиональная продажа комплектующих РВД',
-  description:
-    'Компания «ООО Абсолют Техно» предлагает качественные компоненты по конкурентным ценам.',
+  description: 'Компания «ООО Абсолют Техно» предлагает качественные компоненты по конкурентным ценам.',
 }
 
 const blockDataText = {
@@ -232,7 +228,6 @@ const blockDataText = {
 }
 
 const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
   img: '/hydrocilinder.png',
   tag: 'Профессионально',
   title: 'Продажа комплектующих РВД',
@@ -241,9 +236,6 @@ const slider = {
   buttonText: 'Оставить заявку',
   additionalInfo: 'Монтаж и обслуживание',
 }
-
-
-    
 </script>
 
 <template>
@@ -257,10 +249,14 @@ const slider = {
     data-aos-delay="200"
   /> -->
 
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
- 
+  <PartnerBlock
+    :blockDataText="blockDataText"
+    imageUrl="/nasosi/block1.png"
+    variant="image-right"
+    data-aos="fade-up"
+    data-aos-delay="200"
+  />
 
-  
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
 
