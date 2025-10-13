@@ -102,15 +102,14 @@ const bannerProps = {
       type: 'Оболочки',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
-        'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
-        'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
-        'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
+        'https://ae04.alicdn.com/kf/H92e96c60e0594cf381a489901dbbe978U.jpg',
+        'https://i-a.d-cd.net/a1frR3A4Jyx5R3J1CsXjOUb_c5E-1920.jpg',
+        'https://rvd1.ru/wp-content/uploads/2022/04/asdasd.png',
       ],
       parameters: [
-        { label: 'Материал', value: 'Полиуретан, ПВХ' },
-        { label: 'Диаметр', value: '6-32 мм' },
-        { label: 'Температура', value: '-40°C до +90°C' },
-        { label: 'Цвет', value: 'Черный, оранжевый' },
+        { label: 'Материал', value: 'Полиуретан, ПВХ, Силикон-Стеклоткань' },
+        { label: 'Диаметр', value: '6-52 мм' },
+        { label: 'Температура', value: '-40°C до +260°C' },
       ],
       description: [
         'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
@@ -126,9 +125,9 @@ const bannerProps = {
       type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
-        'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkTEjHvpdcaB47RDPkymk8ZF8X2PTpH2uNg&s',
-        'https://www.vod-dom.ru/wa-data/public/shop/products/54/56/15654/images/39119/39119.970.png',
+        'https://kelmochka.ru/wp-content/uploads/2021/09/trubnaya-rezba-37-1.jpg',
+        '',
+        '',
       ],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
