@@ -76,7 +76,6 @@ const bannerProps = {
     {
       title: 'Защитные сильфоны (гофры)',
       type: 'Сильфоны',
-      pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
         'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
         'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
@@ -99,7 +98,6 @@ const bannerProps = {
     {
       title: 'Пальцы',
       type: 'Пальцы',
-      pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
         'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
@@ -123,7 +121,6 @@ const bannerProps = {
     {
       title: 'Втулки',
       type: 'Втулки',
-      pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
         'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
@@ -147,7 +144,6 @@ const bannerProps = {
     {
       title: 'Дополнительная Гидролиния',
       type: 'Гидролинии',
-      pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
         'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',

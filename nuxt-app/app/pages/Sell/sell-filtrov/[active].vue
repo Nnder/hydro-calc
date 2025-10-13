@@ -61,7 +61,6 @@ const bannerProps = {
     {
       title: 'Металлические сетки',
       type: 'Сетки',
-      pdfUrl: '',
       images: [
         'https://avatars.mds.yandex.net/i?id=7cf862c66881b42f460e929b0fa3cd95_l-5496540-images-thumbs&n=13',
         'https://st39.stpulscen.ru/images/localized/010/652/073_original.jpg',
@@ -85,7 +84,6 @@ const bannerProps = {
     {
       title: 'Уплотнительное кольцо',
       type: 'Уплотнения',
-      pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
         'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg',
@@ -109,7 +107,6 @@ const bannerProps = {
     {
       title: 'Быстросъёмное соединение',
       type: 'Быстросьемники',
-      pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
         'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
@@ -133,7 +130,6 @@ const bannerProps = {
     {
       title: 'Заглушка',
       type: 'Заглушки',
-      pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
         'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
