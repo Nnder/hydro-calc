@@ -1,18 +1,12 @@
 <script setup>
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 import Contact from '~/components/Page/Contact.vue'
-import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
-import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
-import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
-  path: '/sell/sell-filtrov',
+  path: '/sell/sell-filtrov/:active?',
 })
 
 useHead({
@@ -25,63 +19,8 @@ useHead({
   ],
 })
 
-const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных фильтров и фильтроэлементов в Нижнем Тагиле. 
-          Мы предлагаем широкий ассортимент фильтрующих элементов для любой гидравлической системы.
-        </p>
-        <p class="text-lg">
-          Все наши фильтры проходят строгий контроль качества и обеспечивают эффективную очистку рабочих жидкостей. 
-        </p>`
-
-const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа фильтров и фильтроэлементов в Нижнем Тагиле'
-
-const items = ref([
-  {
-    image: 'vtulka.jpeg',
-    title: 'Всасывающие фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Напорные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Сливные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Воздушные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры тонкой очистки',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры грубой очистки',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Магнитные фильтры',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтроэлементы сменные',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры-грязеуловители',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры для спецтехники',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Фильтры для станков',
-  },
-])
+const route = useRoute()
+const activeSection = ref(route.params.active || 'Сетки')
 
 const blockData = {
   title: 'Чистота гидравлических систем - залог долговечности',
@@ -101,8 +40,8 @@ const mainSlideData = {
 
 const blockDataText = {
   title: 'Продажа фильтров в нижнем тагиле',
-  description: `<p>Фильтроэлемент гидравлический — расходный материал, предназначенный для фильтрации гидравлических масел. Он улавливает загрязнения, неизменно появляющиеся в рабочей жидкости: окислы, сколы, частички нагара и ржавчины. 
-Принцип работы: фильтроэлемент закрепляется на крышке корпуса. Через входной канал подачи во внутреннюю полость фильтра поступает рабочая гидрожидкость. Она протекает через фильтровальный материал, избавляясь от загрязняющих примесей. Через выходной канал очищенное масло поступает в гидросистему. 
+  description: `<p>Фильтроэлемент гидравлический — расходный материал, предназначенный для фильтрации гидравлических масел. Он улавливает загрязнения, неизменно появляющиеся в рабочей жидкости: окислы, сколы, частички нагара и ржавчины.
+Принцип работы: фильтроэлемент закрепляется на крышке корпуса. Через входной канал подачи во внутреннюю полость фильтра поступает рабочая гидрожидкость. Она протекает через фильтровальный материал, избавляясь от загрязняющих примесей. Через выходной канал очищенное масло поступает в гидросистему.
 </p>`,
 }
 
@@ -121,7 +60,7 @@ const bannerProps = {
   products: [
     {
       title: 'Металлические сетки',
-      type: 'flange',
+      type: 'Сетки',
       pdfUrl: '',
       images: [
         'https://avatars.mds.yandex.net/i?id=7cf862c66881b42f460e929b0fa3cd95_l-5496540-images-thumbs&n=13',
@@ -136,16 +75,16 @@ const bannerProps = {
         { label: 'Температура', value: '-25°C до +120°C' },
       ],
       description: [
-        'Применяются для грубой фильтрации. Долговечны и легко очищаются, но не подходят для тонкой фильтрации.'
+        'Применяются для грубой фильтрации. Долговечны и легко очищаются, но не подходят для тонкой фильтрации.',
       ],
-      gridItem: { 
-        image: '/flanec_sae.jpg', 
-        title: 'Металлические сетки'
-      }
+      gridItem: {
+        image: '/flanec_sae.jpg',
+        title: 'Металлические сетки',
+      },
     },
     {
-      title: 'Бумажные фильтры',
-      type: 'seal',
+      title: 'Уплотнительное кольцо',
+      type: 'Уплотнения',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
@@ -162,14 +101,14 @@ const bannerProps = {
         'Обеспечивают тонкую фильтрацию, но имеют ограниченный срок службы и требуют регулярной замены',
         'Основное применение — всасывающие и сливные фильтры.',
       ],
-      gridItem: { 
-        image: '/uplotnitelnoe_kolce.jpeg', 
-        title: 'Уплотнительное кольцо'
-      }
+      gridItem: {
+        image: '/uplotnitelnoe_kolce.jpeg',
+        title: 'Уплотнительное кольцо',
+      },
     },
     {
-      title: 'Синтетические материалы (полиэстер, нейлон)',
-      type: 'quick_connect',
+      title: 'Быстросъёмное соединение',
+      type: 'Быстросьемники',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
@@ -186,14 +125,14 @@ const bannerProps = {
         'Обладают высокой прочностью и устойчивостью к химическим веществам.',
         'Обеспечивают тонкую фильтрацию. В гидравлических системах применяются редко.',
       ],
-      gridItem: { 
-        image: '/bistrosemnoe_soedinenie.jpeg', 
-        title: 'Быстросъёмное соединение'
-      }
+      gridItem: {
+        image: '/bistrosemnoe_soedinenie.jpeg',
+        title: 'Быстросъёмное соединение',
+      },
     },
     {
-      title: 'Фибра стекловолокна.',
-      type: 'plug',
+      title: 'Заглушка',
+      type: 'Заглушки',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
@@ -210,37 +149,34 @@ const bannerProps = {
         'Используется для ультратонкой фильтрации. Обеспечивает высокий уровень очистки жидкости.',
         'Применяется в напорных фильтрах высокотехнологичной гидравлики, где степень очистки масла является ключевым параметром.',
       ],
-      gridItem: { 
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg', 
-        title: 'Заглушка'
-      }
-    }
+      gridItem: {
+        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
+        title: 'Заглушка',
+      },
+    },
   ],
-  
-  gridItems: function() {
+
+  gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-  
-  defaultImages: [
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  ],
-  
+
+  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
+
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',
   ],
-  
+
   defaultParameters: [
     { label: 'Размер', value: 'Стандартный' },
     { label: 'Материал', value: 'Высокопрочный' },
     { label: 'Давление', value: 'до 300 бар' },
   ],
-  
-  defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
-  
-  initialProductType: 'flange'
-}
 
+  defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
+
+  initialProductType: activeSection.value,
+}
 </script>
 
 <template>
@@ -254,11 +190,16 @@ const bannerProps = {
     data-aos-delay="200"
   /> -->
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="https://fim.by/images/lp-photo/gidravlika.jpg" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+  <PartnerBlock
+    :blockDataText="blockDataText"
+    imageUrl="https://fim.by/images/lp-photo/gidravlika.jpg"
+    variant="image-right"
+    data-aos="fade-up"
+    data-aos-delay="200"
+  />
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
-
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />

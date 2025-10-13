@@ -1,47 +1,81 @@
 <script setup>
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 import Contact from '~/components/Page/Contact.vue'
-import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
-import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
-import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
-import SwiperProduct from '~/components/ProductGalleryWithThumbnails/SwiperProduct.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
+import Calculator from '~/components/Calculator/Calculator.vue'
 
 definePageMeta({
-  path: '/sell/sell-komplektushie-rvd',
+  path: '/sell/sell-gidrocilindrov/:active?',
 })
 
 useHead({
-  title: 'Продажа комплектующих для РВД',
+  title: 'Продажа гидроцилиндров',
   meta: [
     {
       name: 'description',
-      content: 'Комплектующие для рукавов высокого давления в Нижнем Тагиле',
+      content: 'Гидроцилиндры для спецтехники и промышленного оборудования в Нижнем Тагиле',
     },
   ],
 })
 
-const description = `<p class="text-lg">
-  Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных комплектующих для РВД в Нижнем Тагиле. 
-  Мы предлагаем полный ассортимент фитингов, ниппелей, муфт и других компонентов.
-</p>
-<p class="text-lg">
-  Все наши комплектующие проходят строгий контроль качества и соответствуют стандартам безопасности. 
-</p>`
+const route = useRoute()
+const activeSection = ref(route.params.active || 'Сильфоны')
 
-const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа комплектующих для РВД в Нижнем Тагиле'
+const blockData = {
+  title: 'Ремонт гидроцилиндров для спецтехники и промышленного производства',
+  description:
+    'Компания ООО АбсолютТехно выполняет ремонт гидроцилиндров диаметром до 300 мм и ходом поршня до 2200 мм с гарантией 12 месяцев',
+  buttonText: 'Рассчитать стоимость',
+  imageUrl: '/hydrocilindr.jpg',
+  imageAlt: 'Гидроцилиндр',
+  type: '3d',
+  modelSrc: '/3d/011.57.01.01.00 Корпус.glb',
+  modelBgColor: '#fff',
+  scale: 0.5,
+  loadFunc: model => {
+    model.rotation.x = Math.PI / 2.2
+    model.rotation.y = Math.PI
+  },
+  img: {
+    src: '/3d/preload/hydrocilinder.png',
+    alt: 'Гидроцилиндр 3д предзагрузка',
+  },
+}
+
+const mainSlideData = {
+  src: '/recambios-coches1.jpg',
+  title: 'Подбор и продажа гидроцилиндров',
+  description:
+    'Профессиональная продажа гидравлических цилиндров в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные гидроцилиндры по конкурентоспособным ценам с доставкой по всей Свердловской области.',
+}
+
+const blockDataText = {
+  title: 'Продажа гидлроцилиндров в Нижнем Тагиле',
+  description: `<p class="text-lg">
+         Наши специалисты помогут подобрать оптимальный гидроцилиндр для ваших задач, рассчитают необходимые параметры и предоставят профессиональную консультацию по установке и эксплуатации. Обеспечьте надежную работу вашего оборудования с нашими гидроцилиндрами!
+        </p>
+        <p class="text-lg">
+          Все наши гидронасосы проходят строгий контроль качества и соответствуют ГОСТам. 
+        </p>`,
+}
+
+const slider = {
+  img: 'https://static.tildacdn.com/tild6637-3562-4264-b431-613535373630/cylinder_01-1024x640.jpg',
+  tag: 'Профессионально',
+  title: 'Продажа гидроцилиндров',
+  text: 'Широкий выбор гидравлических цилиндров',
+  features: ['Подбор по техпараметрам', 'Гарантия качества', 'Техническая поддержка'],
+  buttonText: 'Оставить заявку',
+  additionalInfo: 'Изготовление под заказ',
+}
 
 const bannerProps = {
   products: [
     {
-      title: 'Фланцы SAE',
-      type: 'flange',
+      title: 'Защитные сильфоны (гофры)',
+      type: 'Сильфоны',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
         'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
@@ -49,10 +83,9 @@ const bannerProps = {
         'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
       ],
       parameters: [
-        { label: 'Размер', value: 'SAE 1/2"' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Материал', value: 'Сталь 45' },
-        { label: 'Температура', value: '-40°C до +120°C' },
+        { label: 'Материал', value: 'Параарамидная / тентовая ткань' },
+        { label: 'Рабочая температура', value: '-100°C до +250°C' },
+        { label: 'Защита от', value: 'Механических повреждений и мелкодисперсной пыли' },
       ],
       description: [
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
@@ -64,8 +97,8 @@ const bannerProps = {
       },
     },
     {
-      title: 'Уплотнительное кольцо',
-      type: 'seal',
+      title: 'Пальцы',
+      type: 'Пальцы',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
@@ -88,8 +121,8 @@ const bannerProps = {
       },
     },
     {
-      title: 'Быстросъёмное соединение',
-      type: 'quick_connect',
+      title: 'Втулки',
+      type: 'Втулки',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
@@ -112,8 +145,8 @@ const bannerProps = {
       },
     },
     {
-      title: 'Защитные оболочки',
-      type: 'protection',
+      title: 'Дополнительная Гидролиния',
+      type: 'Гидролинии',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
@@ -136,51 +169,27 @@ const bannerProps = {
       },
     },
     {
-      title: 'Переходник',
-      type: 'adapter',
-      pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
+      title: 'ГСМ',
+      type: 'ГСМ',
+      pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
-        'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkTEjHvpdcaB47RDPkymk8ZF8X2PTpH2uNg&s',
-        'https://www.vod-dom.ru/wa-data/public/shop/products/54/56/15654/images/39119/39119.970.png',
+        'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
+        'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
+        'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
       ],
       parameters: [
-        { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
-        { label: 'Материал', value: 'Сталь, латунь' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Покрытие', value: 'Цинк, никель' },
+        { label: 'Материал', value: 'Полиуретан, ПВХ' },
+        { label: 'Диаметр', value: '6-32 мм' },
+        { label: 'Температура', value: '-40°C до +90°C' },
+        { label: 'Цвет', value: 'Черный, оранжевый' },
       ],
       description: [
-        'Переходники позволяют соединять гидравлические компоненты с различными типами резьб и стандартов соединений.',
-        'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая, трубная).',
+        'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
+        'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
       gridItem: {
-        image: '/perehodnik.jpeg',
-        title: 'Переходник',
-      },
-    },
-    {
-      title: 'Заглушка',
-      type: 'plug',
-      pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
-      images: [
-        'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
-        'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5omeSJ_ya_TxRQ02PTxtuRLbjl5-yc4QYQ&s',
-      ],
-      parameters: [
-        { label: 'Тип резьбы', value: 'Метрическая, трубная' },
-        { label: 'Материал', value: 'Сталь, пластик' },
-        { label: 'Размер', value: 'М8 - М42' },
-        { label: 'Температура', value: '-50°C до +150°C' },
-      ],
-      description: [
-        'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
-        'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
-      ],
-      gridItem: {
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
-        title: 'Заглушка',
+        image: '/zashitnie_obolochi.jpeg',
+        title: 'Защитные оболочки2',
       },
     },
   ],
@@ -204,38 +213,7 @@ const bannerProps = {
 
   defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
 
-  initialProductType: 'flange',
-}
-
-const blockData = {
-  title: 'Надежные соединения для гидросистем',
-  description: 'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
-  buttonText: 'Подобрать комплектующие',
-  imageUrl: 'images/uplotnenie/i.png',
-  imageAlt: 'комплектующие для РВД',
-}
-
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Профессиональная продажа комплектующих РВД',
-  description: 'Компания «ООО Абсолют Техно» предлагает качественные компоненты по конкурентным ценам.',
-}
-
-const blockDataText = {
-  title: 'Продажа запчастей для рвд',
-  description: `<p>Фитинги, ниппели, муфты, переходники, фланцы и другие компоненты.</p>
-<p>Наши специалисты помогут подобрать аналоги и обеспечат консультацию.</p>`,
-}
-
-const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
-  tag: 'Профессионально',
-  title: 'Продажа комплектующих РВД',
-  text: 'Полный ассортимент компонентов для РВД',
-  features: ['Подбор за 30 минут', 'Гарантия качества', 'Техническая консультация'],
-  buttonText: 'Оставить заявку',
-  additionalInfo: 'Монтаж и обслуживание',
+  initialProductType: activeSection.value,
 }
 </script>
 
@@ -249,19 +227,19 @@ const slider = {
     data-aos="fade-up"
     data-aos-delay="200"
   /> -->
-
+  <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock
     :blockDataText="blockDataText"
-    imageUrl="/nasosi/block1.png"
+    imageUrl="https://image.made-in-china.com/2f0j00fcMqmYbGCDko/Bobcat-763-T300-610-Tilt-Cylinder.webp"
     variant="image-right"
     data-aos="fade-up"
     data-aos-delay="200"
   />
-
+  <Calculator data-aos="fade-up" />
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
-
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
-  <Contact data-aos="fade-up" />
+  <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
+  <Contact />
 </template>

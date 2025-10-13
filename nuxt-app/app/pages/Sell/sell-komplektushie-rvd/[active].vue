@@ -1,126 +1,32 @@
 <script setup>
-import ThePageExtra from '~/components/PageExtra/ThePageExtra.vue'
 import Contact from '~/components/Page/Contact.vue'
-import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
-import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
-import RvdTableWrapper from '~/components/Rvd-table/RvdTableWrapper.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import NewProductBanner from '~/components/ProductGalleryWithThumbnails/NewProductBanner.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
-  path: '/sell/sell-shidkostey',
+  path: '/sell/sell-komplektushie-rvd/:active?',
 })
 
 useHead({
-  title: 'Продажа ГСМ и технических жидкостей',
+  title: 'Продажа комплектующих для РВД',
   meta: [
     {
       name: 'description',
-      content: 'Горюче-смазочные материалы и технические жидкости для гидравлики в Нижнем Тагиле',
+      content: 'Комплектующие для рукавов высокого давления в Нижнем Тагиле',
     },
   ],
 })
 
-const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" является ведущим поставщиком высококачественных ГСМ и технических жидкостей в Нижнем Тагиле. 
-          Мы предлагаем широкий ассортимент масел, смазок и специальных жидкостей для любого оборудования.
-        </p>
-        <p class="text-lg">
-          Все наши продукты соответствуют международным стандартам качества и техническим требованиям. 
-        </p>`
-
-const imageUrl = 'images/uplotnenie/block.jpeg'
-const title = 'Продажа ГСМ и технических жидкостей в Нижнем Тагиле'
-
-const items = ref([
-  {
-    image: 'vtulka.jpeg',
-    title: 'Гидравлические масла',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Моторные масла',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Трансмиссионные масла',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Индустриальные масла',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Пластичные смазки',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Специальные жидкости',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Тормозные жидкости',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Охлаждающие жидкости',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Антифризы',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Промывочные жидкости',
-  },
-  {
-    image: 'vtulka.jpeg',
-    title: 'Смазочно-охлаждающие жидкости',
-  },
-])
-
-const blockData = {
-  title: 'Качественные жидкости для надежной работы техники',
-  description:
-    'Сертифицированные ГСМ и технические жидкости обеспечивают оптимальную работу вашего оборудования и продлевают его срок службы',
-  buttonText: 'Подобрать жидкость',
-  imageUrl: 'images/uplotnenie/i.png',
-  imageAlt: 'ГСМ и технические жидкости',
-}
-
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Профессиональная продажа ГСМ',
-  description:
-    'Профессиональная продажа горюче-смазочных материалов и технических жидкостей в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные продукты по конкурентоспособным ценам с доставкой по всей Свердловской области.',
-}
-
-const blockDataText = {
-  title: 'Продажа ГСМ',
-  description: `<p>Широкий ассортимент горюче-смазочных материалов и технических жидкостей для различных отраслей промышленности: гидравлические масла, моторные масла, трансмиссионные жидкости, пластичные смазки, специальные жидкости. Мы работаем с ведущими производителями и гарантируем высокое качество всей продукции.</p>
-<p>Наши специалисты помогут подобрать оптимальные жидкости для вашего оборудования, предоставят техническую документацию и профессиональную консультацию по применению. Обеспечьте надежную работу вашей техники с нашими ГСМ и техническими жидкостями!</p>`,
-}
-
-const slider = {
-  videoSrc: '/videos/Lavrov.mp4',
-  img: '/hydrocilinder.png',
-  tag: 'Профессионально',
-  title: 'Продажа ГСМ и жидкостей',
-  text: 'Широкий выбор технических жидкостей',
-  features: ['Подбор по спецификациям', 'Сертификаты качества', 'Техническое консультирование'],
-  buttonText: 'Оставить заявку',
-  additionalInfo: 'Доставка и хранение',
-}
+const route = useRoute()
+const activeSection = ref(route.params.active || 'Фланец')
 
 const bannerProps = {
   products: [
     {
       title: 'Фланцы SAE',
-      type: 'flange',
+      type: 'Фланец',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
         'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
@@ -137,14 +43,14 @@ const bannerProps = {
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
         'Применяются в промышленном оборудовании, строительной технике и гидравлических системах. Обеспечивают надежное и герметичное соединение при рабочих давлениях до 600 бар.',
       ],
-      gridItem: { 
-        image: '/flanec_sae.jpg', 
-        title: 'Фланец SAE'
-      }
+      gridItem: {
+        image: '/flanec_sae.jpg',
+        title: 'Фланец SAE',
+      },
     },
     {
       title: 'Уплотнительное кольцо',
-      type: 'seal',
+      type: 'Уплотнение',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
@@ -161,14 +67,14 @@ const bannerProps = {
         'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или EPDM для различных рабочих сред и температурных условий.',
         'Обеспечивают герметичность соединений в гидравлических системах, предотвращают утечки масла и других рабочих жидкостей.',
       ],
-      gridItem: { 
-        image: '/uplotnitelnoe_kolce.jpeg', 
-        title: 'Уплотнительное кольцо'
-      }
+      gridItem: {
+        image: '/uplotnitelnoe_kolce.jpeg',
+        title: 'Уплотнительное кольцо',
+      },
     },
     {
       title: 'Быстросъёмное соединение',
-      type: 'quick_connect',
+      type: 'Быстросъемник',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
@@ -185,14 +91,14 @@ const bannerProps = {
         'Быстросъёмные соединения позволяют быстро и безопасно подсоединять и отсоединять гидравлические линии без утечки жидкости.',
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
-      gridItem: { 
-        image: '/bistrosemnoe_soedinenie.jpeg', 
-        title: 'Быстросъёмное соединение'
-      }
+      gridItem: {
+        image: '/bistrosemnoe_soedinenie.jpeg',
+        title: 'Быстросъёмное соединение',
+      },
     },
     {
       title: 'Защитные оболочки',
-      type: 'protection',
+      type: 'Оболочки',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
         'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
@@ -209,14 +115,14 @@ const bannerProps = {
         'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
-      gridItem: { 
-        image: '/zashitnie_obolochi.jpeg', 
-        title: 'Защитные оболочки'
-      }
+      gridItem: {
+        image: '/zashitnie_obolochi.jpeg',
+        title: 'Защитные оболочки',
+      },
     },
     {
       title: 'Переходник',
-      type: 'adapter',
+      type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
@@ -233,14 +139,14 @@ const bannerProps = {
         'Переходники позволяют соединять гидравлические компоненты с различными типами резьб и стандартов соединений.',
         'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая, трубная).',
       ],
-      gridItem: { 
-        image: '/perehodnik.jpeg', 
-        title: 'Переходник'
-      }
+      gridItem: {
+        image: '/perehodnik.jpeg',
+        title: 'Переходник',
+      },
     },
     {
       title: 'Заглушка',
-      type: 'plug',
+      type: 'Заглушки',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
@@ -257,37 +163,65 @@ const bannerProps = {
         'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
         'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
       ],
-      gridItem: { 
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg', 
-        title: 'Заглушка'
-      }
-    }
+      gridItem: {
+        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
+        title: 'Заглушка',
+      },
+    },
   ],
-  
-  gridItems: function() {
+
+  gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-  
-  defaultImages: [
-    'https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg',
-  ],
-  
+
+  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
+
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',
   ],
-  
+
   defaultParameters: [
     { label: 'Размер', value: 'Стандартный' },
     { label: 'Материал', value: 'Высокопрочный' },
     { label: 'Давление', value: 'до 300 бар' },
   ],
-  
+
   defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
-  
-  initialProductType: 'flange'
+
+  initialProductType: activeSection.value,
 }
 
+const blockData = {
+  title: 'Надежные соединения для гидросистем',
+  description: 'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
+  buttonText: 'Подобрать комплектующие',
+  imageUrl: 'images/uplotnenie/i.png',
+  imageAlt: 'комплектующие для РВД',
+}
+
+const mainSlideData = {
+  src: '/recambios-coches1.jpg',
+  title: 'Профессиональная продажа комплектующих РВД',
+  description: 'Компания «ООО Абсолют Техно» предлагает качественные компоненты по конкурентным ценам.',
+}
+
+const blockDataText = {
+  title: 'Продажа запчастей для рвд',
+  description: `<p>Фитинги, ниппели, муфты, переходники, фланцы и другие компоненты.</p>
+<p>Наши специалисты помогут подобрать аналоги и обеспечат консультацию.</p>`,
+}
+
+const slider = {
+  videoSrc: '/videos/Lavrov.mp4',
+  img: '/hydrocilinder.png',
+  tag: 'Профессионально',
+  title: 'Продажа комплектующих РВД',
+  text: 'Полный ассортимент компонентов для РВД',
+  features: ['Подбор за 30 минут', 'Гарантия качества', 'Техническая консультация'],
+  buttonText: 'Оставить заявку',
+  additionalInfo: 'Монтаж и обслуживание',
+}
 </script>
 
 <template>
@@ -301,15 +235,18 @@ const bannerProps = {
     data-aos-delay="200"
   /> -->
 
-  <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
-  <PartnerBlock :blockDataText="blockDataText" imageUrl="/nasosi/block1.png" variant="image-right" data-aos="fade-up" data-aos-delay="200"/>
+  <PartnerBlock
+    :blockDataText="blockDataText"
+    imageUrl="/nasosi/block1.png"
+    variant="image-right"
+    data-aos="fade-up"
+    data-aos-delay="200"
+  />
 
-  
   <NewProductBanner :bannerProps="bannerProps" data-aos="fade-up" />
   <!-- <InformationBlock :blockData="blockData" data-aos="fade-up" /> -->
+
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
-
-  <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
   <Contact data-aos="fade-up" />
 </template>
