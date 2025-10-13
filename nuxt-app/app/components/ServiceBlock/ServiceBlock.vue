@@ -15,23 +15,23 @@ const categories = ref([
       {
         title: 'Ремонт Гидронасосов',
         image: '/services/hydromotor.jpg',
-        link: '/remont-hydraulic-motors'
+        link: '/remont-hydraulic-motors',
       },
       {
         title: 'Ремонт Гидромоторов',
         image: '/services/hydro.jpg',
-        link: '/remont-nasosov-pumps'
-
+        link: '/remont-nasosov-pumps',
       },
       {
         title: 'Ремонт навестного оборудования',
         image: '/services/kovsh.webp',
-        link: '/remont-kovshey'
+        link: '/remont-kovshey',
       },
       {
         title: 'Ремонт сварочных и токарных работ',
-        image: '/services/svarka.jpg',
-        link: '/remont-svarkoy'
+        image:
+          'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
+        link: '/remont-svarkoy',
       },
     ],
   },
@@ -43,17 +43,17 @@ const categories = ref([
       {
         title: 'РВД',
         image: '/services/rvd.jpg',
-        link: '/rukava-visokogo-davlenia-rvd'
+        link: '/rukava-visokogo-davlenia-rvd',
       },
       {
         title: 'Изготовление Гидроцилиндров',
         image: '/services/gidrocilindr-0286.jpg',
-        link: '/izgotovlenie-hydrocylindrov'
+        link: '/izgotovlenie-hydrocylindrov',
       },
       {
         title: 'Станция гидравлическая',
         image: '/services/stanciigidravlcesky.jpg',
-        link: '/proektirovanie-izgotovlenie-hydraulic-stantici'
+        link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
       },
     ],
   },
@@ -65,32 +65,32 @@ const categories = ref([
       {
         title: 'Продажа Уплотнений',
         image: '/services/uplotnenie.jpg',
-        link: '/sell/sell-uplotnenie'
+        link: '/sell/sell-uplotnenie',
       },
       {
         title: 'Продажа Гидронасосов',
         image: '/services/gidromotor2.jpg',
-        link: '/sell/sell-gidronasosov'
+        link: '/sell/sell-gidronasosov',
       },
       {
         title: 'Продажа Гидроцилиндров',
         image: '/services/gidrocilindr-0286.jpg',
-        link: '/sell/sell-gidrocilindrov'
+        link: '/sell/sell-gidrocilindrov',
       },
       {
         title: 'Продажа Фильтров',
         image: '/services/filtrov.jpg',
-        link: '/sell/sell-filtrov'
+        link: '/sell/sell-filtrov',
       },
       {
         title: 'Продажа комплектующие рвд',
         image: '/services/rvd.webp',
-        link: '/sell/sell-komplektushie-rvd'
+        link: '/sell/sell-komplektushie-rvd',
       },
       {
         title: 'Продажа ГСМ и тех. жидкости',
         image: '/services/smazka.jpg',
-        link: '/sell/sell-shidkostey'
+        link: '/sell/sell-shidkostey',
       },
     ],
   },
