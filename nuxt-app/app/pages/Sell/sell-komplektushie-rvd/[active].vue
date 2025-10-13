@@ -80,7 +80,7 @@ const bannerProps = {
         'https://a.allegroimg.com/original/03d5e9/9f182c094bd199b2ed3869e951c4',
         'https://многотракторов.рф/upload/iblock/a69/rg26vy27thd3t8utpz296p9v36i7yys0.jpg',
         'https://media.rs-online.com/image/upload/bo_1.5px_solid_white,b_auto,c_pad,dpr_2,f_auto,h_399,q_auto,w_710/c_pad,h_399,w_710/R7335659-01?pgw=1',
-        'i.png'
+        'i.png',
       ],
       parameters: [
         { label: 'Давление', value: 'до 350 бар' },
@@ -197,7 +197,7 @@ const blockData = {
   title: 'Надежные соединения для гидросистем',
   description: 'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
   buttonText: 'Подобрать комплектующие',
-  imageUrl: 'images/uplotnenie/i.png',
+  imageUrl: '/fluidex-dicsa-gallery-1-2.png',
   imageAlt: 'комплектующие для РВД',
 }
 
