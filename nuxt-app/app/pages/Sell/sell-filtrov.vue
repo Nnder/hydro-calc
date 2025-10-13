@@ -197,8 +197,8 @@ const bannerProps = {
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         '../public/fibro1.jpeg',
-        'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5omeSJ_ya_TxRQ02PTxtuRLbjl5-yc4QYQ&s',
+        'https://www.cargoparts.ru/pictures/product/big/10611_big.jpg',
+        'https://filter64.ru/images/stories/virtuemart/product/00-00001472_4.jpg',
       ],
       parameters: [
         { label: 'Тип резьбы', value: 'Метрическая, трубная' },
