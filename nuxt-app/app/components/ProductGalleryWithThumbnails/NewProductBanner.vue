@@ -41,7 +41,7 @@ const gridItems = computed(() => {
 const currentProductImages = computed(() => currentProduct.value?.images || props.bannerProps.defaultImages)
 const currentDescription = computed(() => currentProduct.value?.description || props.bannerProps.defaultDescription)
 const currentParameters = computed(() => currentProduct.value?.parameters || props.bannerProps.defaultParameters)
-const currentPdfUrl = computed(() => currentProduct.value?.pdfUrl || props.bannerProps.defaultPdfUrl)
+const currentPdfUrl = computed(() => currentProduct.value?.pdfUrl || false)
 const currentPdfFileName = computed(() => `${currentProduct.value?.title}.pdf` || 'document.pdf')
 
 const handleItemClick = item => {
@@ -147,6 +147,7 @@ if (props.bannerProps.initialProductType) {
           </h3>
 
           <DownloadPdfButton
+            v-if="currentPdfUrl"
             :pdf-url="currentPdfUrl"
             :file-name="currentPdfFileName"
             class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
