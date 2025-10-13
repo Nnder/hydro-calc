@@ -93,7 +93,7 @@ const bannerProps = {
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
       gridItem: {
-        image: '/bistrosemnoe_soedinenie.jpeg',
+        image: 'https://a.allegroimg.com/original/03d5e9/9f182c094bd199b2ed3869e951c4',
         title: 'Быстросъёмное соединение',
       },
     },
@@ -116,7 +116,7 @@ const bannerProps = {
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
       gridItem: {
-        image: '/zashitnie_obolochi.jpeg',
+        image: 'https://rvd1.ru/wp-content/uploads/2022/04/asdasd.png',
         title: 'Защитные оболочки',
       },
     },
@@ -164,7 +164,7 @@ const bannerProps = {
         'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
       ],
       gridItem: {
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
+        image: 'https://hf-cdn-prod.azureedge.net/medias/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIzNDQ2fGltYWdlL2pwZWd8YURRMkwyaGtaaTh4TURRMU5EQXdOVFkzT0RFeE1DOVFSbDlZVmtoTVRGOWZXRlpJVEY5ZldGWklVMTg1TURCNE9UQXdYekUzTlRRd09EUTRPRFU1T1RZdWFuQm58MjE3MjA2NmE3NjhjOWU3NGMxYjk2MmNmOGM5OGE4NWFmNTljZGE3NTIwZDY5N2NlYmQ5NDUzZDVmOWQ2ZWIxMw',
         title: 'Заглушка',
       },
     },
