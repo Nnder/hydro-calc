@@ -126,18 +126,18 @@ const bannerProps = {
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         'https://kelmochka.ru/wp-content/uploads/2021/09/trubnaya-rezba-37-1.jpg',
-        '',
-        '',
+        'https://hansa-flex.com.ru/images/catalog/catalog/3634_image_big.jpeg',
+        'https://hf-cdn-prod.azureedge.net/medias/PF-XAH-900x900-1754062833559.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NjEwNjE5fGltYWdlL2pwZWd8YURBeEwyZ3lOUzh4TURRMU1URXdPVEV4TnprNE1pOVFSbDlZUVVoZk9UQXdlRGt3TUY4eE56VTBNRFl5T0RNek5UVTVMbXB3Wnd8MTU5MWNiYTUyYWQ1ZDFkNDE0NTcxNDEzOWVlMDQ5ZjhkNDhiMTU5ZTQzMDI2NmFhZjg2ZDJhNmY5NDE0YTMwZA',
       ],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
-        { label: 'Материал', value: 'Сталь, латунь' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Покрытие', value: 'Цинк, никель' },
+        { label: 'Материал', value: 'Сталь, нержавеющая сталь' },
+        { label: 'Давление', value: 'до 630 бар' },
+        { label: 'Покрытие', value: 'Гальваническое покрытие' },
       ],
       description: [
         'Переходники позволяют соединять гидравлические компоненты с различными типами резьб и стандартов соединений.',
-        'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая, трубная).',
+        'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая).',
       ],
       gridItem: {
         image: '/perehodnik.jpeg',
@@ -149,15 +149,15 @@ const bannerProps = {
       type: 'Заглушки',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
-        'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
-        'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5omeSJ_ya_TxRQ02PTxtuRLbjl5-yc4QYQ&s',
+        'https://hf-cdn-prod.azureedge.net/medias/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIzNDQ2fGltYWdlL2pwZWd8YURRMkwyaGtaaTh4TURRMU5EQXdOVFkzT0RFeE1DOVFSbDlZVmtoTVRGOWZXRlpJVEY5ZldGWklVMTg1TURCNE9UQXdYekUzTlRRd09EUTRPRFU1T1RZdWFuQm58MjE3MjA2NmE3NjhjOWU3NGMxYjk2MmNmOGM5OGE4NWFmNTljZGE3NTIwZDY5N2NlYmQ5NDUzZDVmOWQ2ZWIxMw',
+        'https://hf-cdn-prod.azureedge.net/medias/PF-VHR-90-ED-900x900-1754084222814.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIwNDU5fGltYWdlL2pwZWd8YURNNEwyZzJNaTh4TURRMU16a3dOVFEwTURjNU9DOVFSbDlXU0ZKZk9UQmZSVVJmT1RBd2VEa3dNRjh4TnpVME1EZzBNakl5T0RFMExtcHdad3w5NDY4N2EwMDRjZDEwOTRmYTM0OTBmMjA2YmJkNzA2NWZiZmNiMmRmNTNmYTUzZmRjYTJlMGVkMjc4NDk5YjQ4',
+        'https://hf-cdn-prod.azureedge.net/medias/PF-BZL-VA-BZS-VA-900x900-1753555440819.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTgwOTg5fGltYWdlL2pwZWd8YURoakwyZ3lNQzh4TURNNE1qZzRORGs1TlRFd01pOVFSbDlDV2t4ZlZrRmZYMEphVTE5V1FWODVNREI0T1RBd1h6RTNOVE0xTlRVME5EQTRNVGt1YW5Cbnw0ZDcyMDUxNmM1OTY5NTYzMzQzYmI2MjI4ZjBkOGQ1MjI5NjE2NmRiM2IwZGU3Y2QzNGQyOTU0ZmQ2NjU1MTll',
       ],
       parameters: [
-        { label: 'Тип резьбы', value: 'Метрическая, трубная' },
-        { label: 'Материал', value: 'Сталь, пластик' },
-        { label: 'Размер', value: 'М8 - М42' },
-        { label: 'Температура', value: '-50°C до +150°C' },
+        { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
+        { label: 'Материал', value: 'Сталь, нержавеющая сталь' },
+        { label: 'Давление', value: 'до 630 бар' },
+        { label: 'Покрытие', value: 'Гальваническое покрытие' },
       ],
       description: [
         'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
@@ -196,7 +196,7 @@ const blockData = {
   title: 'Надежные соединения для гидросистем',
   description: 'Качественные комплектующие обеспечивают герметичность и надежность соединений.',
   buttonText: 'Подобрать комплектующие',
-  imageUrl: 'images/uplotnenie/i.png',
+  imageUrl: '',
   imageAlt: 'комплектующие для РВД',
 }
 
