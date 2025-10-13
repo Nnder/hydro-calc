@@ -20,6 +20,13 @@ const props = defineProps({
       defaultParameters: [],
       defaultPdfUrl: '',
       initialProductType: '',
+      title: `<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 leading-tight">
+          Дополнительные
+          <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">компоненты</span>
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl text-blue-700/80 max-w-3xl mx-auto leading-relaxed px-2">
+          Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования
+        </p>`,
     }),
   },
 })
@@ -65,15 +72,7 @@ if (props.bannerProps.initialProductType) {
 <template>
   <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden" id="variants">
     <div class="container mx-auto max-w-7xl py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-10 sm:mb-16 px-2" v-html="props.bannerProps.title || `<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 leading-tight">
-          Дополнительные
-          <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">компоненты</span>
-        </h2>
-        <p class="text-base sm:text-lg lg:text-xl text-blue-700/80 max-w-3xl mx-auto leading-relaxed px-2">
-          Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования
-        </p>`">
-        
-      </div>
+      <div class="text-center mb-10 sm:mb-16 px-2" v-html="bannerProps.title"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
         <div class="relative lg:order-none">
