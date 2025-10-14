@@ -2,15 +2,12 @@
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
     name="Здравствуйте необходимый перечень работ по гидроцилиндрам"
-    :selectorData="true"
     :title="'Выберите детали для ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
-    :parts="hydrantParts"
+    :selectorData="true"
     :main-image="MainCalculatorImage"
-    :image-alt="'Профессиональный ремонт гидроцилиндров'"
-    image-id="hydroImage"
-    @part-selected="handlePartSelected"
-    @image-changed="handleImageChanged"
+    :parts="hydrantParts"
+    highlightMode="multiple"
   />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
@@ -176,13 +173,22 @@ const hydrantParts = ref([
       'Составление карт проверов гильзы и штока',
       'Составление дефектовочной ведомости',
     ],
-    highlight: { top: '10%', left: '50%', width: '40%', height: '15%' },
+    highlight: [
+      { type: 'rect', top: '10%', left: '50%', width: '40%', height: '15%' },
+      {
+        type: 'poly',
+        points: '10,90 20,70 30,90 40,70 50,90', // форма буквы W
+        color: 'rgba(255, 255, 0, 0.5)', // полупрозрачный жёлтый
+        stroke: 'rgba(255, 200, 0, 0.9)',
+        strokeWidth: 2,
+      },
+    ],
   },
   {
     name: 'Подбор и замена уплотнений',
     selected: false,
     show: false,
-    highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
+    highlight: [{ type: 'rect', top: '30%', left: '20%', width: '60%', height: '10%' }],
     color: 'bg-orange-400/50 border-orange-400',
   },
   {
@@ -190,28 +196,31 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     color: 'bg-green-500/50 border-green-500',
-    highlight: { top: '25%', left: '30%', width: '20%', height: '50%' },
+    highlight: [
+      { type: 'rect', top: '25%', left: '30%', width: '20%', height: '50%' },
+      { type: 'circle', cx: '40%', cy: '40%', r: '4%' }, // пример дополнительной фигуры
+    ],
   },
   {
     name: 'Изготовление и замена поршня',
     selected: false,
     show: false,
     color: 'bg-teal-600/50 border-teal-600',
-    highlight: { top: '40%', left: '45%', width: '15%', height: '10%' },
+    highlight: [{ type: 'rect', top: '40%', left: '45%', width: '15%', height: '10%' }],
   },
   {
     name: 'Ремонт гильз',
     selected: false,
     show: false,
     color: 'bg-sky-700/50 border-sky-700',
-    highlight: { top: '30%', left: '50%', width: '30%', height: '40%' },
+    highlight: [{ type: 'rect', top: '30%', left: '50%', width: '30%', height: '40%' }],
   },
   {
     name: 'Замена крышек',
     selected: false,
     show: false,
     color: 'bg-blue-300/50 border-blue-300',
-    highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
+    highlight: [{ type: 'rect', top: '20%', left: '80%', width: '15%', height: '60%' }],
   },
   {
     name: 'Ремонт цапф',
@@ -227,7 +236,7 @@ const hydrantParts = ref([
         MainCalculatorImage.value = '/calculator/1.png'
       }
     },
-    highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
+    highlight: [{ type: 'rect', top: '70%', left: '10%', width: '15%', height: '15%' }],
   },
   {
     name: 'Замена проушин',
@@ -243,7 +252,7 @@ const hydrantParts = ref([
         MainCalculatorImage.value = '/calculator/1.png'
       }
     },
-    highlight: { top: '75%', left: '75%', width: '20%', height: '15%' },
+    highlight: [{ type: 'rect', top: '75%', left: '75%', width: '20%', height: '15%' }],
   },
   {
     name: 'Гидравлические испытания',
@@ -256,7 +265,7 @@ const hydrantParts = ref([
       'Контроль плавности хода',
       'Фиксация результатов с занесением данных в паспорт',
     ],
-    highlight: { top: '85%', left: '40%', width: '20%', height: '10%' },
+    highlight: [{ type: 'rect', top: '85%', left: '40%', width: '20%', height: '10%' }],
   },
 ])
 </script>
