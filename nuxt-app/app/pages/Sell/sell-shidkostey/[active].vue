@@ -72,6 +72,22 @@ const sectionsData = {
                 { name: '20л', value: 20, type: 'btn' },
               ],
             },
+            {
+              name: 'Вязкость',
+              variants: [
+                { name: '2', value: 2, type: 'btn' },
+                { name: '10', value: 5, type: 'btn' },
+                { name: '30', value: 20, type: 'btn' },
+              ],
+            },
+            {
+              name: 'Кол-во',
+              variants: [
+                { name: '2', value: 2, type: 'input' },
+                { name: '10', value: 5, type: 'input' },
+                { name: '30', value: 20, type: 'input' },
+              ],
+            },
           ],
           description:
             'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
