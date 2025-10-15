@@ -89,6 +89,12 @@ const steps = [
 
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
+  <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-700 to-slate-900 bg-clip-text text-transparent mb-6">
+        Процесс изготовления гидролиний
+      </h1>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+    </div>
   <Step 
       v-for="(step, index) in steps" 
       :stepData="step" 
