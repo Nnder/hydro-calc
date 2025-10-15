@@ -38,7 +38,7 @@ const blockDataText = {
 }
 
 const slider = {
-  img: '/hydrocilinder.png',
+  img: 'https://grizly.club/uploads/posts/2023-02/1675382192_grizly-club-p-zamena-masla-klipart-31.jpg',
   tag: 'Профессионально',
   title: 'Продажа ГСМ и жидкостей',
   text: 'Широкий выбор технических жидкостей',

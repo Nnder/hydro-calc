@@ -268,7 +268,7 @@ const sectionsData = {
           icon: 'mdi:cog',
         },
       ],
-      mainImage: '/calculator/Сборка ковша.png',
+      mainImage: '/calculator/гидровращатель.png',
       imageAlt: 'Профессиональный ремонт гидровращателей',
       imageId: 'hydrovrashateliImage',
       highlightMode: 'single',
