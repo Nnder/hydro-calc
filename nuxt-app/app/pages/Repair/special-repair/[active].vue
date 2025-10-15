@@ -406,7 +406,7 @@ const sectionsData = {
           icon: 'mdi:wrench',
         },
       ],
-      mainImage: '/calculator/Сборка ковша.png',
+      mainImage: '/calculator/гидромолот.png',
       imageAlt: 'Профессиональный ремонт гидромолотов',
       imageId: 'hydromolotyImage',
       highlightMode: 'single',
