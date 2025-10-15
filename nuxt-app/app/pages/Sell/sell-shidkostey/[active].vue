@@ -108,6 +108,26 @@ const sectionsData = {
           highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
           color: 'bg-orange-400/50 border-orange-400',
           icon: 'mdi:knife',
+          dataSelect: true,
+          childComponent: RepairSpecialBlock,
+          options: [
+            {
+              name: 'Объем',
+              variants: [
+                { name: '2л', value: 2, type: 'btn' },
+                { name: '5л', value: 5, type: 'btn' },
+                { name: '20л', value: 20, type: 'btn' },
+              ],
+            },
+            {
+              name: 'Кол-во',
+              variants: [
+                { name: '2', value: 2, type: 'input' },
+                { name: '10', value: 5, type: 'input' },
+                { name: '30', value: 20, type: 'input' },
+              ],
+            },
+          ],
         },
         {
           name: 'Усиление стенок и днища',
