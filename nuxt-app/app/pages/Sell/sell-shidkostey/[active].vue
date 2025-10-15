@@ -4,6 +4,7 @@ import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 import RepairPartsSelectorSpecial from '~/components/SpecialPages/RepairPartsSelectorSpecial.vue'
+import RepairSpecialBlock from '~/components/SpecialPages/RepairSpecialBlock.vue'
 
 definePageMeta({
   path: '/sell/sell-shidkostey/:active?',
@@ -60,6 +61,18 @@ const sectionsData = {
           name: 'Vitex',
           selected: false,
           show: false,
+          dataSelect: true,
+          childComponent: RepairSpecialBlock,
+          options: [
+            {
+              name: 'Объем',
+              variants: [
+                { name: '2л', value: 2, type: 'btn' },
+                { name: '5л', value: 5, type: 'btn' },
+                { name: '20л', value: 20, type: 'btn' },
+              ],
+            },
+          ],
           description:
             'Полная диагностика ковша с использованием современного оборудования для выявления всех дефектов.',
           features: [

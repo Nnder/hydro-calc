@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-tech-light" data-aos="fade-up" data-aos-delay="200">
+  <div class="bg-tech-light">
     <div class="w-11/12 mx-auto py-8 md:py-12 px-5 sm:px-8 lg:px-10 rounded-2xl mt-8 mb-8 md:mt-12 md:mb-12">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <section class="w-full md:flex-1 p-5 sm:p-7 h-fit bg-white rounded-2xl shadow-lg overflow-visible">
