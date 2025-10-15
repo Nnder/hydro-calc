@@ -33,10 +33,10 @@ const imageUrl = '/rvd.jpg'
 const title = 'Изготовление и ремонт РВД по Свердловской области'
 
 const blockData = {
-  title: 'Производим рукава высокого давления по индивидуальным параметрам',
+  title: 'Производcтво и ремонт гидролиний',
   description:
-    'Изготовим РВД любого диаметра и конфигурации\nпо вашим техническим требованиям или образцу\nс гарантией до 12 месяцев',
-  buttonText: 'Заказать РВД',
+    'Изготовлнение дополнительных гидролиний на любую спецтехнику, произведем ремонт существующих гидролиний',
+  buttonText: 'заказать изготовление',
   imageUrl: '/rvd_3.png',
   imageAlt: 'Производство рукавов высокого давления',
 }
@@ -103,7 +103,6 @@ const steps = [
       class="mb-8"
     />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
-  <ProductionEquipment data-aos="fade-up" />
-  <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
+  
   <Contact data-aos="fade-up" />
 </template>
