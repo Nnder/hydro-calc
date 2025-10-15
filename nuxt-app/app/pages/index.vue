@@ -8,6 +8,7 @@ import Contact from '~/components/Page/Contact.vue'
 import Advantages from '~/components/Advantages/Advantages.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 import InformationBlockSpecial from '~/components/SpecialPages/InformationBlockSpecial.vue'
+import Partners from '~/components/Partners/Partners.vue'
 
 useHead({
   title: `Абсолют техно`,
@@ -148,6 +149,7 @@ const sectionsData = {
   <Slider />
   <ServiceBlock data-aos="fade-up" />
   <!-- <NuxtImg src="../public/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full "/> -->
+  <Partners />
   <InformationBlockSpecial
     :block-data="currentInfoBlock"
     :active-section="activeSection"

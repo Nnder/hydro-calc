@@ -1,38 +1,25 @@
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-    <!-- Основной контент -->
     <div class="flex flex-col lg:flex-row gap-16 items-start" 
          :class="index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'">
-      
-      <!-- Изображение -->
       <div v-if="stepData.img" class="w-full lg:w-1/2">
         <div class="relative group cursor-pointer">
-          <!-- Градиентная подсветка синяя -->
           <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-all duration-700 animate-pulse-slow"></div>
-          
-          <!-- Основной контейнер изображения -->
-          <div class="relative overflow-hidden rounded-2xl shadow-2xl shadow-blue-500/20 border border-white/30 backdrop-blur-sm">
-            <NuxtImg 
-              :src="stepData.img" 
-              class="w-full h-[500px] object-cover transition-all duration-700 group-hover:scale-110"
-              sizes="sm:100vw md:50vw lg:600px"
-              format="webp"
-              quality="85"
-              loading="lazy"
-            />
-            
-            <!-- Наложение градиента синего -->
-            
-          </div>
-          
-          <!-- Декоративные элементы синие -->
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl shadow-blue-500/20 border border-white/30 backdrop-blur-sm">
+              <NuxtImg 
+                :src="stepData.img" 
+                class="w-full h-[500px] object-cover transition-all duration-700 group-hover:scale-110"
+                sizes="sm:100vw md:50vw lg:600px"
+                format="webp"
+                quality="85"
+                loading="lazy"
+              />
+            </div>
           </div>
       </div>
 
-      <!-- Текстовый контент -->
       <div class="w-full" :class="stepData.img ? 'lg:w-1/2' : 'lg:w-full'">
         <div class="space-y-8">
-          <!-- Заголовок этапа -->
           <div class="relative">
             <div class="absolute -left-8 top-0 w-2 h-full bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
             <h3 class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent pl-4">
@@ -40,7 +27,6 @@
             </h3>
           </div>
 
-          <!-- Основной текст -->
           <div 
             v-if="stepData.text"
             class="bg-white/95 backdrop-blur-xl text-xl leading-relaxed text-slate-700 p-8 shadow-2xl shadow-blue-500/10 border border-blue-100/50 rounded-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] group"
@@ -53,7 +39,6 @@
             </div>
           </div>
 
-          <!-- Дополнительный текст с HTML -->
           <div 
             v-if="stepData.endText"
             class="bg-gradient-to-br from-white/95 to-blue-50/90 backdrop-blur-xl text-slate-700 p-8 shadow-2xl shadow-blue-500/10 border border-blue-100/50 rounded-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] group"
@@ -62,7 +47,7 @@
             
             <div 
               class="prose prose-lg prose-slate max-w-none 
-                     prose-p:text-slate-700 prose-p:leading-8
+                     prose-p:text-slate-700 text-xl prose-p:leading-8
                      prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-semibold
                      prose-strong:text-slate-900 prose-strong:font-bold
                      prose-ul:marker:text-blue-500 prose-ol:marker:text-blue-500
@@ -102,7 +87,6 @@ defineProps({
 </script>
 
 <style scoped>
-/* Кастомная анимация пульсации */
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 0.8; }
@@ -112,14 +96,12 @@ defineProps({
   animation: pulse-slow 3s ease-in-out infinite;
 }
 
-/* Плавные переходы для всех элементов */
 * {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
 
-/* Улучшение скролла для браузеров WebKit */
 ::-webkit-scrollbar {
   width: 6px;
 }
