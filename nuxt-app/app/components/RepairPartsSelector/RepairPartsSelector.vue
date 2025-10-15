@@ -184,7 +184,7 @@
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g v-for="(part, index) in parts" :key="'highlight-' + index">
+                <g v-for="(part, index) in sortedParts" :key="'highlight-' + index">
                   <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
                     <template v-for="(shape, sIndex) in normalizedShapes(part.highlight)" :key="sIndex">
                       <rect
@@ -239,6 +239,14 @@ const props = defineProps({
   imageStyle: { type: String, default: '' },
   highlightMode: { type: String, default: 'multiple' },
 })
+
+const sortedParts = computed(() => [...props.parts].sort((a, b) => a.z - b.z))
+
+// функция для изменения порядка
+const bringToFront = part => {
+  const maxZ = Math.max(...props.parts.value.map(p => p.z))
+  part.z = maxZ + 1
+}
 
 const imageRef = ref(null)
 const svgRef = ref(null)

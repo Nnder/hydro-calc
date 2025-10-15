@@ -178,7 +178,7 @@ const hydrantParts = ref([
       { type: 'rect', top: '75%', left: '30.5%', width: '17%', height: '8%' }, // левая уплотн.
       { type: 'rect', top: '75%', left: '63.5%', width: '18%', height: '8%' }, // правая уплотн.
     ],
-    zIndex: 999,
+    z: 9,
     color: 'rgba(249,115,22,0.35)', // Orange
     stroke: 'rgba(249,115,22,0.5)',
   },
@@ -186,6 +186,7 @@ const hydrantParts = ref([
     name: 'Изготовление и замена штока',
     selected: false,
     show: false,
+    z: 1,
     // узкий длинный прямоугольник по центру; не доходит до крышек сверху/снизу
     highlight: [
       {
