@@ -18,7 +18,7 @@ const props = defineProps({
 </script>
 <template>
   <div class="flex gap-4">
-    <div class="flex flex-col gap-4 justify-center items-center max-w-32" v-for="option in options">
+    <div class="flex flex-col gap-4 justify-center items-center w-full flex-1" v-for="option in options">
       <div>{{ option.name }}</div>
       <div>
         <template v-for="value in option.variants">
