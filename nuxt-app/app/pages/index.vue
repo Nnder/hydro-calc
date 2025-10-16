@@ -149,6 +149,7 @@ const sectionsData = {
   <Slider />
   <ServiceBlock data-aos="fade-up" />
   <Partners />
+  <NuxtImg src="/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full" />
   <InformationBlockSpecial
     :block-data="currentInfoBlock"
     :active-section="activeSection"
