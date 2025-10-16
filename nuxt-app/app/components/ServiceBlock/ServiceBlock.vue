@@ -30,7 +30,7 @@ const categories = ref([
       {
         title: 'Сварочные и токарные работы',
         image:
-          'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
+          '/images/PriceComp/photo_1.jpg',
         link: '/remont-svarkoy',
       },
     ],
@@ -57,7 +57,7 @@ const categories = ref([
       },
       {
         title: 'Гидравлических трубок (гидролиний)',
-        image: 'https://kupit-gidroliniyu.ru/wp-content/uploads/2024/12/gidrolinii-bsm-dlya-ekskavatora.webp',
+        image: '/images/PriceComp/gidrolinii-bsm-dlya-ekskavatora.jpg',
         link: '/gidrolinii',
       },
     ],
