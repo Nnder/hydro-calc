@@ -45,7 +45,7 @@ useHead({
 })
 
 const blockDataText = {
-  imageurl: 'https://avatars.mds.yandex.net/get-ydo/5621364/2a00000192fc7da6f05cc299ea63c71dd387/diploma',
+  imageurl: '/diploma.jpeg',
   title: 'Что мы делаем?',
   // description: `<p></p>`,
     benefits: [
