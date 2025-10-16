@@ -9,6 +9,7 @@ import Advantages from '~/components/Advantages/Advantages.vue'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 import InformationBlockSpecial from '~/components/SpecialPages/InformationBlockSpecial.vue'
 import Partners from '~/components/Partners/Partners.vue'
+import Slide from '~/components/Slider/Slide.vue'
 
 useHead({
   title: `Абсолют техно`,
@@ -143,12 +144,28 @@ const sectionsData = {
     },
   },
 }
+
+const slide = {
+  videoSrc: '/videos/ТСС.mp4',
+  img: '/hydrocilinder.png',
+  tag: 'Партнер',
+  title: 'Наш партнер в сфере строительного оборудования и дизельных электростанций',
+  text: 'Группа компаний ТСС — это многоуровневая структура, действующая под единым брендом',
+  features: [
+    'Дизельные электростанции',
+    'Строительные оборудование',
+    'Портативные генераторы',
+    'Сварочное оборудование',
+  ],
+  buttonText: 'Прайс лист по ДГУ',
+  additionalInfo: 'Энергия стабильности',
+}
 </script>
 
 <template>
   <Slider />
   <ServiceBlock data-aos="fade-up" />
-  <Partners />
+  <Slide :slider="slide" class="!h-full py-4" />
   <NuxtImg src="/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full" />
   <InformationBlockSpecial
     :block-data="currentInfoBlock"
