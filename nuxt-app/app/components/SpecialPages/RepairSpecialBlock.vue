@@ -43,7 +43,7 @@ const props = defineProps({
           />
         </div>
 
-        <div v-else>
+        <div class="h-full" v-else>
           <label>{{ value.name }}</label>
 
           <select class="w-full h-full min-w-64 mb-2 px-4 md:px-5 py-3 border-2 rounded-lg md:rounded-xl">
