@@ -67,17 +67,15 @@ const sectionsData = {
             {
               name: 'Объем',
               variants: [
-                { name: '2л', value: 2, type: 'btn' },
-                { name: '5л', value: 5, type: 'btn' },
-                { name: '20л', value: 20, type: 'btn' },
+                { name: '200л', value: 2, type: 'btn' },
+                { name: '20л', value: 5, type: 'btn' },
               ],
             },
             {
-              name: 'Вязкость',
+              name: 'Тип масла',
               variants: [
-                { name: '2', value: 2, type: 'btn' },
+                { name: 'HVLP32 стандарт', value: 2, type: 'btn' },
                 { name: '10', value: 5, type: 'btn' },
-                { name: '30', value: 20, type: 'btn' },
               ],
             },
             {
@@ -85,7 +83,6 @@ const sectionsData = {
               variants: [
                 { name: '2', value: 2, type: 'input' },
                 { name: '10', value: 5, type: 'input' },
-                { name: '30', value: 20, type: 'input' },
               ],
             },
           ],
