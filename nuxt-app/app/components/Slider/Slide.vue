@@ -45,7 +45,7 @@ const { open } = useModal()
         >
           {{ slider.tag }}
         </span>
-        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg max-w-3xl">
+        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg max-w-5xl">
           {{ slider.title }}
         </h2>
       </div>

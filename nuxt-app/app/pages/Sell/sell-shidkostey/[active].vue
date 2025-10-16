@@ -65,24 +65,33 @@ const sectionsData = {
           childComponent: RepairSpecialBlock,
           options: [
             {
-              name: 'Объем',
               variants: [
-                { name: '200л', value: 2, type: 'btn' },
-                { name: '20л', value: 5, type: 'btn' },
-              ],
-            },
-            {
-              name: 'Тип масла',
-              variants: [
-                { name: 'HVLP32 стандарт', value: 2, type: 'btn' },
-                { name: '10', value: 5, type: 'btn' },
-              ],
-            },
-            {
-              name: 'Кол-во',
-              variants: [
-                { name: '2', value: 2, type: 'input' },
-                { name: '10', value: 5, type: 'input' },
+                {
+                  name: 'Варианты масел',
+                  value: 2,
+                  type: 'select',
+
+                  options: [
+                    { name: 'HLVP 32', value: 'HLVP 32', description: '123', features: ['1', '2'] },
+                    { name: 'HLVP 46', value: 'HLVP 46' },
+                    { name: 'MVLP 15', value: 'MLVP 15' },
+                  ],
+                  onSelect: option => {
+                    description = option.description
+                    features = option.features
+                  },
+                },
+                { name: 'Объем л', value: 2, type: 'input', options: ['1', '2', '5', '10', '20', '50', '200'] },
+                { name: 'Вязкость', value: 2, type: 'input', options: ['1', '2', '5'] },
+                {
+                  name: 'Статус',
+                  value: '+',
+                  type: 'btn',
+                  class: '!w-fit self-end',
+                  onPress: btn => {
+                    btn.value = btn.value === '+' ? '-' : '+'
+                  },
+                },
               ],
             },
           ],
