@@ -1,7 +1,7 @@
 <template>
   <div v-if="!isHydrated">
     <!-- Fallback контент -->
-    <div class="h-[600px] flex items-center justify-center"></div>
+    <div class="h-[80vh] min-h-[800px] flex items-center justify-center"></div>
   </div>
   <ClientOnly>
     <swiper-container
@@ -10,17 +10,17 @@
       :navigation="sm"
       :pagination="true"
       :preload-images="false"
-      class="swiper-with-video"
+      class="swiper-with-video h-[80vh] min-h-[800px] max-h-[800px]"
       :autoplay="{
         delay: 10000,
         disableOnInteraction: true,
       }"
     >
-      <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
-        <div class="video-wrapper">
+      <swiper-slide class="video-slide h-full" v-for="(slider, index) in sliders" :key="slider.title + index">
+        <div class="video-wrapper h-full w-full">
           <video
             ref="videoRef"
-            class="background-video"
+            class="background-video w-full h-full object-cover"
             :poster="slider.img"
             autoplay
             muted
@@ -34,8 +34,8 @@
           </video>
         </div>
 
-        <div class="slide-content">
-          <div class="content-wrapper">
+        <div class="slide-content absolute inset-0 flex items-center">
+          <div class="content-wrapper container mx-auto px-4 h-full flex flex-col justify-between py-8">
             <!-- Верхний блок с тегом и заголовком -->
             <div class="top-content">
               <span class="tag" v-if="slider.tag">{{ slider.tag }}</span>
@@ -43,15 +43,17 @@
             </div>
 
             <!-- Центральный блок с текстом и списком -->
-            <div class="middle-content">
-              <p class="description">{{ slider.text }}</p>
+            <div class="middle-content flex-1 flex items-center">
+              <div>
+                <p class="description">{{ slider.text }}</p>
 
-              <ul class="features" v-if="slider.features">
-                <li v-for="(feature, i) in slider.features" :key="i">
-                  <Icon name="mdi-check-circle" color="primary" class="mr-2" />
-                  {{ feature }}
-                </li>
-              </ul>
+                <ul class="features" v-if="slider.features">
+                  <li v-for="(feature, i) in slider.features" :key="i">
+                    <Icon name="mdi-check-circle" color="primary" class="mr-2" />
+                    {{ feature }}
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <!-- Нижний блок с кнопкой и доп информацией -->
@@ -125,6 +127,31 @@ const videoRef = ref(null)
   opacity: 0.6; /* прозрачность */
   transform: scale(0.7); /* уменьшаем размер */
   transition: opacity 0.3s ease;
+}
+
+.slide-content {
+  z-index: 10;
+}
+
+.background-video {
+  object-fit: cover;
+}
+
+.swiper-with-video {
+  width: 100%;
+  position: relative;
+}
+
+.video-slide {
+  position: relative;
+}
+
+.slide-content {
+  z-index: 10;
+}
+
+.background-video {
+  object-fit: cover;
 }
 
 .video-slide {
