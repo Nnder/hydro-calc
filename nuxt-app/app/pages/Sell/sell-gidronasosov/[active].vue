@@ -71,9 +71,9 @@ const bannerProps = {
       title: 'Аксиально-поршневые насосы',
       type: 'Аксиально-поршневые',
       images: [
-        'https://rexroth-parts.com/66789-large_default/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
-        'https://specgidravlika.ru/wp-content/uploads/2023/06/gidronasos_A7V.jpg',
-        'https://www.worldbid.com/oc-content/uploads/3120/117321.jpg',
+        '/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
+        '/gidronasos_A7V.jpg',
+        '/117321-2.jpg',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
@@ -86,7 +86,7 @@ const bannerProps = {
         'Он отличается эффективностью, компактностью и способностью работать под высоким давлением (до 350 бар и выше), что делает его незаменимым в гидравлических системах строительной, сельскохозяйственной и промышленной техники.',
       ],
       gridItem: {
-        image: 'https://rexroth-parts.com/66789-large_default/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
+        image: '/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
         title: 'Аксиально-поршневые насосы',
       },
     },
@@ -95,9 +95,9 @@ const bannerProps = {
       title: 'Радиально-поршневые насосы',
       type: 'Радиально-поршневые',
       images: [
-        'https://surasnab.ru/wp-content/uploads/2018/06/radialno-porshnevoy.jpg',
-        'https://gline.pro/image/catalog/products/PR4-3x.jpg',
-        'https://image.made-in-china.com/2f0j00BywVMOQKiFgv/Authentic-Moog-Variable-Displacement-Pump-0514-900-001-0514-700-001-0514-600-00.webp',
+        '/radialno-porshnevoy.jpg',
+        '/PR4-3x.jpg',
+        '/Authentic-Moog-Variable-Displacement-Pump-0514-900-001-0514-700-001-0514-600-00.png',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
@@ -111,7 +111,7 @@ const bannerProps = {
         'Применение: радиально-плунжерные насосы используют в гидроприводах прессов, прокатных станах, зажимных устройствах станков и других системах, где требуется обеспечить высокое давление.',
       ],
       gridItem: {
-        image: 'https://surasnab.ru/wp-content/uploads/2018/06/radialno-porshnevoy.jpg',
+        image: '/radialno-porshnevoy.jpg',
         title: 'Радиально-поршневые насосы',
       },
     },
@@ -119,10 +119,10 @@ const bannerProps = {
       title: 'Шестеренные насосы',
       type: 'Шестеренные',
       images: [
-        'http://sibgidromash.com/upload/iblock/52b/52bdf87a9f3107635529f65d67fbe02e.png',
-        'https://olnisa.ru/olnisa/images/img-18/28032025-15-1/rexroth-f228-01.jpg',
-        'https://fgrus.ru/images/Bondioli%20&%20Pavesi111.webp',
-        'https://a.allegroimg.com/s1024/0c190e/a327cda94ed88752ddc447b1fe28',
+        '/52bdf87a9f3107635529f65d67fbe02e.png',
+        '/rexroth-f228-01.jpg',
+        '/BondioliPavesi111.jpg',
+        '/a327cda94ed88752ddc447b1fe28.jpg',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун или алюминий' },
