@@ -165,8 +165,17 @@ const slide = {
 <template>
   <Slider />
   <ServiceBlock data-aos="fade-up" />
+  <div class="max-w-7xl w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+    <NuxtImg class="min-w-48 h-full" src="https://www.tss.ru/bitrix/templates/tss_templates_new/images/logo8.svg" />
+    <div class="w-full self-end">
+      <p class="text-lg md:text-xl font-medium leading-relaxed drop-shadow">
+        Важнейшим направлением деятельности ГК ТСС является разработка и реализация проектов в сфере обеспечения
+        производственных, ресурсодобывающих, жилых и других объектов, резервными и основными источниками электроэнергии.
+      </p>
+    </div>
+  </div>
   <Slide :slider="slide" class="!h-full py-4" />
-  <NuxtImg src="/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full" />
+  <!-- <NuxtImg src="/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full" /> -->
   <InformationBlockSpecial
     :block-data="currentInfoBlock"
     :active-section="activeSection"

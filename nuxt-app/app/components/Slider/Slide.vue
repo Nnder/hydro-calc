@@ -36,7 +36,7 @@ const { open } = useModal()
     </div>
 
     <!-- Контент -->
-    <div class="relative z-10 w-full max-w-6xl px-6 flex flex-col gap-8">
+    <div class="relative z-10 w-full max-w-7xl px-6 flex flex-col gap-8">
       <!-- Верхний блок -->
       <div class="flex flex-col gap-4">
         <span
