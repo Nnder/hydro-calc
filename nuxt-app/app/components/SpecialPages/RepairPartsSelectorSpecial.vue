@@ -94,6 +94,7 @@
                       v-if="part.childComponent"
                       :is="part.childComponent"
                       :options="part.options"
+                      :on-select="onSelect"
                       :on-option-select="selectedValue => updatePartDescription(part, selectedValue)"
                     />
 
@@ -227,11 +228,26 @@ const computedParts = ref([])
 watch(
   () => props.GlobalTable?.parts,
   newParts => {
-    if (newParts) {
-      computedParts.value = newParts.map(part => ({ ...part }))
+    if (newParts && Array.isArray(newParts)) {
+      computedParts.value = newParts.map(part => {
+        // Создаём shallow-копию объекта
+        const copiedPart = { ...part }
+
+        // Если есть childComponent (компонент), помечаем его как raw (не-реактивный)
+        if (copiedPart.childComponent) {
+          copiedPart.childComponent = markRaw(copiedPart.childComponent)
+        }
+
+        // Опционально: если есть другие не-реактивные свойства (например, статические функции), отметьте их тоже
+        // copiedPart.onSelect = markRaw(copiedPart.onSelect)  // Если onSelect — функция, но в вашем случае она удалена
+
+        return copiedPart
+      })
+    } else {
+      computedParts.value = []
     }
   },
-  { immediate: true }
+  { immediate: true, deep: true } // immediate: true для инициализации при монтировании
 )
 
 const updatePartDescription = (part, selectedValue) => {
@@ -313,6 +329,32 @@ watch(
     emit('image-changed', newImage)
   }
 )
+
+const selectedParts = ref([]) // { id, name, ... } — выбранные части
+
+// Функция-callback для выбора (обновляет selectedParts и computedParts)
+const onSelect = partData => {
+  console.log('Выбрана часть:', partData) // Для отладки
+
+  // Логика обновления: добавляем/удаляем из selectedParts
+  const index = selectedParts.value.findIndex(p => p.id === partData.id)
+  if (index > -1) {
+    // Если уже выбрано — снимаем выбор
+    selectedParts.value.splice(index, 1)
+    // Опционально: обновите computedParts, чтобы снять selected в оригинале
+    const originalPart = computedParts.value.find(p => p.id === partData.id)
+    if (originalPart) originalPart.selected = false
+  } else {
+    // Добавляем в выбранные
+    selectedParts.value.push({ ...partData, selected: true })
+    // Обновите computedParts для реактивности (чтобы кнопка в ребёнке изменилась)
+    const originalPart = computedParts.value.find(p => p.id === partData.id)
+    if (originalPart) originalPart.selected = true
+  }
+
+  // Опционально: emit вверх или обновите другие данные (например, totalPrice)
+  // emit('part-selected', selectedParts.value)  // Если нужно передать родителю-родителю
+}
 
 const { addData } = useCalculatorSelector()
 </script>

@@ -89,6 +89,7 @@ const sectionsData = {
                   value: '+',
                   type: 'btn',
                   class: '!w-fit self-end',
+                  selected: false,
                   onPress: btn => {
                     btn.value = btn.value === '+' ? '-' : '+'
                   },
