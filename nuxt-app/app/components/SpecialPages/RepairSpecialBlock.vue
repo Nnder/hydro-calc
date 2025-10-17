@@ -20,6 +20,19 @@ const handleSelectChange = (event, variant) => {
   // Опционально: emit для других нужд
   emit('option-selected', selectedValue)
 }
+
+const handleSelect = part => {
+  // Вызываем переданную функцию с данными (обновит родителя)
+  // props.onSelect({
+  //   id: part.id,
+  //   name: part.name,
+  //   description: part.description,
+  //   // ... другие нужные данные (price, features и т.д.)
+  // })
+
+  // Опционально: локальное действие (но лучше полагаться на родителя для реактивности)
+  console.log('Клик по:', part)
+}
 </script>
 
 <template>
@@ -29,11 +42,11 @@ const handleSelectChange = (event, variant) => {
         <!-- Для btn -->
         <button
           v-if="value.type === 'btn'"
-          @click="value.onPress ? value.onPress($event) : null"
+          @click="handleSelect(option)"
+          :class="{ selected: value.selected, ...value.class }"
           class="w-full mb-2 justify-center inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
-          :class="value.class"
         >
-          {{ value.value || value.name }}
+          {{ value.selected ? '-' : '+' }}
         </button>
 
         <div v-else-if="value.type === 'input'" class="block">
