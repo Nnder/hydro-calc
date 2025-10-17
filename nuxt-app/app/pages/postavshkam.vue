@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-white to-blue-50 w-full py-12">
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Заголовок страницы -->
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" data-aos="fade-up">
           Сотрудничество с 
@@ -13,19 +12,18 @@
         </p>
       </div>
 
-      <!-- Основной контент -->
       <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-20">
-        <!-- Основной контент -->
         <div class="lg:col-span-2 space-y-8">
-          <!-- Приветственный блок -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex items-start gap-6">
-              <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
-                <Icon name="mdi:handshake" class="w-8 h-8 text-blue-600" />
+          <div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+              <div class="bg-blue-100 p-3 sm:p-4 rounded-lg md:rounded-xl flex-shrink-0 self-center sm:self-start">
+                <Icon name="mdi:handshake" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
               </div>
-              <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Приглашаем к сотрудничеству</h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
+              <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
+                  Приглашаем к сотрудничеству
+                </h2>
+                <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
                   Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, 
                   сварочного оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, 
                   которое позволит значительно увеличить объемы продаж вашей продукции на российском рынке.
@@ -89,7 +87,6 @@
       </div>
     </div>
 
-    <!-- Контактная информация -->
     <div class="bg-white py-16 border-t border-blue-200" data-aos="fade-up">
       <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -171,7 +168,6 @@ const { open } = useModal()
 </script>
 
 <style scoped>
-/* Плавные анимации для улучшения UX */
 button {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

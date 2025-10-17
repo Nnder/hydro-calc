@@ -29,9 +29,9 @@ const bannerProps = {
       type: 'Фланец',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
-        'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
-        'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
-        'https://hf-cdn-prod.azureedge.net/medias/PF-DFS-ST-U-3000-6000-PSI-900x900-1753825338202.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8Njc0ODA5fGltYWdlL2pwZWd8YUdReUwyaGpZUzh4TURReU9UY3hNekU0TmpnME5pOVFSbDlFUmxOZlUxUmZWVjh6TURBd1gxODJNREF3WDFCVFNWODVNREI0T1RBd1h6RTNOVE00TWpVek16Z3lNREl1YW5CbnxkMWZmOGNlZDlhNWMyZTA4OTg3MmQ5MzM0MDI5OTcyNzZhY2RmY2QxNzI4NTRhNDBmZTViMWE2NDc3ZDA5NWIz',
+        '/img_omt_flange.jpg',
+        '/Фланцы_SAE.jpg',
+        '/PF-DFS-ST-U-3000-6000-PSI-900x900-1753825338202.jpg',
       ],
       parameters: [
         { label: 'Размер', value: 'SAE от 1/2" до 4"' },
@@ -53,9 +53,9 @@ const bannerProps = {
       type: 'Уплотнение',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
-        'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
-        'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
-        'https://image.made-in-china.com/2f0j00MRwbpqkhMBon/SAE-J518-3000psi-6000psi-Female-Welding-Counter-Flange.webp',
+        '/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
+        '/F9079-29-1000x1000.jpg',
+        '/SAE-J518-3000psi-6000psi-Female-Welding-Counter-Flange.jpg',
       ],
       parameters: [
         { label: 'Материал', value: 'NBR, Viton, FKM' },
@@ -77,10 +77,10 @@ const bannerProps = {
       type: 'Быстросъемник',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
-        'https://a.allegroimg.com/original/03d5e9/9f182c094bd199b2ed3869e951c4',
-        'https://многотракторов.рф/upload/iblock/a69/rg26vy27thd3t8utpz296p9v36i7yys0.jpg',
-        'https://media.rs-online.com/image/upload/bo_1.5px_solid_white,b_auto,c_pad,dpr_2,f_auto,h_399,q_auto,w_710/c_pad,h_399,w_710/R7335659-01?pgw=1',
-        'i.png',
+        '/9f182c094bd199b2ed3869e951c4.jpeg',
+        '/rg26vy27thd3t8utpz296p9v36i7yys0.jpg',
+        '/R7335659-01.jpeg',
+        '/i.png',
       ],
       parameters: [
         { label: 'Давление', value: 'до 350 бар' },
@@ -93,7 +93,7 @@ const bannerProps = {
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
       gridItem: {
-        image: 'https://a.allegroimg.com/original/03d5e9/9f182c094bd199b2ed3869e951c4',
+        image: '/9f182c094bd199b2ed3869e951c4.jpeg',
         title: 'Быстросъёмное соединение',
       },
     },
@@ -102,9 +102,9 @@ const bannerProps = {
       type: 'Оболочки',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
-        'https://ae04.alicdn.com/kf/H92e96c60e0594cf381a489901dbbe978U.jpg',
-        'https://i-a.d-cd.net/a1frR3A4Jyx5R3J1CsXjOUb_c5E-1920.jpg',
-        'https://rvd1.ru/wp-content/uploads/2022/04/asdasd.png',
+        '/H92e96c60e0594cf381a489901dbbe978U.jpg',
+        '/a1frR3A4Jyx5R3J1CsXjOUb_c5E-1920.jpg',
+        '/asdasd.png',
       ],
       parameters: [
         { label: 'Материал', value: 'Полиуретан, ПВХ, Силикон-Стеклоткань' },
@@ -116,7 +116,7 @@ const bannerProps = {
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
       gridItem: {
-        image: 'https://rvd1.ru/wp-content/uploads/2022/04/asdasd.png',
+        image: '/asdasd.png',
         title: 'Защитные оболочки',
       },
     },
@@ -125,9 +125,9 @@ const bannerProps = {
       type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
-        'https://kelmochka.ru/wp-content/uploads/2021/09/trubnaya-rezba-37-1.jpg',
-        'https://hansa-flex.com.ru/images/catalog/catalog/3634_image_big.jpeg',
-        'https://hf-cdn-prod.azureedge.net/medias/PF-XAH-900x900-1754062833559.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NjEwNjE5fGltYWdlL2pwZWd8YURBeEwyZ3lOUzh4TURRMU1URXdPVEV4TnprNE1pOVFSbDlZUVVoZk9UQXdlRGt3TUY4eE56VTBNRFl5T0RNek5UVTVMbXB3Wnd8MTU5MWNiYTUyYWQ1ZDFkNDE0NTcxNDEzOWVlMDQ5ZjhkNDhiMTU5ZTQzMDI2NmFhZjg2ZDJhNmY5NDE0YTMwZA',
+        '/trubnaya-rezba-37-1.jpg',
+        '/3634_image_big.jpeg',
+        '/PF-XAH-900x900-1754062833559.jpg',
       ],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
@@ -149,9 +149,9 @@ const bannerProps = {
       type: 'Заглушки',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
-        'https://hf-cdn-prod.azureedge.net/medias/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIzNDQ2fGltYWdlL2pwZWd8YURRMkwyaGtaaTh4TURRMU5EQXdOVFkzT0RFeE1DOVFSbDlZVmtoTVRGOWZXRlpJVEY5ZldGWklVMTg1TURCNE9UQXdYekUzTlRRd09EUTRPRFU1T1RZdWFuQm58MjE3MjA2NmE3NjhjOWU3NGMxYjk2MmNmOGM5OGE4NWFmNTljZGE3NTIwZDY5N2NlYmQ5NDUzZDVmOWQ2ZWIxMw',
-        'https://hf-cdn-prod.azureedge.net/medias/PF-VHR-90-ED-900x900-1754084222814.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIwNDU5fGltYWdlL2pwZWd8YURNNEwyZzJNaTh4TURRMU16a3dOVFEwTURjNU9DOVFSbDlXU0ZKZk9UQmZSVVJmT1RBd2VEa3dNRjh4TnpVME1EZzBNakl5T0RFMExtcHdad3w5NDY4N2EwMDRjZDEwOTRmYTM0OTBmMjA2YmJkNzA2NWZiZmNiMmRmNTNmYTUzZmRjYTJlMGVkMjc4NDk5YjQ4',
-        'https://hf-cdn-prod.azureedge.net/medias/PF-BZL-VA-BZS-VA-900x900-1753555440819.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTgwOTg5fGltYWdlL2pwZWd8YURoakwyZ3lNQzh4TURNNE1qZzRORGs1TlRFd01pOVFSbDlDV2t4ZlZrRmZYMEphVTE5V1FWODVNREI0T1RBd1h6RTNOVE0xTlRVME5EQTRNVGt1YW5Cbnw0ZDcyMDUxNmM1OTY5NTYzMzQzYmI2MjI4ZjBkOGQ1MjI5NjE2NmRiM2IwZGU3Y2QzNGQyOTU0ZmQ2NjU1MTll',
+        '/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg',
+        '/PF-VHR-90-ED-900x900-1754084222814.jpg',
+        '/PF-BZL-VA-BZS-VA-900x900-1753555440819.jpg',
       ],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
@@ -165,7 +165,7 @@ const bannerProps = {
       ],
       gridItem: {
         image:
-          'https://hf-cdn-prod.azureedge.net/medias/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg?context=bWFzdGVyfGhvdGZvbGRlci1pbXBvcnR8NTIzNDQ2fGltYWdlL2pwZWd8YURRMkwyaGtaaTh4TURRMU5EQXdOVFkzT0RFeE1DOVFSbDlZVmtoTVRGOWZXRlpJVEY5ZldGWklVMTg1TURCNE9UQXdYekUzTlRRd09EUTRPRFU1T1RZdWFuQm58MjE3MjA2NmE3NjhjOWU3NGMxYjk2MmNmOGM5OGE4NWFmNTljZGE3NTIwZDY5N2NlYmQ5NDUzZDVmOWQ2ZWIxMw',
+          '/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg',
         title: 'Заглушка',
       },
     },
