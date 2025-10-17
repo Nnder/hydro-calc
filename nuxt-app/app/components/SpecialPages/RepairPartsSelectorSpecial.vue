@@ -258,7 +258,10 @@ const updatePartDescription = (part, selectedValue) => {
   if (selectedValue.features) {
     part.features = selectedValue.features
   }
-  console.log('Updated part:', part.name, selectedValue) // Для дебага
+
+  part.selectedOption = selectedValue
+
+  console.log('Updated part:', part, selectedValue) // Для дебага
 }
 
 const computedMainImage = computed(() => props.GlobalTable?.mainImage || props.mainImage)
@@ -351,6 +354,8 @@ const onSelect = partData => {
     const originalPart = computedParts.value.find(p => p.id === partData.id)
     if (originalPart) originalPart.selected = true
   }
+
+  console.log(partData, selectedParts)
 
   // Опционально: emit вверх или обновите другие данные (например, totalPrice)
   // emit('part-selected', selectedParts.value)  // Если нужно передать родителю-родителю
