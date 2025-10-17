@@ -204,31 +204,31 @@ features: [
 
 const items = ref([
   {
-    image: 'https://quers.ru/upload/iblock/fb1/ql3pw6g3v5buegssu02i46ffazmz4ati/opornoe_koltso.png',
+    image: '/opornoe_koltso.png',
     title: 'Опорные кольца',
   },
   {
-    image: 'https://quers.ru/upload/iblock/5d0/utqpcuxpoxualvgepbftqmlyfnmn2qlb/napravlyayushchee_koltso.png',
+    image: '/napravlyayushchee_koltso.png',
     title: 'Направляющие кольца ',
   },
   {
-    image: 'https://quers.ru/upload/iblock/96c/uw0a66rmoxh2g5be63v4w8byenyh7pl7/koltso_poliuretanovoe0.png',
+    image: '/koltso_poliuretanovoe0.png',
     title: 'Уплотнительные кольца',
   },
   {
-    image: 'https://quers.ru/upload/iblock/877/zotf6amq29k3blq0m4sfaug6jdllde05/uplotneniya-dlya-porshnya.png',
+    image: '/uplotneniya-dlya-porshnya.png',
     title: 'Уплотнения для поршня',
   },
   {
-    image: 'https://quers.ru/upload/iblock/9c7/ckigau3mojo97712hdgff1xtg47b2b59/uplotnenie-dlya-vala.png',
+    image: '/uplotnenie-dlya-vala.png',
     title: 'Уплотнения для ротора',
   },
   {
-    image: 'https://quers.ru/upload/iblock/e01/5p8nhogpwgvn406k1ip1iibeq0pzfnm9/uplotnenie-shtoka.png',
+    image: '/uplotnenie-shtoka.png',
     title: 'Уплотнения для штока',
   },
   {
-    image: 'https://quers.ru/upload/iblock/3b8/bcje6rm00fsha1d6qftsy9ha2iicp79z/gryazesemnik2_0-_1_.png',
+    image: '/gryazesemnik2_0-_1_.png',
     title: 'Грязесъемники',
   },
 ])

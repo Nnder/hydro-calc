@@ -35,7 +35,7 @@ useHead({
 })
 
 const mainSlideData = {
-  src: 'https://www.classifieds24.ru/images/7090/7089332/thumb_4.jpg',
+  src: '/thumb_4.jpg',
   title: 'Осуществим ремонт деталей гидравлического оборудования методом наплавки',
   description:
     'Восстановление рабочих поверхностей штоков, отверстий под пальцы, сварка корпусов гидроцилиндров, проушин, расточка или хонинговка гильз',
@@ -43,7 +43,7 @@ const mainSlideData = {
 
 const blockDataText = {
   imageurl:
-    'https://hackaday.com/wp-content/uploads/2019/05/how-machining-went-from-art-to-science-lathe-chips-featured.jpeg',
+    '/how-machining-went-from-art-to-science-lathe-chips-featured.jpeg',
   title: 'Что мы делаем?',
   description: `<p>Профессиональные сварочные и токарные работы любой сложности. Выполняем полный комплекс услуг по ремонту и восстановлению металлических конструкций, деталей и оборудования.</p>
 <p>Сварочные работы: РДС, MIG/MAG, TIG сварка черных металлов. Ремонт металлоконструкций, трубопроводов, емкостей, промышленного оборудования. Гарантия качества швов и соответствия стандартам.</p>
