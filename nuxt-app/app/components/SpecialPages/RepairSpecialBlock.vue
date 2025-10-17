@@ -29,13 +29,13 @@ const props = defineProps({
           {{ value.value }}
         </button>
 
-        <div v-else-if="value.type === 'input'">
+        <div v-else-if="value.type === 'input'" class="block">
           <label>{{ value.name }}</label>
           <input
             :placeholder="`введите ${value.name}`"
             value="1"
             :class="[
-              'w-full mb-2 px-4 md:px-5 py-3 border-2 rounded-lg md:rounded-xl transition-all duration-300',
+              'w-full block max-w-24 mb-2 px-4 md:px-5 py-3 border-2 rounded-lg md:rounded-xl transition-all duration-300',
               'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
               'placeholder-gray-400 text-slate-900',
               'shadow-sm hover:shadow-md',
@@ -43,7 +43,7 @@ const props = defineProps({
           />
         </div>
 
-        <div class="h-full" v-else>
+        <div class="h-full flex-1" v-else>
           <label>{{ value.name }}</label>
 
           <select class="w-full h-full min-w-64 mb-2 px-4 md:px-5 py-3 border-2 rounded-lg md:rounded-xl">
