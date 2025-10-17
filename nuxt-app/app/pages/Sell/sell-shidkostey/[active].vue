@@ -70,6 +70,13 @@ const sectionsData = {
                   name: 'Варианты масел',
                   value: 2,
                   type: 'select',
+                  selected: {
+                    name: 'HLVP 32',
+                    value: 'HLVP 32',
+                    description:
+                      'Соответствует спецификации AFNOR NFE 48-603 HV, ISO 11158 HV, Eaton Vickers 35VQ25, Denison HF-0, HF-1, HF-2 (ISO 32, 46,68), Bosch Rexroth 90220 (ISO 32, 46,68), Cincinnati Machine P-68 (ISO 32), Cincinnati Machine P-69 (ISO 68), Cincinnati Machine P-70 (ISO 46)',
+                    features: ['1', '2'],
+                  },
 
                   options: [
                     {
