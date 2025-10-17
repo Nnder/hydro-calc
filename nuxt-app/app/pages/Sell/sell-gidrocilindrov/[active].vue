@@ -62,7 +62,7 @@ const blockDataText = {
 }
 
 const slider = {
-  img: 'https://static.tildacdn.com/tild6637-3562-4264-b431-613535373630/cylinder_01-1024x640.jpg',
+  img: '/cylinder_01-1024x640.jpg',
   tag: 'Профессионально',
   title: 'Продажа гидроцилиндров',
   text: 'Широкий выбор гидравлических цилиндров',
@@ -77,9 +77,9 @@ const bannerProps = {
       title: 'Защитные сильфоны (гофры)',
       type: 'Сильфоны',
       images: [
-        'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
-        'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
-        'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
+        '/img_omt_flange.jpg',
+        '/Фланцы_SAE.jpg',
+        '/370688da60fdaf0a7f290c3986a81bb5.jpg',
       ],
       parameters: [
         { label: 'Материал', value: 'Параарамидная / тентовая ткань' },
@@ -99,9 +99,9 @@ const bannerProps = {
       title: 'Пальцы',
       type: 'Пальцы',
       images: [
-        'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
-        'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
-        'https://lazer-technology.ru/images/detailed/2/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
+        '/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
+        '/F9079-29-1000x1000.jpg',
+        '/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
       ],
       parameters: [
         { label: 'Материал', value: 'NBR, Viton, EPDM' },
@@ -122,9 +122,9 @@ const bannerProps = {
       title: 'Втулки',
       type: 'Втулки',
       images: [
-        'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
-        'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
-        'https://st22.stpulscen.ru/images/product/445/686/695_original.jpg',
+        '/FA3047.png',
+        '/SF10-40.jpg',
+        '/695_original.jpg',
       ],
       parameters: [
         { label: 'Тип', value: 'ISO 16028' },
@@ -145,9 +145,9 @@ const bannerProps = {
       title: 'Дополнительная Гидролиния',
       type: 'Гидролинии',
       images: [
-        'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
-        'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
-        'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
+        '/a17.jpg',
+        '/a21.jpg',
+        '/orig.jpeg',
       ],
       parameters: [
         { label: 'Материал', value: 'Полиуретан, ПВХ' },
@@ -160,7 +160,7 @@ const bannerProps = {
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
       gridItem: {
-        image: '/zashitnie_obolochi.jpeg',
+        image: '/orig.jpeg',
         title: 'Защитные оболочки',
       },
     },

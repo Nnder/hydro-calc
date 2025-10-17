@@ -138,7 +138,7 @@ const bannerProps = {
         '- Насосы с внутренним зацеплением. Одна шестерня размещена внутри другой, что уменьшает габариты насоса. Обеспечивают более плавную подачу жидкости. Используются в топливных системах, химической промышленности.',
       ],
       gridItem: {
-        image: 'http://sibgidromash.com/upload/iblock/52b/52bdf87a9f3107635529f65d67fbe02e.png',
+        image: '/52bdf87a9f3107635529f65d67fbe02e.png',
         title: 'Шестеренные насосы',
       },
     },
@@ -146,9 +146,9 @@ const bannerProps = {
       title: 'Пластинчатые насосы',
       type: 'Пластинчатые',
       images: [
-        'https://ommatech.ru/upload/resize_cache/iblock/538/1200_1200_140cd750bba9870f18aada2478b24840a/538d141fbef4c65e97eee1e22cca083e.jpg',
-        'https://img.directindustry.es/images_di/photo-g/11598-15029301.jpg',
-        'https://hidrosan.net/upload/vq-double-vane-jpg-9459.jpg',
+        '/538d141fbef4c65e97eee1e22cca083e.jpg',
+        '/11598-15029301.jpg',
+        '/vq-double-vane-jpg-9459.jpg',
       ],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
@@ -163,7 +163,7 @@ const bannerProps = {
       ],
       gridItem: {
         image:
-          'https://ommatech.ru/upload/resize_cache/iblock/538/1200_1200_140cd750bba9870f18aada2478b24840a/538d141fbef4c65e97eee1e22cca083e.jpg',
+          '/538d141fbef4c65e97eee1e22cca083e.jpg',
         title: 'Пластинчатые насосы',
       },
     },
@@ -173,7 +173,7 @@ const bannerProps = {
     return this.products.map(product => product.gridItem)
   },
 
-  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
+  defaultImages: ['/538d141fbef4c65e97eee1e22cca083e.jpg'],
 
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
