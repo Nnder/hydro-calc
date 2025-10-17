@@ -107,7 +107,7 @@ const blockDataText = {
 }
 
 const slider = {
-  img: 'https://oilpower.ru/upload/iblock/854/0bwqmtqhxilk2604kostb52n7fry9gi5.jpg',
+  img: '/0bwqmtqhxilk2604kostb52n7fry9gi5.jpg',
   tag: 'Профессионально',
   title: 'Продажа фильтров',
   text: 'Широкий выбор фильтрующих элементов',
@@ -123,10 +123,10 @@ const bannerProps = {
       type: 'flange',
       pdfUrl: '',
       images: [
-        'https://avatars.mds.yandex.net/i?id=7cf862c66881b42f460e929b0fa3cd95_l-5496540-images-thumbs&n=13',
-        'https://st39.stpulscen.ru/images/localized/010/652/073_original.jpg',
-        'https://static.insales-cdn.com/images/products/1/6563/570186147/950120114_filter-element-filtruyuschij.jpg_',
-        'https://t-filter.ru/image/cache/catalog/filter/filtr-gidravlicheskij-(kartridzh)/SH63314-1200x800.jpg',
+        '/i43.jpeg',
+        '/073_original.jpg',
+        '/950120114_filter-element-filtruyuschij.jpg_.jpg',
+        '/SH63314-1200x800.jpg',
       ],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 90' },
@@ -138,7 +138,7 @@ const bannerProps = {
         'Применяются для грубой фильтрации. Долговечны и легко очищаются, но не подходят для тонкой фильтрации.',
       ],
       gridItem: {
-        image: 'https://t-filter.ru/image/cache/catalog/filter/filtr-gidravlicheskij-(kartridzh)/SH63314-1200x800.jpg',
+        image: '/flanec_sae.jpg',
         title: 'Металлические сетки',
       },
     },
@@ -148,8 +148,8 @@ const bannerProps = {
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
         '../public/paper1.jpeg',
-        'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg',
-        'https://stroydomsam.ru/image/cache/catalog/Wirtgenlogo/wirtgen118266-900x700.jpg',
+        '/cch801fv1-1000x1000.jpg',
+        '/wirtgen118266-900x700.jpg',
       ],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 25' },
@@ -162,7 +162,7 @@ const bannerProps = {
         'Основное применение — всасывающие и сливные фильтры.',
       ],
       gridItem: {
-        image: 'https://gik43.ru/image/cache/catalog/cch801fv1-1000x1000.jpg',
+        image: '/cch801fv1-1000x1000.jpg',
         title: 'Уплотнительное кольцо',
       },
     },
@@ -172,8 +172,8 @@ const bannerProps = {
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
-        'https://www.alexisfilters.co.uk/media/catalog/product/p/5/p502424.jpg',
-        'https://static.insales-cdn.com/images/products/1/6379/524466411/cre050-sxx200_0.jpg',
+        '/p502424.jpg',
+        '/cre050-sxx200_0.jpg',
       ],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 3 до 20' },
@@ -196,8 +196,8 @@ const bannerProps = {
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
         '../public/fibro1.jpeg',
-        'https://www.cargoparts.ru/pictures/product/big/10611_big.jpg',
-        'https://filter64.ru/images/stories/virtuemart/product/00-00001472_4.jpg',
+        '/10611_big.jpg',
+        '/00-00001472_4.jpg',
       ],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 3 до 20' },
