@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white overflow-hidden">
     <main class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
       <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="300">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -103,7 +103,6 @@ useHead({
 </script>
 
 <style scoped>
-/* Дополнительные стили для плавных анимаций */
 .bg-blue-50 {
   background-color: #eff6ff;
 }
