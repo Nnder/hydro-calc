@@ -10,11 +10,6 @@ useHead({
     },
   ],
 })
-
-const formOptions = {
-  lazy: true,
-  throttle: 100
-}
 </script>
 
 <template>
@@ -116,7 +111,6 @@ const formOptions = {
         </div>
       </div>
 
-      <!-- Часы работы -->
       <div class="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-blue-200 mb-12 sm:mb-16" data-aos="fade-up" data-aos-delay="700">
         <h3 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900 text-center">Часы работы</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
@@ -157,7 +151,7 @@ const formOptions = {
                   <span class="text-gray-700 text-sm sm:text-base">Ответ в течение 30 минут</span>
                 </div>
                 <div class="flex items-center gap-3 sm:gap-4">
-                  <Icon name="mdi:expert" class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+                  <Icon name="mdi:account-tie" class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
                   <span class="text-gray-700 text-sm sm:text-base">Консультация специалиста</span>
                 </div>
                 <div class="flex items-center gap-3 sm:gap-4">
@@ -179,12 +173,6 @@ const formOptions = {
 </template>
 
 <style scoped>
-@media (max-width: 640px) {
-  [data-aos] {
-    transition-duration: 0.4s !important;
-  }
-}
-
 .bg-gradient-to-br {
   background-image: linear-gradient(135deg, var(--tw-gradient-stops));
 }
