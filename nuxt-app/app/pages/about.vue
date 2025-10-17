@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white w-full py-16 lg:py-24">
+  <div class="bg-white w-full overflow-hidden py-16 lg:py-24">
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-20 lg:mb-28" data-aos="fade-up" data-aos-delay="400">
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">

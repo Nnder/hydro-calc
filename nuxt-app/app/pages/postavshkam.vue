@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-white to-blue-50 w-full py-12">
+  <div class="min-h-screen bg-gradient-to-b from-white to-blue-50 w-full overflow-hidden py-12">
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" data-aos="fade-up">
@@ -23,7 +23,7 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-3 md:mb-4">
                   Приглашаем к сотрудничеству
                 </h2>
-                <p class="text-xl md:leading-relaxed">
+                <p class="text-xl sm:text-base md:leading-relaxed">
                   Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, 
                   сварочного оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, 
                   которое позволит значительно увеличить объемы продаж вашей продукции на российском рынке.
