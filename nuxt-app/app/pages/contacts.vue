@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white overflow-hidden">
     <div class="bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
       <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(37,99,235,0.1)_0%,rgba(0,0,0,0)_50%)]"></div>
       <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
