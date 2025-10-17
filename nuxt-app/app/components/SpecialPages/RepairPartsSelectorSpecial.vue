@@ -90,7 +90,12 @@
                       <Icon name="mdi:close" class="text-lg" />
                     </button>
 
-                    <component v-if="part.childComponent" :is="part.childComponent" :options="part.options" />
+                    <component
+                      v-if="part.childComponent"
+                      :is="part.childComponent"
+                      :options="part.options"
+                      :on-option-select="selectedValue => updatePartDescription(part, selectedValue)"
+                    />
 
                     <p
                       class="text-hydro-steel/80 text-xs sm:text-sm pr-8 mb-4 break-words overflow-visible whitespace-normal"
@@ -228,6 +233,17 @@ watch(
   },
   { immediate: true }
 )
+
+const updatePartDescription = (part, selectedValue) => {
+  // Обновляем description и features в этом part (из computedParts.value)
+  if (selectedValue.description) {
+    part.description = selectedValue.description
+  }
+  if (selectedValue.features) {
+    part.features = selectedValue.features
+  }
+  console.log('Updated part:', part.name, selectedValue) // Для дебага
+}
 
 const computedMainImage = computed(() => props.GlobalTable?.mainImage || props.mainImage)
 const computedImageAlt = computed(() => props.GlobalTable?.imageAlt || props.imageAlt)
