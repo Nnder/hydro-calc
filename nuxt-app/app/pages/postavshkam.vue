@@ -6,7 +6,7 @@
           Сотрудничество с 
           <span class="text-blue-600">поставщиками</span>
         </h1>
-        <p class="text-xl text-gray-700 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
           Мы заинтересованы в установлении долгосрочных и взаимовыгодных партнерских отношений с производителями 
           гидравлических компонентов и промышленного оборудования
         </p>
@@ -20,10 +20,10 @@
                 <Icon name="mdi:handshake" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
               </div>
               <div class="flex-1 text-center sm:text-left">
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-3 md:mb-4">
                   Приглашаем к сотрудничеству
                 </h2>
-                <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                <p class="text-xl md:leading-relaxed">
                   Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, 
                   сварочного оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, 
                   которое позволит значительно увеличить объемы продаж вашей продукции на российском рынке.
@@ -32,7 +32,6 @@
             </div>
           </div>
 
-          <!-- Требования к поставщикам -->
           <div class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="600">
             <h2 class="text-3xl font-bold text-gray-900 mb-8">Наши требования к поставщикам</h2>
 
@@ -125,7 +124,7 @@
               <Icon name="mdi:clock-outline" class="w-8 h-8 text-blue-600" />
             </div>
             <h3 class="font-semibold text-gray-900 mb-2 text-lg">Режим работы отдела</h3>
-            <p class="text-gray-700 text-xl font-semibold">пн-пт с 9:00 до 18:00</p>
+            <p class="text-xl font-semibold">пн-пт с 9:00 до 18:00</p>
           </div>
         </div>
 
