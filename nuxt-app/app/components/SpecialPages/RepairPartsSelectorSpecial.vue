@@ -93,7 +93,7 @@
                     <component
                       v-if="part.childComponent"
                       :is="part.childComponent"
-                      :options="part.options"
+                      :part="part"
                       :on-select="onSelect"
                       :on-option-select="selectedValue => updatePartDescription(part, selectedValue)"
                     />
@@ -250,20 +250,6 @@ watch(
   { immediate: true, deep: true } // immediate: true для инициализации при монтировании
 )
 
-const updatePartDescription = (part, selectedValue) => {
-  // Обновляем description и features в этом part (из computedParts.value)
-  if (selectedValue.description) {
-    part.description = selectedValue.description
-  }
-  if (selectedValue.features) {
-    part.features = selectedValue.features
-  }
-
-  part.selectedOption = selectedValue
-
-  console.log('Updated part:', part, selectedValue) // Для дебага
-}
-
 const computedMainImage = computed(() => props.GlobalTable?.mainImage || props.mainImage)
 const computedImageAlt = computed(() => props.GlobalTable?.imageAlt || props.imageAlt)
 const computedImageId = computed(() => props.GlobalTable?.imageId || props.imageId)
@@ -359,6 +345,26 @@ const onSelect = partData => {
 
   // Опционально: emit вверх или обновите другие данные (например, totalPrice)
   // emit('part-selected', selectedParts.value)  // Если нужно передать родителю-родителю
+}
+
+const updatePartDescription = (part, selectedValue) => {
+  // Обновляем description и features в этом part (из computedParts.value)
+  if (selectedValue.description) {
+    part.description = selectedValue.description
+  }
+  if (selectedValue.features) {
+    part.features = selectedValue.features
+  }
+  if (selectedValue.count !== undefined) {
+    part.count = selectedValue.count
+  }
+  if (selectedValue.selected !== undefined) {
+    part.selected = selectedValue.selected
+  }
+
+  part.selectedOption = selectedValue
+
+  console.log('Updated part:', part, selectedValue) // Для дебага
 }
 
 const { addData } = useCalculatorSelector()
