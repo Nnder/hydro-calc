@@ -17,22 +17,24 @@
       <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-20">
         <!-- Основной контент -->
         <div class="lg:col-span-2 space-y-8">
-          <!-- Приветственный блок -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex items-start gap-6">
-              <div class="bg-blue-100 p-4 rounded-xl flex-shrink-0">
-                <Icon name="mdi:handshake" class="w-8 h-8 text-blue-600" />
-              </div>
-              <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Приглашаем к сотрудничеству</h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                  Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, 
-                  сварочного оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, 
-                  которое позволит значительно увеличить объемы продаж вашей продукции на российском рынке.
-                </p>
-              </div>
-            </div>
-          </div>
+<!-- Приветственный блок -->
+<div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="400">
+  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+    <div class="bg-blue-100 p-3 sm:p-4 rounded-lg md:rounded-xl flex-shrink-0 self-center sm:self-start">
+      <Icon name="mdi:handshake" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
+    </div>
+    <div class="flex-1 text-center sm:text-left">
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
+        Приглашаем к сотрудничеству
+      </h2>
+      <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+        Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, 
+        сварочного оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, 
+        которое позволит значительно увеличить объемы продаж вашей продукции на российском рынке.
+      </p>
+    </div>
+  </div>
+</div>
 
           <!-- Требования к поставщикам -->
           <div class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="600">
