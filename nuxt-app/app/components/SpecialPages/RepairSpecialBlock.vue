@@ -44,7 +44,7 @@ const handleSelect = part => {
           v-if="value.type === 'btn'"
           @click="handleSelect(option)"
           :class="{ selected: value.selected, ...value.class }"
-          class="w-full mb-2 justify-center inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
+          class="w-fit self-end mb-2 justify-center inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-hydro-power hover:bg-hydro-power-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hydro-power transition-all duration-200"
         >
           {{ value.selected ? '-' : '+' }}
         </button>
