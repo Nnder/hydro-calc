@@ -82,12 +82,6 @@ const sectionsData = {
                     { name: 'HLVP 46', value: 'HLVP 46' },
                     { name: 'MVLP 15', value: 'MLVP 15' },
                   ],
-                  onSelect: option => {
-                    const value = JSON.parse(option.target.value)
-                    console.log(value.description)
-                    sectionsData.hydraulic.globalTable.description = value.description
-                    sectionsData.hydraulic.globalTable.features = value.features
-                  },
                 },
                 { name: 'Объем л', value: 2, type: 'input', options: ['1', '2', '5', '10', '20', '50', '200'] },
                 {
