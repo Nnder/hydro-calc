@@ -46,8 +46,13 @@ const props = defineProps({
         <div class="h-full flex-1" v-else>
           <label>{{ value.name }}</label>
 
-          <select class="w-full h-full min-w-64 mb-2 px-4 md:px-5 py-3 border-2 rounded-lg md:rounded-xl">
-            <option v-for="selectValue in value.options">{{ selectValue.name }}</option>
+          <select
+            @change="value.onSelect"
+            class="w-full h-full min-w-64 mb-2 px-4 md:px-5 py-3 border-2 rounded-lg md:rounded-xl"
+          >
+            <option v-for="selectValue in value.options" :value="JSON.stringify(selectValue)">
+              {{ selectValue.name }}
+            </option>
           </select>
         </div>
       </template>

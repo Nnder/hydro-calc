@@ -83,8 +83,10 @@ const sectionsData = {
                     { name: 'MVLP 15', value: 'MLVP 15' },
                   ],
                   onSelect: option => {
-                    description = option.description
-                    features = option.features
+                    const value = JSON.parse(option.target.value)
+                    console.log(value.description)
+                    sectionsData.hydraulic.globalTable.description = value.description
+                    sectionsData.hydraulic.globalTable.features = value.features
                   },
                 },
                 { name: 'Объем л', value: 2, type: 'input', options: ['1', '2', '5', '10', '20', '50', '200'] },
@@ -852,10 +854,14 @@ const setActiveSection = section => {
   activeSection.value = section
 }
 
-const currentGlobalTable = computed(() => {
-  clearData()
-  return sectionsData[activeSection.value].globalTable
-})
+const currentGlobalTable = computed(
+  () => {
+    clearData()
+    return sectionsData[activeSection.value].globalTable
+  },
+  { deep: true }
+)
+
 const currentSteps = computed(() => sectionsData[activeSection.value].steps)
 const currentTitle = computed(() => sectionsData[activeSection.value].title)
 const currentInfoBlock = computed(() => sectionsData[activeSection.value].infoBlock)

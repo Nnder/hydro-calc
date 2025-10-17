@@ -223,7 +223,7 @@ watch(
   () => props.GlobalTable?.parts,
   newParts => {
     if (newParts) {
-      computedParts.value = newParts.map(part => ({ ...part })) // клон для реактивности
+      computedParts.value = newParts.map(part => ({ ...part }))
     }
   },
   { immediate: true }
