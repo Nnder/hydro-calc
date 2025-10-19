@@ -56,13 +56,13 @@
 
             <!-- Нижний блок с кнопкой и доп информацией -->
             <div class="bottom-content">
-              <button
-                @click="open()"
+              <NuxtLink
+                :to="slider.link"
                 class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap flex items-center"
               >
                 {{ slider.buttonText || 'Заказать' }}
                 <Icon name="mdi-arrow-right" class="ml-2" />
-              </button>
+              </NuxtLink>
 
               <div class="additional-info" v-if="slider.additionalInfo">
                 <Icon name="mdi-information-outline" size="small" class="mr-1" />
@@ -101,8 +101,9 @@ const sliders = [
     title: 'Ремонт гидроцилиндров',
     text: 'Полный комплекс услуг по восстановлению гидравлики',
     features: ['Диагностика за 2 часа', 'Гарантия до 12 месяцев', 'Проектирование и изготовление гидроцилидров'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
     additionalInfo: 'Срочный ремонт за 24 часа',
+    link: '/remont-hydraulic-cylinders',
   },
   {
     videoSrc: '/videos/video3.mp4',
@@ -111,6 +112,8 @@ const sliders = [
     title: 'Испытательный стенд для гидронасосов и гидроцилиндров',
     // text: 'Специализированный сервис для промышленной техники',
     features: ['Референт лист', 'Опыт более 10 лет'],
+    buttonText: 'Подробнее',
+    link: '/remont-hydraulic-cylinders',
   },
   {
     videoSrc: '/videos/video3.mp4',
@@ -118,7 +121,8 @@ const sliders = [
     title: 'Разработка конструкторской документации и изготовление гидронасосных станций',
     // text: 'Регулярный сервис для бесперебойной работы',
     features: ['Референт лист', 'Опыт более 10 лет'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
+    link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
   },
   {
     videoSrc: '/videos/video3.mp4',
@@ -126,7 +130,8 @@ const sliders = [
     title: 'Изготовление рукава высокого давления (рвд)',
     // text: 'Регулярный сервис для бесперебойной работы',
     features: ['Любой обьем', 'Любая сложность'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
+    link: '/rukava-visokogo-davlenia-rvd',
   },
   {
     videoSrc: '/videos/video3.mp4',
@@ -135,8 +140,9 @@ const sliders = [
     title: 'Ремонт гидронасосов',
     text: 'Полный комплекс услуг по восстановлению гидронасосов',
     features: ['Диагностика за 2 часа', 'Гарантия до 12 месяцев', 'Ремонт и восстановление гидронасосов'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
     additionalInfo: 'Срочный ремонт за 24 часа',
+    link: '/remont-nasosov-pumps',
   },
   {
     videoSrc: '/videos/video3.mp4',
@@ -145,8 +151,9 @@ const sliders = [
     title: 'Ремонт гидромоторов',
     text: 'Полный комплекс услуг по восстановлению гидромоторов',
     features: ['Диагностика за 2 часа', 'Гарантия до 12 месяцев', 'Ремонт и восстановление гидромотров'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
     additionalInfo: 'Срочный ремонт за 24 часа',
+    link: '/remont-hydraulic-motors',
   },
   {
     videoSrc: '/videos/video3.mp4',
@@ -155,8 +162,9 @@ const sliders = [
     title: 'Ремонт навестного оборудования',
     text: 'Полный комплекс услуг по восстановлению ковшей, гидромолотов и гидровращателей',
     features: ['Диагностика за 2 часа', 'Гарантия до 12 месяцев', 'Ремонт и продажа навестного оборудования'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
     additionalInfo: 'Срочный ремонт за 24 часа',
+    link: '/remont-kovshey',
   },
   {
     img: 'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
@@ -164,8 +172,9 @@ const sliders = [
     title: 'Сварочные и токарные работы',
     text: 'Полный комплекс услуг по восстановлению методом наплавки',
     features: ['Наплавка штоков', 'Сварка и восстановление проушин', 'Сварка корпусов гидроцилиндров'],
-    buttonText: 'Оставить заявку',
+    buttonText: 'Подробнее',
     additionalInfo: 'Срочный ремонт за 24 часа',
+    link: '/remont-svarkoy',
   },
 ]
 
