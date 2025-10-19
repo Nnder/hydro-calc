@@ -362,7 +362,7 @@ const updatePartDescription = (part, selectedValue) => {
     part.selected = selectedValue.selected
   }
 
-  part.selectedOption = selectedValue
+  if (selectedValue) part.selectedOption = selectedValue
 
   console.log('Updated part:', part, selectedValue) // Для дебага
 }
