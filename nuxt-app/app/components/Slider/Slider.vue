@@ -186,15 +186,15 @@ const videoRef = ref(null)
   width: 100%;
   height: 600px;
   position: relative;
-  --swiper-navigation-color: rgba(255, 255, 255, 0.4);
-  --swiper-pagination-color: rgba(255, 255, 255, 0.4);
-  --swiper-navigation-size: 36px;
+  --swiper-navigation-color: rgba(255, 255, 255, 0.6);
+  --swiper-pagination-color: rgba(255, 255, 255, 1);
+  --swiper-navigation-size: 50px;
 }
 
 .swiper-with-video .swiper-button-next,
 .swiper-with-video .swiper-button-prev {
-  opacity: 0.6; /* прозрачность */
-  transform: scale(0.7); /* уменьшаем размер */
+  opacity: 0.7; /* прозрачность */
+  transform: scale(1.5); /* уменьшаем размер */
   transition: opacity 0.3s ease;
 }
 
