@@ -142,7 +142,7 @@
                 loading="lazy"
                 format="webp"
                 quality="80"
-                :id="computedImageId"
+                id="computedImageId"
               />
 
               <div
