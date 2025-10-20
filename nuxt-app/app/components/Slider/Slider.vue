@@ -12,7 +12,7 @@
       :preload-images="false"
       class="swiper-with-video"
       :autoplay="{
-        delay: 10000,
+        delay: 5000,
         disableOnInteraction: true,
       }"
     >
