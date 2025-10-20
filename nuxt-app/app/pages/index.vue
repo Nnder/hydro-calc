@@ -35,9 +35,9 @@ const blockDataText = {
 }
 
 const blockData = {
-  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
+  title: 'Изготовим нестандартные гидроцилиндры по вашему проекту, техническому заданию',
   description:
-    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией до 12 месяцев',
   buttonText: 'Рассчитать стоимость',
   imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
@@ -51,9 +51,9 @@ const blockData = {
 }
 
 const blockDataVariant = {
-  title: 'Изготовим нестандартное оборудование по вашему проекту, техническому заданию',
+  title: 'Ремонт гидроцилиндров любой сложности',
   description:
-    'Изготовим гидроцилиндр по вашему чертежу,\nтехническому заданию или готовому образцу\nс гарантией 12 месяцев',
+    'Производем ремонт гидроцилиндров для спецтехники и промышленного оборудования с гарантией до 12 месяцев',
   buttonText: 'Рассчитать стоимость',
   imageUrl: '/hydrocilindr.jpg',
   imageAlt: 'Гидроцилиндр',
@@ -166,7 +166,7 @@ const slide = {
 <template>
   <Slider />
   <ServiceBlock data-aos="fade-up" />
-  <Slide :slider="slide" class="!h-full py-4" />
+  <!-- <Slide :slider="slide" class="!h-full py-4 mb-16" /> -->
   <!-- <NuxtImg src="/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full" /> -->
   <InformationBlockSpecial
     :block-data="currentInfoBlock"
@@ -176,6 +176,7 @@ const slide = {
   />
   <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
+  <Slide :slider="slide" class="!h-full py-4 mb-16 mt-16" />
   <Advantages data-aos="fade-up" />
   <Contact data-aos="fade-up" />
   <Gis data-aos="fade-up" />

@@ -67,7 +67,7 @@ const mainSlideData = {
 
 const globalTitle = ref({
   gtitle: 'Этапы ремонта Гидронасосов',
-  subtitle: 'Полный цикл восстановления гидронасосов спецтехники',
+  subtitle: 'Полный цикл восстановления гидронасосов',
 })
 
 const repairSteps = ref([
