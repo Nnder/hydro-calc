@@ -116,7 +116,7 @@ const sliders = [
     link: '/remont-hydraulic-cylinders',
   },
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/конструкторская документация .mp4',
     img: '/images/standVideo/video3photo.png',
     title: 'Разработка конструкторской документации и изготовление гидронасосных станций',
     // text: 'Регулярный сервис для бесперебойной работы',
