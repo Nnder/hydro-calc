@@ -10,6 +10,7 @@ import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 import InformationBlockSpecial from '~/components/SpecialPages/InformationBlockSpecial.vue'
 import Partners from '~/components/Partners/Partners.vue'
 import Slide from '~/components/Slider/Slide.vue'
+import InformationBlockSpecialLinks from '~/components/SpecialPages/InformationBlockSpecialLinks.vue'
 
 useHead({
   title: `Абсолют техно`,
@@ -85,9 +86,10 @@ const sectionsData = {
       title: 'Ремонт ковшей',
       description:
         'Восстановление режущих элементов, усиление днища и стенок ковша, восстановление отверстий под пальцы. Профессиональный подход к ремонту ударного оборудования.',
-      buttonText: 'Заказать ремонт гидромолота',
+      buttonText: 'Подробнее',
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидромолота',
+      link: '/remont-kovshey/kovshi',
       type: '3d',
       modelSrc: '/3d/Сборка ковша.glb',
       modelBgColor: '#2563EB',
@@ -108,7 +110,8 @@ const sectionsData = {
         { icon: 'mdi:vector-arrange-above', text: 'Ревизия распределительных узлов' },
         { icon: 'mdi:wrench', text: 'Восстановление корпуса и креплений' },
       ],
-      buttonText: 'Заказать ремонт гидромолота',
+      buttonText: 'Подробнее',
+      link: '/remont-kovshey/hydromoloty',
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидромолота',
       type: '3d',
@@ -130,9 +133,10 @@ const sectionsData = {
         { icon: 'mdi:vector-arrange-above', text: 'Ремонт редукторов' },
         { icon: 'mdi:wrench', text: 'Восстановление корпуса и креплений' },
       ],
-      buttonText: 'Заказать ремонт гидровращателя',
+      buttonText: 'Подробнее',
       imageUrl: '/hydromolot_diagram.png',
       imageAlt: 'Схема ремонта гидровщатале',
+      link: '/remont-kovshey/hydrovrashateli',
       type: '3d',
       modelSrc: '/3d/ТС135.000.00.000_(fn-1).glb',
       modelBgColor: '#2563EB',
@@ -168,7 +172,7 @@ const slide = {
   <ServiceBlock data-aos="fade-up" />
   <Slide :slider="slide" class="!h-full py-4" />
   <!-- <NuxtImg src="/bannertest.jpeg" alt="globalbanner" class="rounded-2xl h-[900px] mx-auto w-full" /> -->
-  <InformationBlockSpecial
+  <InformationBlockSpecialLinks
     :block-data="currentInfoBlock"
     :active-section="activeSection"
     @section-change="setActiveSection"

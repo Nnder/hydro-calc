@@ -83,12 +83,12 @@ const setActiveSection = section => emit('section-change', section)
           </div>
         </div>
 
-        <button
-          @click="open()"
+        <NuxtLink
+          :to="blockData.link"
           class="border-2 border-white w-full sm:w-auto text-black px-6 py-2 rounded-lg bg-white hover:bg-hydro-power hover:text-white transition-colors duration-300"
         >
           {{ blockData.buttonText }}
-        </button>
+        </NuxtLink>
       </div>
 
       <div class="w-full lg:w-1/2 xl:!w-[640px] pt-4 flex flex-col items-center">
