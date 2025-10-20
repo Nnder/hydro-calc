@@ -35,7 +35,7 @@ const mainSlideData = {
   src: '/recambios-coches1.jpg',
   title: 'Профессиональная продажа фильтров',
   description:
-    'Профессиональная продажа фильтров и фильтроэлементов в Нижнем Тагиле! Компания «ООО Абсолют Техно» предлагает качественные фильтры по конкурентоспособным ценам с доставкой по всей Свердловской области.',
+    'Профессиональная продажа фильтров и фильтроэлементов в Нижнем Тагиле! Компания «ООО АбсолютТехно» предлагает качественные фильтры по конкурентоспособным ценам с доставкой по всей Свердловской области.',
 }
 
 const blockDataText = {
@@ -85,11 +85,7 @@ const bannerProps = {
       title: 'Бумажные фильтры',
       type: 'seal',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
-      images: [
-        '../public/paper1.jpeg',
-        '/cch801fv1-1000x1000.jpg',
-        '/wirtgen118266-900x700.jpg',
-      ],
+      images: ['../public/paper1.jpeg', '/cch801fv1-1000x1000.jpg', '/wirtgen118266-900x700.jpg'],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 25' },
         { label: 'Max.давление', value: 'до 18 бар' },
@@ -133,11 +129,7 @@ const bannerProps = {
       title: 'Фибра стекловолокна.',
       type: 'plug',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
-      images: [
-        '../public/fibro1.jpeg',
-        '/10611_big.jpg',
-        '/00-00001472_4.jpg',
-      ],
+      images: ['../public/fibro1.jpeg', '/10611_big.jpg', '/00-00001472_4.jpg'],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 3 до 20' },
         { label: 'Max.давление', value: 'до 420 бар' },

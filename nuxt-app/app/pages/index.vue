@@ -13,7 +13,7 @@ import Slide from '~/components/Slider/Slide.vue'
 import InformationBlockSpecialLinks from '~/components/SpecialPages/InformationBlockSpecialLinks.vue'
 
 useHead({
-  title: `Абсолют техно`,
+  title: `АбсолютТехно`,
   meta: [
     {
       name: 'description',
