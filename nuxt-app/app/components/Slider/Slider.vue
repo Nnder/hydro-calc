@@ -156,7 +156,7 @@ const sliders = [
     link: '/remont-hydraulic-motors',
   },
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/навесное_оборудование_ковкши_гидромолоты_и_гидровращатели_2.mp4',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт навестного оборудования',
@@ -167,7 +167,8 @@ const sliders = [
     link: '/remont-kovshey',
   },
   {
-    img: 'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
+    videoSrc: '/videos/сварочные токартные работы.mp4',
+    img: '/https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
     tag: 'Профессионально',
     title: 'Сварочные и токарные работы',
     text: 'Полный комплекс услуг по восстановлению методом наплавки',
