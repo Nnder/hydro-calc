@@ -4,6 +4,7 @@ import InformationBlock from '~/components/Block/InformationBlock.vue'
 import ProductionEquipment from '~/components/Production/ProductionEquipment.vue'
 import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import Step from '~/components/Steps/Step.vue'
+import ParametersGrid from '~/components/Parameters/ParametersGrid.vue'
 
 definePageMeta({
   path: '/gidrolinii',
@@ -19,6 +20,12 @@ useHead({
   ],
 })
 
+const parameters = ref([
+  { value: 'до 300', description: 'Диаметр поршня, мм' },
+  { value: 'до 2200', description: 'Ход поршня, мм' },
+  { value: 'до 40', description: 'Max давление, МПа' },
+])
+
 const description = `<p class="text-lg">
           Компания ООО "АбсолютТехно" располагает современным производственным комплексом. Специализируемся на
           изготовлении рукавов высокого давления с использованием высококачественного оборудования.
@@ -32,16 +39,16 @@ const imageUrl = '/rvd.jpg'
 const title = 'Изготовление и ремонт РВД по Свердловской области'
 
 const blockData = {
-  title: 'Производcтво и ремонт гидролиний',
+  title: 'Производcтво гидравлических трубок (гидролиний)',
   description:
-    'Изготовлнение дополнительных гидролиний на любую спецтехнику, произведем ремонт существующих гидролиний',
-  buttonText: 'заказать изготовление',
+    'Изготовлнение дополнительных гидролиний на любую спецтехнику, штучное изготовление гидравлических трубок.',
+  buttonText: 'Заказать изготовление',
   imageUrl: '/rvd_3.png',
   imageAlt: 'Производство рукавов высокого давления',
 }
 
 const mainSlideData = {
-  src: '/1402189-2-Equipment-1920w.jpg',
+  src: 'https://image.made-in-china.com/2f0j00CAghSVbthprI/Hydraulic-Rock-Breaker-Hammer-Piping-Kits-Manufacturer.webp',
   title: 'Изготовление гидравлических трубок по вашим размерам или образцу',
   description:
     'Производим ремонт гидравлических трубок, изготовление и монтаж дополнительных гидравлических линий (гидролиний)',
@@ -92,6 +99,8 @@ const steps = [
 
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
+  <ParametersGrid :parameters="parameters" :header="header" data-aos="fade-up" data-aos-delay="200" />
+  <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <div class="text-center mb-16">
     <h1
       class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-700 to-slate-900 bg-clip-text text-transparent mb-6"
@@ -107,7 +116,6 @@ const steps = [
     :key="index + '-step-izgotovlenie'"
     class="mb-8"
   />
-  <InformationBlock :blockData="blockData" data-aos="fade-up" />
-
+  
   <Contact data-aos="fade-up" />
 </template>
