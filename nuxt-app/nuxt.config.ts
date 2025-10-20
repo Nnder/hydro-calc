@@ -25,6 +25,12 @@ export default defineNuxtConfig({
     'nuxt-aos',
   ],
 
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1000, // Лимит в КБ; по умолчанию 500
+    },
+  },
+
   icon: {
     provider: 'iconify',
   },
