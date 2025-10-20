@@ -811,6 +811,6 @@ const mainSlideData = {
   <ProductionEquipment data-aos="fade-up" />
   <RvdTableSlider :tables="tableDataObjects" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
-  <AccessoriesGrid :title="'Дополнительные товары'" :items="items" data-aos="fade-up" />
+  <AccessoriesGrid :title="'Дополнительные комплектующие для РВД'" :items="items" data-aos="fade-up" />
   <Contact data-aos="fade-up" />
 </template>
