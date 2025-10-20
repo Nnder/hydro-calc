@@ -102,7 +102,7 @@
                 leave-from-class="opacity-100 max-h-96"
                 leave-to-class="opacity-0 max-h-0"
               >
-                <div v-if="part.show && (part.description || part?.features?.length)" class="overflow-visible">
+                <div v-if="part.selected && (part.description || part?.features?.length)" class="overflow-visible">
                   <div
                     class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
                     :class="parts.length > 6 ? 'mt-2 p-3 sm:p-4' : 'mt-3 p-4 sm:p-5'"

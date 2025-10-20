@@ -159,19 +159,26 @@ const blockData = {
 
 const MainCalculatorImage = ref('/calculator/1.png')
 
-// Пример правильных координат для highlight
 const hydrantParts = ref([
   {
     name: 'Диагностика (дефектовка)',
     selected: false,
-    show: false,
+    show: true,
+    description:
+      'Полная диагностика гидроцилиндра с использованием современного оборудования для выявления всех дефектов.',
+    features: [
+      'Визуальный осмотр на предмет повреждений',
+      'Проверка герметичности системы',
+      'Измерение параметров штока и гильзы',
+      'Составление карт проверов гильзы и штока',
+      'Составление дефектовочной ведомости',
+    ],
     highlight: [],
   },
   {
     name: 'Подбор и замена уплотнений',
     selected: false,
     show: false,
-    // две боковые маленькие зоны (левая и правая), аккуратно подогнаны
     highlight: [
       { type: 'rect', top: '18%', left: '30.5%', width: '15%', height: '8%' }, // левая уплотн.
       { type: 'rect', top: '18%', left: '63.5%', width: '10%', height: '8%' }, // правая уплотн.
@@ -179,7 +186,7 @@ const hydrantParts = ref([
       { type: 'rect', top: '75%', left: '63.5%', width: '18%', height: '8%' }, // правая уплотн.
     ],
     z: 9,
-    color: 'rgba(249,115,22,0.35)', // Orange
+    color: 'rgba(249,115,22,0.35)',
     stroke: 'rgba(249,115,22,0.5)',
   },
   {
@@ -187,7 +194,6 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     z: 1,
-    // узкий длинный прямоугольник по центру; не доходит до крышек сверху/снизу
     highlight: [
       {
         type: 'circle',
@@ -197,13 +203,13 @@ const hydrantParts = ref([
       },
       {
         type: 'rect',
-        top: '15%', // отступ сверху чтобы не попадать в верхнюю крышку/проушину
-        left: '25%', // центрируем чуть правее 46..47% — подогнал под центр штока
-        width: '50%', // ширина штока (узкая)
-        height: '61%', // высота от 12% до ~88% — не заходит на нижнюю крышку
+        top: '15%',
+        left: '25%',
+        width: '50%',
+        height: '61%',
       },
     ],
-    color: 'rgba(34,197,94,0.35)', // Green
+    color: 'rgba(34,197,94,0.35)',
   },
   {
     name: 'Изготовление и замена поршня',
@@ -225,7 +231,7 @@ const hydrantParts = ref([
         height: '3%',
       },
     ],
-    color: 'rgba(20,184,166,0.35)', // Teal
+    color: 'rgba(20,184,166,0.35)',
   },
   {
     name: 'Ремонт гильз',
@@ -247,13 +253,12 @@ const hydrantParts = ref([
         height: '56%',
       },
     ],
-    color: 'rgba(59,130,246,0.35)', // Blue
+    color: 'rgba(59,130,246,0.35)',
   },
   {
     name: 'Замена крышек',
     selected: false,
     show: false,
-    // твои новые покрытия оставил как есть (широкие прямоугольники)
     highlight: [
       {
         type: 'rect',
@@ -270,19 +275,12 @@ const hydrantParts = ref([
         height: '4%',
       },
     ],
-    color: 'rgba(37,99,235,0.35)', // Dark blue
+    color: 'rgba(37,99,235,0.35)',
   },
   {
     name: 'Ремонт цапф',
     selected: false,
     show: false,
-    highlight: [],
-  },
-  {
-    name: 'Замена проушин',
-    selected: false,
-    show: false,
-    // твои проушины оставил как есть (две большие окружности)
     highlight: [
       {
         type: 'circle',
@@ -297,125 +295,60 @@ const hydrantParts = ref([
         r: '20%',
       },
     ],
-    color: 'rgba(234,88,12,0.35)', // Orange
+    color: 'rgba(234,88,12,0.35)',
+    onSelect: () => {
+      const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
+      hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
+      if (val) {
+        MainCalculatorImage.value = '/calculator/1.png'
+      } else {
+        MainCalculatorImage.value = '/calculator/1.png'
+      }
+    },
+  },
+  {
+    name: 'Замена проушин',
+    selected: false,
+    show: false,
+    onSelect: () => {
+      const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
+      hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
+      if (val) {
+        MainCalculatorImage.value = '/calculator/1.png'
+      } else {
+        MainCalculatorImage.value = '/calculator/1.png'
+      }
+    },
+    highlight: [
+      {
+        type: 'circle',
+        cx: '45%',
+        cy: '9%',
+        r: '20%',
+      },
+      {
+        type: 'circle',
+        cx: '50%',
+        cy: '92%',
+        r: '20%',
+      },
+    ],
+    color: 'rgba(234,88,12,0.35)',
   },
   {
     name: 'Гидравлические испытания',
     selected: false,
     show: false,
+    description: 'Контрольные испытания гидрацилиндров по ГОСТу',
+    features: [
+      'Проверка на герметичность',
+      'Испытание давлением P<span class="text-[10px]">раб</span> * 1,25',
+      'Контроль плавности хода',
+      'Фиксация результатов с занесением данных в паспорт',
+    ],
     highlight: [],
   },
 ])
-
-// const hydrantParts = ref([
-//   {
-//     name: 'Диагностика (дефектовка)',
-//     selected: false,
-//     show: false,
-//     description:
-//       'Полная диагностика гидроцилиндра с использованием современного оборудования для выявления всех дефектов.',
-//     features: [
-//       'Визуальный осмотр на предмет повреждений',
-//       'Проверка герметичности системы',
-//       'Измерение параметров штока и гильзы',
-//       'Составление карт проверов гильзы и штока',
-//       'Составление дефектовочной ведомости',
-//     ],
-//     highlight: [
-//       { type: 'rect', top: '10%', left: '50%', width: '40%', height: '15%' },
-//       {
-//         type: 'poly',
-//         points: '10,90 20,70 30,90 40,70 50,90', // форма буквы W
-//         color: 'rgba(255, 255, 0, 0.5)', // полупрозрачный жёлтый
-//         stroke: 'rgba(255, 200, 0, 0.9)',
-//         strokeWidth: 2,
-//       },
-//     ],
-//   },
-//   {
-//     name: 'Подбор и замена уплотнений',
-//     selected: false,
-//     show: false,
-//     highlight: [{ type: 'rect', top: '30%', left: '20%', width: '60%', height: '10%' }],
-//     color: 'bg-orange-400/50 border-orange-400',
-//   },
-//   {
-//     name: 'Изготовление и замена штока',
-//     selected: false,
-//     show: false,
-//     color: 'bg-green-500/50 border-green-500',
-//     highlight: [
-//       { type: 'rect', top: '25%', left: '30%', width: '20%', height: '50%' },
-//       { type: 'circle', cx: '40%', cy: '40%', r: '4%' }, // пример дополнительной фигуры
-//     ],
-//   },
-//   {
-//     name: 'Изготовление и замена поршня',
-//     selected: false,
-//     show: false,
-//     color: 'bg-teal-600/50 border-teal-600',
-//     highlight: [{ type: 'rect', top: '40%', left: '45%', width: '15%', height: '10%' }],
-//   },
-//   {
-//     name: 'Ремонт гильз',
-//     selected: false,
-//     show: false,
-//     color: 'bg-sky-700/50 border-sky-700',
-//     highlight: [{ type: 'rect', top: '30%', left: '50%', width: '30%', height: '40%' }],
-//   },
-//   {
-//     name: 'Замена крышек',
-//     selected: false,
-//     show: false,
-//     color: 'bg-blue-300/50 border-blue-300',
-//     highlight: [{ type: 'rect', top: '20%', left: '80%', width: '15%', height: '60%' }],
-//   },
-//   {
-//     name: 'Ремонт цапф',
-//     selected: false,
-//     show: false,
-//     color: 'bg-indigo-600/50 border-indigo-600',
-//     onSelect: () => {
-//       const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
-//       hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
-//       if (val) {
-//         MainCalculatorImage.value = '/calculator/1.png'
-//       } else {
-//         MainCalculatorImage.value = '/calculator/1.png'
-//       }
-//     },
-//     highlight: [{ type: 'rect', top: '70%', left: '10%', width: '15%', height: '15%' }],
-//   },
-//   {
-//     name: 'Замена проушин',
-//     selected: false,
-//     show: false,
-//     color: 'bg-orange-600/50 border-orange-600',
-//     onSelect: () => {
-//       const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
-//       hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
-//       if (val) {
-//         MainCalculatorImage.value = '/calculator/1.png'
-//       } else {
-//         MainCalculatorImage.value = '/calculator/1.png'
-//       }
-//     },
-//     highlight: [{ type: 'rect', top: '75%', left: '75%', width: '20%', height: '15%' }],
-//   },
-//   {
-//     name: 'Гидравлические испытания',
-//     selected: false,
-//     show: false,
-//     description: 'Контрольные испытания гидрацилиндров по ГОСТу',
-//     features: [
-//       'Проверка на герметичность',
-//       'Испытание давлением P<span class="text-[10px]">раб</span> * 1,25',
-//       'Контроль плавности хода',
-//       'Фиксация результатов с занесением данных в паспорт',
-//     ],
-//     highlight: [{ type: 'rect', top: '85%', left: '40%', width: '20%', height: '10%' }],
-//   },
-// ])
 </script>
 
 <style>
