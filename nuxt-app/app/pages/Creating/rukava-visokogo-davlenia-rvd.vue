@@ -31,7 +31,7 @@ const parameters = ref([
 const header = 'ПАРАМЕТРЫ ИЗГОТОВЛЯЕМЫХ РВД'
 
 const description = `<p class="text-lg">
-          Компания ООО "Абсолют Техно" располагает современным производственным комплексом. Специализируемся на
+          Компания ООО "АбсолютТехно" располагает современным производственным комплексом. Специализируемся на
           изготовлении рукавов высокого давления с использованием высококачественного оборудования.
         </p>
         <p class="text-lg">
@@ -811,6 +811,6 @@ const mainSlideData = {
   <ProductionEquipment data-aos="fade-up" />
   <RvdTableSlider :tables="tableDataObjects" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
-  <AccessoriesGrid :items="items" data-aos="fade-up" />
+  <AccessoriesGrid :title="'Дополнительные комплектующие для РВД'" :items="items" data-aos="fade-up" />
   <Contact data-aos="fade-up" />
 </template>

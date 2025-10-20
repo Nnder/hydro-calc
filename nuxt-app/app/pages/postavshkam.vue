@@ -3,36 +3,42 @@
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" data-aos="fade-up">
-          Сотрудничество с 
+          Сотрудничество с
           <span class="text-blue-600">поставщиками</span>
         </h1>
         <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-          Мы заинтересованы в установлении долгосрочных и взаимовыгодных партнерских отношений с производителями 
+          Мы заинтересованы в установлении долгосрочных и взаимовыгодных партнерских отношений с производителями
           гидравлических компонентов и промышленного оборудования
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-20">
         <div class="lg:col-span-2 space-y-8">
-          <div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="400">
+          <div
+            class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-blue-100"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
               <div class="bg-blue-100 p-3 sm:p-4 rounded-lg md:rounded-xl flex-shrink-0 self-center sm:self-start">
                 <Icon name="mdi:handshake" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
               </div>
               <div class="flex-1 text-center sm:text-left">
-                <h2 class="text-3xl font-bold text-gray-900 mb-3 md:mb-4">
-                  Приглашаем к сотрудничеству
-                </h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-3 md:mb-4">Приглашаем к сотрудничеству</h2>
                 <p class="text-xl sm:text-base md:leading-relaxed">
-                  Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, 
-                  сварочного оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, 
-                  которое позволит значительно увеличить объемы продаж вашей продукции на российском рынке.
+                  Уважаемые производители и поставщики гидроцилиндров, гидравлических компонентов, сварочного
+                  оборудования и промышленных решений. Мы предлагаем взаимовыгодное партнерство, которое позволит
+                  значительно увеличить объемы продаж вашей продукции на российском рынке.
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100" data-aos="fade-up" data-aos-delay="600">
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg border border-blue-100"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <h2 class="text-3xl font-bold text-gray-900 mb-8">Наши требования к поставщикам</h2>
 
             <div class="mb-8">
@@ -47,7 +53,9 @@
                   data-aos="fade-up"
                   :data-aos-delay="200 + index * 100"
                 >
-                  <div class="bg-white  rounded-lg mr-4 border border-blue-300 group-hover:border-blue-400 transition-colors">
+                  <div
+                    class="bg-white rounded-lg mr-4 border border-blue-300 group-hover:border-blue-400 transition-colors"
+                  >
                     <Icon name="mdi:check" class="w-5 h-5 text-blue-600 mt-1 mx-1" />
                   </div>
                   <span class="text-gray-800 font-medium text-lg">{{ item }}</span>
@@ -101,7 +109,10 @@
               <Icon name="mdi:phone" class="w-8 h-8 text-blue-600" />
             </div>
             <h3 class="font-semibold text-gray-900 mb-2 text-lg">Телефон отдела закупок</h3>
-            <a href="tel:+78005553357" class="text-blue-600 hover:text-blue-800 transition-colors text-xl font-semibold">
+            <a
+              href="tel:+78005553357"
+              class="text-blue-600 hover:text-blue-800 transition-colors text-xl font-semibold"
+            >
               +7 (800) 555-33-57
             </a>
           </div>
@@ -129,7 +140,8 @@
         </div>
 
         <div class="text-center">
-          <button @click="open"
+          <button
+            @click="open"
             class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-xl transition-all duration-300 flex items-center justify-center mx-auto shadow-lg hover:shadow-xl"
           >
             <Icon name="mdi:file-send" class="w-6 h-6 mr-3" />
@@ -143,11 +155,12 @@
 
 <script setup>
 useHead({
-  title: 'Сотрудничество с поставщиками | Абсолют Техно',
+  title: 'Сотрудничество с поставщиками | АбсолютТехно',
   meta: [
     {
       name: 'description',
-      content: 'Станьте поставщиком ООО Абсолют Техно. Сотрудничество с производителями гидроцилиндров, гидравлических компонентов и промышленного оборудования.',
+      content:
+        'Станьте поставщиком ООО АбсолютТехно. Сотрудничество с производителями гидроцилиндров, гидравлических компонентов и промышленного оборудования.',
     },
   ],
 })
@@ -160,7 +173,7 @@ const requirements = [
   'Техническую поддержку наших специалистов',
   'Маркетинговую поддержку и материалы',
   'Сертификаты качества на продукцию',
-  'Гарантийное обслуживание'
+  'Гарантийное обслуживание',
 ]
 
 const { open } = useModal()

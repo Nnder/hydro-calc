@@ -3,7 +3,7 @@
     <main class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
       <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="300">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-          Доставка по 
+          Доставка по
           <span class="text-blue-600">всей России</span>
         </h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -11,7 +11,11 @@
         </p>
       </div>
 
-      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mb-20" data-aos="fade-up" data-aos-delay="400">
+      <div
+        class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mb-20"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
         <div class="lg:w-1/2">
           <div class="space-y-8 text-gray-700">
             <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="500">
@@ -34,8 +38,8 @@
               <div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Сопровождение заказов</h3>
                 <p class="text-lg leading-relaxed">
-                  Сопровождаем каждый заказ до момента получения и всегда на связи, чтобы вы могли быть уверены: 
-                  ваша продукция приедет вовремя и в идеальном состоянии.
+                  Сопровождаем каждый заказ до момента получения и всегда на связи, чтобы вы могли быть уверены: ваша
+                  продукция приедет вовремя и в идеальном состоянии.
                 </p>
               </div>
             </div>
@@ -47,8 +51,8 @@
               <div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Проверенные перевозчики</h3>
                 <p class="text-lg leading-relaxed">
-                  Работаем с проверенными транспортными компаниями: СДЭК, Деловые Линии, ПЭК, КИТ и другими.
-                  Возможна отправка до терминала или прямо до двери.
+                  Работаем с проверенными транспортными компаниями: СДЭК, Деловые Линии, ПЭК, КИТ и другими. Возможна
+                  отправка до терминала или прямо до двери.
                 </p>
               </div>
             </div>
@@ -91,15 +95,15 @@
 import Gis from '~/components/Map/2Gis.vue'
 
 useHead({
-  title: 'Доставка по России | Абсолют Техно - гидроцилиндры',
+  title: 'Доставка по России | АбсолютТехно - гидроцилиндры',
   meta: [
     {
       name: 'description',
-      content: 'Доставка гидроцилиндров по всей России. СДЭК, Деловые Линии, ПЭК, КИТ. Надежная упаковка, отслеживание заказов, быстрые сроки.',
+      content:
+        'Доставка гидроцилиндров по всей России. СДЭК, Деловые Линии, ПЭК, КИТ. Надежная упаковка, отслеживание заказов, быстрые сроки.',
     },
   ],
 })
-
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
   <div v-if="!isHydrated">
     <div class="h-[800px] flex items-center justify-center"></div>
   </div>
-  
+
   <ClientOnly>
     <div v-show="isHydrated" class="w-full" data-aos="fade-up">
       <div class="hidden lg:block">
@@ -13,7 +13,7 @@
           :preload-images="false"
           class="swiper-with-video"
           :autoplay="{
-            delay: 10000,
+            delay: 5000,
             disableOnInteraction: true,
           }"
         >
@@ -74,8 +74,9 @@ defineProps({
   width: 100%;
   height: 800px;
   position: relative;
-  --swiper-navigation-color: #2563ed;
-  --swiper-pagination-color: #2563ed;
+  --swiper-navigation-color: rgba(37, 99, 237, 1);
+  --swiper-pagination-color: rgba(37, 99, 237, 1);
+  --swiper-navigation-size: 50px;
 }
 
 .table-slide {
@@ -88,7 +89,6 @@ defineProps({
 .mobile-table-swiper {
   width: 100%;
   height: 700px;
-  --swiper-pagination-color: #2563ed;
   --swiper-pagination-bullet-size: 8px;
   --swiper-pagination-bullet-horizontal-gap: 4px;
 }
@@ -134,7 +134,7 @@ defineProps({
   .mobile-table-swiper {
     height: 600px;
   }
-  
+
   .mobile-table-slide {
     padding: 1rem 0.5rem;
   }

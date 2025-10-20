@@ -45,7 +45,7 @@ import Gis from '../Map/2Gis.vue'
 
 const branches = ref([
   {
-    name: '"Абсолют Техно"',
+    name: '"АбсолютТехно"',
     address: 'г. Нижний Тагил, Аганичева 101А',
     phones: {
       general: '+7 (800) 555-33-55',

@@ -20,13 +20,51 @@ defineProps({
 })
 
 const emit = defineEmits(['section-change'])
-const setActiveSection = (section) => emit('section-change', section)
+const setActiveSection = section => emit('section-change', section)
 </script>
 
 <template>
   <section class="w-full bg-hydro-power">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+    <div
+      class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row items-center justify-between gap-8"
+    >
       <div class="w-full lg:w-1/2 text-white text-center lg:text-left xl:max-w-2xl">
+        <div v-if="blockData.type === '3d'" class="flex-wrap gap-2 mb-8 hidden lg:flex">
+          <button
+            @click="setActiveSection('kovshi')"
+            class="px-4 py-2 text-sm xl:px-6 xl:py-3 xl:text-xl font-medium rounded-md transition-all duration-200"
+            :class="
+              activeSection === 'kovshi'
+                ? 'bg-white text-hydro-power shadow-lg'
+                : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'
+            "
+          >
+            Ковши
+          </button>
+          <button
+            @click="setActiveSection('hydrovrashateli')"
+            class="px-4 py-2 text-sm xl:px-6 xl:py-3 xl:text-xl font-medium rounded-md transition-all duration-200"
+            :class="
+              activeSection === 'hydrovrashateli'
+                ? 'bg-white text-hydro-power shadow-lg'
+                : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'
+            "
+          >
+            Гидровращатели
+          </button>
+          <button
+            @click="setActiveSection('hydromoloty')"
+            class="px-4 py-2 text-sm xl:px-6 xl:py-3 xl:text-xl font-medium rounded-md transition-all duration-200"
+            :class="
+              activeSection === 'hydromoloty'
+                ? 'bg-white text-hydro-power shadow-lg'
+                : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'
+            "
+          >
+            Гидромолоты
+          </button>
+        </div>
+
         <h2 class="text-xl sm:text-2xl xl:text-4xl font-bold mb-4 leading-tight">
           {{ blockData.title }}
         </h2>
@@ -54,34 +92,37 @@ const setActiveSection = (section) => emit('section-change', section)
       </div>
 
       <div class="w-full lg:w-1/2 xl:!w-[640px] pt-4 flex flex-col items-center">
-        <div
-          v-if="blockData.type === '3d'"
-          class="flex flex-wrap justify-center gap-2 mb-4"
-        >
+        <div v-if="blockData.type === '3d'" class="lg:hidden flex flex-wrap justify-center gap-2 mb-4">
           <button
             @click="setActiveSection('kovshi')"
             class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200"
-            :class="activeSection === 'kovshi' 
-              ? 'bg-white text-hydro-power shadow-lg' 
-              : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'"
+            :class="
+              activeSection === 'kovshi'
+                ? 'bg-white text-hydro-power shadow-lg'
+                : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'
+            "
           >
             Ковши
           </button>
           <button
             @click="setActiveSection('hydrovrashateli')"
             class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200"
-            :class="activeSection === 'hydrovrashateli' 
-              ? 'bg-white text-hydro-power shadow-lg' 
-              : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'"
+            :class="
+              activeSection === 'hydrovrashateli'
+                ? 'bg-white text-hydro-power shadow-lg'
+                : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'
+            "
           >
             Гидровращатели
           </button>
           <button
             @click="setActiveSection('hydromoloty')"
             class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200"
-            :class="activeSection === 'hydromoloty' 
-              ? 'bg-white text-hydro-power shadow-lg' 
-              : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'"
+            :class="
+              activeSection === 'hydromoloty'
+                ? 'bg-white text-hydro-power shadow-lg'
+                : 'bg-hydro-power/20 text-white border border-white/30 hover:bg-white/10'
+            "
           >
             Гидромолоты
           </button>

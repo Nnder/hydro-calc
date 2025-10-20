@@ -2,7 +2,7 @@
 import Consultation from '~/components/Block/Consultation.vue'
 
 useHead({
-  title: `Продажа товаров - Абсолют техно`,
+  title: `Продажа товаров - АбсолютТехно`,
   meta: [
     {
       name: 'description',
