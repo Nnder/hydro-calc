@@ -125,7 +125,7 @@ const sliders = [
     link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
   },
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/обжим рвд .mp4',
     img: '/images/standVideo/video3photo.png',
     title: 'Изготовление рукава высокого давления (рвд)',
     // text: 'Регулярный сервис для бесперебойной работы',
