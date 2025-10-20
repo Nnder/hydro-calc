@@ -299,7 +299,7 @@ const getPartIcon = part => {
     'Ремонт гильз': 'mdi:tools',
     'Замена крышек': 'mdi:shield',
     'Ремонт цапф': 'mdi:wrench',
-    'Замена проушин': 'mdi:socket',
+    'Замена проушин': 'material-symbols:location-on',
     'Гидравлические испытания': 'mdi:test-tube',
   }
 
