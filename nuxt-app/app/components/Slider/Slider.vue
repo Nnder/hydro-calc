@@ -95,7 +95,7 @@ onMounted(() => {
 
 const sliders = [
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/Ремонт гидроцилиндра.mp4',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт гидроцилиндров',
@@ -134,7 +134,7 @@ const sliders = [
     link: '/rukava-visokogo-davlenia-rvd',
   },
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/Ремонт гидронасоса.mp4',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт гидронасосов',
