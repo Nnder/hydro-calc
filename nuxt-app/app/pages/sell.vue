@@ -1,6 +1,10 @@
 <script setup>
 import Consultation from '~/components/Block/Consultation.vue'
 
+definePageMeta({
+  path: `/sell`,
+})
+
 useHead({
   title: `Продажа товаров - АбсолютТехно`,
   meta: [
@@ -54,35 +58,47 @@ const categories = ref([
         link: '/sell/sell-shidkostey',
       },
       {
-        title: 'Режущие элементы для дорожной и строительной техники',
-        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
-        description: 'Ножи, коронки, зубъя, бокорезы, пиши, шнеки,',
-        link: '/sell/sell-shidkostey',
+        title: 'Электростанции',
+        image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
+        description: 'Масла и жидкости для гидравлических систем',
+        link: '/sell/category/electrostancii',
       },
       {
-        title: 'Ковшевая обвязка (пальцев, втулки)',
-        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
-        description: 'Ножи, коронки, зубъя, бокорезы',
-        link: '/sell/sell-shidkostey',
+        title: 'Строительное оборудование',
+        image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
+        description: 'Масла и жидкости для гидравлических систем',
+        link: '/sell/category/stroitelnoe-oborydovanie',
       },
-      {
-        title: 'Ходовые элементы спецтехники',
-        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
-        description: 'Ножи, коронки, зубъя, бокорезы',
-        link: '/sell/sell-shidkostey',
-      },
-      {
-        title: 'Шнеки',
-        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
-        description: 'Ножи, коронки, зубъя, бокорезы',
-        link: '/sell/sell-shidkostey',
-      },
-      {
-        title: 'Буры',
-        image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
-        description: 'Ножи, коронки, зубъя, бокорезы',
-        link: '/sell/sell-shidkostey',
-      },
+      // {
+      //   title: 'Режущие элементы для дорожной и строительной техники',
+      //   image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+      //   description: 'Ножи, коронки, зубъя, бокорезы, пиши, шнеки,',
+      //   link: '/sell/sell-shidkostey',
+      // },
+      // {
+      //   title: 'Ковшевая обвязка (пальцев, втулки)',
+      //   image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+      //   description: 'Ножи, коронки, зубъя, бокорезы',
+      //   link: '/sell/sell-shidkostey',
+      // },
+      // {
+      //   title: 'Ходовые элементы спецтехники',
+      //   image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+      //   description: 'Ножи, коронки, зубъя, бокорезы',
+      //   link: '/sell/sell-shidkostey',
+      // },
+      // {
+      //   title: 'Шнеки',
+      //   image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+      //   description: 'Ножи, коронки, зубъя, бокорезы',
+      //   link: '/sell/sell-shidkostey',
+      // },
+      // {
+      //   title: 'Буры',
+      //   image: 'https://avatars.mds.yandex.net/get-altay/11860411/2a0000018def25b2ab632cdef682b947d6c3/XXL_height',
+      //   description: 'Ножи, коронки, зубъя, бокорезы',
+      //   link: '/sell/sell-shidkostey',
+      // },
     ],
   },
 ])
