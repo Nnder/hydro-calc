@@ -186,8 +186,8 @@ const hydrantParts = ref([
       { type: 'rect', top: '75%', left: '63.5%', width: '18%', height: '8%' }, // правая уплотн.
     ],
     z: 9,
-    color: 'rgba(249,115,22,0.35)',
-    stroke: 'rgba(249,115,22,0.5)',
+    color: 'rgba(0,64,255,0.4)',
+    stroke: 'rgba(0,64,255,0.5)',
   },
   {
     name: 'Изготовление и замена штока',
@@ -209,7 +209,8 @@ const hydrantParts = ref([
         height: '61%',
       },
     ],
-    color: 'rgba(34,197,94,0.35)',
+    color: 'rgba(255,75,75,0.4)',
+    stroke: 'rgba(255,75,75,0.5)',
   },
   {
     name: 'Изготовление и замена поршня',
@@ -231,7 +232,8 @@ const hydrantParts = ref([
         height: '3%',
       },
     ],
-    color: 'rgba(20,184,166,0.35)',
+    color: 'rgba(255,234,111,0.4)',
+    stroke: 'rgba(255,234,111,0.5)',
   },
   {
     name: 'Ремонт гильз',
