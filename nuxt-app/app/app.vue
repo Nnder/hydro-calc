@@ -1,6 +1,7 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
+    <CookieControl locale="ru" />
   </NuxtLayout>
   <CallBackModal />
   <!-- <PerformanceChecker /> -->
@@ -12,7 +13,7 @@ body {
 }
 </style>
 
-<script setup>
+<script setup lang="ts">
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org/vue'
 import PerformanceChecker from './components/PerformanceChecker/PerformanceChecker.vue'
 import CallBackModal from './components/Modal/CallBackModal.vue'
@@ -105,4 +106,28 @@ useSchemaOrg([
     name: 'Nuxt SEO',
   }),
 ])
+
+const {
+  cookiesEnabled,
+  cookiesEnabledIds,
+  isConsentGiven,
+  isModalActive,
+  moduleOptions,
+} = useCookieControl()
+
+// example: react to a cookie being accepted
+watch(
+  () => cookiesEnabledIds.value,
+  (current, previous) => {
+    if (
+      !previous?.includes('google-analytics') &&
+      current?.includes('google-analytics')
+    ) {
+      // cookie with id `google-analytics` got added
+      window.location.reload() // placeholder for your custom change handler
+    }
+  },
+  { deep: true },
+)
+
 </script>

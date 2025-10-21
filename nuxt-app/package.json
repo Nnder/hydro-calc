@@ -22,6 +22,7 @@
     ]
   },
   "dependencies": {
+    "@dargmuesli/nuxt-cookie-control": "^9.1.6",
     "@formkit/auto-animate": "^0.9.0",
     "@mdi/font": "^7.4.47",
     "@nuxt/icon": "^1.12.0",
