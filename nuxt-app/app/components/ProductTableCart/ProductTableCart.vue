@@ -1,146 +1,228 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
-import SwiperProduct from '../ProductGalleryWithThumbnails/SwiperProduct.vue'
-import OldAccessoriesGrid from '../Accessories/OldAccesoriesGrid/AccessoriesGrid.vue'
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  bannerProps: {
-    required: true,
-    default: () => ({
-      products: [],
-      gridItems: [],
-      defaultImages: [],
-      defaultDescription: [],
-      defaultParameters: [],
-      initialProductType: '',
-      title: `<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 leading-tight">
-          Дополнительные
-          <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">компоненты</span>
-        </h2>
-        <p class="text-base sm:text-lg lg:text-xl text-blue-700/80 max-w-3xl mx-auto leading-relaxed px-2">
-          Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования
-        </p>`,
-    }),
-  },
-})
+interface Compatibility {
+  stamford?: string
+  fuan?: string
+  fujian?: string
+}
 
-const currentProductType = ref(props.bannerProps.initialProductType || props.bannerProps.products[0]?.type || '')
-const imageKey = ref(0)
+interface Offer {
+  id: string
+  url: string
+  price: number
+  currency: string
+  categoryId: string
+  images: string[]
+  name: string
+  description: string
+  article: string
+  manufacturersArticle: string
+  weight: string
+  massKg: string
+  detailedDescription: string
+  compatibility: Compatibility
+}
 
-const currentProduct = computed(() => {
-  return (
-    props.bannerProps.products.find(product => product.type === currentProductType.value) ||
-    props.bannerProps.products[0]
-  )
-})
-
-const gridItems = computed(() => {
-  return props.bannerProps.products.map(product => product.gridItem)
-})
-
-const currentProductImages = computed(() => currentProduct.value?.images || props.bannerProps.defaultImages)
-const currentDescription = computed(() => currentProduct.value?.description || props.bannerProps.defaultDescription)
-const currentParameters = computed(() => currentProduct.value?.parameters || props.bannerProps.defaultParameters)
-
-const handleItemClick = item => {
-  const product = props.bannerProps.products.find(p => p.gridItem.title === item.title)
-  if (product) {
-    currentProductType.value = product.type
-    imageKey.value++
+interface Props {
+  offers: {
+    offer: Offer[]
   }
 }
 
-const activeGridItem = computed(() => {
-  const product = props.bannerProps.products.find(p => p.type === currentProductType.value)
-  return product?.gridItem || null
+const props = defineProps<Props>()
+
+const currentImageIndex = ref(0)
+const selectedOffer = computed(() => props.offers.offer[0])
+
+const mainImage = computed(() => {
+  return selectedOffer.value.images[currentImageIndex.value] || selectedOffer.value.images[0]
 })
 
-if (props.bannerProps.initialProductType) {
-  currentProductType.value = props.bannerProps.initialProductType
+const nextImage = () => {
+  if (selectedOffer.value.images.length > 1) {
+    currentImageIndex.value = (currentImageIndex.value + 1) % selectedOffer.value.images.length
+  }
+}
+
+const prevImage = () => {
+  if (selectedOffer.value.images.length > 1) {
+    currentImageIndex.value = (currentImageIndex.value - 1 + selectedOffer.value.images.length) % selectedOffer.value.images.length
+  }
+}
+
+const selectImage = (index: number) => {
+  currentImageIndex.value = index
+}
+
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: selectedOffer.value.currency
+  }).format(price)
 }
 </script>
-<template>
-  <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden" id="variants">
-    <div class="container mx-auto max-w-7xl py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- <div class="text-center mb-10 sm:mb-16 px-2" v-html="'<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 leading-tight">Дополнительные<span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">компоненты</span></h2><p class="text-base sm:text-lg lg:text-xl text-blue-700/80 max-w-3xl mx-auto leading-relaxed px-2">Откройте для себя премиальные аксессуары, которые расширяют возможности вашего оборудования</p>'">
-      </div> -->
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
-        <div class="relative lg:order-none">
-          <div class="sticky top-8">
-            <div class="relative rounded-2xl overflow-hidden group shadow-lg sm:shadow-xl">
-              <SwiperProduct :images="currentProductImages" :key="imageKey" class="rounded-2xl" />
+<template>
+  <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
+    <div class="container mx-auto max-w-7xl py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="mb-6">
+        <nav class="flex text-sm text-blue-600">
+          <a href="/" class="hover:text-blue-800 transition-colors">Главная</a>
+          <span class="mx-2">/</span>
+          <a :href="selectedOffer.url" class="hover:text-blue-800 transition-colors">Каталог</a>
+          <span class="mx-2">/</span>
+          <span class="text-blue-400">{{ selectedOffer.name }}</span>
+        </nav>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div class="space-y-4">
+          <div class="relative rounded-2xl overflow-hidden bg-white shadow-lg aspect-square">
+            <img 
+              :src="mainImage" 
+              :alt="selectedOffer.name"
+              class="w-full h-full object-contain p-4"
+            />
+            
+            <div v-if="selectedOffer.images.length > 1" class="absolute inset-0 flex items-center justify-between p-4">
+              <button 
+                @click="prevImage"
+                class="bg-white/80 hover:bg-white text-blue-900 rounded-full p-2 shadow-lg transition-all hover:scale-110"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button 
+                @click="nextImage"
+                class="bg-white/80 hover:bg-white text-blue-900 rounded-full p-2 shadow-lg transition-all hover:scale-110"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
+          </div>
+
+          <!-- Миниатюры -->
+          <div v-if="selectedOffer.images.length > 1" class="grid grid-cols-4 gap-3">
+            <button
+              v-for="(image, index) in selectedOffer.images"
+              :key="index"
+              @click="selectImage(index)"
+              class="rounded-xl overflow-hidden border-2 transition-all"
+              :class="currentImageIndex === index ? 'border-blue-500 shadow-md' : 'border-transparent hover:border-blue-300'"
+            >
+              <img 
+                :src="image" 
+                :alt="`${selectedOffer.name} - изображение ${index + 1}`"
+                class="w-full h-20 object-cover"
+              />
+            </button>
           </div>
         </div>
 
         <div class="space-y-6">
-          <div
-            class="bg-white rounded-2xl p-4 sm:p-6 shadow-md sm:shadow-lg border border-blue-100 transition-all hover:shadow-xl"
-          >
-            <h1 class="text-2xl sm:text-3xl text-center font-bold text-blue-900">
-              {{ currentProduct?.title }}
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+            <h1 class="text-2xl sm:text-3xl font-bold text-blue-900 mb-2">
+              {{ selectedOffer.name }}
             </h1>
-          </div>
-          <div
-            class="bg-white rounded-2xl p-4 sm:p-6 shadow-md sm:shadow-lg border border-blue-100 transition-all hover:shadow-xl"
-          >
-            <h3 class="text-lg sm:text-xl font-semibold text-blue-900 mb-4 sm:mb-6 flex items-center">
-              <div class="p-2 px-3 sm:px-4 bg-blue-100 rounded-xl mr-2 sm:mr-3 text-blue-700">
-                <Icon name="mdi:cogs" />
+            <div class="flex flex-wrap gap-4 text-sm text-blue-600">
+              <div>
+                <span class="font-semibold">Артикул:</span> {{ selectedOffer.article }}
               </div>
-              Технические параметры
+              <div>
+                <span class="font-semibold">Артикул производителя:</span> {{ selectedOffer.manufacturersArticle }}
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <div class="text-3xl font-bold text-blue-900">
+                  {{ formatPrice(selectedOffer.price) }}
+                </div>
+                <div class="text-sm text-blue-600 mt-1">
+                  Вес: {{ selectedOffer.weight }} кг
+                </div>
+              </div>
+              <button class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+                Купить
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4 flex items-center">
+              <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              Основные характеристики
             </h3>
 
-            <div class="space-y-0 overflow-hidden rounded-xl border border-blue-100 bg-blue-50/50">
-              <div
-                v-for="(param, index) in currentParameters"
-                :key="index"
-                class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 sm:py-4 px-4 sm:px-6 border-b border-blue-100 last:border-b-0 hover:bg-blue-100/50 transition-colors duration-200 group"
-              >
-                <span class="text-blue-800 font-medium group-hover:text-blue-900 mb-1 sm:mb-0">
-                  {{ param.label }}:
-                </span>
-                <span class="text-blue-700 font-semibold text-right">
-                  {{ param.value }}
-                </span>
+            <div class="space-y-3">
+              <div class="flex justify-between py-2 border-b border-blue-100">
+                <span class="text-blue-800 font-medium">Категория:</span>
+                <span class="text-blue-700">Регуляторы напряжения</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-blue-100">
+                <span class="text-blue-800 font-medium">Вес:</span>
+                <span class="text-blue-700">{{ selectedOffer.weight }} кг</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-blue-100">
+                <span class="text-blue-800 font-medium">Масса:</span>
+                <span class="text-blue-700">{{ selectedOffer.massKg }} кг</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="bg-white rounded-2xl p-4 sm:p-8 shadow-md sm:shadow-lg border border-blue-100 transition-all hover:shadow-xl"
-      >
-        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900 flex items-center mb-4 lg:mb-0">
-            <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            Описание продукта
-          </h3>
-        </div>
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-blue-100 mb-8">
+        <h3 class="text-xl font-semibold text-blue-900 mb-6 flex items-center">
+          <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          Описание товара
+        </h3>
 
-        <div class="space-y-4">
-          <p
-            v-for="(paragraph, index) in currentDescription"
-            :key="index"
-            class="text-blue-800/80 leading-relaxed text-base sm:text-lg"
-          >
-            {{ paragraph }}
-          </p>
+        <div class="space-y-4 text-blue-800/80 leading-relaxed">
+          <p class="text-lg font-semibold text-blue-900 mb-4">{{ selectedOffer.description }}</p>
+          <p>{{ selectedOffer.detailedDescription }}</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-blue-100">
+        <h3 class="text-xl font-semibold text-blue-900 mb-6 flex items-center">
+          <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          Описание товара 2
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-if="selectedOffer.compatibility.stamford" class="space-y-3">
+            <h4 class="font-semibold text-blue-900 text-lg">Stamford</h4>
+            <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.stamford }}</p>
+          </div>
+          
+          <div v-if="selectedOffer.compatibility.fuan" class="space-y-3">
+            <h4 class="font-semibold text-blue-900 text-lg">Fuan</h4>
+            <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.fuan }}</p>
+          </div>
+          
+          <div v-if="selectedOffer.compatibility.fujian" class="space-y-3">
+            <h4 class="font-semibold text-blue-900 text-lg">Fujian</h4>
+            <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.fujian }}</p>
+          </div>
         </div>
       </div>
     </div>
