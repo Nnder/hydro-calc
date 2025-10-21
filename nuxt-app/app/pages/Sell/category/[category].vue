@@ -80,7 +80,7 @@ const categories = ref([
 
 onMounted(() => {
   const q = async () => {
-    const xml = await $fetch('http://127.0.0.1:3000/yandex_800463.xml')
+    const xml = await $fetch('https://www.tss.ru/bitrix/catalog_export/yandex_800463.xml')
 
     const parser = new DOMParser()
     const xmlDoc = parser.parseFromString(xml, 'text/xml')
