@@ -201,32 +201,6 @@ onMounted(() => {
       }
     })
 
-    // Выводим дерево категорий в консоль (теперь с количеством offers)
-    // console.log('Выбранные категории:')
-    // Object.entries(sections).forEach(([sectionName, section]) => {
-    //   console.log(`\n--- ${sectionName} ---`)
-    //   section.children.forEach(root => printTree(root))  // Изменено с categories на children
-    // })
-
-    // Выводим offers по категориям (рекурсивно, для отладки)
-    // console.log('\nOffers по категориям:')
-    // function printOffersInTree(node, indent = 0) {
-    //   const spaces = '  '.repeat(indent)
-    //   console.log(`${spaces}Категория: ${node.name} (ID: ${node.id}) - Offers: ${node.offers.length}`)
-    //   node.offers.forEach(offer => {
-    //     console.log(
-    //       `${spaces}  Offer ID: ${offer.id}, Название: ${offer.name}, Цена: ${offer.price} ${offer.currencyId}`
-    //     )
-    //   })
-    //   node.children.forEach(child => printOffersInTree(child, indent + 1))
-    // }
-    // Object.entries(sections).forEach(([sectionName, section]) => {
-    //   console.log(`\n--- ${sectionName} ---`)
-    //   section.children.forEach(root => printOffersInTree(root))  // Изменено с categories на children
-    // })
-
-    // Возвращаем результат: объект с секциями, каждая содержит children (массив поддеревьев без обертки в начальную категорию, с offers внутри)
-
     console.log(sections)
     console.log(findCategoryFromUrl(sections, activeCategory.value)[0], 'result')
     const result = findCategoryFromUrl(sections, activeCategory.value)[0]
