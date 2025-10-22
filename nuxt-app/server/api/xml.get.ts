@@ -135,7 +135,7 @@ export default defineEventHandler(async event => {
 
       // Кешируем обработанный объект
       cached = {
-        data: { sections, categoryMap, allOffers }, // Готовый объект
+        data: { sections }, // Готовый объект
         timestamp: Date.now(),
       }
       await storage.setItem(cacheKey, cached)

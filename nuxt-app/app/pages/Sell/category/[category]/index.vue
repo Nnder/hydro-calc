@@ -25,7 +25,7 @@ const data = ref([])
 const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 
 // Теперь используем composable для парсинга (данные из кеша API)
-const { sections, categoryMap, allOffers } = xml.value
+const { sections } = xml.value
 
 // Твоя логика с findCategoryFromUrl и data.value
 const result = findCategoryByName(sections, activeCategory.value)
