@@ -28,11 +28,8 @@ const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 const { sections, categoryMap, allOffers } = useXmlData(xml.value)
 
 // Твоя логика с findCategoryFromUrl и data.value
-console.log(sections)
 const result = findCategoryFromUrl(sections, activeCategory.value)[0]
 data.value = result?.children?.length ? result.children : result?.offers || []
-
-// Если нужно, можешь вернуть sections из useAsyncData, но поскольку парсинг теперь в composable, это гибко
 </script>
 
 <template>
