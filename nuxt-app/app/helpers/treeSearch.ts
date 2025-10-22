@@ -1,33 +1,36 @@
 import { fixName } from '~/utils/fixName'
 
-// ~/utils/findCategory.js (или где у тебя утилиты)
+// ~/utils/findCategory.js
 export function findCategoryByName(sections, name) {
   const searchName = fixName(decodeURIComponent(name))
 
-  if ('stroitelnoe-oborydovanie' === searchName || 'electrostancii' === searchName) {
+  // Проверяем прямые секции по ключу
+  if (sections[searchName]) {
     return sections[searchName]
   }
 
-  // Проходим по всем секциям (electrostancii и stroitelnoe-oborydovanie)
+  // Итеративный поиск по дереву (без рекурсии, с использованием стека)
+  const stack = []
+  // Добавляем корневые категории из всех секций
   for (const section of Object.values(sections)) {
-    // Рекурсивно ищем в children каждой секции
     for (const rootCat of section.children) {
-      const found = searchInTree(rootCat, searchName)
-      if (found) return found // Возвращаем первый найденный и выходим
+      stack.push(rootCat)
     }
   }
-  return null // Если ничего не найдено
-}
 
-// Вспомогательная рекурсивная функция для поиска по title
-function searchInTree(node, name) {
-  if (fixName(node.title) === name) {
-    return node // Нашли — возвращаем
+  // DFS-поиск
+  while (stack.length > 0) {
+    const node = stack.pop()
+    if (fixName(node.title) === searchName) {
+      return node
+    }
+    // Добавляем детей в стек (в обратном порядке для сохранения порядка)
+    if (node.children) {
+      for (let i = node.children.length - 1; i >= 0; i--) {
+        stack.push(node.children[i])
+      }
+    }
   }
-  // Рекурсивно ищем в дочерних
-  for (const child of node.children) {
-    const found = searchInTree(child, name)
-    if (found) return found // Возвращаем, как только нашли
-  }
-  return null // Не нашли в этом поддереве
+
+  return null
 }
