@@ -16,12 +16,15 @@
         <!-- Правая колонка с текстом -->
         <div class="w-full xl:w-1/2 flex flex-col mt-4 lg:mt-0 px-4 sm:px-6 lg:px-8" :class="contentPadding">
           <div :class="textAlignment">
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2
+              v-if="blockDataText?.title"
+              class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6"
+            >
               {{ blockDataText.title }}
             </h2>
 
             <div
-              class="text-base sm:text-base lg:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed space-y-3 sm:space-y-4"
+              class="text-base sm:text-base lg:text-lg text-gray-700 mb-3 sm:mb-4 leading-relaxed space-y-3 sm:space-y-4"
               v-html="processedDescription"
             ></div>
 
@@ -63,8 +66,7 @@ const props = defineProps({
   variant: {
     type: String,
     default: 'default',
-    validator: (value) =>
-      ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
+    validator: value => ['default', 'image-right', 'text-left', 'text-right', 'mixed-alignment'].includes(value),
   },
   imageUrl: {
     type: String,
