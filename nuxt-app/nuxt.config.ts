@@ -29,32 +29,23 @@ export default defineNuxtConfig({
 cookieControl: {
     locale: 'ru',
     
-    isControlButtonEnabled: false,
+    // ОТКЛЮЧАЕМ лишние кнопки
+    isControlButtonEnabled: false, // убирает "Управление файлами cookie"
+    isAcceptNecessaryButtonEnabled: false, // убирает "Я принимаю необходимое"
     
+    // Оставляем только основные тексты
     localeTexts: {
       ru: {
-        accept: 'Принять',
+        accept: 'Принять', // оставляем только эту кнопку
         acceptAll: 'Принять все',
-        bannerDescription: 'Мы используем наши собственные файлы cookie и сторонние файлы cookie, чтобы мы могли показать вам этот веб-сайт и лучше понять, как вы его используете, с целью улучшения предлагаемых нами услуг. Если вы продолжите просмотр, мы будем считать, что вы приняли файлы cookie.',
-        bannerTitle: 'Файлы сookie',
+        bannerDescription: 'Сайт использует сооке-файлы, чтобы сделать ваше пребывание на нем максимально удобным. К сайту подключён сервис веб-аналитики Яндекс. Метрика, использующий сооіе-файлы. Оставаясь на сайте, вы даёте своё согласие на обработку персональных данных з порядке, указанном в Политике обработки персональных данных',
+        bannerTitle: 'Файлы cookie',
         close: 'Закрыть',
-        decline: 'Отклонить',
+        decline: 'Отклонить', 
         declineAll: 'Отклонить все',
         manage: 'Настроить',
         save: 'Сохранить'
       }
-    },
-    
-    colors: {
-      barBackground: '#000',
-      barButtonBackground: '#fff',
-      barButtonColor: '#000',
-      barButtonHoverBackground: '#333',
-      barButtonHoverColor: '#fff',
-      modalButtonBackground: '#000',
-      modalButtonColor: '#fff',
-      modalButtonHoverBackground: '#333',
-      modalButtonHoverColor: '#fff',
     }
   },
 

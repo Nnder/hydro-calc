@@ -222,8 +222,12 @@ const id = useId()
         class="mt-0.5 md:mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
       />
       <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
-        Я согласен на обработку персональных данных и принимаю условия
-        <a href="/policy" class="text-blue-600 hover:underline">политики конфиденциальности</a>
+        Я подтверждаю ознакомление и даю
+        <a href="/policy" class="text-blue-600 hover:underline">Согласие на обработку моих персональных данных</a>
+        <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
+          в порядке и на условиях, указанных в 
+           <a href="/policy2" class="text-blue-600 hover:underline">Политике обработки персональных данных</a>
+        </label>
       </label>
     </div>
 

@@ -95,67 +95,67 @@
               </div>
 
               <transition
-                enter-active-class="transition-all duration-500 ease-out"
-                enter-from-class="opacity-0 max-h-0 -translate-y-2"
-                enter-to-class="opacity-100 max-h-96 translate-y-0"
-                leave-active-class="transition-all duration-300 ease-in"
-                leave-from-class="opacity-100 max-h-96"
-                leave-to-class="opacity-0 max-h-0"
+      enter-active-class="transition-all duration-300 ease-out"
+      enter-from-class="opacity-0 max-h-0"
+      enter-to-class="opacity-100 max-h-[500px]"
+      leave-active-class="transition-all duration-250 ease-in"
+      leave-from-class="opacity-100 max-h-[500px]"
+      leave-to-class="opacity-0 max-h-0"
+    >
+      <div v-if="part.selected && (part.description || part?.features?.length)" class="overflow-hidden">
+        <div
+          class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
+          :class="parts.length > 6 ? 'mt-2 p-3 sm:p-4' : 'mt-3 p-4 sm:p-5'"
+        >
+          <button
+            @click.stop="part.selected = false"
+            class="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
+            :class="parts.length > 6 ? 'top-2 right-2 w-6 h-6' : 'top-3 right-3 w-7 h-7'"
+          >
+            <Icon name="mdi:close" :class="parts.length > 6 ? 'text-base' : 'text-lg'" />
+          </button>
+
+          <p
+            class="text-hydro-steel/80 pr-8 mb-4 break-words overflow-visible whitespace-normal"
+            :class="parts.length > 6 ? 'text-xs' : 'text-xs sm:text-sm'"
+          >
+            {{ part.description }}
+          </p>
+
+          <div v-if="part.features" class="space-y-2" :class="parts.length > 6 ? 'space-y-1' : 'space-y-2'">
+            <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
+              <Icon
+                name="mdi:check-circle"
+                class="text-hydro-power mt-0.5 mr-2 shrink-0"
+                :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
+              />
+              <span
+                class="text-hydro-steel/80 font-medium break-words overflow-visible whitespace-normal"
+                :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
+                v-html="feature"
+              ></span>
+            </div>
+          </div>
+
+          <div
+            v-if="part.price"
+            class="mt-4 pt-3 border-t border-gray-200"
+            :class="parts.length > 6 ? 'mt-3 pt-2' : 'mt-4 pt-3'"
+          >
+            <div class="flex justify-between items-center">
+              <span class="text-hydro-steel/60" :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
+                >Стоимость:</span
               >
-                <div v-if="part.selected && (part.description || part?.features?.length)" class="overflow-visible">
-                  <div
-                    class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
-                    :class="parts.length > 6 ? 'mt-2 p-3 sm:p-4' : 'mt-3 p-4 sm:p-5'"
-                  >
-                    <button
-                      @click="part.show = false"
-                      class="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
-                      :class="parts.length > 6 ? 'top-2 right-2 w-6 h-6' : 'top-3 right-3 w-7 h-7'"
-                    >
-                      <Icon name="mdi:close" :class="parts.length > 6 ? 'text-base' : 'text-lg'" />
-                    </button>
-
-                    <p
-                      class="text-hydro-steel/80 pr-8 mb-4 break-words overflow-visible whitespace-normal"
-                      :class="parts.length > 6 ? 'text-xs' : 'text-xs sm:text-sm'"
-                    >
-                      {{ part.description }}
-                    </p>
-
-                    <div v-if="part.features" class="space-y-2" :class="parts.length > 6 ? 'space-y-1' : 'space-y-2'">
-                      <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
-                        <Icon
-                          name="mdi:check-circle"
-                          class="text-hydro-power mt-0.5 mr-2 shrink-0"
-                          :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
-                        />
-                        <span
-                          class="text-hydro-steel/80 font-medium break-words overflow-visible whitespace-normal"
-                          :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
-                          v-html="feature"
-                        ></span>
-                      </div>
-                    </div>
-
-                    <div
-                      v-if="part.price"
-                      class="mt-4 pt-3 border-t border-gray-200"
-                      :class="parts.length > 6 ? 'mt-3 pt-2' : 'mt-4 pt-3'"
-                    >
-                      <div class="flex justify-between items-center">
-                        <span class="text-hydro-steel/60" :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
-                          >Стоимость:</span
-                        >
-                        <span
-                          class="text-hydro-power font-bold"
-                          :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
-                          >{{ part.price }}</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </transition>
+              <span
+                class="text-hydro-power font-bold"
+                :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
+                >{{ part.price }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
             </div>
           </div>
         </section>
@@ -240,13 +240,14 @@ const props = defineProps({
   highlightMode: { type: String, default: 'multiple' },
 })
 
-const sortedParts = computed(() => [...props.parts].sort((a, b) => a.z - b.z))
+// Оптимизированные computed свойства
+const sortedParts = computed(() => {
+  return [...props.parts].sort((a, b) => (a.z || 0) - (b.z || 0))
+})
 
-// функция для изменения порядка
-const bringToFront = part => {
-  const maxZ = Math.max(...props.parts.value.map(p => p.z))
-  part.z = maxZ + 1
-}
+const selectedCount = computed(() => {
+  return props.parts.filter(p => p.selected).length
+})
 
 const imageRef = ref(null)
 const svgRef = ref(null)
@@ -256,18 +257,27 @@ const activeHighlight = ref(null)
 
 const computedViewBox = computed(() => `0 0 ${imageWidth.value} ${imageHeight.value}`)
 
-onMounted(async () => {
-  await nextTick()
-  const img = imageRef.value?.$el || imageRef.value
-  if (img && img.naturalWidth && img.naturalHeight) {
-    imageWidth.value = img.naturalWidth
-    imageHeight.value = img.naturalHeight
-  }
-})
+// Мемоизированные функции для лучшей производительности
+const iconMap = {
+  'Диагностика (дефектовка)': 'mdi:engine',
+  'Подбор и замена уплотнений': 'mdi:filter',
+  'Изготовление и замена штока': 'mdi:cog',
+  'Изготовление и замена поршня': 'mdi:hammer',
+  'Ремонт гильз': 'mdi:tools',
+  'Замена крышек': 'mdi:shield',
+  'Ремонт цапф': 'mdi:wrench',
+  'Замена проушин': 'material-symbols:location-on',
+  'Гидравлические испытания': 'mdi:test-tube',
+}
 
-// === Геометрия и конвертеры ===
+const getPartIcon = (part) => {
+  return iconMap[part.name] || 'mdi:wrench'
+}
 
-const normalizedShapes = highlight => (Array.isArray(highlight) ? highlight : [highlight])
+const normalizedShapes = (highlight) => {
+  if (!highlight) return []
+  return Array.isArray(highlight) ? highlight : [highlight]
+}
 
 const percentToPx = (val, total) => {
   if (!val) return 0
@@ -276,7 +286,7 @@ const percentToPx = (val, total) => {
   return parseFloat(s)
 }
 
-const convertPolyPoints = points => {
+const convertPolyPoints = (points) => {
   if (!points) return ''
   return points
     .split(',')
@@ -287,90 +297,48 @@ const convertPolyPoints = points => {
     .join(' ')
 }
 
-// Добавьте этот метод в <script setup>
+const getFill = (p) => p.fill || p.color || 'rgba(0,105,255,0.35)'
+const getStroke = (p) => p.stroke || 'rgba(0,105,255,1)'
 
-const getPartIcon = part => {
-  // Пример использования маппинга иконок для разных частей
-  const iconMap = {
-    'Диагностика (дефектовка)': 'mdi:engine',
-    'Подбор и замена уплотнений': 'mdi:filter',
-    'Изготовление и замена штока': 'mdi:cog',
-    'Изготовление и замена поршня': 'mdi:hammer',
-    'Ремонт гильз': 'mdi:tools',
-    'Замена крышек': 'mdi:shield',
-    'Ремонт цапф': 'mdi:wrench',
-    'Замена проушин': 'material-symbols:location-on',
-    'Гидравлические испытания': 'mdi:test-tube',
-  }
-
-  // Возвращаем соответствующую иконку, если есть в иконном маппинге
-  return iconMap[part.name] || 'mdi:wrench' // По умолчанию 'wrench'
+// Оптимизированный обработчик кликов
+const handlePartClick = (part, index) => {
+  // Используем requestAnimationFrame для плавности
+  requestAnimationFrame(() => {
+    part.selected = !part.selected
+    
+    if (props.highlightMode === 'single') {
+      activeHighlight.value = part.selected ? index : null
+    }
+    
+    emit('part-selected', { part, index, selected: part.selected })
+  })
 }
 
 const emit = defineEmits(['part-selected', 'image-changed'])
-const selectedCount = computed(() => props.parts.filter(p => p.selected).length)
 
-const updateViewBox = async () => {
+// Оптимизированная загрузка изображения
+const updateImageDimensions = async () => {
   await nextTick()
-  const img = document.getElementById(props.imageId)
+  const img = imageRef.value?.$el || imageRef.value
   if (img && img.naturalWidth && img.naturalHeight) {
     imageWidth.value = img.naturalWidth
     imageHeight.value = img.naturalHeight
   }
 }
 
-onMounted(() => updateViewBox())
-
-// Преобразует процентное или числовое значение в число
-
-const polyPointsToViewBox = points => {
-  if (!points) return ''
-  if (Array.isArray(points)) {
-    return points
-      .map(pt => {
-        const [x, y] = String(pt).trim().split(/\s+/)
-        return `${toNum(x)},${toNum(y)}`
-      })
-      .join(' ')
+onMounted(() => {
+  updateImageDimensions()
+  
+  // Добавляем обработчик загрузки изображения
+  const img = imageRef.value?.$el || imageRef.value
+  if (img) {
+    if (img.complete) {
+      updateImageDimensions()
+    } else {
+      img.addEventListener('load', updateImageDimensions)
+    }
   }
-  if (typeof points === 'string') {
-    const items = points
-      .split(/[,\n]+/)
-      .map(s => s.trim())
-      .filter(Boolean)
-    return items
-      .map(pt => {
-        const [x, y] = pt.split(/\s+/)
-        return `${toNum(x)},${toNum(y)}`
-      })
-      .join(' ')
-  }
-  return ''
-}
-
-// Преобразуем координаты в числовой формат для корректного отображения на экране
-const toNum = val => {
-  if (val === undefined || val === null) return 0
-  const s = String(val).trim()
-  if (s.endsWith('%')) return parseFloat(s) // проценты
-  const n = parseFloat(s)
-  if (Number.isFinite(n)) return n
-  return 0
-}
-
-// Цвет заливки (полупрозрачный) — поддержка tailwind-like class
-const getFill = p => p.fill || p.color || 'rgba(0,105,255,0.35)'
-const getStroke = p => p.stroke || 'rgba(0,105,255,1)'
-
-// Обработчик кликов на детали
-const handlePartClick = (part, index) => {
-  part.selected = !part.selected
-  if (props.highlightMode === 'single') {
-    activeHighlight.value = index
-    setTimeout(() => (activeHighlight.value = null), 3000)
-  }
-  emit('part-selected', { part, index })
-}
+})
 </script>
 
 <style scoped>
