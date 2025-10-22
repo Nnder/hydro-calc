@@ -21,22 +21,10 @@ const activeCategory = ref(route.params.category || 'kovshi')
 
 const data = ref([])
 
-// В твоей странице (например, /pages/some-page.vue)
-const { data: xml } = await useAsyncData('xml-data', async () => {
-  try {
-    const response = await $fetch('/api/xml', {
-      headers: {
-        'User-Agent': 'HydroCalc/1.0',
-      },
-    })
-    return response
-  } catch (err) {
-    console.error('Ошибка загрузки XML:', err)
-    throw err
-  }
-})
+// Используем useAsyncData для SSR, API теперь кеширует данные на сервере
+const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 
-// Теперь используем composable для парсинга (вызываем один раз, данные кэшируются в useAsyncData)
+// Теперь используем composable для парсинга (данные из кеша API)
 const { sections, categoryMap, allOffers } = useXmlData(xml.value)
 
 // Твоя логика с findCategoryFromUrl и data.value
