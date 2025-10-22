@@ -1,6 +1,6 @@
 <script setup>
 import Consultation from '~/components/Block/Consultation.vue'
-import { findCategoryFromUrl } from '~/helpers/treeSearch'
+import { findCategoryByName } from '~/helpers/treeSearch'
 
 definePageMeta({
   path: `/sell/category/:category?`,
@@ -25,10 +25,11 @@ const data = ref([])
 const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 
 // Теперь используем composable для парсинга (данные из кеша API)
-const { sections, categoryMap, allOffers } = useXmlData(xml.value)
+const { sections, categoryMap, allOffers } = xml.value
 
 // Твоя логика с findCategoryFromUrl и data.value
-const result = findCategoryFromUrl(sections, activeCategory.value)[0]
+const result = findCategoryByName(sections, activeCategory.value)
+console.log(result, activeCategory.value, sections)
 data.value = result?.children?.length ? result.children : result?.offers || []
 </script>
 

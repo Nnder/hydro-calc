@@ -1,58 +1,31 @@
-export function findCategoryFromUrl(sections, encodedUrlName, targetCategoryName = null) {
-  // Декодируем название из URL (например, "Дизельные%20электростанции" -> "Дизельные электростанции")
-  const searchName = decodeURIComponent(encodedUrlName)
-  const results = []
+// ~/utils/findCategory.js (или где у тебя утилиты)
+export function findCategoryByName(sections, name) {
+  const searchName = decodeURIComponent(name)
 
   if ('stroitelnoe-oborydovanie' === searchName || 'electrostancii' === searchName) {
-    results.push(sections[searchName])
-    return results
+    return sections[searchName]
   }
 
-  // Если указана targetCategoryName, сначала находим её
-  let targetCategory = null
-  if (targetCategoryName) {
-    Object.values(sections).forEach(section => {
-      section.children.forEach(rootCat => {
-        // Изменено с categories на children
-        searchInTreeForTarget(rootCat, targetCategoryName, results)
-      })
-    })
-    if (results.length > 0) {
-      targetCategory = results[0] // Берем первую найденную (предполагаем уникальность)
-      results.length = 0 // Очищаем для нового поиска
-    } else {
-      return results // Если target не найдена, возвращаем пустой массив
+  // Проходим по всем секциям (electrostancii и stroitelnoe-oborydovanie)
+  for (const section of Object.values(sections)) {
+    // Рекурсивно ищем в children каждой секции
+    for (const rootCat of section.children) {
+      const found = searchInTree(rootCat, searchName)
+      if (found) return found // Возвращаем первый найденный и выходим
     }
   }
-
-  // Теперь ищем searchName: если targetCategory указана, ищем внутри неё; иначе по всему sections
-  if (targetCategory) {
-    searchInTree(targetCategory, searchName, results)
-  } else {
-    Object.values(sections).forEach(section => {
-      section.children.forEach(rootCat => {
-        // Изменено с categories на children
-        searchInTree(rootCat, searchName, results)
-      })
-    })
-  }
-
-  return results
+  return null // Если ничего не найдено
 }
 
-// Вспомогательная рекурсивная функция для поиска целевой категории
-export function searchInTreeForTarget(node, name, results) {
+// Вспомогательная рекурсивная функция для поиска по title
+function searchInTree(node, name) {
   if (node.title === name) {
-    results.push(node)
-    return // Останавливаемся после первого совпадения для target
+    return node // Нашли — возвращаем
   }
-  node.children.forEach(child => searchInTreeForTarget(child, name, results))
-}
-
-// Вспомогательная рекурсивная функция для поиска по имени
-export function searchInTree(node, name, results) {
-  if (node.title === name) {
-    results.push(node)
+  // Рекурсивно ищем в дочерних
+  for (const child of node.children) {
+    const found = searchInTree(child, name)
+    if (found) return found // Возвращаем, как только нашли
   }
-  node.children.forEach(child => searchInTree(child, name, results))
+  return null // Не нашли в этом поддереве
 }
