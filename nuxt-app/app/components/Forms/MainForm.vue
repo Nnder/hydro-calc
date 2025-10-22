@@ -223,7 +223,7 @@ const id = useId()
       />
       <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
         Я согласен на обработку персональных данных и принимаю условия
-        <a href="/" class="text-blue-600 hover:underline">политики конфиденциальности</a>
+        <a href="/policy" class="text-blue-600 hover:underline">политики конфиденциальности</a>
       </label>
     </div>
 
