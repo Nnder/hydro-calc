@@ -29,6 +29,7 @@ const { sections, categoryMap, allOffers } = xml.value
 
 // Твоя логика с findCategoryFromUrl и data.value
 const result = findCategoryByName(sections, activeCategory.value)
+console.log(result)
 data.value = result?.children?.length ? result.children : result?.offers || []
 </script>
 

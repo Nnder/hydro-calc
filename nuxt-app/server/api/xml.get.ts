@@ -1,4 +1,5 @@
 import { XMLParser } from 'fast-xml-parser'
+import { fixName } from '@/utils/fixName'
 
 export default defineEventHandler(async event => {
   const storage = useStorage('cache')
@@ -13,7 +14,7 @@ export default defineEventHandler(async event => {
       const xmlData = await $fetch('https://www.tss.ru/bitrix/catalog_export/yandex_800463.xml', {
         method: 'GET',
         headers: {
-          'User-Agent': 'YourApp/1.0',
+          'User-Agent': 'bitrix/1.0',
         },
       })
 
@@ -37,7 +38,7 @@ export default defineEventHandler(async event => {
           const id = cat['@_id']
           const title = cat['#text']?.trim() || ''
           const parentId = cat['@_parentId']
-          const link = title
+          const link = fixName(title)
           map[id] = { id, title, parentId, link, children: [], offers: [] }
         })
         Object.values(map).forEach(cat => {
@@ -75,7 +76,7 @@ export default defineEventHandler(async event => {
           id: offerObj['@_id'],
           available: offerObj['@_available'],
           url: offerObj.url || '',
-          link: `/sell/category/${categoryName}/product/${offerObj.name.replace('/', '-')}`,
+          link: `/sell/category/${fixName(categoryName)}/product/${fixName(offerObj.name)}`,
           price: parseFloat(offerObj.price || '0'),
           currencyId: offerObj.currencyId || '',
           categoryId: offerObj.categoryId || '',

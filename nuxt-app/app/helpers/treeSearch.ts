@@ -1,6 +1,8 @@
+import { fixName } from '~/utils/fixName'
+
 // ~/utils/findCategory.js (или где у тебя утилиты)
 export function findCategoryByName(sections, name) {
-  const searchName = decodeURIComponent(name)
+  const searchName = fixName(decodeURIComponent(name))
 
   if ('stroitelnoe-oborydovanie' === searchName || 'electrostancii' === searchName) {
     return sections[searchName]
@@ -19,7 +21,7 @@ export function findCategoryByName(sections, name) {
 
 // Вспомогательная рекурсивная функция для поиска по title
 function searchInTree(node, name) {
-  if (node.title === name) {
+  if (fixName(node.title) === name) {
     return node // Нашли — возвращаем
   }
   // Рекурсивно ищем в дочерних
