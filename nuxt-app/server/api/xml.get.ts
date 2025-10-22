@@ -3,80 +3,99 @@ import { fixName } from '@/utils/fixName'
 
 export default defineEventHandler(async event => {
   const storage = useStorage('cache')
-  const cacheKey = 'xml-processed-data' // Новый ключ для кеша обработанных данных
+  const cacheKey = 'xml-processed-data'
   const TTL = 3600000 // 1 час
 
   let cached = await storage.getItem(cacheKey)
 
   if (!cached || Date.now() - cached.timestamp > TTL) {
     try {
-      // Fetch XML
+      // Загружаем XML
       const xmlData = await $fetch('https://www.tss.ru/bitrix/catalog_export/yandex_800463.xml', {
         method: 'GET',
-        headers: {
-          'User-Agent': 'bitrix/1.0',
-        },
+        headers: { 'User-Agent': 'bitrix/1.0' },
       })
 
-      // Парсим XML (как в useXmlData)
-      const parser = new XMLParser({
-        ignoreAttributes: false,
-        attributeNamePrefix: '@_',
-      })
+      // Парсим XML
+      const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_' })
       const parsed = parser.parse(xmlData)
 
-      let categories = parsed.yml_catalog?.shop?.categories?.category || []
-      if (!Array.isArray(categories)) categories = [categories]
+      // Извлекаем категории и предложения, приводим к массивам
+      const categories = Array.isArray(parsed.yml_catalog?.shop?.categories?.category)
+        ? parsed.yml_catalog.shop.categories.category
+        : [parsed.yml_catalog?.shop?.categories?.category].filter(Boolean)
+      const offers = Array.isArray(parsed.yml_catalog?.shop?.offers?.offer)
+        ? parsed.yml_catalog.shop.offers.offer
+        : [parsed.yml_catalog?.shop?.offers?.offer].filter(Boolean)
 
-      let offers = parsed.yml_catalog?.shop?.offers?.offer || []
-      if (!Array.isArray(offers)) offers = [offers]
+      // Строим карту категорий (упрощенная версия без отдельной функции)
+      const categoryMap = {}
+      categories.forEach(cat => {
+        const id = cat['@_id']
+        const title = cat['#text']?.trim() || ''
+        const parentId = cat['@_parentId']
+        const link = fixName(title)
+        categoryMap[id] = { id, title, parentId, link, children: [], offers: [] }
+      })
+      // Связываем детей
+      Object.values(categoryMap).forEach(cat => {
+        if (cat.parentId && categoryMap[cat.parentId]) {
+          categoryMap[cat.parentId].children.push(cat.id)
+        }
+      })
 
-      // Функция buildCategoryMap (копируем из useXmlData)
-      function buildCategoryMap(categoriesArray) {
-        const map = {}
-        categoriesArray.forEach(cat => {
-          const id = cat['@_id']
-          const title = cat['#text']?.trim() || ''
-          const parentId = cat['@_parentId']
-          const link = fixName(title)
-          map[id] = { id, title, parentId, link, children: [], offers: [] }
-        })
-        Object.values(map).forEach(cat => {
-          if (cat.parentId && map[cat.parentId]) {
-            map[cat.parentId].children.push(cat.id)
-          }
-        })
-        return map
-      }
-
-      // Функции collectAllIds и collectTree (копируем)
-      function collectAllIds(map, rootId, idsSet) {
-        if (!map[rootId]) return
-        idsSet.add(rootId)
-        map[rootId].children.forEach(childId => collectAllIds(map, childId, idsSet))
-      }
-
-      function collectTree(map, rootId, result = []) {
-        const cat = map[rootId]
-        if (!cat) return result
-        const treeNode = { ...cat, children: [] }
+      // Собираем дерево для категории (упрощенная рекурсивная функция, но можно оставить)
+      function buildTree(rootId) {
+        const cat = categoryMap[rootId]
+        if (!cat) return null
+        const node = { ...cat, children: [] }
         cat.children.forEach(childId => {
-          const childTree = collectTree(map, childId, [])
-          if (childTree.length > 0) {
-            treeNode.children.push(...childTree)
-          }
+          const childNode = buildTree(childId)
+          if (childNode) node.children.push(childNode)
         })
-        result.push(treeNode)
-        return result
+        return node
       }
 
-      // Функция parseOffer (адаптируем)
-      function parseOffer(offerObj, categoryName) {
+      // Собираем все ID подкатегорий (упрощенная рекурсивная функция)
+      function collectIds(rootId, idsSet = new Set()) {
+        if (!categoryMap[rootId]) return idsSet
+        idsSet.add(rootId)
+        categoryMap[rootId].children.forEach(childId => collectIds(childId, idsSet))
+        return idsSet
+      }
+
+      // Собираем секции
+      const sections = {
+        electrostancii: { rootId: '156196', ids: new Set(), children: [] },
+        'stroitelnoe-oborydovanie': { rootId: null, ids: new Set(), children: [] },
+      }
+
+      // Для electrostancii
+      const electroRootId = sections.electrostancii.rootId
+      if (electroRootId && categoryMap[electroRootId]) {
+        sections.electrostancii.ids = collectIds(electroRootId)
+        const tree = buildTree(electroRootId)
+        sections.electrostancii.children = tree?.children || []
+      }
+
+      // Для stroitelnoe-oborydovanie
+      const targetSubIds = ['156253', '156245', '156249', '189167', '156257']
+      targetSubIds.forEach(id => {
+        sections['stroitelnoe-oborydovanie'].ids = new Set([
+          ...sections['stroitelnoe-oborydovanie'].ids,
+          ...collectIds(id),
+        ])
+        const tree = buildTree(id)
+        if (tree) sections['stroitelnoe-oborydovanie'].children.push(tree)
+      })
+
+      // Парсим предложения и добавляем в категории (упрощенная версия)
+      offers.forEach(offerObj => {
         const offer = {
           id: offerObj['@_id'],
           available: offerObj['@_available'],
           url: offerObj.url || '',
-          link: `/sell/category/${fixName(categoryName)}/product/${fixName(offerObj.name)}`,
+          link: `/sell/category/${fixName(categoryMap[offerObj.categoryId]?.title || '')}/product/${fixName(offerObj.name)}`,
           price: parseFloat(offerObj.price || '0'),
           currencyId: offerObj.currencyId || '',
           categoryId: offerObj.categoryId || '',
@@ -85,69 +104,25 @@ export default defineEventHandler(async event => {
           description: offerObj.description || '',
           params: {},
         }
-        if (Array.isArray(offerObj.param)) {
-          offerObj.param.forEach(param => {
-            offer.params[param['@_name']] = param['#text']
-          })
-        } else if (offerObj.param) {
-          offer.params[offerObj.param['@_name']] = offerObj.param['#text']
-        }
-        return offer
-      }
-
-      // Собираем categoryMap
-      const categoryMap = buildCategoryMap(categories)
-
-      // Собираем sections
-      const sections = {
-        electrostancii: { rootId: '156196', ids: new Set(), children: [] },
-        'stroitelnoe-oborydovanie': { rootId: null, ids: new Set(), children: [] },
-      }
-
-      const electroRootId = sections['electrostancii'].rootId
-      if (electroRootId && categoryMap[electroRootId]) {
-        collectAllIds(categoryMap, electroRootId, sections['electrostancii'].ids)
-        const fullTree = collectTree(categoryMap, electroRootId)
-        sections['electrostancii'].children = fullTree[0]?.children || []
-      }
-
-      const targetSubIds = ['156253', '156245', '156249', '189167', '156257']
-      targetSubIds.forEach(id => {
-        collectAllIds(categoryMap, id, sections['stroitelnoe-oborydovanie'].ids)
-        const subTree = collectTree(categoryMap, id)
-        if (subTree.length > 0) {
-          sections['stroitelnoe-oborydovanie'].children.push(...subTree)
-        }
-      })
-
-      // Парсим offers и добавляем в categoryMap
-      const allOffers = offers.map(offerObj => {
-        const categoryId = offerObj.categoryId || ''
-        const categoryName = categoryMap[categoryId]?.title || ''
-        return parseOffer(offerObj, categoryName)
-      })
-
-      allOffers.forEach(offer => {
+        // Добавляем параметры
+        const params = Array.isArray(offerObj.param) ? offerObj.param : [offerObj.param].filter(Boolean)
+        params.forEach(param => {
+          offer.params[param['@_name']] = param['#text']
+        })
+        // Добавляем в категорию
         if (categoryMap[offer.categoryId]) {
           categoryMap[offer.categoryId].offers.push(offer)
         }
       })
 
-      // Кешируем обработанный объект
-      cached = {
-        data: { sections }, // Готовый объект
-        timestamp: Date.now(),
-      }
+      // Кешируем
+      cached = { data: { sections }, timestamp: Date.now() }
       await storage.setItem(cacheKey, cached)
-
       console.log('Обработанные данные обновлены и сохранены в кеш')
     } catch (error) {
       console.error('Ошибка при fetch/парсинге XML:', error)
       if (!cached) {
-        throw createError({
-          statusCode: 500,
-          statusMessage: 'Не удалось загрузить и обработать данные',
-        })
+        throw createError({ statusCode: 500, statusMessage: 'Не удалось загрузить и обработать данные' })
       }
       console.log('Используем старый кеш из-за ошибки')
     }
@@ -155,6 +130,5 @@ export default defineEventHandler(async event => {
     console.log('Обработанные данные взяты из кеша')
   }
 
-  // Возвращаем готовый объект
   return cached.data
 })
