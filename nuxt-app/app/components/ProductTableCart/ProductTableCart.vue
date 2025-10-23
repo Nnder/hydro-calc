@@ -47,7 +47,8 @@ const nextImage = () => {
 
 const prevImage = () => {
   if (selectedOffer.value.images.length > 1) {
-    currentImageIndex.value = (currentImageIndex.value - 1 + selectedOffer.value.images.length) % selectedOffer.value.images.length
+    currentImageIndex.value =
+      (currentImageIndex.value - 1 + selectedOffer.value.images.length) % selectedOffer.value.images.length
   }
 }
 
@@ -58,7 +59,7 @@ const selectImage = (index: number) => {
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
-    currency: selectedOffer.value.currency
+    currency: selectedOffer.value.currency,
   }).format(price)
 }
 </script>
@@ -79,14 +80,10 @@ const formatPrice = (price: number) => {
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div class="space-y-4">
           <div class="relative rounded-2xl overflow-hidden bg-white shadow-lg aspect-square">
-            <img 
-              :src="mainImage" 
-              :alt="selectedOffer.name"
-              class="w-full h-full object-contain p-4"
-            />
-            
+            <img :src="mainImage" :alt="selectedOffer.name" class="w-full h-full object-contain p-4" />
+
             <div v-if="selectedOffer.images.length > 1" class="absolute inset-0 flex items-center justify-between p-4">
-              <button 
+              <button
                 @click="prevImage"
                 class="bg-white/80 hover:bg-white text-blue-900 rounded-full p-2 shadow-lg transition-all hover:scale-110"
               >
@@ -94,7 +91,7 @@ const formatPrice = (price: number) => {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-              <button 
+              <button
                 @click="nextImage"
                 class="bg-white/80 hover:bg-white text-blue-900 rounded-full p-2 shadow-lg transition-all hover:scale-110"
               >
@@ -112,10 +109,12 @@ const formatPrice = (price: number) => {
               :key="index"
               @click="selectImage(index)"
               class="rounded-xl overflow-hidden border-2 transition-all"
-              :class="currentImageIndex === index ? 'border-blue-500 shadow-md' : 'border-transparent hover:border-blue-300'"
+              :class="
+                currentImageIndex === index ? 'border-blue-500 shadow-md' : 'border-transparent hover:border-blue-300'
+              "
             >
-              <img 
-                :src="image" 
+              <img
+                :src="image"
                 :alt="`${selectedOffer.name} - изображение ${index + 1}`"
                 class="w-full h-20 object-cover"
               />
@@ -129,9 +128,7 @@ const formatPrice = (price: number) => {
               {{ selectedOffer.name }}
             </h1>
             <div class="flex flex-wrap gap-4 text-sm text-blue-600">
-              <div>
-                <span class="font-semibold">Артикул:</span> {{ selectedOffer.article }}
-              </div>
+              <div><span class="font-semibold">Артикул:</span> {{ selectedOffer.article }}</div>
               <div>
                 <span class="font-semibold">Артикул производителя:</span> {{ selectedOffer.manufacturersArticle }}
               </div>
@@ -144,11 +141,11 @@ const formatPrice = (price: number) => {
                 <div class="text-3xl font-bold text-blue-900">
                   {{ formatPrice(selectedOffer.price) }}
                 </div>
-                <div class="text-sm text-blue-600 mt-1">
-                  Вес: {{ selectedOffer.weight }} кг
-                </div>
+                <div class="text-sm text-blue-600 mt-1">Вес: {{ selectedOffer.weight }} кг</div>
               </div>
-              <button class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+              <button
+                class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg"
+              >
                 Купить
               </button>
             </div>
@@ -158,7 +155,12 @@ const formatPrice = (price: number) => {
             <h3 class="text-xl font-semibold text-blue-900 mb-4 flex items-center">
               <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
               Основные характеристики
@@ -186,7 +188,12 @@ const formatPrice = (price: number) => {
         <h3 class="text-xl font-semibold text-blue-900 mb-6 flex items-center">
           <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
             </svg>
           </div>
           Описание товара
@@ -202,7 +209,12 @@ const formatPrice = (price: number) => {
         <h3 class="text-xl font-semibold text-blue-900 mb-6 flex items-center">
           <div class="p-2 bg-blue-100 rounded-xl mr-3 text-blue-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+              />
             </svg>
           </div>
           Описание товара 2
@@ -213,12 +225,12 @@ const formatPrice = (price: number) => {
             <h4 class="font-semibold text-blue-900 text-lg">Stamford</h4>
             <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.stamford }}</p>
           </div>
-          
+
           <div v-if="selectedOffer.compatibility.fuan" class="space-y-3">
             <h4 class="font-semibold text-blue-900 text-lg">Fuan</h4>
             <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.fuan }}</p>
           </div>
-          
+
           <div v-if="selectedOffer.compatibility.fujian" class="space-y-3">
             <h4 class="font-semibold text-blue-900 text-lg">Fujian</h4>
             <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.fujian }}</p>
