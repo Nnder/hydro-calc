@@ -28,9 +28,9 @@ const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 const { sections } = xml.value
 
 // Твоя логика с findCategoryFromUrl и data.value
-const result = [] || findCategoryByName(sections, activeCategory.value)
+const result = findCategoryByName(sections, activeCategory.value)
 
-// data.value = result?.children?.length ? result.children : result?.offers || []
+data.value = result?.children?.length ? result.children : result?.offers || []
 console.log(xml.value)
 </script>
 

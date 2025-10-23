@@ -6,7 +6,7 @@ let isStarted = false
 export default defineEventHandler(async event => {
   const storage = useStorage('cache')
   const cacheKey = 'xml-processed-data'
-  const TTL = 0 // 1 час (или 0 для вечного кеша, как у вас)
+  const TTL = 3600000 // 1 час (или 0 для вечного кеша, как у вас)
 
   let cached = await storage.getItem(cacheKey)
 
