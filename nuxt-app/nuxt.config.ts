@@ -294,13 +294,13 @@ export default defineNuxtConfig({
     '/sell/sell-komplektushie-rvd/Оболочки': { prerender: true },
     '/sell/sell-komplektushie-rvd/Переходники': { prerender: true },
     '/sell/sell-komplektushie-rvd/Заглушки': { prerender: true },
-    '/category/**': { isr: true },
+    '/sell/category/**': { isr: true },
   },
 
   ssr: true,
   nitro: {
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false,
       routes: [
         '/',
         '/contacts',
@@ -323,7 +323,7 @@ export default defineNuxtConfig({
         '/sell/sell-komplektushie-rvd/Переходники',
         '/sell/sell-komplektushie-rvd/Заглушки',
       ],
-      ignore: ['/api/**'],
+      ignore: ['/api/**', '/sell/category/:'],
     },
   },
 
