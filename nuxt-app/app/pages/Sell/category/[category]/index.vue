@@ -31,7 +31,6 @@ const { sections } = xml.value
 const result = findCategoryByName(sections, activeCategory.value)
 
 data.value = result?.children?.length ? result.children : result?.offers || []
-console.log(xml.value)
 </script>
 
 <template>
