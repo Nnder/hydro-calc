@@ -183,11 +183,11 @@ const selectedOffer2 = ref({
             <div class="space-y-3">
               <div
                 class="flex justify-between py-2 border-b border-blue-100"
-                v-for="(value, key) in selectedOffer.params"
+                v-for="(value, key) in Object.entries(selectedOffer.params).slice(0, 6)"
                 :key="value + 'params'"
               >
-                <span class="text-blue-800 font-medium">{{ key }}:</span>
-                <span class="text-blue-700">{{ value }}</span>
+                <span class="text-blue-800 font-medium">{{ value[0] }}:</span>
+                <span class="text-blue-700">{{ value[1] }}</span>
               </div>
               <!-- <div class="flex justify-between py-2 border-b border-blue-100">
                 <span class="text-blue-800 font-medium">Вес:</span>
@@ -237,6 +237,17 @@ const selectedOffer2 = ref({
           </div>
           Описание товара 2
         </h3>
+
+        <div class="space-y-3">
+          <div
+            class="flex justify-between py-2 border-b border-blue-100"
+            v-for="(value, key) in selectedOffer.params"
+            :key="value + 'params'"
+          >
+            <span class="text-blue-800 font-medium">{{ key }}:</span>
+            <span class="text-blue-700">{{ value }}</span>
+          </div>
+        </div>
 
         <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-if="selectedOffer?.compatibility?.stamford" class="space-y-3">
