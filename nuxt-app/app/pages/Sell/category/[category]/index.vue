@@ -27,7 +27,7 @@ const { data: xml } = await useAsyncData('xml-data', () => $fetch(`/api/xml?sect
 // Теперь используем composable для парсинга (данные из кеша API)
 
 // Твоя логика с findCategoryFromUrl и data.value || findCategoryByName(sections, activeCategory.value)
-const result = xml.value
+const result = findCategoryByName(xml.value.sections, activeCategory.value)
 console.log(xml.value, '1231231')
 
 data.value = result?.children?.length || result?.categories?.length ? result.children : result?.offers || []

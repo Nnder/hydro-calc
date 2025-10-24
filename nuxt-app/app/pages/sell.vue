@@ -61,13 +61,13 @@ const categories = ref([
         title: 'Электростанции',
         image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
         description: 'Масла и жидкости для гидравлических систем',
-        link: '/sell/category/электростанции',
+        link: '/sell/category/electrostancii',
       },
       {
         title: 'Строительное оборудование',
         image: 'https://ammoxx.ru/upload/medialibrary/577/57778c5c2b33268e2910c96f080beb6c.jpg',
         description: 'Масла и жидкости для гидравлических систем',
-        link: '/sell/category/строительное-оборудование',
+        link: '/sell/category/stroitelnoe-oborydovanie',
       },
       // {
       //   title: 'Режущие элементы для дорожной и строительной техники',
