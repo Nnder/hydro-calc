@@ -151,7 +151,9 @@ const handleOffer = () => {
           <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
             <div class="flex items-center justify-between mb-4">
               <div>
-                <div class="text-3xl font-bold text-blue-900">{{ selectedOffer.price }} ₽</div>
+                <div class="text-3xl font-bold text-blue-900">
+                  {{ Number(selectedOffer.price) > 0 ? selectedOffer.price + ' ₽' : 'Товар доступен только под заказ' }}
+                </div>
                 <!-- <div class="text-sm text-blue-600 mt-1">Вес: {{ selectedOffer.weight }} кг</div> -->
               </div>
               <button
