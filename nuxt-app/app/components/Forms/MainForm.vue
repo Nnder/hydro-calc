@@ -1,6 +1,13 @@
 <script setup>
 const { calculatorData } = useCalculatorSelector()
 
+const props = defineProps({
+  formType: {
+    type: Boolean,
+    default: true,
+  },
+})
+
 watch(
   calculatorData,
   () => {
@@ -42,29 +49,6 @@ const removeFile = index => {
 
 const isSending = ref(false)
 const showSuccess = ref(false)
-
-const benefits = [
-  {
-    icon: 'mdi:account-tie',
-    title: 'Сертифицированные специалисты',
-    description: 'Высокая квалификация',
-  },
-  {
-    icon: 'mdi:wrench',
-    title: 'Современное оборудование',
-    description: 'Профессиональная техника',
-  },
-  {
-    icon: 'mdi:certificate',
-    title: 'Официальный договор',
-    description: 'Все документы',
-  },
-  {
-    icon: 'mdi:headset',
-    title: 'Техподдержка',
-    description: 'После выполнения работ',
-  },
-]
 
 const validateForm = () => {
   let isValid = true
@@ -172,12 +156,14 @@ const id = useId()
     </div>
 
     <div>
-      <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">Опишите проблему</label>
+      <label class="block text-sm font-medium text-gray-700 mb-2 md:mb-3">{{
+        formType ? 'Опишите проблему' : 'Дополнительная информация'
+      }}</label>
       <textarea
         :id="`description-${id}`"
         rows="3"
         v-model="form.description"
-        placeholder="Подробно опишите вашу проблему..."
+        :placeholder="formType ? 'Подробно опишите вашу проблему...' : ''"
         :class="[
           'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
           'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
@@ -225,8 +211,8 @@ const id = useId()
         Я подтверждаю ознакомление и даю
         <a href="/policy" class="text-blue-600 hover:underline">Согласие на обработку моих персональных данных</a>
         <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
-          в порядке и на условиях, указанных в 
-           <a href="/policy2" class="text-blue-600 hover:underline">Политике обработки персональных данных</a>
+          в порядке и на условиях, указанных в
+          <a href="/policy2" class="text-blue-600 hover:underline">Политике обработки персональных данных</a>
         </label>
       </label>
     </div>
@@ -245,7 +231,7 @@ const id = useId()
     >
       <Icon v-if="isSending" name="svg-spinners:ring-resize" class="text-xl md:text-2xl" />
       <Icon v-else name="mdi:phone-in-talk" class="text-xl md:text-2xl" />
-      {{ isSending ? 'Отправляем...' : 'Получить консультацию' }}
+      {{ formType ? (isSending ? 'Отправляем...' : 'Получить консультацию') : 'Заказать' }}
     </button>
   </form>
 </template>

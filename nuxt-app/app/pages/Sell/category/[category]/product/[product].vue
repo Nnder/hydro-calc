@@ -58,6 +58,20 @@ const selectImage = (index: number) => {
   currentImageIndex.value = index
 }
 
+const { open } = useModal()
+
+const { newData } = useCalculatorSelector()
+const handleOffer = () => {
+  const result = {
+    name: `${selectedOffer.value.title} ${selectedOffer.value.price ? selectedOffer.value.price + ' ₽' : ''}`,
+    selected: [],
+    // selected: ['- Диаметр поршня (мм): ' + selectedOffer.value.title],
+  }
+
+  newData(result)
+  open(false)
+}
+
 // console.log(selectedOffer.value, Offer.value)
 </script>
 <template>
@@ -141,6 +155,7 @@ const selectImage = (index: number) => {
                 <!-- <div class="text-sm text-blue-600 mt-1">Вес: {{ selectedOffer.weight }} кг</div> -->
               </div>
               <button
+                @click="handleOffer"
                 class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg"
               >
                 {{ selectedOffer.price ? 'Купить' : 'Заказать' }}
