@@ -21,14 +21,9 @@ const activeCategory = ref(fixName(route.params.category || 'electrostancii'))
 
 const data = ref([])
 
-// Используем useAsyncData для SSR, API теперь кеширует данные на сервере
 const { data: xml } = await useAsyncData('xml-data', () => $fetch(`/api/xml?section=${activeCategory.value}&depth=1`))
 
-// Теперь используем composable для парсинга (данные из кеша API)
-
-// Твоя логика с findCategoryFromUrl и data.value || findCategoryByName(sections, activeCategory.value)
 const result = findCategoryByName(xml.value.sections, activeCategory.value)
-console.log(xml.value, '1231231')
 
 data.value = result?.children?.length || result?.categories?.length ? result.children : result?.offers || []
 </script>

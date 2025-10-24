@@ -24,24 +24,23 @@ const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 const { sections } = xml.value
 
 const result = findCategoryByName(sections, activeCategory.value)
-
-console.log(result)
+const selectedOffer = ref(result.offers.find(product => fixName(product.title) === activeProduct.value))
 
 const currentImageIndex = ref(0)
 const mainImage = computed(() => {
-  return selectedOffer.value.images[currentImageIndex.value] || selectedOffer.value.images[0]
+  return selectedOffer.value.pictures[currentImageIndex.value] || selectedOffer.value.pictures[0]
 })
 
 const nextImage = () => {
-  if (selectedOffer.value.images.length > 1) {
-    currentImageIndex.value = (currentImageIndex.value + 1) % selectedOffer.value.images.length
+  if (selectedOffer.value.pictures.length > 1) {
+    currentImageIndex.value = (currentImageIndex.value + 1) % selectedOffer.value.pictures.length
   }
 }
 
 const prevImage = () => {
-  if (selectedOffer.value.images.length > 1) {
+  if (selectedOffer.value.pictures.length > 1) {
     currentImageIndex.value =
-      (currentImageIndex.value - 1 + selectedOffer.value.images.length) % selectedOffer.value.images.length
+      (currentImageIndex.value - 1 + selectedOffer.value.pictures.length) % selectedOffer.value.pictures.length
   }
 }
 
@@ -49,22 +48,13 @@ const selectImage = (index: number) => {
   currentImageIndex.value = index
 }
 
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('ru-RU', {
-    style: 'currency',
-    currency: selectedOffer.value.currency,
-  }).format(price)
-}
-
-const data = ref([])
-
-const selectedOffer = ref({
+const selectedOffer2 = ref({
   id: '1',
   url: 'https://tss.ru/catalog/sinkhronnye_generatory/regulyatory_napryazheniya_dlya_sinkhronnykh_generatorov_avr_1/regulyatory_napryazheniya_stamford_avr/regulyator_napryazheniya_sa_30_avr_sx460_020172',
   price: 3135.6,
   currency: 'RUB',
   categoryId: '194678',
-  images: [
+  pictures: [
     'https://tss.ru/upload/iblock/848/0gcezfqmvmxjr692esg9azumk3qnhasy.jpg',
     'https://tss.ru/upload/iblock/c2b/12lxgfo67jrt40dtveaic97a77vnd9zb.jpg',
   ],
@@ -84,6 +74,8 @@ const selectedOffer = ref({
       'BW-164A, BW-164B, BW-164C, BW-164D, BW-184E, BW-184F, BW-184G, BW-184H, BW-224C, BW-224D, BW-224E, BW-224F, BW-224G, BW-274C, BW-274DS, BW-274D, BW-274E, BW-274FS, BW-274F, BW-274G, BW-274H, BW-274J, BW-274K',
   },
 })
+
+// console.log(selectedOffer.value, Offer.value)
 </script>
 <template>
   <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
@@ -103,7 +95,10 @@ const selectedOffer = ref({
           <div class="relative rounded-2xl overflow-hidden bg-white shadow-lg aspect-square">
             <img :src="mainImage" :alt="selectedOffer.name" class="w-full h-full object-contain p-4" />
 
-            <div v-if="selectedOffer.images.length > 1" class="absolute inset-0 flex items-center justify-between p-4">
+            <div
+              v-if="selectedOffer.pictures.length > 1"
+              class="absolute inset-0 flex items-center justify-between p-4"
+            >
               <button
                 @click="prevImage"
                 class="bg-white/80 hover:bg-white text-blue-900 rounded-full p-2 shadow-lg transition-all hover:scale-110"
@@ -124,9 +119,9 @@ const selectedOffer = ref({
           </div>
 
           <!-- Миниатюры -->
-          <div v-if="selectedOffer.images.length > 1" class="grid grid-cols-4 gap-3">
+          <div v-if="selectedOffer.pictures.length > 1" class="grid grid-cols-4 gap-3">
             <button
-              v-for="(image, index) in selectedOffer.images"
+              v-for="(image, index) in selectedOffer.pictures"
               :key="index"
               @click="selectImage(index)"
               class="rounded-xl overflow-hidden border-2 transition-all"
@@ -146,23 +141,21 @@ const selectedOffer = ref({
         <div class="space-y-6">
           <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
             <h1 class="text-2xl sm:text-3xl font-bold text-blue-900 mb-2">
-              {{ selectedOffer.name }}
+              {{ selectedOffer.title }}
             </h1>
-            <div class="flex flex-wrap gap-4 text-sm text-blue-600">
+            <!-- <div class="flex flex-wrap gap-4 text-sm text-blue-600">
               <div><span class="font-semibold">Артикул:</span> {{ selectedOffer.article }}</div>
               <div>
                 <span class="font-semibold">Артикул производителя:</span> {{ selectedOffer.manufacturersArticle }}
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
             <div class="flex items-center justify-between mb-4">
               <div>
-                <div class="text-3xl font-bold text-blue-900">
-                  {{ formatPrice(selectedOffer.price) }}
-                </div>
-                <div class="text-sm text-blue-600 mt-1">Вес: {{ selectedOffer.weight }} кг</div>
+                <div class="text-3xl font-bold text-blue-900">{{ selectedOffer.price }} ₽</div>
+                <!-- <div class="text-sm text-blue-600 mt-1">Вес: {{ selectedOffer.weight }} кг</div> -->
               </div>
               <button
                 class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg"
@@ -188,18 +181,22 @@ const selectedOffer = ref({
             </h3>
 
             <div class="space-y-3">
-              <div class="flex justify-between py-2 border-b border-blue-100">
-                <span class="text-blue-800 font-medium">Категория:</span>
-                <span class="text-blue-700">Регуляторы напряжения</span>
+              <div
+                class="flex justify-between py-2 border-b border-blue-100"
+                v-for="(value, key) in selectedOffer.params"
+                :key="value + 'params'"
+              >
+                <span class="text-blue-800 font-medium">{{ key }}:</span>
+                <span class="text-blue-700">{{ value }}</span>
               </div>
-              <div class="flex justify-between py-2 border-b border-blue-100">
+              <!-- <div class="flex justify-between py-2 border-b border-blue-100">
                 <span class="text-blue-800 font-medium">Вес:</span>
                 <span class="text-blue-700">{{ selectedOffer.weight }} кг</span>
               </div>
               <div class="flex justify-between py-2 border-b border-blue-100">
                 <span class="text-blue-800 font-medium">Масса:</span>
                 <span class="text-blue-700">{{ selectedOffer.massKg }} кг</span>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -241,8 +238,8 @@ const selectedOffer = ref({
           Описание товара 2
         </h3>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-if="selectedOffer.compatibility.stamford" class="space-y-3">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-if="selectedOffer?.compatibility?.stamford" class="space-y-3">
             <h4 class="font-semibold text-blue-900 text-lg">Stamford</h4>
             <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.stamford }}</p>
           </div>
@@ -256,7 +253,7 @@ const selectedOffer = ref({
             <h4 class="font-semibold text-blue-900 text-lg">Fujian</h4>
             <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.fujian }}</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
