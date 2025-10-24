@@ -63,8 +63,8 @@ const { open } = useModal()
 const { newData } = useCalculatorSelector()
 const handleOffer = () => {
   const result = {
-    name: `${selectedOffer.value.title} ${selectedOffer.value.price ? selectedOffer.value.price + ' ₽' : ''}`,
-    selected: [],
+    name: `Выбранный товар`,
+    selected: [`${selectedOffer.value.title} ${selectedOffer.value.price ? selectedOffer.value.price + ' ₽' : ''}`],
     // selected: ['- Диаметр поршня (мм): ' + selectedOffer.value.title],
   }
 
