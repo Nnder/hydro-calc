@@ -294,7 +294,7 @@ export default defineNuxtConfig({
     '/sell/sell-komplektushie-rvd/Оболочки': { prerender: true },
     '/sell/sell-komplektushie-rvd/Переходники': { prerender: true },
     '/sell/sell-komplektushie-rvd/Заглушки': { prerender: true },
-    '/sell/category/**': { isr: true },
+    '/sell/category/**': { ssr: true },
   },
 
   ssr: true,

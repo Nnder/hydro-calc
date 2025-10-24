@@ -121,7 +121,7 @@ export default defineEventHandler(async event => {
         sections['electrostancii'].children = filteredTree ? filteredTree.children : []
       }
 
-      const targetSubIds = ['156253', '156245', '156249', '189167', '156257']
+      const targetSubIds = ['156245', '156249', '189167', '156257']
       targetSubIds.forEach(id => {
         collectAllIds(categoryMap, id, sections['stroitelnoe-oborydovanie'].ids)
         const subTree = collectTree(categoryMap, id)
