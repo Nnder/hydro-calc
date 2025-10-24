@@ -5,43 +5,57 @@ let isStarted = false
 
 export default defineEventHandler(async event => {
   const storage = useStorage('cache')
-  const cacheKey = 'xml-processed-data'
-  const TTL = 3600000 // 1 час (или 0 для вечного кеша, как у вас)
+  const cacheKeyRaw = 'xml-raw-data' // Кеш для сырых данных (категории + офферы)
+  const TTL = 3600000 // 1 час
 
-  let cached = await storage.getItem(cacheKey)
+  // Получаем параметры запроса для фильтрации
+  const query = getQuery(event)
+  const section = query.section || 'electrostancii' // По умолчанию electrostancii
+  const depth = parseInt(query.depth) || 1 // Глубина
 
-  if (!isStarted) {
-    try {
-      const {
-        public: { baseURL },
-      } = useRuntimeConfig()
-      // Фетчим большой JSON из public папки (асинхронно, без импорта)
-      const xmlParsed = await $fetch('/xml.json', {
-        responseType: 'json',
-        baseURL,
-      })
-      const startedResult = xmlParsed
-      isStarted = true
-      cached = {
-        data: startedResult,
-        timestamp: Date.now(),
-      }
-      await storage.setItem(cacheKey, cached)
-      return startedResult
-    } catch (error) {
-      isStarted = true
-      console.error('Ошибка при загрузке JSON:', error)
-      throw createError({
-        statusCode: 500,
-        statusMessage: 'Не удалось загрузить начальные данные из JSON',
-      })
-    }
+  // Ключ для кеша фильтрованных данных
+  const cacheKeyFiltered = `xml-filtered-${section}-${depth}`
+  let filteredCached = await storage.getItem(cacheKeyFiltered)
+
+  // Если фильтрованные данные в кеше и свежие, возвращаем их
+  if (filteredCached && Date.now() - filteredCached.timestamp < TTL) {
+    console.log(`Фильтрованные данные для ${section} (глубина ${depth}) взяты из кеша`)
+    return filteredCached.data
   }
 
-  // Остальная логика для XML (как у вас, но без изменений)
-  if (!cached || Date.now() - cached.timestamp > TTL) {
+  // Иначе загружаем/кешируем сырые данные
+  let rawCached = await storage.getItem(cacheKeyRaw)
+  let categoryMap, allOffers
+
+  if (!rawCached || Date.now() - rawCached.timestamp > TTL) {
+    // Загружаем начальный JSON, если не запущено
+    if (!isStarted) {
+      try {
+        const {
+          public: { baseURL },
+        } = useRuntimeConfig()
+        const xmlParsed = await $fetch('/xml.json', {
+          responseType: 'json',
+          baseURL,
+        })
+        rawCached = {
+          data: xmlParsed,
+          timestamp: Date.now(),
+        }
+        await storage.setItem(cacheKeyRaw, rawCached)
+        isStarted = true
+      } catch (error) {
+        isStarted = true
+        console.error('Ошибка при загрузке JSON:', error)
+        throw createError({
+          statusCode: 500,
+          statusMessage: 'Не удалось загрузить начальные данные из JSON',
+        })
+      }
+    }
+
+    // Парсим XML
     try {
-      // Fetch XML
       const xmlData = await $fetch('https://www.tss.ru/bitrix/catalog_export/yandex_800463.xml', {
         method: 'GET',
         headers: {
@@ -49,7 +63,6 @@ export default defineEventHandler(async event => {
         },
       })
 
-      // Парсим XML (как в useXmlData)
       const parser = new XMLParser({
         ignoreAttributes: false,
         attributeNamePrefix: '@_',
@@ -62,14 +75,15 @@ export default defineEventHandler(async event => {
       let offers = parsed.yml_catalog?.shop?.offers?.offer || []
       if (!Array.isArray(offers)) offers = [offers]
 
-      // Функция buildCategoryMap (копируем из useXmlData)
+      // Функция buildCategoryMap
       function buildCategoryMap(categoriesArray) {
         const map = {}
         categoriesArray.forEach(cat => {
           const id = cat['@_id']
-          const title = cat['#text']?.trim() || ''
+          const rawTitle = cat['#text']?.trim() || ''
+          const title = rawTitle
           const parentId = cat['@_parentId']
-          const link = fixName(title)
+          const link = fixName(rawTitle)
           map[id] = { id, title, parentId, link, children: [], offers: [] }
         })
         Object.values(map).forEach(cat => {
@@ -80,28 +94,7 @@ export default defineEventHandler(async event => {
         return map
       }
 
-      // Функции collectAllIds и collectTree (копируем)
-      function collectAllIds(map, rootId, idsSet) {
-        if (!map[rootId]) return
-        idsSet.add(rootId)
-        map[rootId].children.forEach(childId => collectAllIds(map, childId, idsSet))
-      }
-
-      function collectTree(map, rootId, result = []) {
-        const cat = map[rootId]
-        if (!cat) return result
-        const treeNode = { ...cat, children: [] }
-        cat.children.forEach(childId => {
-          const childTree = collectTree(map, childId, [])
-          if (childTree.length > 0) {
-            treeNode.children.push(...childTree)
-          }
-        })
-        result.push(treeNode)
-        return result
-      }
-
-      // Функция parseOffer (адаптируем)
+      // Функция parseOffer
       function parseOffer(offerObj, categoryName) {
         const offer = {
           id: offerObj['@_id'],
@@ -112,7 +105,7 @@ export default defineEventHandler(async event => {
           currencyId: offerObj.currencyId || '',
           categoryId: offerObj.categoryId || '',
           pictures: Array.isArray(offerObj.picture) ? offerObj.picture : [offerObj.picture].filter(Boolean),
-          title: offerObj.name || '',
+          title: fixName(offerObj.name || ''),
           description: offerObj.description || '',
           params: {},
         }
@@ -127,32 +120,10 @@ export default defineEventHandler(async event => {
       }
 
       // Собираем categoryMap
-      const categoryMap = buildCategoryMap(categories)
+      categoryMap = buildCategoryMap(categories)
 
-      // Собираем sections
-      const sections = {
-        electrostancii: { rootId: '156196', ids: new Set(), children: [] },
-        'stroitelnoe-oborydovanie': { rootId: null, ids: new Set(), children: [] },
-      }
-
-      const electroRootId = sections['electrostancii'].rootId
-      if (electroRootId && categoryMap[electroRootId]) {
-        collectAllIds(categoryMap, electroRootId, sections['electrostancii'].ids)
-        const fullTree = collectTree(categoryMap, electroRootId)
-        sections['electrostancii'].children = fullTree[0]?.children || []
-      }
-
-      const targetSubIds = ['156253', '156245', '156249', '189167', '156257']
-      targetSubIds.forEach(id => {
-        collectAllIds(categoryMap, id, sections['stroitelnoe-oborydovanie'].ids)
-        const subTree = collectTree(categoryMap, id)
-        if (subTree.length > 0) {
-          sections['stroitelnoe-oborydovanie'].children.push(...subTree)
-        }
-      })
-
-      // Парсим offers и добавляем в categoryMap
-      const allOffers = offers.map(offerObj => {
+      // Парсим offers
+      allOffers = offers.map(offerObj => {
         const categoryId = offerObj.categoryId || ''
         const categoryName = categoryMap[categoryId]?.title || ''
         return parseOffer(offerObj, categoryName)
@@ -164,17 +135,16 @@ export default defineEventHandler(async event => {
         }
       })
 
-      // Кешируем обработанный объект
-      cached = {
-        data: { sections }, // Готовый объект
+      // Кешируем сырые данные
+      rawCached = {
+        data: { categoryMap, allOffers },
         timestamp: Date.now(),
       }
-      await storage.setItem(cacheKey, cached)
-
-      console.log('Обработанные данные обновлены и сохранены в кеш')
+      await storage.setItem(cacheKeyRaw, rawCached)
+      console.log('Сырые данные обновлены и сохранены в кеш')
     } catch (error) {
       console.error('Ошибка при fetch/парсинге XML:', error)
-      if (!cached) {
+      if (!rawCached) {
         throw createError({
           statusCode: 500,
           statusMessage: 'Не удалось загрузить и обработать данные',
@@ -183,9 +153,76 @@ export default defineEventHandler(async event => {
       console.log('Используем старый кеш из-за ошибки')
     }
   } else {
-    console.log('Обработанные данные взяты из кеша')
+    console.log('Сырые данные взяты из кеша')
+    if (rawCached && rawCached.data && rawCached.data.categoryMap) {
+      categoryMap = rawCached.data.categoryMap
+      allOffers = rawCached.data.allOffers
+    } else {
+      console.error('Данные в кеше повреждены, перезагружаем')
+      await storage.removeItem(cacheKeyRaw)
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'Данные в кеше повреждены, попробуйте ещё раз',
+      })
+    }
   }
 
-  // Возвращаем готовый объект
-  return cached.data
+  // Находим категорию по link (section)
+  const rootCat = Object.values(categoryMap).find(cat => cat.link === section)
+  if (!rootCat) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: `Категория '${section}' не найдена`,
+    })
+  }
+
+  // Функция collectTree (адаптирована для глубины)
+  function collectTree(map, rootId, result = [], currentDepth = 0, maxDepth = depth) {
+    const cat = map[rootId]
+    if (!cat || currentDepth > maxDepth) return result
+    const treeNode = { ...cat, children: [] }
+    if (currentDepth < maxDepth) {
+      cat.children.forEach(childId => {
+        const childTree = collectTree(map, childId, [], currentDepth + 1, maxDepth)
+        if (childTree.length > 0) {
+          treeNode.children.push(...childTree)
+        }
+      })
+    }
+    result.push(treeNode)
+    return result
+  }
+
+  // Собираем дерево
+  const tree = collectTree(categoryMap, rootCat.id, [], 0, depth)
+
+  // Функция для сбора всех категорий и офферов из дерева
+  function getCategoriesAndOffers(treeNode, allCats = [], allOffs = []) {
+    allCats.push({ ...treeNode, children: treeNode.children.map(c => c.id) }) // Дети как массив ID
+    treeNode.offers.forEach(offer => allOffs.push(offer))
+    treeNode.children.forEach(child => getCategoriesAndOffers(child, allCats, allOffs))
+    return { categories: allCats, offers: allOffs }
+  }
+
+  const { categories: filteredCategories, offers: filteredOffers } =
+    tree.length > 0 ? getCategoriesAndOffers(tree[0]) : { categories: [], offers: [] }
+
+  const filteredData = {
+    section,
+    depth,
+    children: filteredCategories,
+    offers: filteredOffers,
+  }
+
+  // Кешируем фильтрованные данные
+  filteredCached = {
+    data: filteredData,
+    timestamp: Date.now(),
+  }
+  await storage.setItem(cacheKeyFiltered, filteredCached)
+
+  console.log(`Фильтрованные данные для ${section} (глубина ${depth}) обработаны и сохранены в кеш`)
+
+  // Возвращаем фильтрованные данные
+  return filteredData
 })
