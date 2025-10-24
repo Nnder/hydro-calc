@@ -47,7 +47,7 @@ data.value = result?.children?.length || result?.categories?.length ? result.chi
         >
           <div class="relative h-48 overflow-hidden flex-shrink-0">
             <NuxtImg
-              :src="service.image"
+              :src="findFirstOfferWithPicture(service)"
               :alt="service.title"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
