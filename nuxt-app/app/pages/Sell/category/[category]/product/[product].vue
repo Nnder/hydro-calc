@@ -143,7 +143,7 @@ const selectImage = (index: number) => {
               <button
                 class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg"
               >
-                Купить
+                {{ selectedOffer.price ? 'Купить' : 'Заказать' }}
               </button>
             </div>
           </div>
