@@ -26,6 +26,16 @@ const { sections } = xml.value
 const result = findCategoryByName(sections, activeCategory.value)
 const selectedOffer = ref(result.offers.find(product => fixName(product.title) === activeProduct.value))
 
+selectedOffer.value.description =
+  selectedOffer.value.params['Детальное описание товара2'] || selectedOffer.value.params['Описание товара']
+
+const filterParams = ['Картинки2', 'Техническое обслуживание', 'Детальное описание товара2', 'Описание товара']
+
+// Фильтруем объект: исключаем ключи из filterParams
+selectedOffer.value.params = Object.fromEntries(
+  Object.entries(selectedOffer.value.params).filter(([key]) => !filterParams.includes(key))
+)
+
 const currentImageIndex = ref(0)
 const mainImage = computed(() => {
   return selectedOffer.value.pictures[currentImageIndex.value] || selectedOffer.value.pictures[0]
@@ -47,33 +57,6 @@ const prevImage = () => {
 const selectImage = (index: number) => {
   currentImageIndex.value = index
 }
-
-const selectedOffer2 = ref({
-  id: '1',
-  url: 'https://tss.ru/catalog/sinkhronnye_generatory/regulyatory_napryazheniya_dlya_sinkhronnykh_generatorov_avr_1/regulyatory_napryazheniya_stamford_avr/regulyator_napryazheniya_sa_30_avr_sx460_020172',
-  price: 3135.6,
-  currency: 'RUB',
-  categoryId: '194678',
-  pictures: [
-    'https://tss.ru/upload/iblock/848/0gcezfqmvmxjr692esg9azumk3qnhasy.jpg',
-    'https://tss.ru/upload/iblock/c2b/12lxgfo67jrt40dtveaic97a77vnd9zb.jpg',
-  ],
-  name: 'Регулятор напряжения SA-30/AVR SX460',
-  description: 'Регулятор напряжения SA-30,60,100,120 /AVR SX460 (E000-24600)',
-  article: '020172',
-  manufacturersArticle: 'SX460, E000-24600, WZ460',
-  weight: '0.31',
-  massKg: '0.3',
-  detailedDescription:
-    'Регулятор напряжения для генератора (SX460) Вес=0,31 кг, размеры в упаковке 15×11,5×5,0 см. Маркировка E000-24600. Размеры платы: 136×102 мм.',
-  compatibility: {
-    stamford:
-      'BCA162, BCI162, BCA164, BCI164, BCL164, BCL184A, BCA182, BCI182, BCI184, UCD22-27, UC122-1, UCI224, UCI274 и другие модели',
-    fuan: 'ZC164A, ZC164B, ZC164C, ZC164D, ZC184E, ZC184F, ZC184G, ZC184H, ZC184J, ZC224C, ZC224D, ZC224E, ZC224F, ZC224G, ZC274C, ZC274D, ZC274E, ZC274F, ZC274G, ZC274H, ZC274J, ZC274K',
-    fujian:
-      'BW-164A, BW-164B, BW-164C, BW-164D, BW-184E, BW-184F, BW-184G, BW-184H, BW-224C, BW-224D, BW-224E, BW-224F, BW-224G, BW-274C, BW-274DS, BW-274D, BW-274E, BW-274FS, BW-274F, BW-274G, BW-274H, BW-274J, BW-274K',
-  },
-})
 
 // console.log(selectedOffer.value, Offer.value)
 </script>
@@ -218,7 +201,7 @@ const selectedOffer2 = ref({
         </h3>
 
         <div class="space-y-4 text-blue-800/80 leading-relaxed">
-          <p class="text-lg font-semibold text-blue-900 mb-4">{{ selectedOffer.description }}</p>
+          <p class="text-lg font-semibold text-blue-900 mb-4" v-html="selectedOffer.description"></p>
           <p>{{ selectedOffer.detailedDescription }}</p>
         </div>
       </div>
@@ -235,7 +218,7 @@ const selectedOffer2 = ref({
               />
             </svg>
           </div>
-          Описание товара 2
+          Характеристики товара
         </h3>
 
         <div class="space-y-3">

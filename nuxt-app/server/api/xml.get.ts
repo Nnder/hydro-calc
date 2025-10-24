@@ -4,7 +4,7 @@ import { fixName } from '@/utils/fixName'
 export default defineEventHandler(async event => {
   const storage = useStorage('cache')
   const cacheKey = 'xml-processed-data' // Новый ключ для кеша обработанных данных
-  const TTL = 3600000 // 1 час
+  const TTL = 36000000 // 1 час
 
   let cached = await storage.getItem(cacheKey)
 
