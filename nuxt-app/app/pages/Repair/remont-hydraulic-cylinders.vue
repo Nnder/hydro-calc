@@ -1,14 +1,16 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
-  <RepairPartsSelector
-    name="Здравствуйте необходимый перечень работ по гидроцилиндрам"
-    :title="'Выберите детали для ремонта'"
-    :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
-    :selectorData="true"
-    :main-image="MainCalculatorImage"
-    :parts="hydrantParts"
-    highlightMode="multiple"
-  />
+  <ClientOnly>
+    <RepairPartsSelector
+      name="Здравствуйте необходимый перечень работ по гидроцилиндрам"
+      :title="'Выберите детали для ремонта'"
+      :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
+      :selectorData="true"
+      :main-image="MainCalculatorImage"
+      :parts="hydrantParts"
+      highlightMode="multiple"
+    />
+  </ClientOnly>
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" variant="default" :image-url="'/partners_1.webp'" data-aos="fade-up" />
