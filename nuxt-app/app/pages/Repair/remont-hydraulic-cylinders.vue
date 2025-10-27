@@ -188,8 +188,8 @@ const hydrantParts = ref([
       { type: 'rect', top: '75%', left: '63.5%', width: '18%', height: '8%' }, // правая уплотн.
     ],
     z: 9,
-    color: 'rgba(0,64,255,0.4)',
-    stroke: 'rgba(0,64,255,0.5)',
+    color: 'rgba(0,64,255,0.8)',
+    stroke: 'rgba(0,64,255,1)',
   },
   {
     name: 'Изготовление и замена штока',
@@ -257,34 +257,36 @@ const hydrantParts = ref([
         height: '56%',
       },
     ],
-    color: 'rgba(59,130,246,0.35)',
+    color: 'rgba(74,255,73,0.7)',
   },
   {
     name: 'Замена крышек',
     selected: false,
     show: false,
+    z: 8,
     highlight: [
       {
         type: 'rect',
-        top: '22%',
+        top: '24%',
         left: '5%',
         width: '90%',
-        height: '7%',
+        height: '5%',
       },
       {
         type: 'rect',
-        top: '84%',
-        left: '8%',
-        width: '90%',
+        top: '85%',
+        left: '10%',
+        width: '83%',
         height: '4%',
       },
     ],
-    color: 'rgba(37,99,235,0.35)',
+    color: 'rgba(91,255,235,0.8)',
   },
   {
     name: 'Ремонт цапф',
     selected: false,
     show: false,
+    z: 11,
     highlight: [
       {
         type: 'circle',
@@ -299,7 +301,7 @@ const hydrantParts = ref([
         r: '20%',
       },
     ],
-    color: 'rgba(234,88,12,0.35)',
+    color: 'rgba(200,88,12,0.6)',
     onSelect: () => {
       const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
       hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
