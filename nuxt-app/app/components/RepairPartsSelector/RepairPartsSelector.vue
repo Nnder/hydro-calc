@@ -95,67 +95,70 @@
               </div>
 
               <transition
-      enter-active-class="transition-all duration-300 ease-out"
-      enter-from-class="opacity-0 max-h-0"
-      enter-to-class="opacity-100 max-h-[500px]"
-      leave-active-class="transition-all duration-250 ease-in"
-      leave-from-class="opacity-100 max-h-[500px]"
-      leave-to-class="opacity-0 max-h-0"
-    >
-      <div v-if="part.selected && (part.description || part?.features?.length)" class="overflow-hidden">
-        <div
-          class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
-          :class="parts.length > 6 ? 'mt-2 p-3 sm:p-4' : 'mt-3 p-4 sm:p-5'"
-        >
-          <button
-            @click.stop="part.selected = false"
-            class="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
-            :class="parts.length > 6 ? 'top-2 right-2 w-6 h-6' : 'top-3 right-3 w-7 h-7'"
-          >
-            <Icon name="mdi:close" :class="parts.length > 6 ? 'text-base' : 'text-lg'" />
-          </button>
-
-          <p
-            class="text-hydro-steel/80 pr-8 mb-4 break-words overflow-visible whitespace-normal"
-            :class="parts.length > 6 ? 'text-xs' : 'text-xs sm:text-sm'"
-          >
-            {{ part.description }}
-          </p>
-
-          <div v-if="part.features" class="space-y-2" :class="parts.length > 6 ? 'space-y-1' : 'space-y-2'">
-            <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
-              <Icon
-                name="mdi:check-circle"
-                class="text-hydro-power mt-0.5 mr-2 shrink-0"
-                :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
-              />
-              <span
-                class="text-hydro-steel/80 font-medium break-words overflow-visible whitespace-normal"
-                :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
-                v-html="feature"
-              ></span>
-            </div>
-          </div>
-
-          <div
-            v-if="part.price"
-            class="mt-4 pt-3 border-t border-gray-200"
-            :class="parts.length > 6 ? 'mt-3 pt-2' : 'mt-4 pt-3'"
-          >
-            <div class="flex justify-between items-center">
-              <span class="text-hydro-steel/60" :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
-                >Стоимость:</span
+                enter-active-class="transition-all duration-300 ease-out"
+                enter-from-class="opacity-0 max-h-0"
+                enter-to-class="opacity-100 max-h-[500px]"
+                leave-active-class="transition-all duration-250 ease-in"
+                leave-from-class="opacity-100 max-h-[500px]"
+                leave-to-class="opacity-0 max-h-0"
               >
-              <span
-                class="text-hydro-power font-bold"
-                :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
-                >{{ part.price }}</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </transition>
+                <div
+                  v-if="expandedIndex === index && (part.description || part?.features?.length)"
+                  class="overflow-hidden"
+                >
+                  <div
+                    class="relative mt-3 p-4 sm:p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm"
+                    :class="parts.length > 6 ? 'mt-2 p-3 sm:p-4' : 'mt-3 p-4 sm:p-5'"
+                  >
+                    <button
+                      @click.stop="closeExpanded"
+                      class="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-hydro-steel transition-colors duration-200"
+                      :class="parts.length > 6 ? 'top-2 right-2 w-6 h-6' : 'top-3 right-3 w-7 h-7'"
+                    >
+                      <Icon name="mdi:close" :class="parts.length > 6 ? 'text-base' : 'text-lg'" />
+                    </button>
+
+                    <p
+                      class="text-hydro-steel/80 pr-8 mb-4 break-words overflow-visible whitespace-normal"
+                      :class="parts.length > 6 ? 'text-xs' : 'text-xs sm:text-sm'"
+                    >
+                      {{ part.description }}
+                    </p>
+
+                    <div v-if="part.features" class="space-y-2" :class="parts.length > 6 ? 'space-y-1' : 'space-y-2'">
+                      <div v-for="(feature, i) in part.features" :key="i" class="flex items-start">
+                        <Icon
+                          name="mdi:check-circle"
+                          class="text-hydro-power mt-0.5 mr-2 shrink-0"
+                          :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
+                        />
+                        <span
+                          class="text-hydro-steel/80 font-medium break-words overflow-visible whitespace-normal"
+                          :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
+                          v-html="feature"
+                        ></span>
+                      </div>
+                    </div>
+
+                    <div
+                      v-if="part.price"
+                      class="mt-4 pt-3 border-t border-gray-200"
+                      :class="parts.length > 6 ? 'mt-3 pt-2' : 'mt-4 pt-3'"
+                    >
+                      <div class="flex justify-between items-center">
+                        <span class="text-hydro-steel/60" :class="parts.length > 6 ? 'text-xs' : 'text-xs'"
+                          >Стоимость:</span
+                        >
+                        <span
+                          class="text-hydro-power font-bold"
+                          :class="parts.length > 6 ? 'text-sm' : 'text-sm sm:text-base'"
+                          >{{ part.price }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </transition>
             </div>
           </div>
         </section>
@@ -254,6 +257,7 @@ const svgRef = ref(null)
 const imageWidth = ref(100)
 const imageHeight = ref(100)
 const activeHighlight = ref(null)
+const expandedIndex = ref(null) // Новое: индекс раскрытого элемента
 
 const computedViewBox = computed(() => `0 0 ${imageWidth.value} ${imageHeight.value}`)
 
@@ -270,11 +274,11 @@ const iconMap = {
   'Гидравлические испытания': 'mdi:test-tube',
 }
 
-const getPartIcon = (part) => {
+const getPartIcon = part => {
   return iconMap[part.name] || 'mdi:wrench'
 }
 
-const normalizedShapes = (highlight) => {
+const normalizedShapes = highlight => {
   if (!highlight) return []
   return Array.isArray(highlight) ? highlight : [highlight]
 }
@@ -286,7 +290,7 @@ const percentToPx = (val, total) => {
   return parseFloat(s)
 }
 
-const convertPolyPoints = (points) => {
+const convertPolyPoints = points => {
   if (!points) return ''
   return points
     .split(',')
@@ -297,21 +301,33 @@ const convertPolyPoints = (points) => {
     .join(' ')
 }
 
-const getFill = (p) => p.fill || p.color || 'rgba(0,105,255,0.35)'
-const getStroke = (p) => p.stroke || 'rgba(0,105,255,1)'
+const getFill = p => p.fill || p.color || 'rgba(0,105,255,0.35)'
+const getStroke = p => p.stroke || 'rgba(0,105,255,1)'
 
 // Оптимизированный обработчик кликов
 const handlePartClick = (part, index) => {
   // Используем requestAnimationFrame для плавности
   requestAnimationFrame(() => {
     part.selected = !part.selected
-    
+
+    // Логика для раскрытия: только один раскрыт
+    if (expandedIndex.value === index) {
+      expandedIndex.value = null // Закрыть, если уже раскрыт
+    } else {
+      expandedIndex.value = index // Открыть новый, закрыв предыдущий
+    }
+
     if (props.highlightMode === 'single') {
       activeHighlight.value = part.selected ? index : null
     }
-    
+
     emit('part-selected', { part, index, selected: part.selected })
   })
+}
+
+// Функция для закрытия раскрытого элемента (по кнопке X)
+const closeExpanded = () => {
+  expandedIndex.value = null
 }
 
 const emit = defineEmits(['part-selected', 'image-changed'])
@@ -328,7 +344,7 @@ const updateImageDimensions = async () => {
 
 onMounted(() => {
   updateImageDimensions()
-  
+
   // Добавляем обработчик загрузки изображения
   const img = imageRef.value?.$el || imageRef.value
   if (img) {
