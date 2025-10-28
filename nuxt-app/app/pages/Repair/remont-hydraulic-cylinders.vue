@@ -280,7 +280,7 @@ const hydrantParts = ref([
         height: '4%',
       },
     ],
-    color: 'rgba(91,255,235,0.7)',
+    color: 'rgba(255,113,63,0.7)',
   },
   {
     name: 'Ремонт цапф',
