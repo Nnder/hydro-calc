@@ -3,6 +3,7 @@
     <div class="w-11/12 mx-auto py-8 md:py-12 px-5 sm:px-8 lg:px-10 rounded-2xl mt-8 mb-8 md:mt-12 md:mb-12">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <section class="w-full md:flex-1 p-5 sm:p-7 h-fit bg-white rounded-2xl shadow-lg overflow-visible">
+          <!-- Остальной код списка parts без изменений -->
           <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-7 gap-5">
             <div class="space-y-3">
               <h2
@@ -179,7 +180,27 @@
                 quality="80"
               />
 
-              <!-- SVG -->
+              <!-- Текст отдельно от SVG, с абсолютным позиционированием -->
+              <div v-for="(part, index) in sortedParts" :key="'text-' + index">
+                <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
+                  <template v-for="(shape, sIndex) in normalizedShapes(part.highlight)" :key="sIndex">
+                    <div
+                      v-if="shape.type === 'text'"
+                      class="absolute pointer-events-none text-center"
+                      :style="{
+                        left: `${percentToPx(shape.x, imageWidth)}px`,
+                        top: `${percentToPx(shape.y, imageHeight)}px`,
+                        fontSize: shape.fontSize || '16px',
+                        color: shape.fill || 'black',
+                        fontFamily: 'Arial, sans-serif',
+                        zIndex: 10,
+                      }"
+                    >
+                      {{ shape.content }}
+                    </div>
+                  </template>
+                </template>
+              </div>
             </div>
 
             <svg
@@ -191,35 +212,14 @@
             >
               <g v-for="(part, index) in sortedParts" :key="'highlight-' + index">
                 <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
-                  <template v-for="(shape, sIndex) in normalizedShapes(part.highlight)" :key="sIndex">
-                    <rect
-                      v-if="shape.type === 'rect'"
-                      :x="percentToPx(shape.left, imageWidth)"
-                      :y="percentToPx(shape.top, imageHeight)"
-                      :width="percentToPx(shape.width, imageWidth)"
-                      :height="percentToPx(shape.height, imageHeight)"
-                      :fill="getFill(part)"
-                      :stroke="getStroke(part)"
-                      :stroke-width="part.selected ? 2 : 1"
-                      rx="2"
-                    />
-                    <polygon
-                      v-else-if="shape.type === 'poly' || shape.type === 'polygon'"
-                      :points="convertPolyPoints(shape.points)"
-                      :fill="getFill(part)"
-                      :stroke="getStroke(part)"
-                      :stroke-width="part.selected ? 2 : 1"
-                    />
-                    <circle
-                      v-else-if="shape.type === 'circle'"
-                      :cx="percentToPx(shape.cx, imageWidth)"
-                      :cy="percentToPx(shape.cy, imageHeight)"
-                      :r="percentToPx(shape.r, Math.min(imageWidth, imageHeight))"
-                      :fill="getFill(part)"
-                      :stroke="getStroke(part)"
-                      :stroke-width="part.selected ? 2 : 1"
-                    />
-                  </template>
+                  <!-- Объединённый polygon для всех не-текстовых shapes -->
+                  <polygon
+                    v-if="hasNonTextShapes(part.highlight)"
+                    :points="toPolygonPoints(getNonTextShapes(part.highlight))"
+                    :fill="getFill(part)"
+                    :stroke="getStroke(part)"
+                    :stroke-width="part.selected ? 2 : 1"
+                  />
                 </template>
               </g>
             </svg>
@@ -304,6 +304,42 @@ const convertPolyPoints = points => {
 
 const getFill = p => p.fill || p.color || 'rgba(0,105,255,0.35)'
 const getStroke = p => p.stroke || 'rgba(0,105,255,1)'
+
+// Новые функции для объединения shapes в polygon
+const getNonTextShapes = highlight => {
+  return normalizedShapes(highlight).filter(s => s.type !== 'text')
+}
+
+const hasNonTextShapes = highlight => {
+  return getNonTextShapes(highlight).length > 0
+}
+
+const toPolygonPoints = shapes => {
+  let points = []
+  shapes.forEach(shape => {
+    if (shape.type === 'rect') {
+      const x = percentToPx(shape.left, imageWidth.value)
+      const y = percentToPx(shape.top, imageHeight.value)
+      const w = percentToPx(shape.width, imageWidth.value)
+      const h = percentToPx(shape.height, imageHeight.value)
+      points.push(`${x},${y}`, `${x + w},${y}`, `${x + w},${y + h}`, `${x},${y + h}`)
+    } else if (shape.type === 'circle') {
+      const cx = percentToPx(shape.cx, imageWidth.value)
+      const cy = percentToPx(shape.cy, imageHeight.value)
+      const r = percentToPx(shape.r, Math.min(imageWidth.value, imageHeight.value))
+      const numPoints = 16 // Аппроксимация круга
+      for (let i = 0; i < numPoints; i++) {
+        const angle = (i / numPoints) * 2 * Math.PI
+        const px = cx + r * Math.cos(angle)
+        const py = cy + r * Math.sin(angle)
+        points.push(`${px},${py}`)
+      }
+    } else if (shape.type === 'poly' || shape.type === 'polygon') {
+      points.push(...convertPolyPoints(shape.points).split(' '))
+    }
+  })
+  return points.join(' ')
+}
 
 // Оптимизированный обработчик кликов
 const handlePartClick = (part, index) => {

@@ -74,18 +74,25 @@ const hydrantParts = ref([
     show: false,
     highlight: [
       {
-        type: 'poly',
-        points: '0 50, 0 52, 25 52, 25 50',
+        type: 'text',
+        x: '-100', // Центр по X (в %)
+        y: '82', // Центр по Y (в %)
+        content: 'Грязесъемники',
+        fontSize: '15px', // Опционально
+        fill: 'black', // Опционально
       },
       {
-        type: 'poly',
-        points: '25 50, 25 50, 47 120, 47 120',
+        type: 'rect',
+        top: '20%',
+        left: '20%',
+        width: '25%',
+        height: '1',
       },
     ],
-    stroke: 'rgba(125,125,125,1)',
+    color: 'rgba(74,121,237,1)',
+    stroke: 'rgba(74,121,237,1)',
+
     z: 9,
-    // color: 'rgba(255,255,255,1)',
-    stroke: 'rgba(125,125,125,1)',
   },
   {
     name: 'Уплотнения для штока',
@@ -104,27 +111,27 @@ const hydrantParts = ref([
     ],
     selected: false,
     show: false,
-    color: 'bg-blue-300/50 border-blue-300',
     highlight: [
       {
-        type: 'poly',
-        points: '0 50, 0 52, 25 52, 25 50',
+        type: 'text',
+        x: '-190', // Центр по X (в %)
+        y: '100', // Центр по Y (в %)
+        content: 'Уплотнения',
+        fontSize: '15px', // Опционально
+        fill: 'black', // Опционально
       },
       {
-        type: 'poly',
-        points: '25 50, 25 50, 47 131, 47 131',
+        type: 'rect',
+        top: '23%',
+        left: '0%',
+        width: '45%',
+        height: '1',
       },
     ],
-    stroke: 'rgba(125,125,125,1)',
-    onSelect: () => {
-      const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
-      hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
-      if (val) {
-        MainCalculatorImage.value = '/calculator/1.png'
-      } else {
-        MainCalculatorImage.value = '/calculator/1.png'
-      }
-    },
+    color: 'rgba(74,121,237,1)',
+    stroke: 'rgba(74,121,237,1)',
+
+    z: 9,
   },
 
   {
@@ -133,8 +140,27 @@ const hydrantParts = ref([
       'Предназначено для предотвращения контакта при линейном возвратно поступательном перемещении между поршнем (наружной поверхностью) и цилиндром (внутренней поверхностью гильзы) или между крышкой цилиндра и штоком. Опорно-направляющее кольцо штока и поршня для гидроцилиндра. Обычно для облегчения монтажа направляющие кольца уплотнения изготавливают разрезными – разрез под углом 45 градусов.',
     selected: false,
     show: false,
-    highlight: { top: '30%', left: '20%', width: '60%', height: '10%' },
-    color: 'bg-orange-400/50 border-orange-400',
+    highlight: [
+      {
+        type: 'text',
+        x: '150', // Центр по X (в %)
+        y: '110', // Центр по Y (в %)
+        content: 'Направляющие',
+        fontSize: '15px', // Опционально
+        fill: 'black', // Опционально
+      },
+      {
+        type: 'rect',
+        top: '25%',
+        left: '55%',
+        width: '45%',
+        height: '1',
+      },
+    ],
+    color: 'rgba(74,121,237,1)',
+    stroke: 'rgba(74,121,237,1)',
+
+    z: 9,
   },
 
   {
@@ -240,18 +266,20 @@ const items = ref([
 
   <!-- Уплотнительные элементы -->
 
-  <RepairPartsSelectorPoly
-    :title="'Выберите детали для ремонта'"
-    :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
-    :parts="hydrantParts"
-    :main-image="MainCalculatorImage"
-    :image-alt="'Профессиональный ремонт гидроцилиндров'"
-    image-id="hydroImage"
-    highlightMode="multiple"
-    :selectorData="true"
-    @part-selected="handlePartSelected"
-    @image-changed="handleImageChanged"
-  />
+  <ClientOnly>
+    <RepairPartsSelectorPoly
+      :title="'Выберите детали для ремонта'"
+      :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
+      :parts="hydrantParts"
+      :main-image="MainCalculatorImage"
+      :image-alt="'Профессиональный ремонт гидроцилиндров'"
+      image-id="hydroImage"
+      highlightMode="multiple"
+      :selectorData="true"
+      @part-selected="handlePartSelected"
+      @image-changed="handleImageChanged"
+    />
+  </ClientOnly>
 
   <AccessoriesGrid :items="items" />
 
