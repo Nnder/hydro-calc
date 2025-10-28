@@ -76,7 +76,7 @@ const bannerProps = {
     {
       title: 'Защитные сильфоны (гофры)',
       type: 'Сильфоны',
-      images: ['/img_omt_flange.jpg', '/Фланцы_SAE.jpg', '/370688da60fdaf0a7f290c3986a81bb5.jpg'],
+      images: ['/silfons1.webp', '/silfons2.avif', '/silfons3.png'],
       parameters: [
         { label: 'Материал', value: 'Параарамидная / тентовая ткань' },
         { label: 'Рабочая температура', value: '-100°C до +250°C' },
@@ -87,8 +87,8 @@ const bannerProps = {
         'Применяются в промышленном оборудовании, строительной технике и гидравлических системах. Обеспечивают надежное и герметичное соединение при рабочих давлениях до 600 бар.',
       ],
       gridItem: {
-        image: '/flanec_sae.jpg',
-        title: 'Фланец SAE',
+        image: '/silfons1.webp',
+        title: 'Сильфоны',
       },
     },
     {
@@ -111,13 +111,13 @@ const bannerProps = {
       ],
       gridItem: {
         image: '/uplotnitelnoe_kolce.jpeg',
-        title: 'Уплотнительное кольцо',
+        title: 'Пальцы',
       },
     },
     {
       title: 'Втулки',
       type: 'Втулки',
-      images: ['/FA3047.png', '/SF10-40.jpg', '/695_original.jpg'],
+      images: ['/vtulki1.jpeg', '/vtulki2.jpeg', '/vtulki3.avif'],
       parameters: [
         { label: 'Тип', value: 'ISO 16028' },
         { label: 'Давление', value: 'до 350 бар' },
@@ -129,8 +129,8 @@ const bannerProps = {
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
       gridItem: {
-        image: '/bistrosemnoe_soedinenie.jpeg',
-        title: 'Быстросъёмное соединение',
+        image: '/vtulki1.jpeg',
+        title: 'Втулки',
       },
     },
     {
