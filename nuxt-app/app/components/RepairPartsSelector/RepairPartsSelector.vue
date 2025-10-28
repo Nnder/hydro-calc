@@ -311,10 +311,10 @@ const handlePartClick = (part, index) => {
     part.selected = !part.selected
 
     // Логика для раскрытия: только один раскрыт
-    if (expandedIndex.value === index) {
+    if (expandedIndex.value === index && part.selected) {
       expandedIndex.value = null // Закрыть, если уже раскрыт
     } else {
-      expandedIndex.value = index // Открыть новый, закрыв предыдущий
+      expandedIndex.value = part.selected ? index : null // Открыть новый, закрыв предыдущий
     }
 
     if (props.highlightMode === 'single') {
