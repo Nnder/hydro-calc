@@ -188,8 +188,8 @@ const hydrantParts = ref([
       { type: 'rect', top: '75%', left: '63.5%', width: '18%', height: '8%' }, // правая уплотн.
     ],
     z: 9,
-    color: 'rgba(0,64,255,0.8)',
-    stroke: 'rgba(0,64,255,1)',
+    color: 'rgba(0,64,255,0.6)',
+    stroke: 'rgba(0,64,255,0.8)',
   },
   {
     name: 'Изготовление и замена штока',
@@ -257,7 +257,7 @@ const hydrantParts = ref([
         height: '56%',
       },
     ],
-    color: 'rgba(74,255,73,0.7)',
+    color: 'rgba(74,255,73,0.6)',
   },
   {
     name: 'Замена крышек',
@@ -280,7 +280,7 @@ const hydrantParts = ref([
         height: '4%',
       },
     ],
-    color: 'rgba(91,255,235,0.8)',
+    color: 'rgba(91,255,235,0.7)',
   },
   {
     name: 'Ремонт цапф',
@@ -339,7 +339,7 @@ const hydrantParts = ref([
         r: '20%',
       },
     ],
-    color: 'rgba(234,88,12,0.35)',
+    color: 'rgba(234,88,12,0.6)',
   },
   {
     name: 'Гидравлические испытания',
