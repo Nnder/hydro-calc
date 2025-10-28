@@ -33,13 +33,6 @@ const blockData = {
   imageAlt: 'гидравлические уплотнения',
 }
 
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Профессиональная продажа уплотнений',
-  description:
-    'Профессиональная продажа уплотнительных элементов в Нижнем Тагиле! Компания «ООО АбсолютТехно» предлагает качественные уплотнения по конкурентоспособным ценам с доставкой по всей Свердловской области.',
-}
-
 const blockDataText = {
   title: 'Продажа уплотнений в Нижнем Тагиле',
   description: `<p class="text-lg">
@@ -79,17 +72,20 @@ const hydrantParts = ref([
     description: '',
     selected: false,
     show: false,
-    color: 'bg-indigo-600/50 border-indigo-600',
-    // onSelect: () => {
-    //   const val = !hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden
-    //   hydrantParts.value.find(item => item.name === 'Ремонт цапф').hidden = val
-    //   if (val) {
-    //     MainCalculatorImage.value = '/calculator/1.png'
-    //   } else {
-    //     MainCalculatorImage.value = '/calculator/1.png'
-    //   }
-    // },
-    highlight: { top: '70%', left: '10%', width: '15%', height: '15%' },
+    highlight: [
+      {
+        type: 'poly',
+        points: '0 50, 0 52, 25 52, 25 50',
+      },
+      {
+        type: 'poly',
+        points: '25 50, 25 50, 47 120, 47 120',
+      },
+    ],
+    stroke: 'rgba(125,125,125,1)',
+    z: 9,
+    // color: 'rgba(255,255,255,1)',
+    stroke: 'rgba(125,125,125,1)',
   },
   {
     name: 'Уплотнения для штока',
@@ -109,7 +105,17 @@ const hydrantParts = ref([
     selected: false,
     show: false,
     color: 'bg-blue-300/50 border-blue-300',
-    highlight: { top: '20%', left: '80%', width: '15%', height: '60%' },
+    highlight: [
+      {
+        type: 'poly',
+        points: '0 50, 0 52, 25 52, 25 50',
+      },
+      {
+        type: 'poly',
+        points: '25 50, 25 50, 47 131, 47 131',
+      },
+    ],
+    stroke: 'rgba(125,125,125,1)',
     onSelect: () => {
       const val = !hydrantParts.value.find(item => item.name === 'Замена проушин').hidden
       hydrantParts.value.find(item => item.name === 'Замена проушин').hidden = val
@@ -234,13 +240,14 @@ const items = ref([
 
   <!-- Уплотнительные элементы -->
 
-  <RepairPartsSelector
+  <RepairPartsSelectorPoly
     :title="'Выберите детали для ремонта'"
     :subtitle="'Отметьте необходимые компоненты гидроцилиндра'"
     :parts="hydrantParts"
     :main-image="MainCalculatorImage"
     :image-alt="'Профессиональный ремонт гидроцилиндров'"
     image-id="hydroImage"
+    highlightMode="multiple"
     :selectorData="true"
     @part-selected="handlePartSelected"
     @image-changed="handleImageChanged"
