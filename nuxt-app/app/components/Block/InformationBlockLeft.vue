@@ -1,6 +1,8 @@
 <template>
   <section class="w-full bg-white">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-8">
+    <div
+      class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-8"
+    >
       <div class="w-full lg:w-1/2 xl:!w-[640px] flex justify-center">
         <NuxtImg
           v-if="blockData.type !== '3d'"
@@ -11,14 +13,16 @@
         />
 
         <div v-else class="relative w-full max-w-sm sm:max-w-none" @click="() => (hint = false)">
-          <ThreeViewer
-            :modelPath="blockData.modelSrc"
-            :canvasColor="blockData.modelBgColor"
-            :screenIncrease="blockData.scale || 0.5"
-            :loadFunc="blockData?.loadFunc"
-            :img="blockData.img"
-            class="!h-[240px] sm:!h-[400px]"
-          />
+          <ClientOnly>
+            <ThreeViewer
+              :modelPath="blockData.modelSrc"
+              :canvasColor="blockData.modelBgColor"
+              :screenIncrease="blockData.scale || 0.5"
+              :loadFunc="blockData?.loadFunc"
+              :img="blockData.img"
+              class="!h-[240px] sm:!h-[400px]"
+            />
+          </ClientOnly>
 
           <div
             v-if="hint"

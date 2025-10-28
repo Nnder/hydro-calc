@@ -138,14 +138,16 @@ const setActiveSection = section => emit('section-change', section)
         </div>
 
         <div v-else class="relative w-full max-w-sm sm:max-w-none" @click="() => (hint = false)">
-          <ThreeViewer
-            :modelPath="blockData.modelSrc"
-            :canvasColor="blockData.modelBgColor"
-            :screenIncrease="blockData.scale || 0.5"
-            :loadFunc="blockData?.loadFunc"
-            :img="blockData.img"
-            class="!h-[240px] sm:!h-[400px]"
-          />
+          <ClientOnly>
+            <ThreeViewer
+              :modelPath="blockData.modelSrc"
+              :canvasColor="blockData.modelBgColor"
+              :screenIncrease="blockData.scale || 0.5"
+              :loadFunc="blockData?.loadFunc"
+              :img="blockData.img"
+              class="!h-[240px] sm:!h-[400px]"
+            />
+          </ClientOnly>
 
           <div
             v-if="hint"
