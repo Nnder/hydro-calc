@@ -180,49 +180,48 @@
               />
 
               <!-- SVG -->
-            </div>
-
-            <svg
-              ref="svgRef"
-              class="absolute top-0 left-0 w-full h-full pointer-events-none"
-              :viewBox="computedViewBox"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g v-for="(part, index) in sortedParts" :key="'highlight-' + index">
-                <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
-                  <template v-for="(shape, sIndex) in normalizedShapes(part.highlight)" :key="sIndex">
-                    <rect
-                      v-if="shape.type === 'rect'"
-                      :x="percentToPx(shape.left, imageWidth)"
-                      :y="percentToPx(shape.top, imageHeight)"
-                      :width="percentToPx(shape.width, imageWidth)"
-                      :height="percentToPx(shape.height, imageHeight)"
-                      :fill="getFill(part)"
-                      :stroke="getStroke(part)"
-                      :stroke-width="part.selected ? 2 : 1"
-                      rx="2"
-                    />
-                    <polygon
-                      v-else-if="shape.type === 'poly' || shape.type === 'polygon'"
-                      :points="convertPolyPoints(shape.points)"
-                      :fill="getFill(part)"
-                      :stroke="getStroke(part)"
-                      :stroke-width="part.selected ? 2 : 1"
-                    />
-                    <circle
-                      v-else-if="shape.type === 'circle'"
-                      :cx="percentToPx(shape.cx, imageWidth)"
-                      :cy="percentToPx(shape.cy, imageHeight)"
-                      :r="percentToPx(shape.r, Math.min(imageWidth, imageHeight))"
-                      :fill="getFill(part)"
-                      :stroke="getStroke(part)"
-                      :stroke-width="part.selected ? 2 : 1"
-                    />
+              <svg
+                ref="svgRef"
+                class="absolute top-0 left-0 w-full h-full pointer-events-none"
+                :viewBox="computedViewBox"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g v-for="(part, index) in sortedParts" :key="'highlight-' + index">
+                  <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
+                    <template v-for="(shape, sIndex) in normalizedShapes(part.highlight)" :key="sIndex">
+                      <rect
+                        v-if="shape.type === 'rect'"
+                        :x="percentToPx(shape.left, imageWidth)"
+                        :y="percentToPx(shape.top, imageHeight)"
+                        :width="percentToPx(shape.width, imageWidth)"
+                        :height="percentToPx(shape.height, imageHeight)"
+                        :fill="getFill(part)"
+                        :stroke="getStroke(part)"
+                        :stroke-width="part.selected ? 2 : 1"
+                        rx="2"
+                      />
+                      <polygon
+                        v-else-if="shape.type === 'poly' || shape.type === 'polygon'"
+                        :points="convertPolyPoints(shape.points)"
+                        :fill="getFill(part)"
+                        :stroke="getStroke(part)"
+                        :stroke-width="part.selected ? 2 : 1"
+                      />
+                      <circle
+                        v-else-if="shape.type === 'circle'"
+                        :cx="percentToPx(shape.cx, imageWidth)"
+                        :cy="percentToPx(shape.cy, imageHeight)"
+                        :r="percentToPx(shape.r, Math.min(imageWidth, imageHeight))"
+                        :fill="getFill(part)"
+                        :stroke="getStroke(part)"
+                        :stroke-width="part.selected ? 2 : 1"
+                      />
+                    </template>
                   </template>
-                </template>
-              </g>
-            </svg>
+                </g>
+              </svg>
+            </div>
           </div>
         </section>
       </div>
