@@ -60,13 +60,13 @@ const categories = ref([
       {
         title: 'Электростанции',
         image: 'https://tss.ru/upload/iblock/7fc/xilvh1zxj50p1434qffaquamxsbauann.jpg',
-        description: 'Масла и жидкости для гидравлических систем',
+        description: 'Дизельные, безниновые и сварочные электростанции',
         link: '/sell/category/electrostancii',
       },
       {
         title: 'Строительное оборудование',
         image: 'https://tss.ru/upload/iblock/69c/0t7ppxa89e0ey7eb5h1r3h1i6r8hjsqa.jpg',
-        description: 'Масла и жидкости для гидравлических систем',
+        description: 'Виброплиты, вибротрамбовки, мотопомпы и затирочные машины',
         link: '/sell/category/stroitelnoe-oborydovanie',
       },
       // {
