@@ -1,11 +1,8 @@
 <script setup>
 import Contact from '~/components/Page/Contact.vue'
-import InformationBlock from '~/components/Block/InformationBlock.vue'
-import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import AccessoriesGrid from '~/components/Accessories/AccessoriesGrid.vue'
-import { accessoriesItems } from '~/data/mocks'
 import InformationBlockLeft from '~/components/Block/InformationBlockLeft.vue'
 
 definePageMeta({
@@ -76,14 +73,14 @@ const hydrantParts = ref([
       {
         type: 'text',
         x: '-100', // Центр по X (в %)
-        y: '82', // Центр по Y (в %)
+        y: '88', // Центр по Y (в %)
         content: 'Грязесъемники',
         fontSize: '15px', // Опционально
         fill: 'black', // Опционально
       },
       {
         type: 'rect',
-        top: '20%',
+        top: '19%',
         left: '20%',
         width: '25%',
         height: '1',
@@ -115,14 +112,14 @@ const hydrantParts = ref([
       {
         type: 'text',
         x: '-190', // Центр по X (в %)
-        y: '100', // Центр по Y (в %)
+        y: '110', // Центр по Y (в %)
         content: 'Уплотнения',
         fontSize: '15px', // Опционально
         fill: 'black', // Опционально
       },
       {
         type: 'rect',
-        top: '23%',
+        top: '22%',
         left: '0%',
         width: '45%',
         height: '1',
@@ -144,14 +141,14 @@ const hydrantParts = ref([
       {
         type: 'text',
         x: '150', // Центр по X (в %)
-        y: '110', // Центр по Y (в %)
+        y: '120', // Центр по Y (в %)
         content: 'Направляющие',
         fontSize: '15px', // Опционально
         fill: 'black', // Опционально
       },
       {
         type: 'rect',
-        top: '25%',
+        top: '24%',
         left: '55%',
         width: '45%',
         height: '1',
