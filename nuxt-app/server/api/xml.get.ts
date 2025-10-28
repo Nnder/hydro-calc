@@ -116,7 +116,7 @@ export default defineEventHandler(async event => {
         collectAllIds(categoryMap, electroRootId, sections['electrostancii'].ids)
         const fullTree = collectTree(categoryMap, electroRootId)
         // Фильтруем дерево, убирая ID 196612 и 199455
-        const excludeIds = new Set(['196612', '199455'])
+        const excludeIds = new Set(['196612', '199455', '185132'])
         const filteredTree = filterTree(fullTree[0], excludeIds)
         sections['electrostancii'].children = filteredTree ? filteredTree.children : []
       }
