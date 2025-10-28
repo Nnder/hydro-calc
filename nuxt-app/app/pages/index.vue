@@ -11,6 +11,7 @@ import InformationBlockSpecial from '~/components/SpecialPages/InformationBlockS
 import Partners from '~/components/Partners/Partners.vue'
 import Slide from '~/components/Slider/Slide.vue'
 import InformationBlockSpecialLinks from '~/components/SpecialPages/InformationBlockSpecialLinks.vue'
+import AdSlide from '~/components/Slider/AdSlide.vue'
 
 useHead({
   title: `АбсолютТехно`,
@@ -152,6 +153,7 @@ const sectionsData = {
 const slide = {
   videoSrc: '/videos/ТСС.mp4',
   logo: 'https://www.tss.ru/bitrix/templates/tss_templates_new/images/Group%201%20(1).png',
+  link: 'https://www.tss.ru/',
   img: '/hydrocilinder.png',
   // tag: 'Партнер',
   title: 'Наш партнер в сфере строительного оборудования и дизельных электростанций',
@@ -162,7 +164,8 @@ const slide = {
     'Портативные генераторы',
     'Сварочное оборудование',
   ],
-  buttonText: 'Прайс лист ГК ТСС',
+  buttonText: 'Перейти к товарам',
+  buttonLink: '/sell',
   additionalInfo: 'Энергия стабильности',
 }
 </script>
@@ -180,7 +183,7 @@ const slide = {
   />
   <InformationBlockLeft :blockData="blockDataVariant" position="left" data-aos="fade-up" />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
-  <Slide :slider="slide" class="!h-full py-4 mb-16 mt-16" />
+  <AdSlide :slider="slide" class="!h-full py-4 mb-16 mt-16" />
   <Advantages data-aos="fade-up" />
 
   <!-- {{ data }} -->
