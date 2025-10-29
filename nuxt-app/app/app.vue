@@ -1,7 +1,6 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
-    <CookieControl locale="ru" />
   </NuxtLayout>
   <CallBackModal />
   <!-- <PerformanceChecker /> -->

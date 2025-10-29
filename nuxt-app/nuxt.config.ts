@@ -10,45 +10,32 @@ export default defineNuxtConfig({
     },
   },
   sourcemap: false,
-  modules: [
-    '@vueuse/nuxt',
-    '@nuxt/image',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/seo',
-    '@nuxtjs/robots',
-    '@nuxt/icon',
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
-    'nuxt-swiper',
-    '@nuxtjs/google-fonts',
-    'nuxt-schema-org',
-    'nuxt-aos',
-    '@dargmuesli/nuxt-cookie-control',
-  ],
+  modules: ['@vueuse/nuxt', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/seo', '@nuxtjs/robots', '@nuxt/icon', '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-swiper', '@nuxtjs/google-fonts', 'nuxt-schema-org', // '@dargmuesli/nuxt-cookie-control',
+  'nuxt-aos', 'nuxt-auth-utils'],
 
-  cookieControl: {
-    locale: 'ru',
+  // cookieControl: {
+  //   locale: 'ru',
 
-    // ОТКЛЮЧАЕМ лишние кнопки
-    isControlButtonEnabled: false, // убирает "Управление файлами cookie"
-    isAcceptNecessaryButtonEnabled: false, // убирает "Я принимаю необходимое"
+  //   // ОТКЛЮЧАЕМ лишние кнопки
+  //   isControlButtonEnabled: false, // убирает "Управление файлами cookie"
+  //   isAcceptNecessaryButtonEnabled: false, // убирает "Я принимаю необходимое"
 
-    // Оставляем только основные тексты
-    localeTexts: {
-      ru: {
-        accept: 'Принять', // оставляем только эту кнопку
-        acceptAll: 'Принять все',
-        bannerDescription:
-          'Сайт использует сооке-файлы, чтобы сделать ваше пребывание на нем максимально удобным. К сайту подключён сервис веб-аналитики Яндекс. Метрика, использующий сооіе-файлы. Оставаясь на сайте, вы даёте своё согласие на обработку персональных данных з порядке, указанном в Политике обработки персональных данных',
-        bannerTitle: 'Файлы cookie',
-        close: 'Закрыть',
-        decline: 'Отклонить',
-        declineAll: 'Отклонить все',
-        manage: 'Настроить',
-        save: 'Сохранить',
-      },
-    },
-  },
+  //   // Оставляем только основные тексты
+  //   localeTexts: {
+  //     ru: {
+  //       accept: 'Принять', // оставляем только эту кнопку
+  //       acceptAll: 'Принять все',
+  //       bannerDescription:
+  //         'Сайт использует сооке-файлы, чтобы сделать ваше пребывание на нем максимально удобным. К сайту подключён сервис веб-аналитики Яндекс. Метрика, использующий сооіе-файлы. Оставаясь на сайте, вы даёте своё согласие на обработку персональных данных з порядке, указанном в Политике обработки персональных данных',
+  //       bannerTitle: 'Файлы cookie',
+  //       close: 'Закрыть',
+  //       decline: 'Отклонить',
+  //       declineAll: 'Отклонить все',
+  //       manage: 'Настроить',
+  //       save: 'Сохранить',
+  //     },
+  //   },
+  // },
 
   vite: {
     build: {

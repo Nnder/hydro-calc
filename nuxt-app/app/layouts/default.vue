@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import Footer from '~/components/Footer/Footer.vue'
 import Header from '~/components/Header/Header.vue'
+import CookieConsent from '~/components/CookieConsent/CookieConsent.vue';
+
+const route = useRoute()
 </script>
 
 <template>
@@ -9,4 +12,5 @@ import Header from '~/components/Header/Header.vue'
     <slot />
   </div>
   <Footer />
+  <CookieConsent :key="route.path" />
 </template>
