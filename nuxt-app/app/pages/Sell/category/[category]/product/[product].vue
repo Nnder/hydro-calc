@@ -268,6 +268,8 @@ useHead({
           </div>
         </div> -->
       </div>
+
+      <NuxtImg class="w-full my-8" src="/certificates/tss.jpeg" />
     </div>
   </section>
 </template>
