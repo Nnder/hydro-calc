@@ -81,13 +81,19 @@ useHead({
 
       <Consultation />
 
+      <h2
+        class="mt-8 text-5xl text-center md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-700 to-slate-900 bg-clip-text text-transparent mb-6"
+      >
+        Информация о гк тсс
+      </h2>
+
       <div
         class="bg-white/95 backdrop-blur-xl text-xl my-8 leading-relaxed text-slate-700 p-8 shadow-2xl shadow-blue-500/10 border border-blue-100/50 rounded-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] group"
       >
         <div
           class="absolute -inset-1 bg-gradient-to-r from-blue-50 to-white rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition duration-500 -z-10"
         ></div>
-        <h2 class="text-4xl text-center mb-4">Информация о гк тсс</h2>
+
         <div class="space-y-4 relative z-10">
           <p class="text-slate-600 leading-8 text-xl">
             Группа компаний ТСС (ГК ТСС) — крупнейший российский производитель дизель-генераторных установок и
