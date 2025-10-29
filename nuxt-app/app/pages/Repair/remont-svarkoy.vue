@@ -29,7 +29,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
+      content: 'Сварочные и токарные работы, ремонт методом наплавки',
     },
   ],
 })
@@ -42,8 +42,7 @@ const mainSlideData = {
 }
 
 const blockDataText = {
-  imageurl:
-    '/how-machining-went-from-art-to-science-lathe-chips-featured.jpeg',
+  imageurl: '/how-machining-went-from-art-to-science-lathe-chips-featured.jpeg',
   title: 'Что мы делаем?',
   description: `<p>Профессиональные сварочные и токарные работы любой сложности. Выполняем полный комплекс услуг по ремонту и восстановлению металлических конструкций, деталей и оборудования.</p>
 <p>Сварочные работы: РДС, MIG/MAG, TIG сварка черных металлов. Гарантия качества швов и соответствия стандартам.</p>

@@ -1,17 +1,17 @@
 <template>
   <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" data-aos-delay="200" />
   <RepairPartsSelector
-  name="Здравствуйте необходимый перечень работ по гидронасосам"
+    name="Здравствуйте необходимый перечень работ по гидронасосам"
     :selectorData="true"
-  :title="'Виды работ и ремонта'"
-  :subtitle="'Отметьте необходимые компоненты гидронасоса'"
-  :parts="hydrantParts"
-  main-image="/calculator/2.png"
-  :image-alt="'Профессиональный ремонт гидронасосов'"
-  image-id="hydroImage"
-  :highlight-mode="'single'"
-  @part-selected=""
-/>
+    :title="'Виды работ и ремонта'"
+    :subtitle="'Отметьте необходимые компоненты гидронасоса'"
+    :parts="hydrantParts"
+    main-image="/calculator/2.png"
+    :image-alt="'Профессиональный ремонт гидронасосов'"
+    image-id="hydroImage"
+    :highlight-mode="'single'"
+    @part-selected=""
+  />
   <InformationBlock :blockData="blockData" data-aos="fade-up" />
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
@@ -28,19 +28,18 @@ import ContentWithImage from '~/components/Page/ContentWithImage.vue'
 import PortfolioSection from '~/components/Main/PortfolioSection.vue'
 import Accordion from '~/components/Page/Accordion.vue'
 import PartnerBlock from '~/components/Page/PartnerBlock.vue'
-import RepairPartsSelector from '~/components/RepairPartsSelector/RepairPartsSelector.vue' 
+import RepairPartsSelector from '~/components/RepairPartsSelector/RepairPartsSelector.vue'
 
 definePageMeta({
   path: '/remont-nasosov-pumps',
 })
-
 
 useHead({
   title: 'Профессиональный ремонт гидронасосов',
   meta: [
     {
       name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
+      content: 'Ремонт и подбор гидронасосов в Нижнем Тагиле',
     },
   ],
 })
@@ -145,9 +144,9 @@ const blockData = {
   modelBgColor: '#2563EB',
   scale: 0.4,
   img: {
-        src: '/3d/preload/hydronanos.png',
-        alt: 'Гидронасос 3д предзагрузка'
-      }
+    src: '/3d/preload/hydronanos.png',
+    alt: 'Гидронасос 3д предзагрузка',
+  },
 }
 
 const hydrantParts = ref([

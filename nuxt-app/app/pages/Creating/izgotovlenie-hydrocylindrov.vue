@@ -12,11 +12,12 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Изготовление рукава высокого давления (РВД)',
+  title: 'Изготовление гидроцилиндров',
   meta: [
     {
       name: 'description',
-      content: 'Инструменты и оборудование для строительства и ремонта',
+      content:
+        'Изготовление гидроцилиндров. ООО "АбсолютТехно" специализируется на производстве высококачественных гидроцилиндров любого уровня сложности. Используем современное оборудование и передовые технологии изготовления.',
     },
   ],
 })
@@ -41,8 +42,6 @@ const description = `<p class="text-lg">
 const imageUrl = '/honingovannaya_trubka_prim.jpeg'
 const title = 'Изготовление и ремонт гидроцилиндров по Свердловской области и всей России'
 
-
-
 const blockData = {
   title: 'Изготавливаем гидроцилиндры по индивидуальным параметрам',
   description:
@@ -50,14 +49,14 @@ const blockData = {
   buttonText: 'Заказать гидроцилиндр',
   imageUrl: '/hidrocilinder_3.jpeg',
   imageAlt: 'Производство гидроцилиндров',
-    type: '3d',
+  type: '3d',
   modelSrc: '/3d/Сборка_ГЦ_реф.glb',
   modelBgColor: '#2563EB',
-   modelBgColor: '#2563EB',
-   img: {
+  modelBgColor: '#2563EB',
+  img: {
     src: '/3d/preload/hydrocilinder2.png',
-    alt: 'Гидроцилиндр 3д предзагрузка'
-  }
+    alt: 'Гидроцилиндр 3д предзагрузка',
+  },
 }
 
 const mainSlideData = {
