@@ -5,16 +5,6 @@ definePageMeta({
   path: `/sell/category/:category?/product/:product?`,
 })
 
-useHead({
-  title: `Продажа товаров - АбсолютТехно`,
-  meta: [
-    {
-      name: 'description',
-      content: `Каталог товаров`,
-    },
-  ],
-})
-
 const route = useRoute()
 const activeCategory = ref(route.params.category || 'kovshi')
 const activeProduct = ref(route.params.product || 'kovshi')
@@ -28,6 +18,8 @@ const selectedOffer = ref(result.offers.find(product => fixName(product.title) =
 
 selectedOffer.value.description =
   selectedOffer.value.params['Детальное описание товара2'] || selectedOffer.value.params['Описание товара']
+
+selectedOffer.value.descriptionSeo = selectedOffer.value.params['Описание товара']
 
 const filterParams = ['Картинки2', 'Техническое обслуживание', 'Детальное описание товара2', 'Описание товара']
 
@@ -71,6 +63,16 @@ const handleOffer = () => {
   newData(result)
   open(false)
 }
+
+useHead({
+  title: `${selectedOffer.value.title} - АбсолютТехно`,
+  meta: [
+    {
+      name: 'description',
+      content: selectedOffer.value.descriptionSeo,
+    },
+  ],
+})
 
 // console.log(selectedOffer.value, Offer.value)
 </script>

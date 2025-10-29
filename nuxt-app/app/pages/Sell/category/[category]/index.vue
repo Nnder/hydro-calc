@@ -6,16 +6,6 @@ definePageMeta({
   path: `/sell/category/:category?`,
 })
 
-useHead({
-  title: `Продажа товаров - АбсолютТехно`,
-  meta: [
-    {
-      name: 'description',
-      content: `Каталог товаров`,
-    },
-  ],
-})
-
 const route = useRoute()
 const activeCategory = ref(fixName(route.params.category || 'electrostancii'))
 
@@ -26,6 +16,18 @@ const { data: xml } = await useAsyncData('xml-data', () => $fetch(`/api/xml?sect
 const result = findCategoryByName(xml.value.sections, activeCategory.value)
 
 data.value = result?.children?.length || result?.categories?.length ? result.children : result?.offers || []
+
+console.log(data.value)
+
+useHead({
+  title: `Продажа товаров ТСС - АбсолютТехно`,
+  meta: [
+    {
+      name: 'description',
+      content: `Каталог товаров ТСС, большое кол-во и вариантов Дизельных электростанции, Бензиновых электростанций Сварочных электростанции, Виброплиты, Вибротрамбовки, Мотопомпы и Затирочные машины`,
+    },
+  ],
+})
 </script>
 
 <template>
