@@ -116,7 +116,7 @@ if (props.bannerProps.initialProductType) {
                 :key="index"
                 class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 sm:py-4 px-4 sm:px-6 border-b border-blue-100 last:border-b-0 hover:bg-blue-100/50 transition-colors duration-200 group"
               >
-                <span class="text-blue-800 font-medium group-hover:text-blue-900 mb-1 sm:mb-0">
+                <span class="text-blue-800 font-medium group-hover:text-blue-900 mb-1 sm:mb-0 text-nowrap">
                   {{ param.label }}:
                 </span>
                 <span class="text-blue-700 font-semibold text-right">
