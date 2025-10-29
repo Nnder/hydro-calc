@@ -267,9 +267,9 @@ useHead({
             <p class="text-blue-700 text-sm leading-relaxed">{{ selectedOffer.compatibility.fujian }}</p>
           </div>
         </div> -->
-      </div>
 
-      <NuxtImg class="w-full my-8" src="/certificates/tss.jpeg" />
+        <NuxtImg class="w-full mt-8" src="/certificates/tss.jpeg" />
+      </div>
     </div>
   </section>
 </template>
