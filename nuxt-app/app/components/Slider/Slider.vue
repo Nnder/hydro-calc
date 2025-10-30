@@ -19,7 +19,7 @@
       <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
         <div class="video-wrapper">
           <video
-            ref="videoRef"
+            :ref="el => setVideoRef(el, index)"
             class="background-video"
             :poster="slider.img"
             autoplay
@@ -29,7 +29,6 @@
             preload="metadata"
             loading="lazy"
           >
-            <source :src="slider.videoSrc" type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
         </div>
@@ -77,25 +76,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { SwiperSlide } from 'swiper/vue'
+import Hls from 'hls.js'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue' // Добавил nextTick
+// import { SwiperSlide } from 'swiper/vue' // Не используется, убрал
 import 'swiper/css'
 import 'swiper/css/navigation'
+
 const { sm } = useScreenSize()
 const { open } = useModal()
 const isHydrated = ref(false)
+const videoRefs = ref([]) // Массив ссылок на видео элементы
 
-onMounted(() => {
-  isHydrated.value = true
-  // Динамический импорт Swiper
-  import('swiper/element/bundle').then(({ register }) => {
-    register()
-  })
-})
+// Функция для установки ref по индексу
+const setVideoRef = (el, index) => {
+  if (el) {
+    videoRefs.value[index] = el
+  }
+}
 
 const sliders = [
   {
-    videoSrc: '/videos/Ремонт гидроцилиндра.mp4',
+    videoSrc: '/videos/Ремонт_гидроцилиндра/Ремонт_гидроцилиндра.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт гидроцилиндров',
@@ -106,7 +107,7 @@ const sliders = [
     link: '/remont-hydraulic-cylinders',
   },
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/Ремонт_гидроцилиндра/Ремонт_гидроцилиндра.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Качественно',
     title: 'Испытательный стенд для гидронасосов и гидроцилиндров',
@@ -116,7 +117,7 @@ const sliders = [
     link: '/remont-hydraulic-cylinders',
   },
   {
-    videoSrc: '/videos/конструкторская документация .mp4',
+    videoSrc: '/videos/конструкторская_документация/конструкторская_документация.m3u8',
     img: '/images/standVideo/video3photo.png',
     title: 'Разработка конструкторской документации и изготовление гидронасосных станций',
     // text: 'Регулярный сервис для бесперебойной работы',
@@ -125,7 +126,7 @@ const sliders = [
     link: '/proektirovanie-izgotovlenie-hydraulic-stantici',
   },
   {
-    videoSrc: '/videos/обжим рвд .mp4',
+    videoSrc: '/videos/обжим_рвд/обжим_рвд.m3u8',
     img: '/images/standVideo/video3photo.png',
     title: 'Изготовление рукава высокого давления (рвд)',
     // text: 'Регулярный сервис для бесперебойной работы',
@@ -134,7 +135,7 @@ const sliders = [
     link: '/rukava-visokogo-davlenia-rvd',
   },
   {
-    videoSrc: '/videos/Ремонт гидронасоса.mp4',
+    videoSrc: '/videos/Ремонт_гидронасоса/Ремонт_гидронасоса.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт гидронасосов',
@@ -145,7 +146,7 @@ const sliders = [
     link: '/remont-nasosov-pumps',
   },
   {
-    videoSrc: '/videos/video3.mp4',
+    videoSrc: '/videos/Ремонт_гидроцилиндра/Ремонт_гидроцилиндра.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт гидромоторов',
@@ -156,7 +157,8 @@ const sliders = [
     link: '/remont-hydraulic-motors',
   },
   {
-    videoSrc: '/videos/навесное_оборудование_ковкши_гидромолоты_и_гидровращатели_2.mp4',
+    videoSrc:
+      '/videos/навесное_оборудование_ковкши_гидромолоты_и_гидровращатели/навесное_оборудование_ковкши_гидромолоты_и_гидровращатели.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт навестного оборудования',
@@ -167,7 +169,7 @@ const sliders = [
     link: '/remont-kovshey',
   },
   {
-    videoSrc: '/videos/сварочные токартные работы.mp4',
+    videoSrc: '/videos/сварочные_токартные_работы/сварочные_токартные_работы.m3u8',
     img: 'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
     tag: 'Профессионально',
     title: 'Сварочные и токарные работы',
@@ -179,7 +181,71 @@ const sliders = [
   },
 ]
 
-const videoRef = ref(null)
+// Функция для инициализации видео (HLS или обычное MP4)
+const initVideo = (video, videoSrc) => {
+  if (!video || !videoSrc) return
+
+  if (videoSrc.endsWith('.m3u8')) {
+    // HLS для потокового видео
+    if (Hls.isSupported()) {
+      const hls = new Hls()
+      hls.loadSource(videoSrc)
+      hls.attachMedia(video)
+      video.hls = hls // Сохраняем для destroy
+
+      // Обработка ошибок
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.error('HLS Error:', data)
+      })
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Fallback для Safari (native HLS)
+      video.src = videoSrc
+    } else {
+      console.error('HLS не поддерживается в этом браузере')
+    }
+  } else {
+    // Обычное видео (MP4 и т.д.)
+    video.src = videoSrc
+
+    // Обработка ошибок загрузки
+    video.addEventListener('error', e => {
+      console.error('Video load error:', e)
+    })
+
+    // Опционально: обработка успешной загрузки
+    video.addEventListener('loadeddata', () => {
+      console.log('Video loaded successfully')
+    })
+  }
+}
+
+onMounted(() => {
+  isHydrated.value = true
+  // Динамический импорт Swiper
+  import('swiper/element/bundle').then(({ register }) => {
+    register()
+  })
+
+  // Инициализируем видео для всех слайдов после гидратации
+  nextTick(() => {
+    sliders.forEach((slider, index) => {
+      const video = videoRefs.value[index]
+      if (video) {
+        initVideo(video, slider.videoSrc)
+      }
+    })
+  })
+})
+
+// Очистка при размонтировании
+onUnmounted(() => {
+  videoRefs.value.forEach(video => {
+    if (video && video.hls) {
+      video.hls.destroy()
+      delete video.hls
+    }
+  })
+})
 </script>
 
 <style scoped>
