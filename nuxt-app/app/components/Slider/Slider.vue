@@ -107,7 +107,7 @@ const sliders = [
     link: '/remont-hydraulic-cylinders',
   },
   {
-    videoSrc: '/videos/Ремонт_гидроцилиндра/Ремонт_гидроцилиндра.m3u8',
+    videoSrc: '/videos/Испытательный_стенд/Испытательный_стенд.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Качественно',
     title: 'Испытательный стенд для гидронасосов и гидроцилиндров',

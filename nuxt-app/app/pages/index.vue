@@ -151,7 +151,7 @@ const sectionsData = {
 }
 
 const slide = {
-  videoSrc: '/videos/ТСС.mp4',
+  videoSrc: '/videos/tss/ТСС.m3u8',
   logo: 'https://www.tss.ru/bitrix/templates/tss_templates_new/images/Group%201%20(1).png',
   link: 'https://www.tss.ru/',
   img: '/hydrocilinder.png',

@@ -1,10 +1,3 @@
-<script setup>
-defineProps({
-  slider: Object,
-})
-
-const { open } = useModal()
-</script>
 <template>
   <div class="relative w-full h-[600px] flex items-center justify-center text-white">
     <!-- Фон с затемнением -->
@@ -21,7 +14,6 @@ const { open } = useModal()
         preload="metadata"
         loading="lazy"
       >
-        <source :src="slider.videoSrc" type="video/mp4" />
         Ваш браузер не поддерживает видео.
       </video>
     </div>
@@ -86,6 +78,69 @@ const { open } = useModal()
     </div>
   </div>
 </template>
+
+<script setup>
+import Hls from 'hls.js'
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const props = defineProps({
+  slider: Object,
+})
+
+const videoRef = ref(null)
+
+// Функция для инициализации видео (HLS или обычное MP4)
+const initVideo = (video, videoSrc) => {
+  if (!video || !videoSrc) return
+
+  if (videoSrc.endsWith('.m3u8')) {
+    // HLS для потокового видео
+    if (Hls.isSupported()) {
+      const hls = new Hls()
+      hls.loadSource(videoSrc)
+      hls.attachMedia(video)
+      video.hls = hls // Сохраняем для destroy
+
+      // Обработка ошибок
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        console.error('HLS Error:', data)
+      })
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Fallback для Safari (native HLS)
+      video.src = videoSrc
+    } else {
+      console.error('HLS не поддерживается в этом браузере')
+    }
+  } else {
+    // Обычное видео (MP4 и т.д.)
+    video.src = videoSrc
+
+    // Обработка ошибок загрузки
+    video.addEventListener('error', e => {
+      console.error('Video load error:', e)
+    })
+
+    // Опционально: обработка успешной загрузки
+    video.addEventListener('loadeddata', () => {
+      console.log('Video loaded successfully')
+    })
+  }
+}
+
+onMounted(() => {
+  if (props.slider.videoSrc && videoRef.value) {
+    initVideo(videoRef.value, props.slider.videoSrc)
+  }
+})
+
+// Очистка при размонтировании
+onUnmounted(() => {
+  if (videoRef.value && videoRef.value.hls) {
+    videoRef.value.hls.destroy()
+    delete videoRef.value.hls
+  }
+})
+</script>
 
 <style scoped>
 .swiper-with-video {
