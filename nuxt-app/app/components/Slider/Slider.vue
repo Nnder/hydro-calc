@@ -21,7 +21,6 @@
           <video
             :ref="el => setVideoRef(el, index)"
             class="background-video"
-            :poster="slider.img"
             autoplay
             muted
             loop
