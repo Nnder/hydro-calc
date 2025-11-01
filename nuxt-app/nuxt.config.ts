@@ -10,8 +10,21 @@ export default defineNuxtConfig({
     },
   },
   sourcemap: false,
-  modules: ['@vueuse/nuxt', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/seo', '@nuxtjs/robots', '@nuxt/icon', '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-swiper', '@nuxtjs/google-fonts', 'nuxt-schema-org', // '@dargmuesli/nuxt-cookie-control',
-  'nuxt-aos', 'nuxt-auth-utils'],
+  modules: [
+    '@vueuse/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/seo',
+    '@nuxtjs/robots',
+    '@nuxt/icon',
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+    'nuxt-swiper',
+    '@nuxtjs/google-fonts',
+    'nuxt-schema-org',
+    'nuxt-aos',
+    // '@dargmuesli/nuxt-cookie-control',
+  ],
 
   // cookieControl: {
   //   locale: 'ru',

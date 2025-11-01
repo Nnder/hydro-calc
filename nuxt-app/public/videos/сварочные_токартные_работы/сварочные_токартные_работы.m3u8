@@ -1,0 +1,11 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:7.574233,
+сварочные_токартные_работы0.ts
+#EXTINF:6.139467,
+сварочные_токартные_работы1.ts
+#EXTINF:3.937267,
+сварочные_токартные_работы2.ts
+#EXT-X-ENDLIST

@@ -34,6 +34,7 @@
     "@popperjs/core": "^2.11.8",
     "@vue/devtools-api": "^7.7.7",
     "@vueuse/nuxt": "^13.0.0",
+    "hls.js": "^1.6.13",
     "nodemailer": "^7.0.5",
     "nuxt": "^4.0.3",
     "nuxt-aos": "^1.2.5",
