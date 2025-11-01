@@ -65,7 +65,7 @@ useHead({
               {{ service.title }}
             </h3>
 
-            <p class="text-gray-600 text-sm mb-6 line-clamp-3 flex-1">
+            <p v-if="service.description" class="text-gray-600 text-sm mb-6 line-clamp-3 flex-1">
               {{ service.description }}
             </p>
 
