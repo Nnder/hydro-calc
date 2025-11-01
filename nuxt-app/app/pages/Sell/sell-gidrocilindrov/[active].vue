@@ -120,7 +120,7 @@ const bannerProps = {
     {
       title: 'Втулки',
       type: 'Втулки',
-      images: ['/vtulki1.jpeg', '/vtulki2.jpeg', '/vtulki3.avif'],
+      images: ['/vtulki1.jpeg', '/vtulki2.jpeg', '/vtulki3.png'],
       parameters: [
         { label: 'Материал', value: 'Высокоуглеродистая сталь/бронза' },
         { label: 'Внутренний диаметр', value: 'от 20 мм до 150 мм' },
