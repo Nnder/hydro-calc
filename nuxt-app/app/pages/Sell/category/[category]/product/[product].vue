@@ -19,6 +19,27 @@ const selectedOffer = ref(result.offers.find(product => fixName(product.title) =
 selectedOffer.value.description =
   selectedOffer.value.params['Детальное описание товара2'] || selectedOffer.value.params['Описание товара']
 
+function fixImageUrls(obj) {
+  if (!obj.value || !obj.value.description) {
+    console.error("Объект не содержит поле 'description'")
+    return obj
+  }
+
+  const imgRegex = /<img([^>]*?)src=["']([^"']+)["']([^>]*?)>/gi
+
+  obj.value.description = obj.value.description.replace(imgRegex, (match, beforeSrc, src, afterSrc) => {
+    if (src.startsWith('http://') || src.startsWith('https://')) {
+      return match
+    }
+    const fixedSrc = `https://www.tss.ru/${src}`
+    return `<img${beforeSrc}src="${fixedSrc}"${afterSrc}>`
+  })
+
+  return obj
+}
+
+fixImageUrls(selectedOffer)
+
 selectedOffer.value.descriptionSeo = selectedOffer.value.params['Описание товара']
 
 const filterParams = ['Картинки2', 'Техническое обслуживание', 'Детальное описание товара2', 'Описание товара']
@@ -74,7 +95,7 @@ useHead({
   ],
 })
 
-// console.log(selectedOffer.value, Offer.value)
+console.log(selectedOffer.value)
 </script>
 <template>
   <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
