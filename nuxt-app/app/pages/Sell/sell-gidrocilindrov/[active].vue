@@ -138,7 +138,7 @@ const bannerProps = {
       title: 'Дополнительная Гидролиния',
       type: 'Гидролинии',
       images: [
-        'https://cdn.shopify.com/s/files/1/2298/8937/products/T_51654b51-71cc-4f1d-a822-03c3d5cb150d_1024x1024.jpg?v=1624387275',
+        '/Production_of_high_pressure_hoses.webp',
         '/gidrolinii2.jpeg',
         '/gidrolinii3.jpeg',
       ],
@@ -157,7 +157,7 @@ const bannerProps = {
       ],
       gridItem: {
         image:
-          'https://cdn.shopify.com/s/files/1/2298/8937/products/T_51654b51-71cc-4f1d-a822-03c3d5cb150d_1024x1024.jpg?v=1624387275',
+          '../public//Production_of_high_pressure_hoses.webp',
         title: 'Защитные оболочки',
       },
     },
@@ -187,8 +187,6 @@ const bannerProps = {
   gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-
-  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
 
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
@@ -220,7 +218,7 @@ const bannerProps = {
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock
     :blockDataText="blockDataText"
-    imageUrl="https://image.made-in-china.com/2f0j00fcMqmYbGCDko/Bobcat-763-T300-610-Tilt-Cylinder.webp"
+    imageUrl="../public/Bobcat-763-T300-610-Tilt-Cylinder.webp"
     variant="image-right"
     data-aos="fade-up"
     data-aos-delay="200"

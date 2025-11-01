@@ -175,8 +175,6 @@ const bannerProps = {
     return this.products.map(product => product.gridItem)
   },
 
-  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
-
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',

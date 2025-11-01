@@ -33,12 +33,12 @@ const blockData = {
     'Изготовлнение дополнительных гидролиний на любую спецтехнику, штучное изготовление гидравлических трубок.',
   buttonText: 'Заказать изготовление',
   imageUrl:
-    'https://cdn.shopify.com/s/files/1/2298/8937/products/T_51654b51-71cc-4f1d-a822-03c3d5cb150d_1024x1024.jpg?v=1624387275',
+    '../public/Production_of_high_pressure_hoses.webp',
   imageAlt: 'Производство рукавов высокого давления',
 }
 
 const mainSlideData = {
-  src: 'https://image.made-in-china.com/2f0j00CAghSVbthprI/Hydraulic-Rock-Breaker-Hammer-Piping-Kits-Manufacturer.webp',
+  src: '../public/Hydraulic-Rock-Breaker-Hammer-Piping-Kits-Manufacturer.webp',
   title: 'Изготовление гидравлических трубок по вашим размерам или образцу',
   description:
     'Производим ремонт гидравлических трубок, изготовление и монтаж дополнительных гидравлических линий (гидролиний)',

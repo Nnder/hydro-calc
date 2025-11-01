@@ -227,7 +227,7 @@ const blockDataText = {
   <PartnerBlock
     :blockDataText="blockDataText"
     variant="default"
-    :image-url="'https://ironportal.ru/wp-content/uploads/2023/05/silovye_agregaty.jpg'"
+    :image-url="'../public/silovye_agregaty.jpg'"
     data-aos="fade-up"
   />
   <!-- <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" /> -->
