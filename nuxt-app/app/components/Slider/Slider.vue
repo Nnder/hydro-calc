@@ -145,7 +145,7 @@ const sliders = [
     link: '/remont-nasosov-pumps',
   },
   {
-    videoSrc: '/videos/Ремонт_гидроцилиндра/Ремонт_гидроцилиндра.m3u8',
+    videoSrc: '/videos/Ремонт_гидромотора/Ремонт_гидромотора.m3u8',
     img: '/images/standVideo/video3photo.png',
     tag: 'Профессионально',
     title: 'Ремонт гидромоторов',
