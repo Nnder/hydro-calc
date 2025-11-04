@@ -4,6 +4,7 @@ module.exports = {
     script: './.output/server/index.mjs',  // Путь к серверу Nitro
     cwd: '/root/hydro-calc/nuxt-app',  // Рабочая директория (твой проект)
     instances: 1,  // Один инстанс
+    interpreter: '/root/.bun/bin/bun',
     autorestart: true,  // Авторестарт при краше
     watch: false,  // Не мониторить изменения (для продакшена)
     max_memory_restart: '2G',  // Рестарт при превышении памяти
