@@ -59,7 +59,7 @@ const bannerProps = {
   products: [
     {
       title: 'Металлические сетки',
-      type: 'flange',
+      type: 'Металические-сетки',
       pdfUrl: '',
       images: [
         '/i43.jpeg',
@@ -83,7 +83,7 @@ const bannerProps = {
     },
     {
       title: 'Бумажные фильтры',
-      type: 'seal',
+      type: 'Бумажные-фильтры',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: ['../public/paper1.jpeg', '/cch801fv1-1000x1000.jpg', '/wirtgen118266-900x700.jpg'],
       parameters: [
@@ -103,7 +103,7 @@ const bannerProps = {
     },
     {
       title: 'Синтетические материалы (полиэстер, нейлон)',
-      type: 'quick_connect',
+      type: 'Синтетические',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
         '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
@@ -127,7 +127,7 @@ const bannerProps = {
     },
     {
       title: 'Фибра стекловолокна.',
-      type: 'plug',
+      type: 'Фибра-стекловолокна',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: ['../public/fibro1.jpeg', '/10611_big.jpg', '/00-00001472_4.jpg'],
       parameters: [

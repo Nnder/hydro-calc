@@ -70,11 +70,7 @@ const bannerProps = {
     {
       title: 'Аксиально-поршневые насосы',
       type: 'Аксиально-поршневые',
-      images: [
-        '/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg',
-        '/gidronasos_A7V.jpg',
-        '/117321-2.jpg',
-      ],
+      images: ['/a-a4vbo-450-hs5-30r-lrh25k99n-s1621.jpg', '/gidronasos_A7V.jpg', '/117321-2.jpg'],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
         { label: 'Рабочее давление', value: 'до 350 бар' },
@@ -145,11 +141,7 @@ const bannerProps = {
     {
       title: 'Пластинчатые насосы',
       type: 'Пластинчатые',
-      images: [
-        '/538d141fbef4c65e97eee1e22cca083e.jpg',
-        '/11598-15029301.jpg',
-        '/vq-double-vane-jpg-9459.jpg',
-      ],
+      images: ['/538d141fbef4c65e97eee1e22cca083e.jpg', '/11598-15029301.jpg', '/vq-double-vane-jpg-9459.jpg'],
       parameters: [
         { label: 'Материал корпуса', value: 'Чугун' },
         { label: 'Рабочее давление', value: 'от 175 до 210 бар' },
@@ -162,8 +154,7 @@ const bannerProps = {
         'Пластинчатые насосы используются для перекачки чистых сред с показателями малой и средней вязкости при небольшом давлении. Также они могут работать со средами критически низкой вязкости, к которым относятся всевозможные растворители и спирты.',
       ],
       gridItem: {
-        image:
-          '/538d141fbef4c65e97eee1e22cca083e.jpg',
+        image: '/538d141fbef4c65e97eee1e22cca083e.jpg',
         title: 'Пластинчатые насосы',
       },
     },
