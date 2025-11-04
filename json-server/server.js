@@ -91,7 +91,7 @@ async function parseYmlToJson() {
       const offerObj = {
         id: parseInt(offer.$.id) || null,
         available: offer.$.available === "true",
-        link: fixName(offer.name ? offer.name : ""),
+        link: "product/" + fixName(offer.name ? offer.name : ""),
         url: offer.url ? offer.url._ : null,
         price: offer.price,
         currencyId: offer.currencyId ? offer.currencyId._ : "RUB",
