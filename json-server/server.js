@@ -3,6 +3,14 @@ const xml2js = require("xml2js");
 const fs = require("fs");
 const { spawn } = require("child_process");
 
+function fixName(name) {
+  try {
+    return name.replaceAll(" ", "-").replaceAll("/", "-").toLowerCase();
+  } catch (e) {
+    console.log(name, e);
+  }
+}
+
 // Функция для рекурсивного сбора дочерних категорий (без изменений)
 function getChildCategories(allCategories, parentIds, categoryMap) {
   const children = [];
@@ -19,7 +27,7 @@ function getChildCategories(allCategories, parentIds, categoryMap) {
   );
 }
 
-// Функция для парсинга и записи в db.json (с атомарной записью и отдельным массивом offers)
+// Функция для парсинга и записи в db.json (с атомарной записью, отдельным массивом offers и картинками в категориях по новой логике)
 async function parseYmlToJson() {
   try {
     console.log("Начинаем парсинг XML...");
@@ -43,6 +51,7 @@ async function parseYmlToJson() {
     const allCategories = allCategoriesData.map((cat) => ({
       id: parseInt(cat.$.id),
       name: cat._ || "",
+      link: fixName(cat._ || ""),
       parentId: cat.$.parentId ? parseInt(cat.$.parentId) : null,
       offers: [],
     }));
@@ -71,17 +80,6 @@ async function parseYmlToJson() {
       allRelevantIds.includes(cat.id)
     );
 
-    // Добавляем children
-    categories.forEach((cat) => {
-      cat.children = allCategories
-        .filter((c) => c.parentId === cat.id && allRelevantIds.includes(c.id))
-        .map((c) => ({
-          id: c.id,
-          name: c.name,
-          parentId: c.parentId,
-        }));
-    });
-
     const offersData = result.yml_catalog.shop.offers.offer || [];
     console.log(`Всего офферов: ${offersData.length}`);
 
@@ -93,12 +91,13 @@ async function parseYmlToJson() {
       const offerObj = {
         id: parseInt(offer.$.id) || null,
         available: offer.$.available === "true",
+        link: fixName(offer.name ? offer.name : ""),
         url: offer.url ? offer.url._ : null,
         price: offer.price,
         currencyId: offer.currencyId ? offer.currencyId._ : "RUB",
         categoryId: parseInt(offer.categoryId),
         pictures: [],
-        name: offer.name,
+        name: offer.name ? offer.name : "",
         description: offer.description ? offer.description._ : "",
         params: {},
       };
@@ -136,11 +135,48 @@ async function parseYmlToJson() {
       }
     });
 
+    // Сначала присваиваем картинки всем категориям (двухпроходно)
+    categories.forEach((cat) => {
+      if (cat.offers && cat.offers.length > 0) {
+        const firstOffer = cat.offers[0];
+        cat.image =
+          firstOffer.pictures && firstOffer.pictures.length > 0
+            ? firstOffer.pictures[0]
+            : "0000000";
+      } else {
+        cat.image = "";
+      }
+    });
+
+    // Теперь для категорий без image (родителей) присваиваем из первой дочерней
+    categories.forEach((cat) => {
+      if (!cat.image) {
+        const childCats = categories.filter((c) => c.parentId === cat.id);
+        const firstChildWithImage = childCats.find((c) => c.image);
+        if (firstChildWithImage) {
+          cat.image = firstChildWithImage.image;
+        }
+      }
+    });
+
+    // Теперь создаём children с image (поскольку картинки уже присвоены)
+    categories.forEach((cat) => {
+      cat.children = allCategories
+        .filter((c) => c.parentId === cat.id && allRelevantIds.includes(c.id))
+        .map((c) => ({
+          id: c.id,
+          name: c.name,
+          parentId: c.parentId,
+          link: c.link,
+          image: c.image, // Теперь c.image уже присвоено!
+        }));
+    });
+
     console.log(
       `Офферов добавлено: ${offersAdded}, пропущено: ${offersSkipped}`
     );
 
-    const output = { categories, offers }; // Теперь с отдельным массивом offers
+    const output = { categories, offers }; // Теперь с отдельным массивом offers и картинками в категориях
     const jsonData = JSON.stringify(output, null, 2);
 
     // Атомарная запись: сначала в temp-файл, потом переименование

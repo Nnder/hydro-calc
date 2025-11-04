@@ -7,17 +7,20 @@ definePageMeta({
 })
 
 const route = useRoute()
-const activeCategory = ref(fixName(route.params.category || 'electrostancii'))
+const activeCategory = ref((route.params?.category !== 'null' && fixName(route.params?.category)) || 'Электростанции')
+// const activeCategory = ref(fixName(route.params.category || 'electrostancii'))
 
 const data = ref([])
 
-const { data: xml } = await useAsyncData('xml-data', () => $fetch(`/api/xml?section=${activeCategory.value}&depth=1`))
+const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () =>
+  $fetch(`http://localhost:3001/categories?link=${activeCategory.value}`)
+)
 
-const result = findCategoryByName(xml.value.sections, activeCategory.value)
+// const result = findCategoryByName(xml.value.sections, activeCategory.value)
 
-data.value = result?.children?.length || result?.categories?.length ? result.children : result?.offers || []
+data.value = xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []
 
-console.log(data.value)
+console.log(data.value, xml.value[0], activeCategory.value)
 
 useHead({
   title: `Продажа товаров ТСС - АбсолютТехно`,
@@ -49,8 +52,8 @@ useHead({
         >
           <div class="relative h-48 overflow-hidden flex-shrink-0">
             <NuxtImg
-              :src="findFirstOfferWithPicture(service)"
-              :alt="service.title"
+              :src="service.image || service.pictures[0]"
+              :alt="service.name"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
               sizes="sm:100vw md:50vw lg:400px"
@@ -62,7 +65,7 @@ useHead({
 
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-              {{ service.title }}
+              {{ service.name }}
             </h3>
 
             <p v-if="service.description" class="text-gray-600 text-sm mb-6 line-clamp-3 flex-1">

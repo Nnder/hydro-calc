@@ -61,7 +61,7 @@ const categories = ref([
         title: 'Электростанции',
         image: 'https://tss.ru/upload/iblock/7fc/xilvh1zxj50p1434qffaquamxsbauann.jpg',
         description: 'Дизельные, безниновые и сварочные электростанции',
-        link: '/sell/category/electrostancii',
+        link: '/sell/category/Электростанции',
       },
       {
         title: 'Строительное оборудование',
