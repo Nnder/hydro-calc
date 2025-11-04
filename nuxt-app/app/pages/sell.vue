@@ -61,13 +61,13 @@ const categories = ref([
         title: 'Электростанции',
         image: '../public/xilvh1zxj50p1434qffaquamxsbauann.jpg',
         description: 'Дизельные, безниновые и сварочные электростанции',
-        link: '/sell/category/Электростанции',
+        link: '/sell/category/электростанции',
       },
       {
         title: 'Строительное оборудование',
         image: '../public/0t7ppxa89e0ey7eb5h1r3h1i6r8hjsqa.jpg',
         description: 'Виброплиты, вибротрамбовки, мотопомпы и затирочные машины',
-        link: '/sell/category/stroitelnoe-oborydovanie',
+        link: '/sell/category/строительное-оборудование',
       },
       // {
       //   title: 'Режущие элементы для дорожной и строительной техники',
