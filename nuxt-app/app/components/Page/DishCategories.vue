@@ -32,7 +32,7 @@
     конечно что доставка приедет к вам и нужно вся возможность к этому и так нужно что то там
   </p>
   <NuxtImg 
-    src="https://bike4you.ru/upload/iblock/f5e/vc80o7erepix4ap7x34yan3an7n18m99/018092.jpg" 
+    src="../public/018092.jpg" 
     alt="Delivery" 
     class="w-16 h-16 object-cover rounded-lg" 
     loading="lazy" 

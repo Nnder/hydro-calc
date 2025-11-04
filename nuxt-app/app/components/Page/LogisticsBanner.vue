@@ -5,7 +5,7 @@
 <template>
   <section class="relative w-full h-48 md:h-64 lg:h-72 xl:h-80">
     <NuxtImg
-      src="https://i.ytimg.com/vi/ppYC-lnfutA/maxresdefault.jpg"
+      src="../public/maxresdefault.jpg"
       alt="Logistics services"
       class="absolute inset-0 w-full h-full object-cover"
       loading="lazy"

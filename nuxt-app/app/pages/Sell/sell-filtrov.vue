@@ -212,8 +212,6 @@ const bannerProps = {
     return this.products.map(product => product.gridItem)
   },
 
-  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
-
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
     'Все компоненты соответствуют международным стандартам.',
@@ -244,7 +242,7 @@ const bannerProps = {
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock
     :blockDataText="blockDataText"
-    imageUrl="https://fim.by/images/lp-photo/gidravlika.jpg"
+    imageUrl="../public/gidravlika.jpg"
     variant="image-right"
     data-aos="fade-up"
     data-aos-delay="200"
