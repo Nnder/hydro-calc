@@ -41,18 +41,18 @@ const bannerProps = {
   products: [
     {
       title: 'Фланцы SAE',
-      type: 'flange',
+      type: 'Фланец',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
       images: [
-        'https://www.omtgroup.ru/wp-content/uploads/2020/08/img_omt_flange.jpg',
-        'https://ar-hydra.com/d/3000/d/Фланцы_SAE.jpg',
-        'https://www.hydropart.ru/upload/image/2223/370688da60fdaf0a7f290c3986a81bb5.jpg',
+        '/img_omt_flange.jpg',
+        '/Фланцы_SAE.jpg',
+        '/PF-DFS-ST-U-3000-6000-PSI-900x900-1753825338202.jpg',
       ],
       parameters: [
-        { label: 'Размер', value: 'SAE 1/2"' },
+        { label: 'Размер', value: 'SAE от 1/2" до 4"' },
         { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Материал', value: 'Сталь 45' },
-        { label: 'Температура', value: '-40°C до +120°C' },
+        { label: 'Материал', value: 'Сталь' },
+        { label: 'Тип присоединения', value: 'Резьбовой, сварной' },
       ],
       description: [
         'Фланцы SAE предназначены для соединения гидравлических компонентов и систем высокого давления. Изготавливаются из высокопрочной стали с антикоррозийным покрытием.',
@@ -65,21 +65,21 @@ const bannerProps = {
     },
     {
       title: 'Уплотнительное кольцо',
-      type: 'seal',
+      type: 'Уплотнение',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
       images: [
-        'https://сантехник-а.рф/upload/iblock/c0e/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
-        'https://ita-filter.ru/image/cache/catalog/product/F9079-29-1000x1000.jpg',
-        'https://lazer-technology.ru/images/detailed/2/full_Уплотнительное_кольцо_32.2×24×3.6×2.7__1_.jpg',
+        '/lc6oq8r25thjx8on3fu0085ortv5zpt4.jpg',
+        '/F9079-29-1000x1000.jpg',
+        '/SAE-J518-3000psi-6000psi-Female-Welding-Counter-Flange.jpg',
       ],
       parameters: [
-        { label: 'Материал', value: 'NBR, Viton, EPDM' },
+        { label: 'Материал', value: 'NBR, Viton, FKM' },
         { label: 'Температура', value: '-30°C до +200°C' },
-        { label: 'Давление', value: 'до 700 бар' },
-        { label: 'Стандарт', value: 'DIN, ISO' },
+        { label: 'Давление', value: 'до 420 бар' },
+        { label: 'Стандарт', value: 'DIN, ISO, ГОСТ' },
       ],
       description: [
-        'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или EPDM для различных рабочих сред и температурных условий.',
+        'Уплотнительные кольца изготавливаются из качественной резины NBR, Viton или FKM для различных рабочих сред и температурных условий.',
         'Обеспечивают герметичность соединений в гидравлических системах, предотвращают утечки масла и других рабочих жидкостей.',
       ],
       gridItem: {
@@ -89,70 +89,70 @@ const bannerProps = {
     },
     {
       title: 'Быстросъёмное соединение',
-      type: 'quick_connect',
+      type: 'Быстросъемник',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
-        'https://oberon-weld.ru/upload/iblock/2d2/grgzqxh2p4hxvl69f04ynlzh9ce0u246/FA3047.png',
-        'https://barshydraulic.ru/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/S/F/SF10-40.jpg',
-        'https://st22.stpulscen.ru/images/product/445/686/695_original.jpg',
+        '/9f182c094bd199b2ed3869e951c4.jpeg',
+        '/rg26vy27thd3t8utpz296p9v36i7yys0.jpg',
+        '/R7335659-01.jpeg',
+        '/i.png',
       ],
       parameters: [
-        { label: 'Тип', value: 'ISO 16028' },
         { label: 'Давление', value: 'до 350 бар' },
-        { label: 'Размер', value: '1/4" - 1"' },
+        { label: 'Типоразмер', value: '1/4" - 2"' },
         { label: 'Материал', value: 'Сталь, нерж. сталь' },
+        { label: 'Стандарт', value: 'DIN, ISO' },
       ],
       description: [
         'Быстросъёмные соединения позволяют быстро и безопасно подсоединять и отсоединять гидравлические линии без утечки жидкости.',
         'Идеальное решение для частого подключения/отключения оборудования. Оснащены системой блокировки для предотвращения случайного отсоединения.',
       ],
       gridItem: {
-        image: '/bistrosemnoe_soedinenie.jpeg',
+        image: '/9f182c094bd199b2ed3869e951c4.jpeg',
         title: 'Быстросъёмное соединение',
       },
     },
     {
       title: 'Защитные оболочки',
-      type: 'protection',
+      type: 'Оболочки',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
       images: [
-        'https://www.vivtech.ru/upload/iblock/ba1/ndpxoi7aotw70sqbgjho1ml0fm6i056a/a17.jpg',
-        'https://www.vivtech.ru/upload/iblock/e96/ov69907axb8a7aaikl7xu9602lrks0bp/a21.jpg',
-        'https://avatars.mds.yandex.net/get-mpic/12261762/2a0000018c1aa38d6c5dc4a1d7d124390add/orig',
+        '/H92e96c60e0594cf381a489901dbbe978U.jpg',
+        '/a1frR3A4Jyx5R3J1CsXjOUb_c5E-1920.jpg',
+        '/asdasd.png',
       ],
       parameters: [
-        { label: 'Материал', value: 'Полиуретан, ПВХ' },
-        { label: 'Диаметр', value: '6-32 мм' },
-        { label: 'Температура', value: '-40°C до +90°C' },
-        { label: 'Цвет', value: 'Черный, оранжевый' },
+        { label: 'Материал', value: 'Полиуретан, ПВХ, Силикон-Стеклоткань' },
+        { label: 'Диаметр', value: '6-52 мм' },
+        { label: 'Температура', value: '-40°C до +260°C' },
       ],
       description: [
         'Защитные оболочки предохраняют гидравлические шланги и кабели от механических повреждений, истирания и воздействия агрессивных сред.',
         'Изготавливаются из износостойких полимерных материалов, устойчивых к УФ-излучению и перепадам температур.',
       ],
       gridItem: {
-        image: '/zashitnie_obolochi.jpeg',
+        image: '/asdasd.png',
         title: 'Защитные оболочки',
       },
     },
     {
       title: 'Переходник',
-      type: 'adapter',
+      type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
-        'https://ae01.alicdn.com/kf/Sf615ba1d9ae7447d919df8189f636d22P.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkTEjHvpdcaB47RDPkymk8ZF8X2PTpH2uNg&s',
-        'https://www.vod-dom.ru/wa-data/public/shop/products/54/56/15654/images/39119/39119.970.png',
+        '/trubnaya-rezba-37-1.jpg',
+        '/3634_image_big.jpeg',
+        '/PF-XAH-900x900-1754062833559.jpg',
       ],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
-        { label: 'Материал', value: 'Сталь, латунь' },
-        { label: 'Давление', value: 'до 600 бар' },
-        { label: 'Покрытие', value: 'Цинк, никель' },
+        { label: 'Материал', value: 'Сталь, нержавеющая сталь' },
+        { label: 'Давление', value: 'до 630 бар' },
+        { label: 'Покрытие', value: 'Гальваническое покрытие' },
       ],
       description: [
         'Переходники позволяют соединять гидравлические компоненты с различными типами резьб и стандартов соединений.',
-        'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая, трубная).',
+        'Доступны в различных конфигурациях: прямые, угловые, тройники, с различными типами резьб (метрическая, дюймовая).',
       ],
       gridItem: {
         image: '/perehodnik.jpeg',
@@ -161,25 +161,26 @@ const bannerProps = {
     },
     {
       title: 'Заглушка',
-      type: 'plug',
+      type: 'Заглушки',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
       images: [
-        'https://gkf40.ru/image/cache/data/5M3_8915-800x800.jpg',
-        'https://ae04.alicdn.com/kf/Ha770a52e4db54b56915af58c26a6e871y.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5omeSJ_ya_TxRQ02PTxtuRLbjl5-yc4QYQ&s',
+        '/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg',
+        '/PF-VHR-90-ED-900x900-1754084222814.jpg',
+        '/PF-BZL-VA-BZS-VA-900x900-1753555440819.jpg',
       ],
       parameters: [
-        { label: 'Тип резьбы', value: 'Метрическая, трубная' },
-        { label: 'Материал', value: 'Сталь, пластик' },
-        { label: 'Размер', value: 'М8 - М42' },
-        { label: 'Температура', value: '-50°C до +150°C' },
+        { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
+        { label: 'Материал', value: 'Сталь, нержавеющая сталь' },
+        { label: 'Давление', value: 'до 630 бар' },
+        { label: 'Покрытие', value: 'Гальваническое покрытие' },
       ],
       description: [
         'Заглушки предназначены для герметичного закрытия неиспользуемых отверстий в гидравлических системах и оборудовании.',
         'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
       ],
       gridItem: {
-        image: 'https://ufa.centermk.ru/upload/iblock/bd7/1kgjlizny9l14e0cc8bxaryjlst4yh3p.jpg',
+        image:
+          '/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg',
         title: 'Заглушка',
       },
     },
@@ -188,8 +189,6 @@ const bannerProps = {
   gridItems: function () {
     return this.products.map(product => product.gridItem)
   },
-
-  defaultImages: ['https://st21.stpulscen.ru/images/localized/029/428/298_original.jpg'],
 
   defaultDescription: [
     'Высококачественные комплектующие для РВД.',
@@ -204,7 +203,7 @@ const bannerProps = {
 
   defaultPdfUrl: '/pdf/komplektuyushchie-rvd-obshchiy.pdf',
 
-  initialProductType: 'flange',
+  initialProductType: activeSection.value,
 }
 
 const blockData = {

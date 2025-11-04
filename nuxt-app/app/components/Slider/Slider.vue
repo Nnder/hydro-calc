@@ -169,7 +169,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/сварочные_токартные_работы/сварочные_токартные_работы.m3u8',
-    img: 'https://optim.tildacdn.com/tild6631-3561-4331-b439-353433326666/-/resize/970x/-/format/webp/photo_1.jpg.webp',
+    img: '../public/photo_1.jpg',
     tag: 'Профессионально',
     title: 'Сварочные и токарные работы',
     text: 'Полный комплекс услуг по восстановлению методом наплавки',
