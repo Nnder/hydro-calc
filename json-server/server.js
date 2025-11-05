@@ -73,7 +73,7 @@ async function parseYmlToJson() {
     // Исключаем указанные категории и их дочерние
     const excludedIds = [
       196612, 156254, 156253, 156252, 165125, 165126, 172497, 156242, 180129,
-      176533,
+      176533, 156259, 156251, 199455, 185132,
     ];
     const idsToExclude = new Set();
     excludedIds.forEach((excludedId) => {
@@ -186,7 +186,9 @@ async function parseYmlToJson() {
           name: c.name,
           parentId: c.parentId,
           link: c.link,
-          image: c.image, // Теперь c.image уже присвоено!
+          image:
+            c.image ||
+            "https://tss.ru/upload/iblock/91e/p6go06tmrgmkqr06jl3b3mh7yuqdv0jq.jpg", // Теперь c.image уже присвоено!
         }));
     });
 
