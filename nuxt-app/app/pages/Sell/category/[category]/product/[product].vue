@@ -12,7 +12,7 @@ const activeProduct = ref(route.params.product || 'kovshi')
 // const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 
 const { data: xml } = await useAsyncData(`xml-data-${activeProduct.value}`, () =>
-  $fetch(`http://localhost:3001/offers?nameSearch=${activeProduct.value}`)
+  $fetch(`https://api.athydro.ru/offers?nameSearch=${activeProduct.value}`)
 )
 
 // const { sections } = xml.value

@@ -13,7 +13,7 @@ const activeCategory = ref((route.params?.category !== 'null' && fixName(route.p
 const data = ref([])
 
 const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () =>
-  $fetch(`http://localhost:3001/categories?link=${activeCategory.value}`)
+  $fetch(`https://api.athydro.ru/categories?link=${activeCategory.value}`)
 )
 
 data.value = xml.value.length && xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []
