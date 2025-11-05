@@ -291,7 +291,7 @@ export default defineNuxtConfig({
   // },
 
   runtimeConfig: {
-    apiBase: process.env.API_BASE_URL || 'https://api.athydro.ru',
+    apiBase: process.env.API_BASE_URL || 'http://localhost:3001',
     mail: {
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,
