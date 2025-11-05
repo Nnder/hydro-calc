@@ -23,36 +23,24 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-schema-org',
     'nuxt-aos',
+    'nuxt-yandex-metrika',
     // '@dargmuesli/nuxt-cookie-control',
   ],
 
-  // cookieControl: {
-  //   locale: 'ru',
-
-  //   // ОТКЛЮЧАЕМ лишние кнопки
-  //   isControlButtonEnabled: false, // убирает "Управление файлами cookie"
-  //   isAcceptNecessaryButtonEnabled: false, // убирает "Я принимаю необходимое"
-
-  //   // Оставляем только основные тексты
-  //   localeTexts: {
-  //     ru: {
-  //       accept: 'Принять', // оставляем только эту кнопку
-  //       acceptAll: 'Принять все',
-  //       bannerDescription:
-  //         'Сайт использует сооке-файлы, чтобы сделать ваше пребывание на нем максимально удобным. К сайту подключён сервис веб-аналитики Яндекс. Метрика, использующий сооіе-файлы. Оставаясь на сайте, вы даёте своё согласие на обработку персональных данных з порядке, указанном в Политике обработки персональных данных',
-  //       bannerTitle: 'Файлы cookie',
-  //       close: 'Закрыть',
-  //       decline: 'Отклонить',
-  //       declineAll: 'Отклонить все',
-  //       manage: 'Настроить',
-  //       save: 'Сохранить',
-  //     },
-  //   },
-  // },
+  yandexMetrika: {
+    id: '105118320',
+    // debug: process.env.NODE_ENV !== "production",
+    // delay: 0,
+    // cdn: false,
+    // verification: null, // Verification in Yandex Webmaster
+    // options: {
+    //   webvisor: true,
+    // },
+  },
 
   vite: {
     build: {
-      chunkSizeWarningLimit: 50000, // Лимит в КБ; по умолчанию 500
+      chunkSizeWarningLimit: 500, // Лимит в КБ; по умолчанию 500
     },
   },
 
@@ -303,6 +291,7 @@ export default defineNuxtConfig({
   // },
 
   runtimeConfig: {
+    apiBase: process.env.API_BASE_URL || 'http://localhost:3001',
     mail: {
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,
@@ -310,10 +299,14 @@ export default defineNuxtConfig({
       pass: process.env.MAIL_PASSWORD,
     },
     public: {
+      apiBase: 'https://api.athydro.ru',
+      YANDEX_METRIKA_ID: 105118320,
       mailFrom: process.env.MAIL_FROM_ADDRESS,
       baseURL: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3000' : 'https://hydro-calc.vercel.app',
     },
   },
+
+  // plugins: [{ src: '~/plugins/yandex-metrika.client.ts', mode: 'client' }],
 
   routeRules: {
     '/': { prerender: true },
@@ -423,6 +416,14 @@ export default defineNuxtConfig({
         lang: 'ru',
       },
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      script: [
+        {
+          innerHTML: `
+          (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.webvisor.org/metrika/tag_ww.js?id=105118320', 'ym');      ym(105118320, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+        `,
+          type: 'text/javascript',
+        },
+      ],
     },
   },
 })

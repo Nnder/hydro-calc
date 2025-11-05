@@ -12,8 +12,11 @@ const activeCategory = ref((route.params?.category !== 'null' && fixName(route.p
 
 const data = ref([])
 
+const config = useRuntimeConfig()
+const apiUrl = process.server ? config.apiBase : config.public.apiBase
+
 const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () =>
-  $fetch(`http://localhost:3001/categories?link=${activeCategory.value}`)
+  $fetch(`${apiUrl}/categories?link=${encodeURIComponent(activeCategory.value)}`)
 )
 
 data.value = xml.value.length && xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []

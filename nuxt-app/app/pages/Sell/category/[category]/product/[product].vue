@@ -9,10 +9,13 @@ const route = useRoute()
 const activeCategory = ref(route.params.category || 'kovshi')
 const activeProduct = ref(route.params.product || 'kovshi')
 
-// const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
+// const { data: xml } = awa
+// const config = useRuntimeConfig()
+const config = useRuntimeConfig()
+const apiUrl = process.server ? config.apiBase : config.public.apiBase
 
 const { data: xml } = await useAsyncData(`xml-data-${activeProduct.value}`, () =>
-  $fetch(`http://localhost:3001/offers?nameSearch=${activeProduct.value}`)
+  $fetch(`${apiUrl}/offers?nameSearch=${encodeURIComponent(activeProduct.value)}`)
 )
 
 // const { sections } = xml.value

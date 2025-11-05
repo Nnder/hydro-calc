@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
+  "framework": "nuxtjs",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://athydro.ru/$1",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ]
+    }
+  ]
+}
