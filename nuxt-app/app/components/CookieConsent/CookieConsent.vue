@@ -14,7 +14,7 @@
             Оставаясь на сайте, вы даёте своё согласие на обработку персональных данных в порядке, 
             указанном в 
             <NuxtLink 
-              to="/policy" 
+              to="/agreement" 
               class="text-blue-600 hover:text-blue-800 underline font-medium"
               @click="closeBanner"
             >

@@ -3,8 +3,9 @@ const links = [
   { link: '/contacts', name: 'Контакты' },
   { link: '/about', name: 'О компании' },
   { link: '/postavshkam', name: 'Поставщики' },
-  { link: '/delivery', name: 'Доставка ' },
-  { link: 'policy', name: 'Политика конфиденциальности' },
+  // { link: '/delivery', name: 'Доставка ' },
+  { link: '/agreement', name: 'Политика конфиденциальности' },
+  { link: '/personal', name: 'Согласие на обработку' },
 ]
 
 const products = [

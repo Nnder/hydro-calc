@@ -209,10 +209,10 @@ const id = useId()
       />
       <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
         Я подтверждаю ознакомление и даю
-        <a href="/policy" class="text-blue-600 hover:underline">Согласие на обработку моих персональных данных</a>
+        <a href="/agreement" class="text-blue-600 hover:underline">Согласие на обработку моих персональных данных</a>
         <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
           в порядке и на условиях, указанных в
-          <a href="/policy2" class="text-blue-600 hover:underline">Политике обработки персональных данных</a>
+          <a href="/personal" class="text-blue-600 hover:underline">Политике обработки персональных данных</a>
         </label>
       </label>
     </div>
