@@ -16,11 +16,9 @@ const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () 
   $fetch(`http://localhost:3001/categories?link=${activeCategory.value}`)
 )
 
-// const result = findCategoryByName(xml.value.sections, activeCategory.value)
+console.log(xml.value, activeCategory.value, 111)
 
-data.value = xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []
-
-console.log(data.value, xml.value[0], activeCategory.value)
+data.value = xml.value.length && xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []
 
 useHead({
   title: `Продажа товаров ТСС - АбсолютТехно`,
@@ -52,7 +50,7 @@ useHead({
         >
           <div class="relative h-48 overflow-hidden flex-shrink-0">
             <NuxtImg
-              :src="service.image || service.pictures[0]"
+              :src="service.image || (service?.pictures && service?.pictures.length && service?.pictures[0])"
               :alt="service.name"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"

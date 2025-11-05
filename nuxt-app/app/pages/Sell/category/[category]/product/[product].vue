@@ -9,19 +9,22 @@ const route = useRoute()
 const activeCategory = ref(route.params.category || 'kovshi')
 const activeProduct = ref(route.params.product || 'kovshi')
 
-const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
+// const { data: xml } = await useAsyncData('xml-data', () => $fetch('/api/xml'))
 
-const { sections } = xml.value
+const { data: xml } = await useAsyncData(`xml-data-${activeProduct.value}`, () =>
+  $fetch(`http://localhost:3001/offers?nameSearch=${activeProduct.value}`)
+)
 
-const result = findCategoryByName(sections, activeCategory.value)
-const selectedOffer = ref(result.offers.find(product => fixName(product.title) === activeProduct.value))
+// const { sections } = xml.value
+
+// const result = findCategoryByName(sections, activeCategory.value)
+const selectedOffer = ref(xml.value[0])
 
 selectedOffer.value.description =
   selectedOffer.value.params['Детальное описание товара2'] || selectedOffer.value.params['Описание товара']
 
 function fixImageUrls(obj) {
   if (!obj.value || !obj.value.description) {
-    console.error("Объект не содержит поле 'description'")
     return obj
   }
 
@@ -161,7 +164,7 @@ console.log(selectedOffer.value)
         <div class="space-y-6">
           <div class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
             <h1 class="text-2xl sm:text-3xl font-bold text-blue-900 mb-2">
-              {{ selectedOffer.title }}
+              {{ selectedOffer.name }}
             </h1>
             <!-- <div class="flex flex-wrap gap-4 text-sm text-blue-600">
               <div><span class="font-semibold">Артикул:</span> {{ selectedOffer.article }}</div>
@@ -241,8 +244,8 @@ console.log(selectedOffer.value)
         </h3>
 
         <div class="space-y-4 text-blue-800/80 leading-relaxed">
-          <p class="text-lg font-semibold text-blue-900 mb-4" v-html="selectedOffer.description"></p>
-          <p>{{ selectedOffer.detailedDescription }}</p>
+          <p class="text-lg font-semibold text-blue-900 mb-4" v-html="selectedOffer?.description"></p>
+          <p>{{ selectedOffer?.detailedDescription }}</p>
         </div>
       </div>
 
