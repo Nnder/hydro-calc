@@ -227,7 +227,7 @@ const blockDataText = {
   <PartnerBlock
     :blockDataText="blockDataText"
     variant="default"
-    :image-url="'../public/silovye_agregaty.jpg'"
+    :image-url="'/silovye_agregaty.jpg'"
     data-aos="fade-up"
   />
   <!-- <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" /> -->

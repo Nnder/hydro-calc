@@ -146,7 +146,7 @@ const bannerProps = {
       title: 'Бумажные фильтры',
       type: 'seal',
       pdfUrl: '/pdf/nippeli-rezbovye.pdf',
-      images: ['../public/paper1.jpeg', '/cch801fv1-1000x1000.jpg', '/wirtgen118266-900x700.jpg'],
+      images: ['/paper1.jpeg', '/cch801fv1-1000x1000.jpg', '/wirtgen118266-900x700.jpg'],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 10 до 25' },
         { label: 'Max.давление', value: 'до 18 бар' },
@@ -167,7 +167,7 @@ const bannerProps = {
       type: 'quick_connect',
       pdfUrl: '/pdf/mufty-soedinitelnye.pdf',
       images: [
-        '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
+        '/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
         '/p502424.jpg',
         '/cre050-sxx200_0.jpg',
       ],
@@ -182,7 +182,7 @@ const bannerProps = {
         'Обеспечивают тонкую фильтрацию. В гидравлических системах применяются редко.',
       ],
       gridItem: {
-        image: '../public/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
+        image: '/R928017309-Rexroth-Filter-Hydraulic-Oil-Filter-9-330lah10XL-F00-0-Mso3000.webp.png',
         title: 'Быстросъёмное соединение',
       },
     },
@@ -190,7 +190,7 @@ const bannerProps = {
       title: 'Фибра стекловолокна.',
       type: 'plug',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
-      images: ['../public/fibro1.jpeg', '/10611_big.jpg', '/00-00001472_4.jpg'],
+      images: ['/fibro1.jpeg', '/10611_big.jpg', '/00-00001472_4.jpg'],
       parameters: [
         { label: 'Тонкость фильтрации, МКМ', value: 'от 3 до 20' },
         { label: 'Max.давление', value: 'до 420 бар' },
@@ -202,7 +202,7 @@ const bannerProps = {
         'Применяется в напорных фильтрах высокотехнологичной гидравлики, где степень очистки масла является ключевым параметром.',
       ],
       gridItem: {
-        image: '../public/fibro1.jpeg',
+        image: '/fibro1.jpeg',
         title: 'Заглушка',
       },
     },
@@ -242,7 +242,7 @@ const bannerProps = {
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock
     :blockDataText="blockDataText"
-    imageUrl="../public/gidravlika.jpg"
+    imageUrl="/gidravlika.jpg"
     variant="image-right"
     data-aos="fade-up"
     data-aos-delay="200"

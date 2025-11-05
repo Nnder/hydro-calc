@@ -137,11 +137,7 @@ const bannerProps = {
     {
       title: 'Дополнительная Гидролиния',
       type: 'Гидролинии',
-      images: [
-        '/Production_of_high_pressure_hoses.webp',
-        '/gidrolinii2.jpeg',
-        '/gidrolinii3.jpeg',
-      ],
+      images: ['/Production_of_high_pressure_hoses.webp', '/gidrolinii2.jpeg', '/gidrolinii3.jpeg'],
       parameters: [
         { label: 'Материал', value: 'Черная/коррозионостойкая сталь' },
         { label: 'Диаметр подключения', value: 'до 2"' },
@@ -156,8 +152,7 @@ const bannerProps = {
         'Дренажная линия. Необходима для организации слива гидравлической жидкости в некоторых типах навесного оборудования, в котором как правило установлен гидромотор.',
       ],
       gridItem: {
-        image:
-          '../public//Production_of_high_pressure_hoses.webp',
+        image: '//Production_of_high_pressure_hoses.webp',
         title: 'Защитные оболочки',
       },
     },
@@ -218,7 +213,7 @@ const bannerProps = {
   <!-- <ContentWithImage :mainSlideData="mainSlideData" data-aos="fade-up" /> -->
   <PartnerBlock
     :blockDataText="blockDataText"
-    imageUrl="../public/Bobcat-763-T300-610-Tilt-Cylinder.webp"
+    imageUrl="/Bobcat-763-T300-610-Tilt-Cylinder.webp"
     variant="image-right"
     data-aos="fade-up"
     data-aos-delay="200"

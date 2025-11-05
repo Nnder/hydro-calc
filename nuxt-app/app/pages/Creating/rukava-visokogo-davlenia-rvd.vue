@@ -799,7 +799,7 @@ const blockData = {
 }
 
 const mainSlideData = {
-  src: '../public/orig.jfif',
+  src: '/orig.jfif',
   title: 'Изготовление РВД по вашим размерам или образцу',
   description: 'РВД 1SN-4SH, защитные оплетки, тормозные трубки и магистрали, тормозные шланги, другие комплектующие',
 }
