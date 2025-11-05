@@ -286,10 +286,13 @@ export default defineNuxtConfig({
       pass: process.env.MAIL_PASSWORD,
     },
     public: {
+      YANDEX_METRIKA_ID: 105118320,
       mailFrom: process.env.MAIL_FROM_ADDRESS,
       baseURL: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3000' : 'https://hydro-calc.vercel.app',
     },
   },
+
+  plugins: [{ src: '~/plugins/yandex-metrika.client.ts', mode: 'client' }],
 
   routeRules: {
     '/': { prerender: true },
