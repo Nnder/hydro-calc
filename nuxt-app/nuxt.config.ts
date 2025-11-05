@@ -355,7 +355,6 @@ export default defineNuxtConfig({
 
   ssr: true,
   nitro: {
-    middleware: ['~/server/middleware/redirect'],
     prerender: {
       crawlLinks: false,
       routes: [
