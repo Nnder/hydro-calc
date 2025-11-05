@@ -64,11 +64,28 @@ async function parseYmlToJson() {
     });
 
     const rootCategoryIds = [156196, 156241];
-    const allRelevantIds = getChildCategories(
+    let allRelevantIds = getChildCategories(
       allCategories,
       rootCategoryIds,
       categoryMap
     );
+
+    // Исключаем указанные категории и их дочерние
+    const excludedIds = [
+      196612, 156254, 156253, 156252, 165125, 165126, 172497, 156242, 180129,
+      176533,
+    ];
+    const idsToExclude = new Set();
+    excludedIds.forEach((excludedId) => {
+      const descendants = getChildCategories(
+        allCategories,
+        [excludedId],
+        categoryMap
+      );
+      descendants.forEach((id) => idsToExclude.add(id));
+    });
+    allRelevantIds = allRelevantIds.filter((id) => !idsToExclude.has(id));
+
     const leafCategoryIds = allRelevantIds.filter((id) => {
       return !allRelevantIds.some(
         (otherId) =>
@@ -127,6 +144,7 @@ async function parseYmlToJson() {
         categoryMap[catId] &&
         leafCategoryIds.includes(catId)
       ) {
+        offerObj.categoryName = categoryMap[catId].name; // Добавляем имя категории
         categoryMap[catId].offers.push(offerObj); // Добавляем в категорию
         offers.push(offerObj); // Добавляем в общий массив offers
         offersAdded++;
