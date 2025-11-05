@@ -16,8 +16,6 @@ const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () 
   $fetch(`http://localhost:3001/categories?link=${activeCategory.value}`)
 )
 
-console.log(xml.value, activeCategory.value, 111)
-
 data.value = xml.value.length && xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []
 
 useHead({

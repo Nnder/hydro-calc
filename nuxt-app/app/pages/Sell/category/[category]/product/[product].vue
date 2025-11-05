@@ -97,8 +97,6 @@ useHead({
     },
   ],
 })
-
-console.log(selectedOffer.value)
 </script>
 <template>
   <section class="min-h-screen bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">

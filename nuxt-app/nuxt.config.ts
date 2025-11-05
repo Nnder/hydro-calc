@@ -119,7 +119,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  site: { url: 'athydro.com' },
+  site: { url: 'athydro.ru' },
 
   robots: {
     UserAgent: '*',
