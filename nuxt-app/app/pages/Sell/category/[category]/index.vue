@@ -13,7 +13,7 @@ const activeCategory = ref((route.params?.category !== 'null' && fixName(route.p
 const data = ref([])
 
 const config = useRuntimeConfig()
-const apiUrl = config.public.apiBase
+const apiUrl = process.server ? config.apiBase : config.public.apiBase
 
 const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () =>
   $fetch(`${apiUrl}/categories?link=${encodeURIComponent(activeCategory.value)}`)

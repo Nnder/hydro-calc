@@ -12,7 +12,7 @@ const activeProduct = ref(route.params.product || 'kovshi')
 // const { data: xml } = awa
 // const config = useRuntimeConfig()
 const config = useRuntimeConfig()
-const apiUrl = config.public.apiBase
+const apiUrl = process.server ? config.apiBase : config.public.apiBase
 
 const { data: xml } = await useAsyncData(`xml-data-${activeProduct.value}`, () =>
   $fetch(`${apiUrl}/offers?nameSearch=${encodeURIComponent(activeProduct.value)}`)
