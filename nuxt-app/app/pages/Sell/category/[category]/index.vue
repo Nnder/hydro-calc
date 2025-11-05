@@ -16,7 +16,7 @@ const config = useRuntimeConfig()
 const apiUrl = config.public.apiBase
 
 const { data: xml } = await useAsyncData(`xml-data-${activeCategory.value}`, () =>
-  $fetch(`${apiUrl}/categories?link=${activeCategory.value}`)
+  $fetch(`${apiUrl}/categories?link=${encodeURIComponent(activeCategory.value)}`)
 )
 
 data.value = xml.value.length && xml.value[0].children?.length ? xml.value[0]?.children : xml.value[0]?.offers || []

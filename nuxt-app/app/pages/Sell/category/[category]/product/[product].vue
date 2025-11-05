@@ -15,7 +15,7 @@ const config = useRuntimeConfig()
 const apiUrl = config.public.apiBase
 
 const { data: xml } = await useAsyncData(`xml-data-${activeProduct.value}`, () =>
-  $fetch(`${apiUrl}/offers?nameSearch=${activeProduct.value}`)
+  $fetch(`${apiUrl}/offers?nameSearch=${encodeURIComponent(activeProduct.value)}`)
 )
 
 // const { sections } = xml.value
