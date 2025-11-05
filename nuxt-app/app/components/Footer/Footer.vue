@@ -4,6 +4,7 @@ const links = [
   { link: '/about', name: 'О компании' },
   { link: '/postavshkam', name: 'Поставщики' },
   { link: '/delivery', name: 'Доставка ' },
+  { link: 'policy', name: 'Политика конфиденциальности' },
 ]
 
 const products = [
