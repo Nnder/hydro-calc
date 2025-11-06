@@ -93,10 +93,20 @@ const categories = ref([
         link: '/sell/sell-komplektushie-rvd',
       },
       {
-        title: 'Продажа ГСМ и тех. жидкости',
-        image: '/services/smazka.jpg',
-        link: '/sell/sell-shidkostey',
+        title: 'Электростанции',
+        image: '/xilvh1zxj50p1434qffaquamxsbauann.jpg',
+        link: '/#',
       },
+      {
+        title: 'Строительное оборудование',
+        image: '/xilvh1zxj50p1434qffaquamxsbauann.jpg',
+        link: '/#',
+      },
+      // {
+      //   title: 'Продажа ГСМ и тех. жидкости',
+      //   image: '/services/smazka.jpg',
+      //   link: '/sell/sell-shidkostey',
+      // },
     ],
   },
 ])
