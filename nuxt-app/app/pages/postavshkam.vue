@@ -135,7 +135,7 @@
               <Icon name="mdi:clock-outline" class="w-8 h-8 text-blue-600" />
             </div>
             <h3 class="font-semibold text-gray-900 mb-2 text-lg">Режим работы отдела</h3>
-            <p class="text-xl font-semibold">пн-пт с 9:00 до 18:00</p>
+            <p class="text-xl font-semibold">пн-пт с 8:00 до 18:00</p>
           </div>
         </div>
 

@@ -73,8 +73,8 @@ useHead({
               <Icon name="mdi:office-building" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
             </div>
             <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Наш офис</h3>
-            <p class="text-gray-700 text-base sm:text-lg mb-2">г.Нижний Тагил, ул. Аганичева 101</p>
-            <p class="text-gray-600 text-sm sm:text-base">АбсолютТехно</p>
+            <p class="text-gray-700 text-base sm:text-lg mb-2">г.Нижний Тагил, ул. Аганичева, 101А</p>
+            <p class="text-gray-600 text-sm sm:text-base">ООО "Абсолюттехно"</p>
           </div>
         </div>
 
@@ -177,7 +177,7 @@ useHead({
               class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600 mb-2 sm:mb-3 mx-auto"
             />
             <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Офис</h4>
-            <p class="font-semibold text-gray-900 text-sm sm:text-base">Пн-Пт: 9:00-18:00</p>
+            <p class="font-semibold text-gray-900 text-sm sm:text-base">Пн-Пт: 8:00-18:00</p>
             <p class="text-gray-600 text-xs sm:text-sm">Сб-Вс: Выходной</p>
           </div>
           <div class="text-center p-4 sm:p-6 bg-white rounded-lg sm:rounded-xl border border-blue-100">
