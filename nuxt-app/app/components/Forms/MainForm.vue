@@ -104,7 +104,7 @@ const submitForm = async () => {
 
     // Добавляем файлы, если они есть
     if (form.value.files && form.value.files.length > 0) {
-      form.value.files.forEach((file: File) => {
+      form.value.files.forEach(file => {
         formData.append('files', file)
       })
     }
@@ -112,7 +112,7 @@ const submitForm = async () => {
     // Отправляем на серверный API
     const response = await $fetch('/api/send-email', {
       method: 'POST',
-      body: formData
+      body: formData,
     })
 
     console.log(response)
@@ -124,12 +124,12 @@ const submitForm = async () => {
     setTimeout(() => {
       showSuccess.value = false
     }, 5000)
-
-  } catch (error: any) {
+  } catch (error) {
     console.error('Ошибка отправки:', error)
 
     // Более информативное сообщение об ошибке
-    const errorMessage = error.data?.statusMessage || error.message || 'Произошла ошибка при отправке. Попробуйте еще раз.'
+    const errorMessage =
+      error.data?.statusMessage || error.message || 'Произошла ошибка при отправке. Попробуйте еще раз.'
     alert(errorMessage)
   } finally {
     isSending.value = false
