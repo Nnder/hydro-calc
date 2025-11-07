@@ -49,7 +49,7 @@ export default defineEventHandler(async event => {
       })
       throw createError({
         statusCode: 500,
-        statusMessage: 'SMTP configuration error',
+        statusMessage: 'SMTP configuration error ' + process.env.SMTP_USER + process.env.SMTP_PASS,
       })
     }
 
