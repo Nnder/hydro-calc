@@ -30,6 +30,8 @@ useHead({
     },
   ],
 })
+
+console.log(data.value)
 </script>
 
 <template>
