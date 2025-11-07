@@ -1,5 +1,6 @@
+// server/api/send-email.post.ts
 import { defineEventHandler, readMultipartFormData, createError } from 'h3'
-import * as nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer'
 
 interface EmailData {
   fio: string
@@ -7,7 +8,6 @@ interface EmailData {
   text: string
   email?: string
   company?: string
-  // добавьте другие поля по необходимости
 }
 
 export default defineEventHandler(async event => {
@@ -50,7 +50,7 @@ export default defineEventHandler(async event => {
     }
 
     // Настройка транспортера для отправки почты
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.yandex.ru',
       port: parseInt(process.env.SMTP_PORT || '465'),
       secure: true,
