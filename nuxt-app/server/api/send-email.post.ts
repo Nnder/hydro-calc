@@ -42,25 +42,25 @@ export default defineEventHandler(async event => {
     }
 
     // Проверяем наличие переменных окружения
-    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    if (!process.env.NUXT_SMTP_USER || !process.env.NUXT_SMTP_PASS) {
       console.error('SMTP credentials missing:', {
-        user: process.env.SMTP_USER ? 'set' : 'missing',
-        pass: process.env.SMTP_PASS ? 'set' : 'missing',
+        user: process.env.NUXT_SMTP_USER ? 'set' : 'missing',
+        pass: process.env.NUXT_SMTP_PASS ? 'set' : 'missing',
       })
       throw createError({
         statusCode: 500,
-        statusMessage: 'SMTP configuration error ' + process.env.SMTP_USER + process.env.SMTP_PASS,
+        statusMessage: 'SMTP configuration error ' + process.env.NUXT_SMTP_USER + process.env.NUXT_SMTP_PASS,
       })
     }
 
     // Создаем транспортер
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.yandex.ru',
-      port: parseInt(process.env.SMTP_PORT || '465'),
+      host: process.env.NUXT_SMTP_HOST || 'smtp.yandex.ru',
+      port: parseInt(process.env.NUXT_SMTP_PORT || '465'),
       secure: true,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.NUXT_SMTP_USER,
+        pass: process.env.NUXT_SMTP_PASS,
       },
       tls: {
         rejectUnauthorized: false,
@@ -71,7 +71,7 @@ export default defineEventHandler(async event => {
     await transporter.verify()
 
     const mailOptions = {
-      from: process.env.SMTP_USER,
+      from: process.env.NUXT_SMTP_USER,
       to: 'egoravyyy@yandex.ru',
       subject: `Новая заявка от ${fio}`,
       html: `
