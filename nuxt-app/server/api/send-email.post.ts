@@ -1,17 +1,43 @@
 // server/api/send-email.post.ts
-import { defineEventHandler, readBody } from 'h3'
+import { defineEventHandler, readMultipartFormData, createError } from 'h3'
 import nodemailer from 'nodemailer'
 
 export default defineEventHandler(async event => {
   try {
-    const body = await readBody(event)
-    const { fio, phone, text, email, company } = body
+    // Читаем multipart form data
+    const formData = await readMultipartFormData(event)
+
+    if (!formData) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'No form data provided',
+      })
+    }
+
+    console.log('Raw form data:', JSON.stringify(formData, null, 2))
+
+    // Парсим данные формы
+    const fields: any = {}
+
+    for (const field of formData) {
+      if (field.name && field.data) {
+        // Для всех полей (и текстовых и файлов) сохраняем значение
+        fields[field.name] = field.data.toString('utf-8')
+
+        // Логируем каждое поле для отладки
+        console.log(`Field: ${field.name} = ${fields[field.name]}`)
+      }
+    }
+
+    console.log('Parsed fields:', fields)
+
+    const { fio, phone, text, email, company } = fields
 
     // Валидация
     if (!fio || !phone || !text) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing required fields: fio, phone, text ' + JSON.stringify(body),
+        statusMessage: `Missing required fields. fio: ${!!fio}, phone: ${!!phone}, text: ${!!text}. Fields: ${Object.keys(fields).join(', ')}`,
       })
     }
 
@@ -27,17 +53,16 @@ export default defineEventHandler(async event => {
       })
     }
 
-    // Создаем транспортер с более подробной конфигурацией
+    // Создаем транспортер
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.yandex.ru',
       port: parseInt(process.env.SMTP_PORT || '465'),
-      secure: true, // true для порта 465, false для других портов
+      secure: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
       tls: {
-        // Не проверять самоподписанные сертификаты
         rejectUnauthorized: false,
       },
     })
@@ -56,7 +81,7 @@ export default defineEventHandler(async event => {
         <p><strong>Email:</strong> ${email || 'Не указан'}</p>
         <p><strong>Компания:</strong> ${company || 'Не указана'}</p>
         <p><strong>Сообщение:</strong></p>
-        <p>${text}</p>
+        <p style="white-space: pre-line;">${text}</p>
         <hr>
         <p><small>Отправлено: ${new Date().toLocaleString('ru-RU')}</small></p>
       `,
