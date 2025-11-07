@@ -161,7 +161,7 @@ async function parseYmlToJson() {
         cat.image =
           firstOffer.pictures && firstOffer.pictures.length > 0
             ? firstOffer.pictures[0]
-            : "0000000";
+            : "";
       } else {
         cat.image = "";
       }
@@ -187,9 +187,7 @@ async function parseYmlToJson() {
           name: c.name,
           parentId: c.parentId,
           link: c.link,
-          image:
-            c.image ||
-            "https://tss.ru/upload/iblock/91e/p6go06tmrgmkqr06jl3b3mh7yuqdv0jq.jpg", // Теперь c.image уже присвоено!
+          image: c.image || "/tss_defoult.jpg", // Теперь c.image уже присвоено!
         }));
     });
 
