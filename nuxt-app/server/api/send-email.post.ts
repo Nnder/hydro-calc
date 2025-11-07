@@ -1,43 +1,103 @@
-// server/api/send-email.post.ts
-import nodemailer from 'nodemailer'
+import { defineEventHandler, readMultipartFormData, createError } from 'h3'
+import * as nodemailer from 'nodemailer'
+
+interface EmailData {
+  fio: string
+  phone: string
+  text: string
+  email?: string
+  company?: string
+  // добавьте другие поля по необходимости
+}
 
 export default defineEventHandler(async event => {
-  const body = await readBody(event)
-
-  // Конфигурация транспорта с исправленными параметрами
-  const transporter = nodemailer.createTransport({
-    host: process.env.MAIL_HOST || 'app.debugmail.io',
-    port: parseInt(process.env.MAIL_PORT || '25'),
-    secure: false, // false для STARTTLS на порту 25
-    requireTLS: true, // принудительно использовать STARTTLS
-    tls: {
-      rejectUnauthorized: false, // для тестового окружения
-    },
-    auth: {
-      user: process.env.MAIL_USERNAME || '4860b64d-cada-4fb6-971a-2ceacb8535ee',
-      pass: process.env.MAIL_PASSWORD || 'd5403f91-2c65-43f3-9e37-166301c869e6',
-    },
-  })
-
   try {
-    await transporter.sendMail({
-      from: `"${process.env.MAIL_FROM_NAME || 'John Doe'}" <${process.env.MAIL_FROM_ADDRESS || 'john.doe@example.org'}>`,
-      to: body.to,
-      subject: body.subject,
-      text: body.text,
-      html: body.html,
+    // Чтение multipart/form-data
+    const formData = await readMultipartFormData(event)
+
+    if (!formData) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'No form data provided',
+      })
+    }
+
+    // Парсинг данных формы
+    const emailData: Partial<EmailData> = {}
+    const files: { filename: string; content: Buffer }[] = []
+
+    for (const field of formData) {
+      if (field.name && field.data) {
+        if (field.filename) {
+          // Это файл
+          files.push({
+            filename: field.filename,
+            content: field.data,
+          })
+        } else {
+          // Это текстовое поле
+          emailData[field.name as keyof EmailData] = field.data.toString('utf-8')
+        }
+      }
+    }
+
+    // Валидация обязательных полей
+    if (!emailData.fio || !emailData.phone || !emailData.text) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Missing required fields: fio, phone, text',
+      })
+    }
+
+    // Настройка транспортера для отправки почты
+    const transporter = nodemailer.createTransporter({
+      host: process.env.SMTP_HOST || 'smtp.yandex.ru',
+      port: parseInt(process.env.SMTP_PORT || '465'),
+      secure: true,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
     })
 
-    return { success: true, message: 'Email sent successfully' }
-  } catch (error) {
-    console.error('Email sending error details:', error)
+    // Подготовка вложений
+    const attachments = files.map(file => ({
+      filename: file.filename,
+      content: file.content,
+    }))
+
+    // Формирование содержимого письма
+    const mailOptions = {
+      from: process.env.SMTP_USER,
+      to: 'egoravyyy@yandex.ru',
+      subject: `Новая заявка от ${emailData.fio}`,
+      html: `
+        <h2>Новая заявка с сайта</h2>
+        <p><strong>ФИО:</strong> ${emailData.fio}</p>
+        <p><strong>Телефон:</strong> ${emailData.phone}</p>
+        <p><strong>Email:</strong> ${emailData.email || 'Не указан'}</p>
+        <p><strong>Компания:</strong> ${emailData.company || 'Не указана'}</p>
+        <p><strong>Сообщение:</strong></p>
+        <p>${emailData.text}</p>
+        <hr>
+        <p><small>Отправлено: ${new Date().toLocaleString('ru-RU')}</small></p>
+      `,
+      attachments,
+    }
+
+    // Отправка письма
+    await transporter.sendMail(mailOptions)
+
+    return {
+      success: true,
+      message: 'Email sent successfully',
+    }
+  } catch (error: any) {
+    console.error('Error sending email:', error)
+
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to send email',
-      data: {
-        originalError: error.message,
-        debugInfo: 'Check your SMTP settings and try again',
-      },
+      statusMessage: `Failed to send email: ${error.message}`,
     })
   }
 })

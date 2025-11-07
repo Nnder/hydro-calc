@@ -86,17 +86,51 @@ const submitForm = async () => {
   isSending.value = true
 
   try {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // Создаем FormData для отправки с файлами
+    const formData = new FormData()
 
-    form.value = { name: '', phone: '', description: '', agreement: false }
+    // Добавляем текстовые поля
+    formData.append('fio', form.value.name)
+    formData.append('phone', form.value.phone)
+    formData.append('text', form.value.description)
 
+    // Если есть другие поля, добавляем их
+    if (form.value.email) {
+      formData.append('email', form.value.email)
+    }
+    if (form.value.company) {
+      formData.append('company', form.value.company)
+    }
+
+    // Добавляем файлы, если они есть
+    if (form.value.files && form.value.files.length > 0) {
+      form.value.files.forEach((file: File) => {
+        formData.append('files', file)
+      })
+    }
+
+    // Отправляем на серверный API
+    const response = await $fetch('/api/send-email', {
+      method: 'POST',
+      body: formData
+    })
+
+    console.log(response)
+    // Очищаем форму после успешной отправки
+    form.value = { name: '', phone: '', description: '', agreement: false, files: [] }
+
+    // Показываем сообщение об успехе
     showSuccess.value = true
     setTimeout(() => {
       showSuccess.value = false
     }, 5000)
-  } catch (error) {
+
+  } catch (error: any) {
     console.error('Ошибка отправки:', error)
-    alert('Произошла ошибка при отправке. Попробуйте еще раз.')
+
+    // Более информативное сообщение об ошибке
+    const errorMessage = error.data?.statusMessage || error.message || 'Произошла ошибка при отправке. Попробуйте еще раз.'
+    alert(errorMessage)
   } finally {
     isSending.value = false
   }
