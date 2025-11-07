@@ -11,7 +11,7 @@ export default defineEventHandler(async event => {
     if (!fio || !phone || !text) {
       throw createError({
         statusCode: 400,
-        statusMessage: 'Missing required fields: fio, phone, text',
+        statusMessage: 'Missing required fields: fio, phone, text ' + JSON.stringify(body),
       })
     }
 
