@@ -4,8 +4,8 @@ const links = [
   { link: '/about', name: 'О компании' },
   { link: '/postavshkam', name: 'Поставщики' },
   // { link: '/delivery', name: 'Доставка ' },
-  { link: '/agreement', name: 'Политика конфиденциальности' },
-  { link: '/personal', name: 'Согласие на обработку' },
+  { link: '/personal', name: 'Политика отношение на обработку' },
+  { link: '/agreement', name: 'Согласие на обработку' },
 ]
 
 const products = [
@@ -17,10 +17,10 @@ const products = [
 ]
 
 const contacts = [
-  { icon: 'mdi:map-marker-outline', text: 'г. Нижний Тагил, ул Пушкина 42' },
+  { icon: 'mdi:map-marker-outline', text: 'г. Нижний Тагил, ул. Аганичева, 101А' },
   { icon: 'mdi:phone-outline', text: '+7 (000) 123-00-00' },
   { icon: 'mdi:email-outline', text: 'mail@gmail.com' },
-  { icon: 'mdi:clock-outline', text: 'Пн-Пт: 9:00-18:00' },
+  { icon: 'mdi:clock-outline', text: 'Пн-Пт: 8:00-18:00' },
 ]
 </script>
 

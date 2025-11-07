@@ -51,12 +51,12 @@ const categories = ref([
         description: 'Фитинги и соединительные элементы для РВД',
         link: '/sell/sell-komplektushie-rvd',
       },
-      {
-        title: 'ГСМ и технические жидкости',
-        image: '/57778c5c2b33268e2910c96f080beb6c.jpg',
-        description: 'Масла и жидкости для гидравлических систем',
-        link: '/sell/sell-shidkostey',
-      },
+      // {
+      //   title: 'ГСМ и технические жидкости',
+      //   image: '/57778c5c2b33268e2910c96f080beb6c.jpg',
+      //   description: 'Масла и жидкости для гидравлических систем',
+      //   link: '/sell/sell-shidkostey',
+      // },
       {
         title: 'Электростанции',
         image: '/xilvh1zxj50p1434qffaquamxsbauann.jpg',

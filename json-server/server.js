@@ -115,6 +115,7 @@ async function parseYmlToJson() {
         categoryId: parseInt(offer.categoryId),
         pictures: [],
         name: offer.name ? offer.name : "",
+        nameSearch: fixName(offer.name ? offer.name : ""),
         description: offer.description ? offer.description._ : "",
         params: {},
       };
