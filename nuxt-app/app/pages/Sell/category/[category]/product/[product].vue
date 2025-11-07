@@ -83,7 +83,7 @@ const { newData } = useCalculatorSelector()
 const handleOffer = () => {
   const result = {
     name: `Выбранный товар`,
-    selected: [`${selectedOffer.value.title} ${selectedOffer.value.price ? selectedOffer.value.price + ' ₽' : ''}`],
+    selected: [`${selectedOffer.value.name} ${selectedOffer.value.price ? selectedOffer.value.price + ' ₽' : ''}`],
     // selected: ['- Диаметр поршня (мм): ' + selectedOffer.value.title],
   }
 
@@ -92,7 +92,7 @@ const handleOffer = () => {
 }
 
 useHead({
-  title: `${selectedOffer.value.title} - АбсолютТехно`,
+  title: `${selectedOffer.value.name} - АбсолютТехно`,
   meta: [
     {
       name: 'description',
