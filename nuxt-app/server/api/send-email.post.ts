@@ -1,103 +1,91 @@
 // server/api/send-email.post.ts
-import { defineEventHandler, readMultipartFormData, createError } from 'h3'
+import { defineEventHandler, readBody } from 'h3'
 import nodemailer from 'nodemailer'
-
-interface EmailData {
-  fio: string
-  phone: string
-  text: string
-  email?: string
-  company?: string
-}
 
 export default defineEventHandler(async event => {
   try {
-    // Чтение multipart/form-data
-    const formData = await readMultipartFormData(event)
+    const body = await readBody(event)
+    const { fio, phone, text, email, company } = body
 
-    if (!formData) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'No form data provided',
-      })
-    }
-
-    // Парсинг данных формы
-    const emailData: Partial<EmailData> = {}
-    const files: { filename: string; content: Buffer }[] = []
-
-    for (const field of formData) {
-      if (field.name && field.data) {
-        if (field.filename) {
-          // Это файл
-          files.push({
-            filename: field.filename,
-            content: field.data,
-          })
-        } else {
-          // Это текстовое поле
-          emailData[field.name as keyof EmailData] = field.data.toString('utf-8')
-        }
-      }
-    }
-
-    // Валидация обязательных полей
-    if (!emailData.fio || !emailData.phone || !emailData.text) {
+    // Валидация
+    if (!fio || !phone || !text) {
       throw createError({
         statusCode: 400,
         statusMessage: 'Missing required fields: fio, phone, text',
       })
     }
 
-    // Настройка транспортера для отправки почты
+    // Проверяем наличие переменных окружения
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP credentials missing:', {
+        user: process.env.SMTP_USER ? 'set' : 'missing',
+        pass: process.env.SMTP_PASS ? 'set' : 'missing',
+      })
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'SMTP configuration error',
+      })
+    }
+
+    // Создаем транспортер с более подробной конфигурацией
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.yandex.ru',
       port: parseInt(process.env.SMTP_PORT || '465'),
-      secure: true,
+      secure: true, // true для порта 465, false для других портов
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        // Не проверять самоподписанные сертификаты
+        rejectUnauthorized: false,
+      },
     })
 
-    // Подготовка вложений
-    const attachments = files.map(file => ({
-      filename: file.filename,
-      content: file.content,
-    }))
+    // Проверяем подключение
+    await transporter.verify()
 
-    // Формирование содержимого письма
     const mailOptions = {
       from: process.env.SMTP_USER,
       to: 'egoravyyy@yandex.ru',
-      subject: `Новая заявка от ${emailData.fio}`,
+      subject: `Новая заявка от ${fio}`,
       html: `
         <h2>Новая заявка с сайта</h2>
-        <p><strong>ФИО:</strong> ${emailData.fio}</p>
-        <p><strong>Телефон:</strong> ${emailData.phone}</p>
-        <p><strong>Email:</strong> ${emailData.email || 'Не указан'}</p>
-        <p><strong>Компания:</strong> ${emailData.company || 'Не указана'}</p>
+        <p><strong>ФИО:</strong> ${fio}</p>
+        <p><strong>Телефон:</strong> ${phone}</p>
+        <p><strong>Email:</strong> ${email || 'Не указан'}</p>
+        <p><strong>Компания:</strong> ${company || 'Не указана'}</p>
         <p><strong>Сообщение:</strong></p>
-        <p>${emailData.text}</p>
+        <p>${text}</p>
         <hr>
         <p><small>Отправлено: ${new Date().toLocaleString('ru-RU')}</small></p>
       `,
-      attachments,
     }
 
-    // Отправка письма
-    await transporter.sendMail(mailOptions)
+    const result = await transporter.sendMail(mailOptions)
+    console.log('Email sent successfully:', result.messageId)
 
     return {
       success: true,
       message: 'Email sent successfully',
+      messageId: result.messageId,
     }
   } catch (error: any) {
     console.error('Error sending email:', error)
 
+    // Более информативное сообщение об ошибке
+    let errorMessage = 'Failed to send email'
+    if (error.code === 'EAUTH') {
+      errorMessage = 'Authentication failed. Check your email and password.'
+    } else if (error.code === 'ECONNECTION') {
+      errorMessage = 'Connection to SMTP server failed.'
+    } else {
+      errorMessage = error.message
+    }
+
     throw createError({
       statusCode: 500,
-      statusMessage: `Failed to send email: ${error.message}`,
+      statusMessage: errorMessage,
     })
   }
 })
