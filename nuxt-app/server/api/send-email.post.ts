@@ -57,10 +57,10 @@ export default defineEventHandler(async event => {
     // Создаем транспортер
     const transporter = nodemailer.createTransport({
       host: 'smtp.yandex.ru',
-      port: 465,
+      port: 587,
       secure: true,
       auth: {
-        user: process.env.NUXT_SMTP_USER,
+        user: config.smtpUser,
         pass: config.smtpPass,
       },
       tls: {
@@ -72,7 +72,7 @@ export default defineEventHandler(async event => {
     await transporter.verify()
 
     const mailOptions = {
-      from: process.env.NUXT_SMTP_USER,
+      from: config.smtpUser,
       to: 'egoravyyy@yandex.ru',
       subject: `Новая заявка от ${fio}`,
       html: `
@@ -111,7 +111,7 @@ export default defineEventHandler(async event => {
 
     throw createError({
       statusCode: 500,
-      statusMessage: errorMessage,
+      statusMessage: errorMessage + ' ' + JSON.stringify(error),
     })
   }
 })
