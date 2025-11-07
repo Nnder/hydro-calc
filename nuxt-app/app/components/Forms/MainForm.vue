@@ -89,10 +89,10 @@ const submitForm = async () => {
     // Создаем FormData для отправки с файлами
     const formData = new FormData()
 
-    // Добавляем текстовые поля
-    formData.append('fio', form.value.name)
-    formData.append('phone', form.value.phone)
-    formData.append('text', form.value.description)
+    // Исправляем названия полей согласно требованиям сервера
+    formData.append('fio', form.value.name) // name -> fio
+    formData.append('phone', form.value.phone) // phone остается
+    formData.append('text', form.value.description) // description -> text
 
     // Если есть другие поля, добавляем их
     if (form.value.email) {
@@ -135,7 +135,6 @@ const submitForm = async () => {
     isSending.value = false
   }
 }
-
 const id = useId()
 </script>
 
