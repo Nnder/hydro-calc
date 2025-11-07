@@ -6,6 +6,7 @@ export default defineEventHandler(async event => {
   try {
     // Читаем multipart form data
     const formData = await readMultipartFormData(event)
+    const config = useRuntimeConfig()
 
     if (!formData) {
       throw createError({
@@ -42,25 +43,25 @@ export default defineEventHandler(async event => {
     }
 
     // Проверяем наличие переменных окружения
-    if (!process.env.NUXT_SMTP_USER || !process.env.NUXT_SMTP_PASS) {
+    if (!config.smtpUser || !config.smtpPass) {
       console.error('SMTP credentials missing:', {
-        user: process.env.NUXT_SMTP_USER ? 'set' : 'missing',
-        pass: process.env.NUXT_SMTP_PASS ? 'set' : 'missing',
+        user: config.smtpUser ? 'set' : 'missing',
+        pass: config.smtpPass ? 'set' : 'missing',
       })
       throw createError({
         statusCode: 500,
-        statusMessage: 'SMTP configuration error ' + process.env.NUXT_SMTP_USER + process.env.NUXT_SMTP_PASS,
+        statusMessage: 'SMTP configuration error ' + config.smtpUser + config.smtpPass,
       })
     }
 
     // Создаем транспортер
     const transporter = nodemailer.createTransport({
-      host: process.env.NUXT_SMTP_HOST || 'smtp.yandex.ru',
-      port: parseInt(process.env.NUXT_SMTP_PORT || '465'),
+      host: 'smtp.yandex.ru',
+      port: 465,
       secure: true,
       auth: {
         user: process.env.NUXT_SMTP_USER,
-        pass: process.env.NUXT_SMTP_PASS,
+        pass: config.smtpPass,
       },
       tls: {
         rejectUnauthorized: false,

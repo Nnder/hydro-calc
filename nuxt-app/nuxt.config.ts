@@ -292,6 +292,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     apiBase: process.env.API_BASE_URL || 'http://localhost:3001',
+    smtpHost: 'smtp.yandex.ru',
+    smtpPort: 587,
+    smtpUser: 'egoravyyy@yandex.ru',
+    smtpPass: 'uawjxnbxjdbxfuea',
     mail: {
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,
