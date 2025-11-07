@@ -111,7 +111,7 @@ export default defineEventHandler(async event => {
 
     throw createError({
       statusCode: 500,
-      statusMessage: errorMessage + ' ' + JSON.stringify(error),
+      statusMessage: errorMessage + ' | ' + JSON.stringify(error),
     })
   }
 })
