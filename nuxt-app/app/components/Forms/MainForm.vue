@@ -284,7 +284,7 @@ const id = useId()
         class="ml-3 text-white/80 hover:text-white transition"
         aria-label="Закрыть"
       >
-        <Icon name="mdi:close" class="text-lg" />
+        <Icon name="mdi:close" class="text-lg items-center w-5 h-5" />
       </button>
     </div>
   </transition>
