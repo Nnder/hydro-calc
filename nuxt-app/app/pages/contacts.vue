@@ -11,6 +11,21 @@ useHead({
     },
   ],
 })
+
+const emails = [
+  {
+    address: 'absoluttehnodir@gmail.com',
+    description: 'Отдел по продаже запчастей',
+  },
+  {
+    address: 'a6623142903@yandex.ru',
+    description: 'Строительное и промышленное оборудование',
+  },
+  {
+    address: 'Kyzma-Ivakin@AThydro-nt.ru',
+    description: 'Отдел по ремонту и изготовлению гидравлического оборудования',
+  },
+]
 </script>
 
 <template>
@@ -44,7 +59,7 @@ useHead({
               <span class="text-base sm:text-lg font-semibold">+7 (800) 555-33-55</span>
             </a>
             <a
-              href="mailto:info@absolyut-tekno.ru"
+              href="mailto:absoluttehnodir@gmail.com"
               class="group flex items-center justify-center gap-3 text-white hover:text-blue-100 transition-colors py-2"
             >
               <div
@@ -52,7 +67,7 @@ useHead({
               >
                 <Icon name="mdi:email" class="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span class="text-base sm:text-lg font-semibold">info@absolyut-tekno.ru</span>
+              <span class="text-base sm:text-lg font-semibold">absoluttehnodir@gmail.com</span>
             </a>
           </div>
         </div>
@@ -60,84 +75,85 @@ useHead({
     </div>
 
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16">
-        <div
-          class="bg-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-blue-100"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center bg-blue-100 rounded-lg mb-3 sm:mb-4"
-            >
-              <Icon name="mdi:office-building" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Наш офис</h3>
-            <p class="text-gray-700 text-base sm:text-lg mb-2">г.Нижний Тагил, ул. Аганичева, 101А</p>
-            <p class="text-gray-600 text-sm sm:text-base">ООО "Абсолюттехно"</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-16">
+      <div
+        class="bg-gradient-to-b from-white to-blue-50 p-6 md:p-8 rounded-2xl shadow-lg border border-blue-100 flex flex-col justify-between h-full text-center"
+      >
+        <div>
+          <div
+            class="group w-16 h-16 flex items-center justify-center bg-blue-100 rounded-xl mb-4 transition-transform group-hover:scale-105"
+          >
+            <Icon name="mdi:office-building" class="w-8 h-8 text-blue-600 group-hover:text-blue-700" />
           </div>
+          <h3 class="text-2xl font-bold mb-3">Наш офис</h3>
+          <p class="text-base mb-2">г. Нижний Тагил, ул. Аганичева, 101А</p>
+          <p class="text-sm">ООО "Абсолюттехно"</p>
         </div>
+        <p class="text-sm mt-4 italic opacity-70">
+          Мы всегда рады гостям. Пн–Пт: 09:00–18:00
+        </p>
+      </div>
 
-        <div
-          class="bg-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-blue-100"
-          data-aos="fade-up"
-          data-aos-delay="550"
-        >
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center bg-blue-100 rounded-lg mb-3 sm:mb-4"
-            >
-              <Icon name="mdi:email" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Электронная почта</h3>
-             <div class="space-y-3 sm:space-y-4">
-              <a
-                href="mailto:info@absolyut-tekno.ru"
-                class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-700 text-base sm:text-lg font-medium transition-colors"
-              >
-                <span>absoluttehnodir@gmail.com отдел по продаже  запястных частей</span>
-              </a>
-
-              <a
-                href="mailto:sales@absolyut-tekno.ru"
-                class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-700 text-base sm:text-lg font-medium transition-colors"
-              >
-                <span>a6623142903@yandex.ru - строительное и промышленное оборудование</span>
-              </a>
-
-              <a
-                href="mailto:service@absolyut-tekno.ru"
-                class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-700 text-base sm:text-lg font-medium transition-colors"
-              >
-                <span>Kyzma-Ivakin@AThydro-nt.ru - отдел по ремонту и изготовление гидравлического оборудования</span>
-              </a>
-            </div>
+      <div
+        class="bg-gradient-to-b from-white to-blue-50 p-6 md:p-8 rounded-2xl shadow-lg border border-blue-100 flex flex-col justify-between h-full text-center"
+      >
+        <div>
+          <div
+            class="group w-16 h-16 flex items-center justify-center bg-blue-100 rounded-xl mb-4 transition-transform group-hover:scale-105"
+          >
+            <Icon name="mdi:email" class="w-8 h-8 text-blue-600 group-hover:text-blue-700" />
           </div>
-        </div>
+          <h3 class="text-2xl font-bold mb-4">Электронная почта</h3>
 
-        <div
-          class="bg-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-blue-100"
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
-          <div class="flex flex-col items-center text-center">
+          <div class="flex flex-col items-start sm:items-center space-y-3 w-full">
             <div
-              class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center bg-blue-100 rounded-lg mb-3 sm:mb-4"
+              v-for="(email, i) in emails"
+              :key="i"
+              class="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 sm:p-4 w-full"
             >
-              <Icon name="mdi:phone" class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Основные телефоны</h3>
-            <div class="space-y-2 sm:space-y-3 w-full">
-              <div>
-                <p class="font-medium text-gray-900 mb-1 text-sm sm:text-base">Общий</p>
-                <a href="tel:+78005553355" class="text-blue-600 text-base sm:text-lg font-semibold hover:text-blue-700"
-                  >+7 (800) 555-33-55</a
-                >
-              </div>
+              <a
+                :href="`mailto:${email.address}`"
+                class="block text-blue-700 hover:text-blue-800 text-sm sm:text-base font-medium break-words leading-snug"
+              >
+                {{ email.address }}
+              </a>
+              <p class="text-xs sm:text-sm mt-1 leading-snug opacity-80">
+                {{ email.description }}
+              </p>
             </div>
           </div>
         </div>
       </div>
+
+      <div
+        class="bg-gradient-to-b from-white to-blue-50 p-6 md:p-8 rounded-2xl shadow-lg border border-blue-100 flex flex-col justify-between h-full text-center"
+      >
+        <div>
+          <div
+            class="group w-16 h-16 flex items-center justify-center bg-blue-100 rounded-xl mb-4 transition-transform group-hover:scale-105"
+          >
+            <Icon name="mdi:phone" class="w-8 h-8 text-blue-600 group-hover:text-blue-700" />
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Основные телефоны</h3>
+          <div class="mb-3">
+            <p class="font-medium mb-1 text-sm sm:text-base">Общий</p>
+            <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
+              +7 (800) 555-33-55
+            </a>
+          </div>
+          <div>
+            <p class="font-medium mb-1 text-sm sm:text-base">Общий 2</p>
+            <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
+              +7 (800) 555-33-55
+            </a>
+          </div>
+        </div>
+        <p class="text-sm mt-4 italic opacity-70">
+          Звоните по любым вопросам — консультация бесплатна
+        </p>
+      </div>
+    </div>
+
 
       <div
         class="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-blue-200 mb-12 sm:mb-16"
