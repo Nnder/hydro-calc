@@ -6,19 +6,20 @@ export const useCalculatorSelector = () => {
 
   const newData = (state) => (calculatorData.value = state)
   const addData = (params) => {
-    if(params.name === calculatorData.value.name){
-        const current = calculatorData.value.selected
-        const result = current.filter((val)=> val !== params.selected)
-        if(current.length === result.length){
-            calculatorData.value.selected.push(params.selected)
-        } else {
-            calculatorData.value.selected = result
-        }
-    } else {
-        calculatorData.value = {name: params.name, selected: [params.selected]}
-    }
+    const { name, selected } = params
+    const { name: currentName, selected: currentSelected } = calculatorData.value
 
-    console.log(calculatorData.value)
+    if (name === currentName) {
+      const exists = currentSelected.includes(selected)
+      calculatorData.value = {
+        name,
+        selected: exists
+          ? currentSelected.filter((v) => v !== selected)
+          : [...currentSelected, selected],
+      }
+    } else {
+      calculatorData.value = { name, selected: [selected] }
+    }
   }
 
   const clearData = () => (calculatorData.value = {

@@ -9,21 +9,16 @@ const props = defineProps({
 })
 
 watch(
-  calculatorData,
-  () => {
-    if (calculatorData.value.selected.length) {
-      const result = calculatorData.value.selected.reduce((acc, val) => {
-        return (acc += val + '\n')
-      }, '')
-
-      form.value.description = `${calculatorData.value.name}:\n${result}`
-      console.log(form.value.description)
+  () => [calculatorData.value.name, calculatorData.value.selected.join(',')],
+  ([name, selected]) => {
+    if (selected.length) {
+      form.value.description = `${name}:\n${calculatorData.value.selected.join('\n')}`
     } else {
       form.value.description = ''
     }
-  },
-  { deep: true }
+  }
 )
+
 
 const form = ref({
   name: '',
