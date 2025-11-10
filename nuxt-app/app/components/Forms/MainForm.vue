@@ -262,4 +262,30 @@ const id = useId()
       {{ formType ? (isSending ? 'Отправляем...' : 'Получить консультацию') : 'Заказать' }}
     </button>
   </form>
+
+  <transition
+    enter-active-class="transition duration-500 ease-out"
+    enter-from-class="opacity-0 translate-y-4"
+    enter-to-class="opacity-100 translate-y-0"
+    leave-active-class="transition duration-500 ease-in"
+    leave-from-class="opacity-100 translate-y-0"
+    leave-to-class="opacity-0 translate-y-4"
+  >
+    <div
+      v-if="showSuccess"
+      class="fixed bottom-6 right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 z-50"
+    >
+      <Icon name="mdi:check-circle" class="text-2xl" />
+      <div class="text-sm md:text-base font-medium">
+        Сообщение успешно отправлено!
+      </div>
+      <button
+        @click="showSuccess = false"
+        class="ml-3 text-white/80 hover:text-white transition"
+        aria-label="Закрыть"
+      >
+        <Icon name="mdi:close" class="text-lg" />
+      </button>
+    </div>
+  </transition>
 </template>
