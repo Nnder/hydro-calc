@@ -24,10 +24,11 @@ import CallBackModal from './components/Modal/CallBackModal.vue'
 //   cartStore.setCart()
 // })
 
-const { clearData } = useCalculatorSelector()
+const { clearData, calculatorData } = useCalculatorSelector()
 const router = useRouter()
 
 router.beforeEach((to, from, next) => {
+  console.log(calculatorData.value, 'value')
   clearData()
   next()
 })

@@ -25,7 +25,7 @@ const mainMenu = [
   {
     id: 'sell',
     name: 'Продажа',
-    link: '/sell'
+    link: '/sell',
   },
   {
     id: 'about',
@@ -106,7 +106,6 @@ const servicesSubMenu = [
       },
     ],
   },
-  
 ]
 
 const toggleMobileMenu = () => {
@@ -166,8 +165,8 @@ const { open } = useModal()
                   @mouseenter="openSubMenu(item.id)"
                 >
                   <span>{{ item.name }}</span>
-                  <Icon 
-                    name="material-symbols:keyboard-arrow-down" 
+                  <Icon
+                    name="material-symbols:keyboard-arrow-down"
                     class="ml-1 h-5 w-5 transition-transform duration-300 ease-in-out"
                     :class="{ 'rotate-180': activeMenu === item.id }"
                   />
@@ -185,7 +184,7 @@ const { open } = useModal()
 
           <div class="flex items-center space-x-4 sm:space-x-6">
             <button
-              @click="open()"
+              @click="open(true, 'Выездная служба')"
               class="bg-hydro-power hover:bg-hydro-power/90 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
             >
               <span class="hidden md:block">Выездная служба</span>
