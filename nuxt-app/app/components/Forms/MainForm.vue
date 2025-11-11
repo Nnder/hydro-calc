@@ -10,7 +10,8 @@ const props = defineProps({
 
 watch(
   () => [calculatorData.value.name, calculatorData.value.selected.join(',')],
-  ([name, selected]) => {
+  ([name, selected, type]) => {
+    form.value.type = calculatorData.value.type
     if (selected.length) {
       form.value.description = `${name}:\n${calculatorData.value.selected.join('\n')}`
     } else {
@@ -19,12 +20,12 @@ watch(
   }
 )
 
-
 const form = ref({
   name: '',
   phone: '',
   description: '',
   agreement: false,
+  type: '',
   files: [],
 })
 
@@ -276,14 +277,8 @@ const id = useId()
       class="fixed bottom-6 right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 z-50"
     >
       <Icon name="mdi:check-circle" class="text-2xl" />
-      <div class="text-sm md:text-base font-medium">
-        Сообщение успешно отправлено!
-      </div>
-      <button
-        @click="showSuccess = false"
-        class="ml-3 text-white/80 hover:text-white transition"
-        aria-label="Закрыть"
-      >
+      <div class="text-sm md:text-base font-medium">Сообщение успешно отправлено!</div>
+      <button @click="showSuccess = false" class="ml-3 text-white/80 hover:text-white transition" aria-label="Закрыть">
         <Icon name="mdi:close" class="text-lg items-center w-5 h-5" />
       </button>
     </div>

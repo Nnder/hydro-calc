@@ -1,9 +1,11 @@
 export const useModal = () => {
   const showModal = useState('showModal', () => false)
   const formType = useState('formType', () => true)
+  const { setType } = useCalculatorSelector()
 
-  const open = (type = true) => {
-    formType.value = type
+  const open = (isDefaultType = true, type = '') => {
+    if (type) setType(type)
+    formType.value = isDefaultType
     showModal.value = true
   }
   const close = () => (showModal.value = false)
