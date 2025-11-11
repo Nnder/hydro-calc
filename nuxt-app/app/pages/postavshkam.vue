@@ -110,10 +110,10 @@
             </div>
             <h3 class="font-semibold text-gray-900 mb-2 text-lg">Телефон отдела закупок</h3>
             <a
-              href="tel:+78005553357"
+              href="tel:+78002222031"
               class="text-blue-600 hover:text-blue-800 transition-colors text-xl font-semibold"
             >
-              +7 (800) 555-33-57
+              +7 (800) 222-20-31
             </a>
           </div>
 

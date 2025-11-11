@@ -12,7 +12,7 @@
 
           <div class="flex items-center gap-2 text-dark">
             <Icon name="ph:phone" class="w-5 h-5" />
-            <h4 class="font-medium">+7 (800) 123-45-67</h4>
+            <h4 class="font-medium">+7 (800) 222-20-31</h4>
           </div>
 
           <div class="flex gap-4">

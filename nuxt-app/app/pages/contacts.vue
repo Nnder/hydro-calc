@@ -48,7 +48,7 @@ const emails = [
 
           <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
             <a
-              href="tel:+78005553355"
+              href="tel:+78002222031"
               class="group flex items-center justify-center gap-3 text-white hover:text-blue-100 transition-colors py-2"
             >
               <div
