@@ -142,9 +142,9 @@ const emails = [
             </a>
           </div>
           <div>
-            <p class="font-medium mb-1 text-sm sm:text-base">Общий 2</p>
-            <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
-              +7 (800) 555-33-55
+            <p class="font-medium mb-1 text-sm sm:text-base">Общий2</p>
+            <a href="tel:+78002222031" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
+              +7 (800) 222-20-31
             </a>
           </div>
         </div>
