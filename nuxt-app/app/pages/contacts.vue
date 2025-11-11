@@ -56,7 +56,9 @@ const emails = [
               >
                 <Icon name="mdi:phone" class="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span class="text-base sm:text-lg font-semibold">+7 (800) 555-33-55</span>
+              <span href="tel:+78002222031" class="text-base sm:text-lg font-semibold">
+                +7 (800) 222-20-31
+              </span>
             </a>
             <a
               href="mailto:absoluttehnodir@gmail.com"

@@ -18,8 +18,8 @@ const products = [
 
 const contacts = [
   { icon: 'mdi:map-marker-outline', text: 'г. Нижний Тагил, ул. Аганичева, 101А' },
-  { icon: 'mdi:phone-outline', text: '+7 (000) 123-00-00' },
-  { icon: 'mdi:email-outline', text: 'mail@gmail.com' },
+  { icon: 'mdi:phone-outline', text: '8 (800) 222-20-31' },
+  { icon: 'mdi:email-outline', text: 'absoluttehnodir@gmail.com' },
   { icon: 'mdi:clock-outline', text: 'Пн-Пт: 8:00-18:00' },
 ]
 </script>
