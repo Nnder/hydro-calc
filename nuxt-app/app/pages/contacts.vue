@@ -137,16 +137,16 @@ const emails = [
           <h3 class="text-2xl font-bold mb-4">Основные телефоны</h3>
           <div class="mb-3">
             <p class="font-medium mb-1 text-sm sm:text-base">Общий</p>
-            <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
-              +7 (800) 555-33-55
-            </a>
-          </div>
-          <div>
-            <p class="font-medium mb-1 text-sm sm:text-base">Общий2</p>
             <a href="tel:+78002222031" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
               +7 (800) 222-20-31
             </a>
           </div>
+          <!-- <div>
+            <p class="font-medium mb-1 text-sm sm:text-base"></p>
+            <a href="tel:+78002222031" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
+              
+            </a>
+          </div> -->
         </div>
         <p class="text-sm mt-4 italic opacity-70">
           Звоните по любым вопросам — консультация бесплатна

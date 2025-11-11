@@ -2,8 +2,8 @@
 import { ref, reactive } from 'vue'
 
 const siteConfig = reactive({
-  phone: '+78001234567',
-  phoneFormatted: '8 (800) 123-45-67',
+  phone: '+78002222031',
+  phoneFormatted: '8 (800) 222-20-31',
 })
 
 const isMobileMenuOpen = ref(false)
