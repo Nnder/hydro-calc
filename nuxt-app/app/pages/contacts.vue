@@ -48,7 +48,7 @@ const emails = [
 
           <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
             <a
-              href="tel:+78005553355"
+              href="tel:+78002222031"
               class="group flex items-center justify-center gap-3 text-white hover:text-blue-100 transition-colors py-2"
             >
               <div
@@ -56,7 +56,9 @@ const emails = [
               >
                 <Icon name="mdi:phone" class="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span class="text-base sm:text-lg font-semibold">+7 (800) 555-33-55</span>
+              <span href="tel:+78002222031" class="text-base sm:text-lg font-semibold">
+                +7 (800) 222-20-31
+              </span>
             </a>
             <a
               href="mailto:absoluttehnodir@gmail.com"
@@ -137,16 +139,16 @@ const emails = [
           <h3 class="text-2xl font-bold mb-4">Основные телефоны</h3>
           <div class="mb-3">
             <p class="font-medium mb-1 text-sm sm:text-base">Общий</p>
-            <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
-              +7 (800) 555-33-55
+            <a href="tel:+78002222031" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
+              +7 (800) 222-20-31
             </a>
           </div>
-          <div>
-            <p class="font-medium mb-1 text-sm sm:text-base">Общий 2</p>
-            <a href="tel:+78005553355" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
-              +7 (800) 555-33-55
+          <!-- <div>
+            <p class="font-medium mb-1 text-sm sm:text-base"></p>
+            <a href="tel:+78002222031" class="text-blue-600 text-lg font-semibold hover:text-blue-700">
+              
             </a>
-          </div>
+          </div> -->
         </div>
         <p class="text-sm mt-4 italic opacity-70">
           Звоните по любым вопросам — консультация бесплатна

@@ -10,11 +10,11 @@ const { open } = useModal()
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a
-        href="tel:+78005553355"
+        href="tel:+78002222031"
         class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-xl hover:bg-blue-50 transition-colors flex items-center justify-center gap-3"
       >
         <Icon name="mdi:phone" class="w-5 h-5" />
-        +7 (800) 555-33-55
+        +7 (800) 222-20-31
       </a>
       <button
         @click="open(true, 'Консультация')"
