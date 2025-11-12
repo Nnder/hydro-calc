@@ -12,6 +12,23 @@ const props = defineProps({
   },
 })
 
+function onPhoneInput(e) {
+  let value = e.target.value.replace(/\D/g, '')
+
+  if (value.startsWith('8')) value = value.slice(1)
+  if (value.startsWith('7')) value = value.slice(1)
+
+  let formatted = '+7'
+
+  if (value.length > 0) formatted += ' (' + value.substring(0, 3)
+  if (value.length >= 4) formatted += ') ' + value.substring(3, 6)
+  if (value.length >= 7) formatted += '-' + value.substring(6, 8)
+  if (value.length >= 9) formatted += '-' + value.substring(8, 10)
+
+  e.target.value = formatted
+  form.value.phone = formatted
+}
+
 const form = ref({
   name: '',
   phone: '',
@@ -166,6 +183,7 @@ const id = useId()
           v-model="form.phone"
           placeholder="+7 (999) 999-99-99"
           required
+          @input="onPhoneInput"
           :class="[
             'w-full px-4 md:px-5 py-3 md:py-4 border-2 rounded-lg md:rounded-xl transition-all duration-300',
             'focus:ring-4 focus:ring-blue-200 focus:border-blue-500 outline-none',
