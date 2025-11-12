@@ -29,8 +29,7 @@ const categories = ref([
       },
       {
         title: 'Сварочные и токарные работы',
-        image:
-          '/images/PriceComp/photo_1.jpg',
+        image: '/images/PriceComp/photo_1.jpg',
         link: '/remont-svarkoy',
       },
     ],
@@ -95,12 +94,12 @@ const categories = ref([
       {
         title: 'Электростанции',
         image: '/xilvh1zxj50p1434qffaquamxsbauann.jpg',
-        link: '/#',
+        link: '/sell/category/электростанции',
       },
       {
         title: 'Строительное оборудование',
-        image: '/xilvh1zxj50p1434qffaquamxsbauann.jpg',
-        link: '/#',
+        image: '/0t7ppxa89e0ey7eb5h1r3h1i6r8hjsqa.jpg',
+        link: '/sell/category/строительное-оборудование',
       },
       // {
       //   title: 'Продажа ГСМ и тех. жидкости',

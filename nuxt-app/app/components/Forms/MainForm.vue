@@ -191,7 +191,6 @@ const id = useId()
             'shadow-sm hover:shadow-md',
             formErrors.phone ? 'border-red-500 bg-red-50' : 'border-blue-300 hover:border-blue-800',
           ]"
-          @input="clearError('phone')"
         />
         <p v-if="formErrors.phone" class="text-red-500 text-xs mt-1 md:mt-2 flex items-center">
           <Icon name="mdi:alert-circle" class="mr-1" />

@@ -97,7 +97,7 @@ export default defineEventHandler(async event => {
         <p><strong>ФИО:</strong> ${fio}</p>
         <p><strong>Телефон:</strong> ${phone}</p>
         <p><strong>Тип:</strong> ${type}</p>
-        <p><strong>Тип:</strong> ${to}</p>
+        <p><strong>кому:</strong> ${to}</p>
         <p><strong>Сообщение:</strong></p>
         <p style="white-space: pre-line;">${text}</p>
         <hr>
