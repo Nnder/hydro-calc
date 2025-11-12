@@ -39,7 +39,7 @@ const contacts = [
               loading="lazy"
             />
             <NuxtImg 
-              src="/full_logo.svg" 
+              src="/athydro.svg" 
               alt="Логотип компании"
               class="hidden md:block w-40 lg:w-48 h-auto"
               width="192"

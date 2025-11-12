@@ -53,7 +53,7 @@
             <div class="relative">
               <div class="absolute -inset-4 rounded-2xl"></div>
               <NuxtImg
-                src="full_logo_text.svg"
+                src="/athydro.svg"
                 alt="ООО АбсолютТехно - ремонт и продажа гидроцилиндров"
                 class="w-full h-auto object-cover relative z-10 rounded-lg"
                 loading="lazy"
