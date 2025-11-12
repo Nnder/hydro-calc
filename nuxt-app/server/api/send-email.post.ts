@@ -3,9 +3,9 @@ import { defineEventHandler, readMultipartFormData, createError } from 'h3'
 import nodemailer from 'nodemailer'
 
 const mailType = {
-  'Kyzma-Ivakin@AThydro-nt.ru': ['Изготовление', 'Ремонт', 'Консультация', 'Выездная служба'],
-  'absoluttehnodir@gmail.com': ['Продажа', 'Ремонт', 'Коммерческое предложение'],
-  'a6623142903@yandex.ru': ['Изготовление', 'Ремонт'],
+  'Kyzma-Ivakin@AThydro-nt.ru': ['Изготовление', 'Продажа', 'Ремонт', 'Консультация', 'Выездная служба'],
+  'absoluttehnodir@gmail.com': ['Продажа запасных запчастей'],
+  'a6623142903@yandex.ru': ['Продажа TSS', 'Коммерческое предложение'],
 }
 
 function findMailByType(mailType, type) {
@@ -87,7 +87,7 @@ export default defineEventHandler(async event => {
 
     // Проверяем подключение
     await transporter.verify()
-
+    // to ||
     const mailOptions = {
       from: config.smtpUser,
       to: 'egoravyyy@yandex.ru',
@@ -96,6 +96,8 @@ export default defineEventHandler(async event => {
         <h2>Новая заявка с сайта</h2>
         <p><strong>ФИО:</strong> ${fio}</p>
         <p><strong>Телефон:</strong> ${phone}</p>
+        <p><strong>Тип:</strong> ${type}</p>
+        <p><strong>Тип:</strong> ${to}</p>
         <p><strong>Сообщение:</strong></p>
         <p style="white-space: pre-line;">${text}</p>
         <hr>

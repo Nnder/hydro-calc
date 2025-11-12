@@ -89,7 +89,7 @@ const handleOffer = () => {
   }
 
   newData(result)
-  open(false, 'Продажа')
+  open(false, 'Продажа TSS')
 }
 
 useHead({
