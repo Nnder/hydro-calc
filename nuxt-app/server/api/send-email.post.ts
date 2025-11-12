@@ -2,6 +2,21 @@
 import { defineEventHandler, readMultipartFormData, createError } from 'h3'
 import nodemailer from 'nodemailer'
 
+const mailType = {
+  'Kyzma-Ivakin@AThydro-nt.ru': ['Изготовление', 'Ремонт', 'Консультация', 'Выездная служба'],
+  'absoluttehnodir@gmail.com': ['Продажа', 'Ремонт', 'Коммерческое предложение'],
+  'a6623142903@yandex.ru': ['Изготовление', 'Ремонт'],
+}
+
+function findMailByType(mailType, type) {
+  for (const key in mailType) {
+    if (mailType[key].includes(type)) {
+      return key
+    }
+  }
+  return null
+}
+
 export default defineEventHandler(async event => {
   try {
     // Читаем multipart form data
@@ -30,9 +45,11 @@ export default defineEventHandler(async event => {
       }
     }
 
-    console.log('Parsed fields:', fields)
+    const { fio, phone, text, email, company, type } = fields
 
-    const { fio, phone, text, email, company } = fields
+    const to = findMailByType(mailType, type)
+
+    console.log('Parsed fields:', to, fields)
 
     // Валидация
     if (!fio || !phone || !text) {
@@ -79,8 +96,6 @@ export default defineEventHandler(async event => {
         <h2>Новая заявка с сайта</h2>
         <p><strong>ФИО:</strong> ${fio}</p>
         <p><strong>Телефон:</strong> ${phone}</p>
-        <p><strong>Email:</strong> ${email || 'Не указан'}</p>
-        <p><strong>Компания:</strong> ${company || 'Не указана'}</p>
         <p><strong>Сообщение:</strong></p>
         <p style="white-space: pre-line;">${text}</p>
         <hr>
