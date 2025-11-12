@@ -8,7 +8,7 @@
   <Stages :steps="repairSteps" :globalTitle="globalTitle" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <!-- <Accordion data-aos="fade-up" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Ремонт" data-aos="fade-up" />
 </template>
 
 <script setup>
@@ -119,6 +119,7 @@ const blockData = {
   buttonText: 'Связаться с нами',
   imageUrl: '/ekskavator.png',
   imageAlt: 'ремонт оборудования',
+  typeContact: 'Ремонт',
 }
 </script>
 

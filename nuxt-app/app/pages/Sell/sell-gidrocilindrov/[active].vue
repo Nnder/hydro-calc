@@ -42,13 +42,7 @@ const blockData = {
     src: '/3d/preload/hydrocilinder.png',
     alt: 'Гидроцилиндр 3д предзагрузка',
   },
-}
-
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Подбор и продажа гидроцилиндров',
-  description:
-    'Профессиональная продажа гидравлических цилиндров в Нижнем Тагиле! Компания «ООО АбсолютТехно» предлагает качественные гидроцилиндры по конкурентоспособным ценам с доставкой по всей Свердловской области.',
+  typeContact: 'Продажа',
 }
 
 const blockDataText = {
@@ -69,6 +63,7 @@ const slider = {
   features: ['Подбор по техпараметрам', 'Гарантия качества', 'Техническая поддержка'],
   buttonText: 'Оставить заявку',
   additionalInfo: 'Изготовление под заказ',
+  type: 'Продажа',
 }
 
 const bannerProps = {
@@ -224,5 +219,5 @@ const bannerProps = {
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact />
+  <Contact type="Продажа" />
 </template>

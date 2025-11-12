@@ -29,13 +29,7 @@ const blockData = {
   buttonText: 'Подобрать фильтр',
   imageUrl: '/filtra/filtra2.png',
   imageAlt: 'гидравлические фильтры',
-}
-
-const mainSlideData = {
-  src: '/recambios-coches1.jpg',
-  title: 'Профессиональная продажа фильтров',
-  description:
-    'Профессиональная продажа фильтров и фильтроэлементов в Нижнем Тагиле! Компания «ООО АбсолютТехно» предлагает качественные фильтры по конкурентоспособным ценам с доставкой по всей Свердловской области.',
+  typeContact: 'Продажа',
 }
 
 const blockDataText = {
@@ -53,6 +47,7 @@ const slider = {
   features: ['Подбор по степени очистки', 'Гарантия эффективности', 'Техническая поддержка'],
   buttonText: 'Оставить заявку',
   additionalInfo: 'Регулярное обслуживание',
+  type: 'Продажа',
 }
 
 const bannerProps = {
@@ -191,5 +186,5 @@ const bannerProps = {
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Продажа" data-aos="fade-up" />
 </template>

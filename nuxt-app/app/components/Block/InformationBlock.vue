@@ -37,7 +37,7 @@ defineProps({
           </div>
 
           <button
-            @click="open()"
+            @click="open(true, blockData.typeContact)"
             class="border-2 border-white text-black w-full sm:w-auto px-6 py-2 rounded-lg bg-white hover:bg-hydro-power hover:text-white transition-colors duration-300"
           >
             {{ blockData.buttonText }}

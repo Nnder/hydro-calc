@@ -796,6 +796,7 @@ const blockData = {
   buttonText: 'Заказать РВД',
   imageUrl: '/rvd_3.png',
   imageAlt: 'Производство рукавов высокого давления',
+  typeContact: 'Изготовление',
 }
 
 const mainSlideData = {
@@ -813,5 +814,5 @@ const mainSlideData = {
   <RvdTableSlider :tables="tableDataObjects" />
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
   <AccessoriesGrid :title="'Дополнительные комплектующие для РВД'" :items="items" data-aos="fade-up" />
-  <Contact data-aos="fade-up" />
+  <Contact type="Изготовление" data-aos="fade-up" />
 </template>

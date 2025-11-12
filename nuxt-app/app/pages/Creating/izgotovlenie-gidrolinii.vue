@@ -34,6 +34,7 @@ const blockData = {
   buttonText: 'Заказать изготовление',
   imageUrl: '/Production_of_high_pressure_hoses.webp',
   imageAlt: 'Производство рукавов высокого давления',
+  typeContact: 'Изготовление',
 }
 
 const mainSlideData = {
@@ -105,5 +106,5 @@ const steps = [
     class="mb-8"
   />
 
-  <Contact data-aos="fade-up" />
+  <Contact type="Изготовление" data-aos="fade-up" />
 </template>

@@ -16,7 +16,7 @@
   <PartnerBlock :blockDataText="blockDataText" variant="default" :image-url="'/partners_1.webp'" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <!-- <Accordion data-aos="fade-up" v-model="fagItems" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Ремонт" data-aos="fade-up" />
 </template>
 
 <script setup>
@@ -157,6 +157,7 @@ const blockData = {
     src: '/3d/preload/hydrocilinder.png',
     alt: 'Гидроцилиндр 3д предзагрузка',
   },
+  typeContact: 'Ремонт',
 }
 
 const MainCalculatorImage = ref('/calculator/1.png')

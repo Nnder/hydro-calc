@@ -1,6 +1,5 @@
 <script setup>
 import Consultation from '~/components/Block/Consultation.vue'
-import { findCategoryByName } from '~/helpers/treeSearch'
 
 definePageMeta({
   path: `/sell/category/:category?`,

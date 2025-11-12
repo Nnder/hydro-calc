@@ -43,6 +43,7 @@ const blockData = {
     src: '/3d/preload/hydronanos.png',
     alt: 'Гидронасос 3д предзагрузка',
   },
+  typeContact: 'Продажа',
 }
 
 const blockDataText = {
@@ -63,6 +64,7 @@ const slider = {
   features: ['Подбор по параметрам', 'Гарантия 12 месяцев', 'Техническая консультация'],
   buttonText: 'Оставить заявку',
   additionalInfo: 'Доставка по области',
+  type: 'Продажа',
 }
 
 const bannerProps = {
@@ -207,5 +209,5 @@ const bannerProps = {
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact />
+  <Contact type="Продажа" />
 </template>

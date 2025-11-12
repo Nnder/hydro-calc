@@ -159,6 +159,7 @@ const blockData = {
       text: 'пусконаладочные работы',
     },
   ],
+  typeContact: 'Изготовление',
 }
 
 const mainSlideData = {
@@ -232,5 +233,5 @@ const blockDataText = {
   />
   <!-- <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" /> -->
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Изготовление" data-aos="fade-up" />
 </template>

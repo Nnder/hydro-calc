@@ -97,7 +97,7 @@ const servicesSubMenu = [
       },
       {
         id: 'cylindry',
-        name: 'Гидроцилиндров',
+        name: 'Изготовление гидроцилиндров',
         link: '/izgotovlenie-hydrocylindrov',
       },
       {

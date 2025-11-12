@@ -42,7 +42,7 @@
         </p>
 
         <button
-          @click="open()"
+          @click="open(true, blockData.typeContact)"
           class="border-2 border-blue-600 w-full sm:w-auto text-white px-6 py-2 rounded-lg bg-blue-600 hover:bg-white hover:text-blue-600 transition-colors duration-300"
         >
           {{ blockData.buttonText }}

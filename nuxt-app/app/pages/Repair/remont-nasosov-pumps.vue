@@ -17,7 +17,7 @@
   <PartnerBlock :blockDataText="blockDataText" data-aos="fade-up" />
   <!-- <PortfolioSection /> -->
   <!-- <Accordion data-aos="fade-up" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Ремонт" data-aos="fade-up" />
 </template>
 
 <script setup>
@@ -147,6 +147,7 @@ const blockData = {
     src: '/3d/preload/hydronanos.png',
     alt: 'Гидронасос 3д предзагрузка',
   },
+  typeContact: 'Ремонт',
 }
 
 const hydrantParts = ref([

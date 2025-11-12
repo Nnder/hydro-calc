@@ -28,6 +28,7 @@ const blockData = {
   buttonText: 'Подобрать уплотнение',
   imageUrl: 'images/uplotnenie/i.png',
   imageAlt: 'гидравлические уплотнения',
+  typeContact: 'Продажа',
 }
 
 const blockDataText = {
@@ -49,6 +50,7 @@ const slider = {
   features: ['Подбор за 30 минут', 'Гарантия качества', 'Оригиналы и аналоги'],
   buttonText: 'Оставить заявку',
   additionalInfo: 'Быстрая доставка',
+  type: 'Продажа',
 }
 
 const handlePartSelected = ({ part, index }) => {
@@ -287,5 +289,5 @@ const items = ref([
   <!-- блок картинками в ряд на всю ширину при нажатии нужно чтобы раскрывалась элемента появлялся текст -->
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact />
+  <Contact type="Продажа" />
 </template>

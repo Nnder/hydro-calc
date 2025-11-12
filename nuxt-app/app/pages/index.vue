@@ -187,7 +187,7 @@ const slide = {
   <Advantages data-aos="fade-up" />
 
   <!-- {{ data }} -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Консультация" data-aos="fade-up" />
   <Gis data-aos="fade-up" />
 </template>
 

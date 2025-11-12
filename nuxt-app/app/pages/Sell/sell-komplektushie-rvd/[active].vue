@@ -28,11 +28,7 @@ const bannerProps = {
       title: 'Фланцы SAE',
       type: 'Фланец',
       pdfUrl: '/pdf/fittingi-dlya-rvd.pdf',
-      images: [
-        '/img_omt_flange.jpg',
-        '/Фланцы_SAE.jpg',
-        '/PF-DFS-ST-U-3000-6000-PSI-900x900-1753825338202.jpg',
-      ],
+      images: ['/img_omt_flange.jpg', '/Фланцы_SAE.jpg', '/PF-DFS-ST-U-3000-6000-PSI-900x900-1753825338202.jpg'],
       parameters: [
         { label: 'Размер', value: 'SAE от 1/2" до 4"' },
         { label: 'Давление', value: 'до 600 бар' },
@@ -101,11 +97,7 @@ const bannerProps = {
       title: 'Защитные оболочки',
       type: 'Оболочки',
       pdfUrl: '/pdf/zaglushki-perehodniki.pdf',
-      images: [
-        '/H92e96c60e0594cf381a489901dbbe978U.jpg',
-        '/a1frR3A4Jyx5R3J1CsXjOUb_c5E-1920.jpg',
-        '/asdasd.png',
-      ],
+      images: ['/H92e96c60e0594cf381a489901dbbe978U.jpg', '/a1frR3A4Jyx5R3J1CsXjOUb_c5E-1920.jpg', '/asdasd.png'],
       parameters: [
         { label: 'Материал', value: 'Полиуретан, ПВХ, Силикон-Стеклоткань' },
         { label: 'Диаметр', value: '6-52 мм' },
@@ -124,11 +116,7 @@ const bannerProps = {
       title: 'Переходник',
       type: 'Переходники',
       pdfUrl: '/pdf/flantsy-gidravlicheskie.pdf',
-      images: [
-        '/trubnaya-rezba-37-1.jpg',
-        '/3634_image_big.jpeg',
-        '/PF-XAH-900x900-1754062833559.jpg',
-      ],
+      images: ['/trubnaya-rezba-37-1.jpg', '/3634_image_big.jpeg', '/PF-XAH-900x900-1754062833559.jpg'],
       parameters: [
         { label: 'Типы резьб', value: 'Метрическая, дюймовая' },
         { label: 'Материал', value: 'Сталь, нержавеющая сталь' },
@@ -164,8 +152,7 @@ const bannerProps = {
         'Защищают от попадания загрязнений и влаги, предотвращают утечки при хранении и транспортировке компонентов.',
       ],
       gridItem: {
-        image:
-          '/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg',
+        image: '/PF-XVHLL-XVHL-XVHS-900x900-1754084885996.jpg',
         title: 'Заглушка',
       },
     },
@@ -197,6 +184,7 @@ const blockData = {
   buttonText: 'Подобрать комплектующие',
   imageUrl: '/fluidex-dicsa-gallery-1-2.png',
   imageAlt: 'комплектующие для РВД',
+  typeContact: 'Продажа',
 }
 
 const blockDataText = {
@@ -214,6 +202,7 @@ const slider = {
   features: ['Подбор за 30 минут', 'Гарантия качества', 'Техническая консультация'],
   buttonText: 'Оставить заявку',
   additionalInfo: 'Монтаж и обслуживание',
+  type: 'Продажа',
 }
 </script>
 
@@ -241,5 +230,5 @@ const slider = {
 
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
-  <Contact data-aos="fade-up" />
+  <Contact type="Продажа" data-aos="fade-up" />
 </template>

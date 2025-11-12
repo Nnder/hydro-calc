@@ -57,6 +57,7 @@ const blockData = {
     src: '/3d/preload/hydrocilinder2.png',
     alt: 'Гидроцилиндр 3д предзагрузка',
   },
+  typeContact: 'Изготовление',
 }
 
 const mainSlideData = {
@@ -75,5 +76,5 @@ const mainSlideData = {
   <!-- <ProductionEquipment data-aos="fade-up" /> -->
   <ProductionDescription :description="description" :image-url="imageUrl" :title="title" data-aos="fade-up" />
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Изготовление" data-aos="fade-up" />
 </template>

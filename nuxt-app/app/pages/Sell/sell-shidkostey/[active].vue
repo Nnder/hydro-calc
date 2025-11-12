@@ -31,6 +31,7 @@ const blockData = {
   buttonText: 'Подобрать жидкость',
   imageUrl: 'images/uplotnenie/i.png',
   imageAlt: 'ГСМ и технические жидкости',
+  typeContact: 'Продажа',
 }
 
 const blockDataText = {
@@ -48,6 +49,7 @@ const slider = {
   features: ['Подбор по спецификациям', 'Сертификаты качества', 'Техническое консультирование'],
   buttonText: 'Оставить заявку',
   additionalInfo: 'Доставка и хранение',
+  type: 'Продажа',
 }
 
 const sectionsData = {
@@ -914,5 +916,5 @@ const currentPosition = computed(() => sectionsData[activeSection.value].positio
   <InformationBlockLeft :blockData="blockData" position="left" data-aos="fade-up" />
 
   <!-- <AccessoriesGrid :items="items" data-aos="fade-up" /> -->
-  <Contact data-aos="fade-up" />
+  <Contact type="Продажа" data-aos="fade-up" />
 </template>

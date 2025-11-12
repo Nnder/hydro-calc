@@ -42,7 +42,7 @@
   <ParametersGridSpecial :parameters="currentParameters" :header="currentHeader" data-aos="fade-up" />
 
   <PartnerBlockSpecial :block-data-text="currentPartnerBlock" data-aos="fade-up" />
-  <Contact data-aos="fade-up" />
+  <Contact type="Ремонт" data-aos="fade-up" />
 </template>
 
 <script setup>
@@ -191,6 +191,7 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2
         model.rotation.y = Math.PI
       },
+      typeContact: 'Ремонт',
     },
     parameters: [
       { value: 'до 3 м³', description: 'Объем восстанавливаемых ковшей' },
@@ -326,6 +327,7 @@ const sectionsData = {
         model.rotation.y = Math.PI
       },
       scale: 0.5,
+      typeContact: 'Ремонт',
     },
     parameters: [
       { value: 'до 12 kN·м', description: 'Крутящий момент' },
@@ -467,6 +469,7 @@ const sectionsData = {
         model.rotation.x = Math.PI / 2.2
       },
       scale: 0.45,
+      typeContact: 'Ремонт',
     },
     parameters: [
       { value: 'до 5000 Дж', description: 'Энергия удара после восстановления' },

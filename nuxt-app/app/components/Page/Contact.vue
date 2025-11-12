@@ -27,11 +27,15 @@
           <div class="p-4 sm:p-6 lg:p-8 xl:p-10 bg-white/90 relative order-2 lg:order-1">
             <div class="relative z-10">
               <div class="text-center lg:text-left mb-4 sm:mb-6 lg:mb-8">
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">Бесплатная консультация</h3>
+                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
+                  Бесплатная консультация
+                </h3>
                 <div
                   class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-5 border border-blue-100"
                 >
-                  <p class="text-gray-600 mb-2 sm:mb-3 font-medium text-xs sm:text-sm lg:text-base">Оставьте заявку и получите:</p>
+                  <p class="text-gray-600 mb-2 sm:mb-3 font-medium text-xs sm:text-sm lg:text-base">
+                    Оставьте заявку и получите:
+                  </p>
                   <ul class="text-xs sm:text-sm text-gray-500 space-y-1 sm:space-y-2">
                     <li class="flex items-center">
                       <div
@@ -61,12 +65,14 @@
                 </div>
               </div>
 
-              <MainForm />
+              <MainForm :type="type" />
             </div>
           </div>
 
           <div class="relative order-1 lg:order-2">
-            <div class="h-48 sm:h-64 md:h-80 lg:h-full max-h-[700px] xl:h-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
+            <div
+              class="h-48 sm:h-64 md:h-80 lg:h-full max-h-[700px] xl:h-full flex items-center justify-center p-4 sm:p-6 lg:p-8"
+            >
               <div class="relative w-full h-full">
                 <NuxtImg
                   src="/callback.webp"
@@ -153,24 +159,13 @@
 <script setup>
 import MainForm from '../Forms/MainForm.vue'
 
-const form = ref({
-  name: '',
-  phone: '',
-  description: '',
-  agreement: false,
-  files: [],
+defineProps({
+  type: {
+    type: String,
+    default: '',
+  },
 })
 
-const formErrors = ref({
-  name: '',
-  phone: '',
-})
-
-function handleFiles(event) {
-  form.value.files = Array.from(event.target.files)
-}
-
-const isSending = ref(false)
 const showSuccess = ref(false)
 
 const benefits = [
@@ -195,58 +190,6 @@ const benefits = [
     description: 'После выполнения работ',
   },
 ]
-
-const validateForm = () => {
-  let isValid = true
-  formErrors.value = { name: '', phone: '' }
-
-  if (!form.value.name.trim()) {
-    formErrors.value.name = 'Введите ваше имя'
-    isValid = false
-  } else if (form.value.name.trim().length < 2) {
-    formErrors.value.name = 'Имя должно быть не короче 2 символов'
-    isValid = false
-  }
-
-  const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/
-  if (!form.value.phone.trim()) {
-    formErrors.value.phone = 'Введите номер телефона'
-    isValid = false
-  } else if (!phoneRegex.test(form.value.phone.replace(/\s/g, ''))) {
-    formErrors.value.phone = 'Введите корректный номер телефона'
-    isValid = false
-  }
-
-  return isValid
-}
-
-const clearError = field => {
-  if (formErrors.value[field]) {
-    formErrors.value[field] = ''
-  }
-}
-
-const submitForm = async () => {
-  if (!validateForm()) return
-
-  isSending.value = true
-
-  try {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    form.value = { name: '', phone: '', description: '', agreement: false }
-
-    showSuccess.value = true
-    setTimeout(() => {
-      showSuccess.value = false
-    }, 5000)
-  } catch (error) {
-    console.error('Ошибка отправки:', error)
-    alert('Произошла ошибка при отправке. Попробуйте еще раз.')
-  } finally {
-    isSending.value = false
-  }
-}
 </script>
 
 <style scoped>

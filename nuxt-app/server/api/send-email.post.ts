@@ -15,7 +15,7 @@ export default defineEventHandler(async event => {
       })
     }
 
-    console.log('Raw form data:', JSON.stringify(formData, null, 2))
+    // console.log('Raw form data:', JSON.stringify(formData, null, 2))
 
     // Парсим данные формы
     const fields: any = {}
@@ -26,7 +26,7 @@ export default defineEventHandler(async event => {
         fields[field.name] = field.data.toString('utf-8')
 
         // Логируем каждое поле для отладки
-        console.log(`Field: ${field.name} = ${fields[field.name]}`)
+        // console.log(`Field: ${field.name} = ${fields[field.name]}`)
       }
     }
 

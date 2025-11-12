@@ -6,12 +6,24 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  type: {
+    type: String,
+    default: '',
+  },
+})
+
+const form = ref({
+  name: '',
+  phone: '',
+  description: '',
+  agreement: false,
+  type: props.type || '',
+  files: [],
 })
 
 watch(
   () => [calculatorData.value.name, calculatorData.value.selected.join(',')],
-  ([name, selected, type]) => {
-    form.value.type = calculatorData.value.type
+  ([name, selected]) => {
     if (selected.length) {
       form.value.description = `${name}:\n${calculatorData.value.selected.join('\n')}`
     } else {
@@ -19,15 +31,6 @@ watch(
     }
   }
 )
-
-const form = ref({
-  name: '',
-  phone: '',
-  description: '',
-  agreement: false,
-  type: '',
-  files: [],
-})
 
 const formErrors = ref({
   name: '',
@@ -89,14 +92,9 @@ const submitForm = async () => {
     formData.append('fio', form.value.name) // name -> fio
     formData.append('phone', form.value.phone) // phone остается
     formData.append('text', form.value.description) // description -> text
+    formData.append('type', form.value.type || calculatorData.value.type)
 
-    // Если есть другие поля, добавляем их
-    if (form.value.email) {
-      formData.append('email', form.value.email)
-    }
-    if (form.value.company) {
-      formData.append('company', form.value.company)
-    }
+    console.log(calculatorData.value.type, form.value.type, props.type, 'wtf')
 
     // Добавляем файлы, если они есть
     if (form.value.files && form.value.files.length > 0) {

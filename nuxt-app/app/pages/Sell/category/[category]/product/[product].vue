@@ -84,11 +84,12 @@ const handleOffer = () => {
   const result = {
     name: `Выбранный товар`,
     selected: [`${selectedOffer.value.name} ${selectedOffer.value.price ? selectedOffer.value.price + ' ₽' : ''}`],
+    type: 'Продажа',
     // selected: ['- Диаметр поршня (мм): ' + selectedOffer.value.title],
   }
 
   newData(result)
-  open(false)
+  open(false, 'Продажа')
 }
 
 useHead({

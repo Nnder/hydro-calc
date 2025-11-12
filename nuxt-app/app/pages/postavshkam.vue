@@ -141,7 +141,7 @@
 
         <div class="text-center">
           <button
-            @click="open"
+            @click="open(true, 'Коммерческое предложение')"
             class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-xl transition-all duration-300 flex items-center justify-center mx-auto shadow-lg hover:shadow-xl"
           >
             <Icon name="mdi:file-send" class="w-6 h-6 mr-3" />

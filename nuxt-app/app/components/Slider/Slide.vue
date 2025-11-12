@@ -69,7 +69,7 @@ const { open } = useModal()
       <!-- Нижний блок -->
       <div class="flex flex-col gap-6 mt-4">
         <button
-          @click="open()"
+          @click="open(true, slider?.type)"
           class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap flex items-center"
         >
           {{ slider.buttonText || 'Заказать' }}
