@@ -23,20 +23,20 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-schema-org',
     'nuxt-aos',
-    // 'nuxt-yandex-metrika',
+    'nuxt-yandex-metrika',
     // '@dargmuesli/nuxt-cookie-control',
   ],
 
-  // yandexMetrika: {
-  //   id: '105118320',
-  //   // debug: process.env.NODE_ENV !== "production",
-  //   // delay: 0,
-  //   // cdn: false,
-  //   // verification: null, // Verification in Yandex Webmaster
-  //   // options: {
-  //   //   webvisor: true,
-  //   // },
-  // },
+  yandexMetrika: {
+    id: '105118320',
+    // debug: process.env.NODE_ENV !== "production",
+    // delay: 0,
+    // cdn: false,
+    // verification: null, // Verification in Yandex Webmaster
+    // options: {
+    //   webvisor: true,
+    // },
+  },
 
   vite: {
     build: {

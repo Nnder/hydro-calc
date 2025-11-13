@@ -48,11 +48,11 @@ useHead({
 useSchemaOrg([
   defineWebPage(),
   defineWebSite({
-    name: 'Nuxt SEO',
-    description: 'Nuxt SEO is a collection of hand-crafted Nuxt Modules to help you rank higher in search engines.',
+    name: 'Абсолют техно',
+    description: 'Торгово-промышленная организация занимающиеся гидравликой, рвд и гидролиниями.',
   }),
   defineOrganization({
-    name: 'Nuxt SEO',
+    name: 'Абсолют техно',
   }),
 ])
 </script>
