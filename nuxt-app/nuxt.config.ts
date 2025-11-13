@@ -416,6 +416,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Абсолют техно',
+      titleTemplate: undefined,
       htmlAttrs: {
         lang: 'ru',
       },

@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import Footer from '~/components/Footer/Footer.vue'
 import Header from '~/components/Header/Header.vue'
-import CookieConsent from '~/components/CookieConsent/CookieConsent.vue';
+import CookieConsent from '~/components/CookieConsent/CookieConsent.vue'
 
 const route = useRoute()
+useHead({
+  titleTemplate: '', // пустой шаблон
+})
 </script>
 
 <template>
