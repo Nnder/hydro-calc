@@ -14,7 +14,7 @@ import InformationBlockSpecialLinks from '~/components/SpecialPages/InformationB
 import AdSlide from '~/components/Slider/AdSlide.vue'
 
 useHead({
-  title: `АбсолютТехно ремонт продажа и изготовление гидравлики`,
+  title: `Ремонт продажа и изготовление гидравлики`,
   meta: [
     {
       name: 'description',
