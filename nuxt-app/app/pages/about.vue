@@ -12,7 +12,7 @@
               <div class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="600">
                 <div class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-3"></div>
                 <p>
-                  <strong class="text-blue-600">ООО "АбсолютТехно"</strong> - Торого-промышленная организация с
+                  <strong class="text-blue-600">ООО "АбсолютТехно"</strong> - Торгово-промышленная компания с
                   <strong>сфере ремонта, продаже и изготовлению</strong> гидроцилиндров оборудования. Компания имеет
                   большой опыт работы в данной сфере
                 </p>
