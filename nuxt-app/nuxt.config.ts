@@ -39,6 +39,19 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    plugins: [{
+      name: 'aos-client-prebundle',
+      configResolved(config) {
+        if (config.build.ssr) return
+        // Nuxt's environment config resets optimizeDeps.include in dev.
+        // AOS is CommonJS and needs conversion before the browser imports it.
+        for (const deps of [config.optimizeDeps, config.environments?.client?.optimizeDeps]) {
+          if (deps && !deps.include?.includes('aos')) {
+            deps.include = [...(deps.include || []), 'aos']
+          }
+        }
+      },
+    }],
     build: {
       chunkSizeWarningLimit: 500, // Лимит в КБ; по умолчанию 500
     },

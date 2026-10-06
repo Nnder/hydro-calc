@@ -1,89 +1,91 @@
 <template>
-  <div v-if="!isHydrated">
-    <!-- Fallback контент -->
-    <div class="h-[600px] flex items-center justify-center"></div>
-  </div>
-  <ClientOnly>
-    <swiper-container
-      v-show="isHydrated"
-      :loop="true"
-      :navigation="sm"
-      :pagination="true"
-      :preload-images="false"
-      class="swiper-with-video"
-      :autoplay="{
-        delay: 5000,
-        disableOnInteraction: true,
-      }"
-    >
-      <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
-        <div class="video-wrapper">
-          <video
-            :ref="el => setVideoRef(el, index)"
-            class="background-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            loading="lazy"
-          >
-            Ваш браузер не поддерживает видео.
-          </video>
-        </div>
+  <swiper-container
+    ref="swiperRef"
+    init="false"
+    :loop="true"
+    :navigation="sm"
+    :pagination="true"
+    :preload-images="false"
+    class="swiper-with-video"
+  >
+    <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
+      <div class="video-wrapper" aria-hidden="true">
+        <img
+          :src="slider.img"
+          alt=""
+          class="background-image"
+          :loading="index === 0 ? 'eager' : 'lazy'"
+          :fetchpriority="index === 0 ? 'high' : 'auto'"
+        />
+        <video
+          :ref="el => setVideoRef(el, index)"
+          class="background-video"
+          :class="{ 'is-playing': playingVideos[index] }"
+          :poster="slider.img"
+          @playing="playingVideos[index] = true"
+          @waiting="playingVideos[index] = false"
+          @error="playingVideos[index] = false"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
 
-        <div class="slide-content">
-          <div class="content-wrapper">
-            <!-- Верхний блок с тегом и заголовком -->
-            <div class="top-content">
-              <span class="tag" v-if="slider.tag">{{ slider.tag }}</span>
-              <h2 class="title">{{ slider.title }}</h2>
-            </div>
+      <div class="slide-content">
+        <div class="content-wrapper">
+          <!-- Верхний блок с тегом и заголовком -->
+          <div class="top-content">
+            <span class="tag" v-if="slider.tag">{{ slider.tag }}</span>
+            <h2 class="title">{{ slider.title }}</h2>
+          </div>
 
-            <!-- Центральный блок с текстом и списком -->
-            <div class="middle-content">
-              <p class="description">{{ slider.text }}</p>
+          <!-- Центральный блок с текстом и списком -->
+          <div class="middle-content">
+            <p class="description">{{ slider.text }}</p>
 
-              <ul class="features" v-if="slider.features">
-                <li v-for="(feature, i) in slider.features" :key="i">
-                  <Icon name="mdi-check-circle" color="primary" class="mr-2" />
-                  {{ feature }}
-                </li>
-              </ul>
-            </div>
+            <ul class="features" v-if="slider.features">
+              <li v-for="(feature, i) in slider.features" :key="i">
+                <Icon name="mdi-check-circle" color="primary" class="mr-2" />
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
 
-            <!-- Нижний блок с кнопкой и доп информацией -->
-            <div class="bottom-content">
-              <NuxtLink
-                :to="slider.link"
-                class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap flex items-center"
-              >
-                {{ slider.buttonText || 'Заказать' }}
-                <Icon name="mdi-arrow-right" class="ml-2" />
-              </NuxtLink>
+          <!-- Нижний блок с кнопкой и доп информацией -->
+          <div class="bottom-content">
+            <NuxtLink
+              :to="slider.link"
+              class="w-fit uppercase py-3 px-5 shadow-xl text-white bg-hydro-power rounded-xl font-semibold text-base md:text-lg whitespace-nowrap flex items-center"
+            >
+              {{ slider.buttonText || 'Заказать' }}
+              <Icon name="mdi-arrow-right" class="ml-2" />
+            </NuxtLink>
 
-              <div class="additional-info" v-if="slider.additionalInfo">
-                <Icon name="mdi-information-outline" size="small" class="mr-1" />
-                {{ slider.additionalInfo }}
-              </div>
+            <div class="additional-info" v-if="slider.additionalInfo">
+              <Icon name="mdi-information-outline" size="small" class="mr-1" />
+              {{ slider.additionalInfo }}
             </div>
           </div>
         </div>
-      </swiper-slide>
-    </swiper-container>
-  </ClientOnly>
+      </div>
+    </swiper-slide>
+  </swiper-container>
 </template>
 
 <script setup>
 import Hls from 'hls.js'
-import { ref, onMounted, onUnmounted, nextTick } from 'vue' // Добавил nextTick
-// import { SwiperSlide } from 'swiper/vue' // Не используется, убрал
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
 const { sm } = useScreenSize()
-const { open } = useModal()
-const isHydrated = ref(false)
+const swiperRef = ref(null)
+const playingVideos = ref([])
+let disposed = false
 const videoRefs = ref([]) // Массив ссылок на видео элементы
 
 // Функция для установки ref по индексу
@@ -181,7 +183,7 @@ const sliders = [
 ]
 
 // Функция для инициализации видео (HLS или обычное MP4)
-const initVideo = (video, videoSrc) => {
+const initVideo = (video, videoSrc, index) => {
   if (!video || !videoSrc) return
 
   if (videoSrc.endsWith('.m3u8')) {
@@ -194,7 +196,11 @@ const initVideo = (video, videoSrc) => {
 
       // Обработка ошибок
       hls.on(Hls.Events.ERROR, (event, data) => {
-        console.error('HLS Error:', data)
+        if (data.fatal) {
+          playingVideos.value[index] = false
+          hls.destroy()
+          delete video.hls
+        }
       })
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       // Fallback для Safari (native HLS)
@@ -218,37 +224,33 @@ const initVideo = (video, videoSrc) => {
   }
 }
 
-onMounted(() => {
-  isHydrated.value = true
-  // Динамический импорт Swiper
-  import('swiper/element/bundle').then(({ register }) => {
-    register()
+onMounted(async () => {
+  const { register } = await import('swiper/element/bundle')
+  if (disposed) return
+  register()
+  await nextTick()
+  if (disposed) return
+  Object.assign(swiperRef.value, {
+    autoplay: { delay: 5000, disableOnInteraction: true },
   })
+  swiperRef.value?.initialize()
 
-  // Инициализируем видео для всех слайдов после гидратации
-  nextTick(() => {
-    sliders.forEach((slider, index) => {
-      const video = videoRefs.value[index]
-      if (video) {
-        initVideo(video, slider.videoSrc)
-      }
-    })
+  sliders.forEach((slider, index) => {
+    initVideo(videoRefs.value[index], slider.videoSrc, index)
   })
 })
 
-// Очистка при размонтировании
-onUnmounted(() => {
+onBeforeUnmount(() => {
+  disposed = true
   videoRefs.value.forEach(video => {
-    if (video && video.hls) {
-      video.hls.destroy()
-      delete video.hls
-    }
+    video?.hls?.destroy()
   })
 })
 </script>
 
 <style scoped>
 .swiper-with-video {
+  display: block;
   width: 100%;
   height: 600px;
   position: relative;
@@ -281,18 +283,33 @@ onUnmounted(() => {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.background-image,
 .background-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  opacity: 0.9;
-  z-index: -1;
+}
+
+.background-video {
+  opacity: 0;
+}
+
+.background-video.is-playing {
+  opacity: 1;
+}
+
+.video-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Keep the first slide visible before Swiper finishes loading. */
+swiper-container:not(:defined) swiper-slide:not(:first-child) {
+  display: none;
 }
 
 .slide-content {
