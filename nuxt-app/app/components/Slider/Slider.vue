@@ -1,32 +1,19 @@
 <template>
-  <div v-if="!isHydrated">
-    <!-- Fallback контент -->
-    <div class="h-[600px] flex items-center justify-center"></div>
-  </div>
-  <ClientOnly>
-    <swiper-container
-      v-show="isHydrated"
-      :loop="true"
-      :navigation="sm"
-      :pagination="true"
-      :preload-images="false"
-      class="swiper-with-video"
-      :autoplay="{
-        delay: 5000,
-        disableOnInteraction: true,
-      }"
-    >
+  <div ref="heroRef" class="slider-hero">
+    <swiper-container ref="swiperRef" init="false" class="swiper-with-video" :class="{ 'slider-ready': sliderReady }" @swiperslidechange="onSlideChange">
       <swiper-slide class="video-slide" v-for="(slider, index) in sliders" :key="slider.title + index">
         <div class="video-wrapper">
+          <img :loading="index === 0 ? 'eager' : 'lazy'" :src="slider.img" alt="" class="slide-poster"
+            width="1600" height="896" :fetchpriority="index === 0 ? 'high' : 'auto'" decoding="async" />
           <video
             :ref="el => setVideoRef(el, index)"
             class="background-video"
-            autoplay
             muted
             loop
             playsinline
-            preload="metadata"
-            loading="lazy"
+            preload="none"
+            :class="{ 'background-video--ready': readyIndex === index }"
+            @playing="onPlaying(index)"
           >
             Ваш браузер не поддерживает видео.
           </video>
@@ -71,32 +58,35 @@
         </div>
       </swiper-slide>
     </swiper-container>
-  </ClientOnly>
+  </div>
 </template>
 
 <script setup>
-import Hls from 'hls.js'
-import { ref, onMounted, onUnmounted, nextTick } from 'vue' // Добавил nextTick
-// import { SwiperSlide } from 'swiper/vue' // Не используется, убрал
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-const { sm } = useScreenSize()
-const { open } = useModal()
-const isHydrated = ref(false)
-const videoRefs = ref([]) // Массив ссылок на видео элементы
-
-// Функция для установки ref по индексу
-const setVideoRef = (el, index) => {
-  if (el) {
-    videoRefs.value[index] = el
-  }
+const heroRef = ref(null)
+const swiperRef = ref(null)
+const videoRefs = []
+const sliderReady = ref(false)
+const activeIndex = ref(0)
+const readyIndex = ref(-1)
+let hls = null
+let generation = 0
+let disposed = false
+let inViewport = true
+let observer
+let hlsModule
+const setVideoRef = (el, index) => { videoRefs[index] = el }
+const onPlaying = index => {
+  if (index === activeIndex.value) readyIndex.value = index
 }
 
 const sliders = [
   {
     videoSrc: '/videos/Ремонт_гидроцилиндра/Ремонт_гидроцилиндра.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     tag: 'Профессионально',
     title: 'Ремонт гидроцилиндров',
     text: 'Полный комплекс услуг по восстановлению гидравлики',
@@ -107,7 +97,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/Испытательный_стенд/Испытательный_стенд.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     tag: 'Качественно',
     title: 'Испытательный стенд для гидронасосов и гидроцилиндров',
     // text: 'Специализированный сервис для промышленной техники',
@@ -117,7 +107,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/конструкторская_документация/конструкторская_документация.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     title: 'Разработка конструкторской документации и изготовление гидронасосных станций',
     // text: 'Регулярный сервис для бесперебойной работы',
     features: ['Референт лист', 'Опыт более 10 лет'],
@@ -126,7 +116,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/обжим_рвд/обжим_рвд.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     title: 'Изготовление рукава высокого давления (рвд)',
     // text: 'Регулярный сервис для бесперебойной работы',
     features: ['Любой обьем', 'Любая сложность'],
@@ -135,7 +125,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/Ремонт_гидронасоса/Ремонт_гидронасоса.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     tag: 'Профессионально',
     title: 'Ремонт гидронасосов',
     text: 'Полный комплекс услуг по восстановлению гидронасосов',
@@ -146,7 +136,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/Ремонт_гидромотора/Ремонт_гидромотора.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     tag: 'Профессионально',
     title: 'Ремонт гидромоторов',
     text: 'Полный комплекс услуг по восстановлению гидромоторов',
@@ -158,7 +148,7 @@ const sliders = [
   {
     videoSrc:
       '/videos/навесное_оборудование_ковкши_гидромолоты_и_гидровращатели/навесное_оборудование_ковкши_гидромолоты_и_гидровращатели.m3u8',
-    img: '/images/standVideo/video3photo.png',
+    img: '/images/slider/repair-poster.webp',
     tag: 'Профессионально',
     title: 'Ремонт навестного оборудования',
     text: 'Полный комплекс услуг по восстановлению ковшей, гидромолотов и гидровращателей',
@@ -169,7 +159,7 @@ const sliders = [
   },
   {
     videoSrc: '/videos/сварочные_токартные_работы/сварочные_токартные_работы.m3u8',
-    img: '/photo_1.jpg',
+    img: '/images/slider/welding-poster.webp',
     tag: 'Профессионально',
     title: 'Сварочные и токарные работы',
     text: 'Полный комплекс услуг по восстановлению методом наплавки',
@@ -180,74 +170,120 @@ const sliders = [
   },
 ]
 
-// Функция для инициализации видео (HLS или обычное MP4)
-const initVideo = (video, videoSrc) => {
-  if (!video || !videoSrc) return
-
-  if (videoSrc.endsWith('.m3u8')) {
-    // HLS для потокового видео
-    if (Hls.isSupported()) {
-      const hls = new Hls()
-      hls.loadSource(videoSrc)
-      hls.attachMedia(video)
-      video.hls = hls // Сохраняем для destroy
-
-      // Обработка ошибок
-      hls.on(Hls.Events.ERROR, (event, data) => {
-        console.error('HLS Error:', data)
-      })
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // Fallback для Safari (native HLS)
-      video.src = videoSrc
-    } else {
-      console.error('HLS не поддерживается в этом браузере')
+// Release the previous player and requests before loading another slide.
+const stopVideo = () => {
+  generation++
+  readyIndex.value = -1
+  hls?.destroy()
+  hls = null
+  videoRefs.forEach(video => {
+    if (!video) return
+    video.pause()
+    if (video.hasAttribute('src')) {
+      video.removeAttribute('src')
+      video.load()
     }
-  } else {
-    // Обычное видео (MP4 и т.д.)
-    video.src = videoSrc
+  })
+}
 
-    // Обработка ошибок загрузки
-    video.addEventListener('error', e => {
-      console.error('Video load error:', e)
+const startVideo = async () => {
+  stopVideo()
+  if (disposed || !inViewport || document.hidden || navigator.connection?.saveData) return
+  const index = activeIndex.value
+  const video = videoRefs[index]
+  if (!video) return
+  const request = generation
+  const src = sliders[index].videoSrc
+  video.muted = true
+  const play = () => video.play().catch(() => { /* Keep the poster if autoplay is blocked. */ })
+  if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = src
+    play()
+    return
+  }
+  try {
+    hlsModule ||= import('hls.js')
+    const { default: Hls } = await hlsModule
+    if (disposed || request !== generation || !Hls.isSupported()) return
+    const player = new Hls({ maxBufferLength: 10, maxMaxBufferLength: 20, backBufferLength: 0 })
+    hls = player
+    player.on(Hls.Events.MANIFEST_PARSED, () => {
+      if (request === generation) play()
     })
-
-    // Опционально: обработка успешной загрузки
-    video.addEventListener('loadeddata', () => {
-      console.log('Video loaded successfully')
+    player.on(Hls.Events.ERROR, (_, data) => {
+      if (data.fatal && request === generation) stopVideo()
     })
+    player.loadSource(src)
+    player.attachMedia(video)
+  } catch {
+    // Leave the image and slide content visible if the player cannot load.
   }
 }
 
-onMounted(() => {
-  isHydrated.value = true
-  // Динамический импорт Swiper
-  import('swiper/element/bundle').then(({ register }) => {
-    register()
-  })
+const onSlideChange = event => {
+  const swiper = event.detail?.[0] || swiperRef.value?.swiper
+  if (!swiper || swiper.realIndex === activeIndex.value) return
+  activeIndex.value = swiper.realIndex
+  startVideo()
+}
 
-  // Инициализируем видео для всех слайдов после гидратации
-  nextTick(() => {
-    sliders.forEach((slider, index) => {
-      const video = videoRefs.value[index]
-      if (video) {
-        initVideo(video, slider.videoSrc)
-      }
-    })
-  })
-})
+const syncPlayback = () => {
+  if (document.hidden || !inViewport) {
+    swiperRef.value?.swiper?.autoplay?.stop()
+    stopVideo()
+  } else {
+    swiperRef.value?.swiper?.autoplay?.start()
+    startVideo()
+  }
+}
 
-// Очистка при размонтировании
-onUnmounted(() => {
-  videoRefs.value.forEach(video => {
-    if (video && video.hls) {
-      video.hls.destroy()
-      delete video.hls
+onMounted(async () => {
+  const rect = heroRef.value.getBoundingClientRect()
+  inViewport = rect.bottom > 0 && rect.top < window.innerHeight
+  document.addEventListener('visibilitychange', syncPlayback)
+  observer = new IntersectionObserver(([entry]) => {
+    if (inViewport !== entry.isIntersecting) {
+      inViewport = entry.isIntersecting
+      syncPlayback()
     }
   })
+  observer.observe(heroRef.value)
+  try {
+    const { register } = await import('swiper/element/bundle')
+    if (disposed) return
+    register()
+    Object.assign(swiperRef.value, {
+      loop: true,
+      navigation: true,
+      pagination: { clickable: true },
+      autoplay: { delay: 5000, disableOnInteraction: true },
+    })
+    sliderReady.value = true
+    await nextTick()
+    if (disposed) return
+    swiperRef.value.initialize()
+    syncPlayback()
+  } catch {
+    // The server-rendered first slide remains usable if Swiper cannot load.
+  }
+})
+
+onUnmounted(() => {
+  disposed = true
+  observer?.disconnect()
+  document.removeEventListener('visibilitychange', syncPlayback)
+  stopVideo()
 })
 </script>
 
 <style scoped>
+.slider-hero { background: #17212e; }
+.swiper-with-video { display: block; overflow: hidden; }
+.swiper-with-video:not(.slider-ready) > swiper-slide:not(:first-child) { display: none; }
+.video-slide { display: block; }
+.slide-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video-wrapper::after { content: ''; position: absolute; inset: 0; background: rgb(0 0 0 / 45%); pointer-events: none; }
+
 .swiper-with-video {
   width: 100%;
   height: 600px;
@@ -291,9 +327,11 @@ onUnmounted(() => {
   width: auto;
   height: auto;
   object-fit: cover;
-  opacity: 0.9;
-  z-index: -1;
+  opacity: 0;
+  transition: opacity 350ms ease;
 }
+
+.background-video--ready { opacity: 1; }
 
 .slide-content {
   position: relative;

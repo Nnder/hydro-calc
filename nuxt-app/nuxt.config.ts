@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     },
   },
   sourcemap: false,
+  experimental: {
+    // Keep client dependency optimization separate so AOS is converted from CommonJS.
+    viteEnvironmentApi: true,
+  },
   modules: [
     '@vueuse/nuxt',
     '@nuxt/image',
