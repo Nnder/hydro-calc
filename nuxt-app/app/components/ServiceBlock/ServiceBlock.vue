@@ -15,12 +15,12 @@ const categories = ref([
       {
         title: 'Ремонт Гидронасосов',
         image: '/services/hydromotor.jpg',
-        link: '/remont-hydraulic-motors',
+        link: '/remont-nasosov-pumps',
       },
       {
         title: 'Ремонт Гидромоторов',
         image: '/services/hydro.jpg',
-        link: '/remont-nasosov-pumps',
+        link: '/remont-hydraulic-motors',
       },
       {
         title: 'Ремонт навестного оборудования',

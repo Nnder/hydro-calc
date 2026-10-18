@@ -78,9 +78,18 @@ let disposed = false
 let inViewport = true
 let observer
 let hlsModule
+let slideTimer
+const scheduleNext = delay => {
+  clearTimeout(slideTimer)
+  if (disposed || !inViewport || document.hidden) return
+  slideTimer = setTimeout(() => swiperRef.value?.swiper?.slideNext(), delay)
+}
 const setVideoRef = (el, index) => { videoRefs[index] = el }
 const onPlaying = index => {
-  if (index === activeIndex.value) readyIndex.value = index
+  if (index === activeIndex.value && readyIndex.value !== index) {
+    readyIndex.value = index
+    scheduleNext(7000)
+  }
 }
 
 const sliders = [
@@ -173,6 +182,7 @@ const sliders = [
 // Release the previous player and requests before loading another slide.
 const stopVideo = () => {
   generation++
+  clearTimeout(slideTimer)
   readyIndex.value = -1
   hls?.destroy()
   hls = null
@@ -188,7 +198,9 @@ const stopVideo = () => {
 
 const startVideo = async () => {
   stopVideo()
-  if (disposed || !inViewport || document.hidden || navigator.connection?.saveData) return
+  if (disposed || !inViewport || document.hidden) return
+  scheduleNext(12000)
+  if (navigator.connection?.saveData || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   const index = activeIndex.value
   const video = videoRefs[index]
   if (!video) return
@@ -211,7 +223,7 @@ const startVideo = async () => {
       if (request === generation) play()
     })
     player.on(Hls.Events.ERROR, (_, data) => {
-      if (data.fatal && request === generation) stopVideo()
+      if (data.fatal && request === generation) { stopVideo(); scheduleNext(7000) }
     })
     player.loadSource(src)
     player.attachMedia(video)
@@ -229,10 +241,8 @@ const onSlideChange = event => {
 
 const syncPlayback = () => {
   if (document.hidden || !inViewport) {
-    swiperRef.value?.swiper?.autoplay?.stop()
     stopVideo()
   } else {
-    swiperRef.value?.swiper?.autoplay?.start()
     startVideo()
   }
 }
@@ -256,7 +266,7 @@ onMounted(async () => {
       loop: true,
       navigation: true,
       pagination: { clickable: true },
-      autoplay: { delay: 5000, disableOnInteraction: true },
+      autoplay: false,
     })
     sliderReady.value = true
     await nextTick()

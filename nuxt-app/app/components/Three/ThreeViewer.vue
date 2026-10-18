@@ -1,188 +1,34 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { defineAsyncComponent, onMounted, onBeforeUnmount, ref } from 'vue'
 
 const props = defineProps({
   modelPath: String,
   canvasColor: String,
-  screenIncrease: {
-    type: Number,
-    default: 0.5,
-  },
-  img: {
-    type: Object,
-    default: {
-      src: '',
-      alt: '',
-    }
-  },
+  screenIncrease: { type: Number, default: 0.5 },
+  img: { type: Object, default: () => ({ src: '', alt: '' }) },
   loadFunc: Function,
 })
-
-const container = ref<HTMLDivElement | null>(null)
-const loadingProgress = ref<number>(0)
-const isLoading = ref<boolean>(true)
-
-let scene: THREE.Scene
-let camera: THREE.PerspectiveCamera
-let renderer: THREE.WebGLRenderer
-let controls: OrbitControls
-let animationFrameId: number
-let model: THREE.Group | null = null
-
-let resizeEnabled = false
-
-function onWindowResize() {
-  if (!container.value) return
-  camera.aspect = container.value.clientWidth / container.value.clientHeight
-  camera.updateProjectionMatrix()
-  renderer.setSize(container.value.clientWidth, container.value.clientHeight)
-}
-
-function fitCameraToObject(
-  camera: THREE.PerspectiveCamera,
-  controls: OrbitControls,
-  object: THREE.Object3D,
-  offset = 1.1
-) {
-  const box = new THREE.Box3().setFromObject(object)
-  const size = box.getSize(new THREE.Vector3())
-  const center = box.getCenter(new THREE.Vector3())
-
-  const maxSize = Math.max(size.x, size.y, size.z)
-  const halfSize = maxSize * 0.5
-  const halfFov = THREE.MathUtils.degToRad(camera.fov * props.screenIncrease)
-
-  let distance = (halfSize / Math.tan(halfFov)) * offset
-  distance = THREE.MathUtils.clamp(distance, maxSize * 0.5, maxSize * 5)
-
-  camera.position.copy(center)
-  camera.position.z += distance
-  camera.lookAt(center)
-
-  controls.target.copy(center)
-  controls.update()
-}
-
-function loadModel(path: string) {
-  if (!path) return
-  const loader = new GLTFLoader()
-
-  
-  loadingProgress.value = 0
-
-  loader.load(
-    path,
-    gltf => {
-      if (model) scene.remove(model)
-      model = gltf.scene
-
-      if (props?.loadFunc) props?.loadFunc(model)
-
-      const box = new THREE.Box3().setFromObject(model)
-      const center = box.getCenter(new THREE.Vector3())
-      const size = box.getSize(new THREE.Vector3())
-      model.position.sub(center)
-
-      const maxDim = Math.max(size.x, size.y, size.z)
-      const scale = 2 / maxDim
-      model.scale.setScalar(scale)
-
-      scene.add(model)
-      fitCameraToObject(camera, controls, model)
-      isLoading.value = false
-    },
-    xhr => {
-      if (xhr.total) {
-        loadingProgress.value = Math.round((xhr.loaded / xhr.total) * 100)
-      }
-    },
-    error => {
-      console.error('Ошибка загрузки модели:', error)
-      isLoading.value = false
-    }
-  )
-}
-
+const ThreeScene = defineAsyncComponent(() => import('./ThreeScene.vue'))
+const container = ref<HTMLElement | null>(null)
+const activated = ref(false)
+const visible = ref(false)
+let observer: IntersectionObserver | undefined
 onMounted(() => {
-  if (!container.value) return
-
-  scene = new THREE.Scene()
-  scene.background = new THREE.Color(props.canvasColor || 0xf0f0f0)
-
-  camera = new THREE.PerspectiveCamera(75, container.value.clientWidth / container.value.clientHeight, 0.1, 1000)
-  camera.position.set(2, 2, 5)
-
-  renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.setSize(container.value.clientWidth, container.value.clientHeight)
-  container.value.appendChild(renderer.domElement)
-
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1)
-  dirLight.position.set(5, 5, 5)
-  scene.add(dirLight)
-
-  const ambient = new THREE.AmbientLight(0x888888)
-  scene.add(ambient)
-
-  controls = new OrbitControls(camera, renderer.domElement)
-  controls.enableDamping = true
-  controls.dampingFactor = 0.05
-  controls.enablePan = true
-  controls.enableZoom = false
-  controls.autoRotate = true
-  controls.autoRotateSpeed = 2.0
-
-  loadModel(props.modelPath)
-
-  const animate = () => {
-    animationFrameId = requestAnimationFrame(animate)
-    controls.update()
-    renderer.render(scene, camera)
-  }
-  animate()
-
-  renderer.domElement.addEventListener(
-    'click',
-    () => {
-      if (!resizeEnabled) {
-        window.addEventListener('resize', onWindowResize)
-        resizeEnabled = true
-      }
-      controls.enableZoom = true
-    },
-    { once: false }
-  )
-
-  renderer.domElement.addEventListener('pointerleave', () => {
-    controls.enableZoom = false
+  observer = new IntersectionObserver(([entry]) => {
+    visible.value = entry.isIntersecting
+    if (entry.isIntersecting) activated.value = true
   })
+  if (container.value) observer.observe(container.value)
 })
-
-onBeforeUnmount(() => {
-  cancelAnimationFrame(animationFrameId)
-  if (resizeEnabled) window.removeEventListener('resize', onWindowResize)
-  try {
-    renderer.dispose()
-  } catch (e) {}
-})
-
-watch(
-  () => props.modelPath,
-  newPath => {
-    loadModel(newPath)
-  }
-)
+onBeforeUnmount(() => observer?.disconnect())
 </script>
 
 <template>
-  <div ref="container" class="w-full h-[600px] relative">
-    <div v-if="isLoading" :class="[`bg-[${canvasColor}]`]" class="w-full absolute inset-0 flex items-center justify-cente bg-opacity-80 z-10">
-    
-         <NuxtImg v-if="props.img.src" class="w-full h-full object-contain" :src="props.img.src" :alt="props.img.alt"/>
-        <p v-else>Загрузка: {{ loadingProgress }}%</p>
-      
+  <div ref="container" class="w-full h-[600px] relative" :style="{ backgroundColor: canvasColor || '#f0f0f0' }">
+    <ThreeScene v-if="activated" v-bind="props" :active="visible" class="!h-full" />
+    <div v-else class="absolute inset-0 flex items-center justify-center">
+      <img v-if="img.src" :src="img.src" :alt="img.alt" loading="lazy" class="w-full h-full object-contain" />
+      <span v-else class="text-sm text-gray-600">3D-модель</span>
     </div>
   </div>
 </template>

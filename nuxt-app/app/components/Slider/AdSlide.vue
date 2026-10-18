@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-[600px] flex items-center justify-center text-white">
+  <div ref="containerRef" class="relative w-full h-[600px] flex items-center justify-center text-white">
     <!-- Фон с затемнением -->
 
     <div class="video-wrapper" v-if="slider.videoSrc">
@@ -7,12 +7,10 @@
         ref="videoRef"
         class="background-video"
         :poster="slider.img"
-        autoplay
         muted
         loop
         playsinline
-        preload="metadata"
-        loading="lazy"
+        preload="none"
       >
         Ваш браузер не поддерживает видео.
       </video>
@@ -80,65 +78,65 @@
 </template>
 
 <script setup>
-import Hls from 'hls.js'
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const props = defineProps({
-  slider: Object,
-})
-
+const props = defineProps({ slider: Object })
+const containerRef = ref(null)
 const videoRef = ref(null)
+let observer
+let hls
+let visible = false
+let generation = 0
 
-// Функция для инициализации видео (HLS или обычное MP4)
-const initVideo = (video, videoSrc) => {
-  if (!video || !videoSrc) return
-
-  if (videoSrc.endsWith('.m3u8')) {
-    // HLS для потокового видео
-    if (Hls.isSupported()) {
-      const hls = new Hls()
-      hls.loadSource(videoSrc)
-      hls.attachMedia(video)
-      video.hls = hls // Сохраняем для destroy
-
-      // Обработка ошибок
-      hls.on(Hls.Events.ERROR, (event, data) => {
-        console.error('HLS Error:', data)
-      })
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // Fallback для Safari (native HLS)
-      video.src = videoSrc
-    } else {
-      console.error('HLS не поддерживается в этом браузере')
-    }
-  } else {
-    // Обычное видео (MP4 и т.д.)
-    video.src = videoSrc
-
-    // Обработка ошибок загрузки
-    video.addEventListener('error', e => {
-      console.error('Video load error:', e)
-    })
-
-    // Опционально: обработка успешной загрузки
-    video.addEventListener('loadeddata', () => {
-      console.log('Video loaded successfully')
-    })
+const stop = () => {
+  generation++
+  hls?.destroy()
+  hls = null
+  const video = videoRef.value
+  if (!video) return
+  video.pause()
+  if (video.hasAttribute('src')) {
+    video.removeAttribute('src')
+    video.load()
   }
 }
-
+const sync = async () => {
+  stop()
+  const video = videoRef.value
+  if (!visible || document.hidden || !video || !props.slider.videoSrc ||
+      navigator.connection?.saveData || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  const request = generation
+  const src = props.slider.videoSrc
+  video.muted = true
+  const play = () => video.play().catch(() => {})
+  if (!src.endsWith('.m3u8') || video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = src
+    play()
+    return
+  }
+  try {
+    const { default: Hls } = await import('hls.js')
+    if (request !== generation || !Hls.isSupported()) return
+    hls = new Hls({ maxBufferLength: 6, maxMaxBufferLength: 12, backBufferLength: 0 })
+    hls.on(Hls.Events.MANIFEST_PARSED, play)
+    hls.on(Hls.Events.ERROR, (_, data) => { if (data.fatal) stop() })
+    hls.loadSource(src)
+    hls.attachMedia(video)
+  } catch { /* The poster remains visible when video is unavailable. */ }
+}
 onMounted(() => {
-  if (props.slider.videoSrc && videoRef.value) {
-    initVideo(videoRef.value, props.slider.videoSrc)
-  }
+  observer = new IntersectionObserver(([entry]) => {
+    if (visible === entry.isIntersecting) return
+    visible = entry.isIntersecting
+    sync()
+  })
+  observer.observe(containerRef.value)
+  document.addEventListener('visibilitychange', sync)
 })
-
-// Очистка при размонтировании
 onUnmounted(() => {
-  if (videoRef.value && videoRef.value.hls) {
-    videoRef.value.hls.destroy()
-    delete videoRef.value.hls
-  }
+  observer?.disconnect()
+  document.removeEventListener('visibilitychange', sync)
+  stop()
 })
 </script>
 
