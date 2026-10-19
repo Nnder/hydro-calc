@@ -2,15 +2,26 @@
   <div ref="containerRef" class="relative w-full h-[600px] flex items-center justify-center text-white">
     <!-- Фон с затемнением -->
 
-    <div class="video-wrapper" v-if="slider.videoSrc">
+    <div class="video-wrapper" v-if="slider.videoSrc" aria-hidden="true">
+      <img
+        :src="slider.img || '/images/uplotnenie/slider-uplatnenie.png'"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="background-poster"
+      />
       <video
         ref="videoRef"
         class="background-video"
+        :class="{ 'is-playing': videoPlaying }"
         :poster="slider.img"
         muted
         loop
         playsinline
         preload="none"
+        @playing="videoPlaying = true"
+        @error="videoPlaying = false"
+        @ended="videoPlaying = false"
       >
         Ваш браузер не поддерживает видео.
       </video>
@@ -36,7 +47,8 @@
           {{ slider.tag }}
         </span>
         <NuxtLink v-else :to="slider.link">
-          <NuxtImg class="w-48 h-full" :src="slider.logo" />
+          <NuxtImg v-if="!logoFailed" v-show="logoLoaded" class="w-48 h-auto" :src="slider.logo" :alt="slider.logoAlt || ''" @load="logoLoaded = true" @error="logoFailed = true" />
+          <span v-if="!logoLoaded || logoFailed" class="text-4xl font-extrabold">{{ slider.logoAlt || 'Партнёр' }}</span>
         </NuxtLink>
 
         <h2 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg max-w-5xl">
@@ -83,12 +95,16 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const props = defineProps({ slider: Object })
 const containerRef = ref(null)
 const videoRef = ref(null)
+const videoPlaying = ref(false)
+const logoFailed = ref(false)
+const logoLoaded = ref(false)
 let observer
 let hls
 let visible = false
 let generation = 0
 
 const stop = () => {
+  videoPlaying.value = false
   generation++
   hls?.destroy()
   hls = null
@@ -170,22 +186,32 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #17212b;
+  z-index: 0;
+  isolation: isolate;
 }
 
+.video-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.background-poster,
 .background-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  opacity: 0.9;
-  z-index: -1;
 }
+
+.background-poster { z-index: 0; }
+.background-video { z-index: 1; opacity: 0; }
+.background-video.is-playing { opacity: 1; }
 
 .slide-content {
   position: relative;
