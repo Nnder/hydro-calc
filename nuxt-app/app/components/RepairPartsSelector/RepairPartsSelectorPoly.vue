@@ -201,28 +201,49 @@
                   </template>
                 </template>
               </div>
+              <!-- SVG -->
+              <svg
+                ref="svgRef"
+                class="absolute top-0 left-0 w-full h-full pointer-events-none"
+                :viewBox="computedViewBox"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g v-for="(part, index) in sortedParts" :key="'highlight-' + index">
+                  <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
+                    <template v-for="(shape, sIndex) in normalizedShapes(part.highlight)" :key="sIndex">
+                      <rect
+                        v-if="shape.type === 'rect'"
+                        :x="percentToPx(shape.left, imageWidth)"
+                        :y="percentToPx(shape.top, imageHeight)"
+                        :width="percentToPx(shape.width, imageWidth)"
+                        :height="percentToPx(shape.height, imageHeight)"
+                        :fill="getFill(part)"
+                        :stroke="getStroke(part)"
+                        :stroke-width="part.selected ? 2 : 1"
+                        rx="2"
+                      />
+                      <polygon
+                        v-else-if="shape.type === 'poly' || shape.type === 'polygon'"
+                        :points="convertPolyPoints(shape.points)"
+                        :fill="getFill(part)"
+                        :stroke="getStroke(part)"
+                        :stroke-width="part.selected ? 2 : 1"
+                      />
+                      <circle
+                        v-else-if="shape.type === 'circle'"
+                        :cx="percentToPx(shape.cx, imageWidth)"
+                        :cy="percentToPx(shape.cy, imageHeight)"
+                        :r="percentToPx(shape.r, Math.min(imageWidth, imageHeight))"
+                        :fill="getFill(part)"
+                        :stroke="getStroke(part)"
+                        :stroke-width="part.selected ? 2 : 1"
+                      />
+                    </template>
+                  </template>
+                </g>
+              </svg>
             </div>
-
-            <svg
-              ref="svgRef"
-              class="absolute top-0 left-0 w-full h-full pointer-events-none"
-              :viewBox="computedViewBox"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g v-for="(part, index) in sortedParts" :key="'highlight-' + index">
-                <template v-if="highlightMode === 'single' ? activeHighlight === index : part.selected">
-                  <!-- Объединённый polygon для всех не-текстовых shapes -->
-                  <polygon
-                    v-if="hasNonTextShapes(part.highlight)"
-                    :points="toPolygonPoints(getNonTextShapes(part.highlight))"
-                    :fill="getFill(part)"
-                    :stroke="getStroke(part)"
-                    :stroke-width="part.selected ? 2 : 1"
-                  />
-                </template>
-              </g>
-            </svg>
           </div>
         </section>
       </div>
@@ -281,7 +302,7 @@ const getPartIcon = part => {
 
 const normalizedShapes = highlight => {
   if (!highlight) return []
-  return Array.isArray(highlight) ? highlight : [highlight]
+  return (Array.isArray(highlight) ? highlight : [highlight]).map(shape => ({ type: 'rect', ...shape }))
 }
 
 const percentToPx = (val, total) => {
@@ -302,44 +323,13 @@ const convertPolyPoints = points => {
     .join(' ')
 }
 
-const getFill = p => p.fill || p.color || 'rgba(0,105,255,0.35)'
+const legacyColors = {
+  'bg-green-500/50 border-green-500': 'rgba(34,197,94,0.5)',
+  'bg-teal-600/50 border-teal-600': 'rgba(13,148,136,0.5)',
+  'bg-sky-700/50 border-sky-700': 'rgba(3,105,161,0.5)',
+}
+const getFill = p => p.fill || legacyColors[p.color] || p.color || 'rgba(0,105,255,0.35)'
 const getStroke = p => p.stroke || 'rgba(0,105,255,1)'
-
-// Новые функции для объединения shapes в polygon
-const getNonTextShapes = highlight => {
-  return normalizedShapes(highlight).filter(s => s.type !== 'text')
-}
-
-const hasNonTextShapes = highlight => {
-  return getNonTextShapes(highlight).length > 0
-}
-
-const toPolygonPoints = shapes => {
-  let points = []
-  shapes.forEach(shape => {
-    if (shape.type === 'rect') {
-      const x = percentToPx(shape.left, imageWidth.value)
-      const y = percentToPx(shape.top, imageHeight.value)
-      const w = percentToPx(shape.width, imageWidth.value)
-      const h = percentToPx(shape.height, imageHeight.value)
-      points.push(`${x},${y}`, `${x + w},${y}`, `${x + w},${y + h}`, `${x},${y + h}`)
-    } else if (shape.type === 'circle') {
-      const cx = percentToPx(shape.cx, imageWidth.value)
-      const cy = percentToPx(shape.cy, imageHeight.value)
-      const r = percentToPx(shape.r, Math.min(imageWidth.value, imageHeight.value))
-      const numPoints = 16 // Аппроксимация круга
-      for (let i = 0; i < numPoints; i++) {
-        const angle = (i / numPoints) * 2 * Math.PI
-        const px = cx + r * Math.cos(angle)
-        const py = cy + r * Math.sin(angle)
-        points.push(`${px},${py}`)
-      }
-    } else if (shape.type === 'poly' || shape.type === 'polygon') {
-      points.push(...convertPolyPoints(shape.points).split(' '))
-    }
-  })
-  return points.join(' ')
-}
 
 // Оптимизированный обработчик кликов
 const handlePartClick = (part, index) => {
