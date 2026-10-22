@@ -27,20 +27,9 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-schema-org',
     'nuxt-aos',
-    'nuxt-yandex-metrika',
     // '@dargmuesli/nuxt-cookie-control',
   ],
 
-  yandexMetrika: {
-    id: '105118320',
-    // debug: process.env.NODE_ENV !== "production",
-    // delay: 0,
-    // cdn: false,
-    // verification: null, // Verification in Yandex Webmaster
-    // options: {
-    //   webvisor: true,
-    // },
-  },
 
   vite: {
     build: {
@@ -298,8 +287,10 @@ export default defineNuxtConfig({
     apiBase: process.env.API_BASE_URL || 'http://localhost:3001',
     smtpHost: 'smtp.yandex.ru',
     smtpPort: 587,
-    smtpUser: 'egoravyyy@yandex.ru',
-    smtpPass: 'uawjxnbxjdbxfuea',
+    smtpUser: '',
+    smtpPass: '',
+    sparePartsMailTo: '',
+    consentStorageDir: '',
     mail: {
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,

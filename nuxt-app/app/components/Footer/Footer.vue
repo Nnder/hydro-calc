@@ -1,10 +1,11 @@
 <script setup lang="ts">
+const { settingsOpen } = usePrivacyChoice()
 const links = [
   { link: '/contacts', name: 'Контакты' },
   { link: '/about', name: 'О компании' },
   { link: '/postavshkam', name: 'Поставщики' },
   // { link: '/delivery', name: 'Доставка ' },
-  { link: '/personal', name: 'Политика отношение на обработку' },
+  { link: '/personal', name: 'Политика обработки персональных данных' },
   { link: '/agreement', name: 'Согласие на обработку' },
 ]
 
@@ -73,6 +74,7 @@ const contacts = [
             Информация
           </h3>
           <ul class="space-y-2 sm:space-y-3">
+            <li><button type="button" class="text-sm underline" @click="settingsOpen = true">Настройки cookie</button></li>
             <li v-for="(link, index) in links" :key="'link-' + index">
               <NuxtLink
                 :to="link.link"

@@ -1,4 +1,7 @@
 <script setup>
+import { PRIVACY_VERSION, AGREEMENT_CLAUSES } from '../../shared/privacy'
+import OperatorDetails from '~/components/Privacy/OperatorDetails.vue'
+useSeoMeta({ robots: 'noindex, nofollow' })
 useHead({
   title: `Согласие на обработку персональных данных - АбсолютТехно`,
   meta: [
@@ -23,11 +26,7 @@ useHead({
         <div class="h-1 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
 
         <div class="p-4">
-          <div class="mb-6 p-4 bg-indigo-50 rounded-lg border-l-2 border-indigo-500">
-            <p class="text-gray-700 text-sm leading-relaxed">
-              Настоящим я в соответствии с требованиями Федерального закона от 27.07.2006 г. №152-ФЗ «О персональных данных» на срок с момента подписания настоящего согласия путем проставления галочки в форме на интернет-сайте https://athydro.ru (далее также – «Сайт») даю свое согласие лично, своей волей и в своем интересе на обработку (сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление и уничтожение) моих персональных данных, путем автоматизированной обработки и (или) обработки без использования средств автоматизации ООО «АбсолютТехно» (ОГРН 1236600024506, юридический адрес 622001, Свердловская область, Город Нижний Тагил р-н, г Нижний Тагил, ул Ломоносова, д. 1, кв. 53 ) (далее – "Оператор"), исключительно в следующих целях:
-            </p>
-          </div>
+          <p class="text-xs text-gray-500 mb-3">Редакция {{ PRIVACY_VERSION }}</p>
 
           <div class="space-y-6">
             <section class="border-b border-gray-200 pb-6">
@@ -41,19 +40,19 @@ useHead({
                   <div class="space-y-2">
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">1.1.</span> Фамилия, имя, отчество
+                        <span class="font-semibold">1.1.</span> {{ AGREEMENT_CLAUSES['1.1'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">1.2.</span> Номер контактного телефона
+                        <span class="font-semibold">1.2.</span> {{ AGREEMENT_CLAUSES['1.2'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">1.3.</span> Адрес электронной почты (e-mail)
+                        <span class="font-semibold">1.3.</span> {{ AGREEMENT_CLAUSES['1.3'] }}
                       </p>
                     </div>
                   </div>
@@ -72,61 +71,19 @@ useHead({
                   <div class="space-y-2">
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.1.</span> Обеспечение соблюдения законов, иных нормативно-правовых актов при осуществлении Оператором своей деятельности в соответствии с целями создания
+                        <span class="font-semibold">2.1.</span> {{ AGREEMENT_CLAUSES['2.1'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.2.</span> Идентификация Пользователя Сайта
+                        <span class="font-semibold">2.2.</span> {{ AGREEMENT_CLAUSES['2.2'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.3.</span> Предоставление доступа к ресурсам Сайта
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.4.</span> Установление обратной связи, включая направление уведомлений, запросов, касающихся использования Сайта, ответов на обращения, оказания услуг, обработку запросов и заявок
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.5.</span> Предоставление эффективной клиентской и технической поддержки при возникновении проблем, связанных с использованием Сайта
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.6.</span> Осуществление рекламной деятельности с согласия субъекта персональных данных, организации и проведения программ лояльности, маркетинговых акций
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.7.</span> Исполнение своих обязательств перед субъектами персональных данных, возникающих в связи с использованием Сайта, в процессе реализации товаров
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.8.</span> Оценка и анализ работы Сайта
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.9.</span> Проведение статистических и иных исследований на основе обезличенных данных
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">2.10.</span> Улучшение сервисов сайта, удобства их использования, разработка новых сервисов и услуг, а также продвижение товаров, работ и услуг, в том числе путем осуществления прямых контактов со мной с помощью различных средств связи, определение потребностей в производственной мощности, мониторинга исполнения сервисными центрами гарантийной политики; ведения истории обращения в сервисные центры
+                        <span class="font-semibold">2.3.</span> {{ AGREEMENT_CLAUSES['2.3'] }}
                       </p>
                     </div>
                   </div>
@@ -145,13 +102,13 @@ useHead({
                   <div class="space-y-2">
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">3.1.</span> Я добровольно, своей волей и в своем интересе даю согласие Оператору на передачу моих персональных данных третьим лицам, указанным в п. 7.6. Политики Оператора в отношении обработки персональных данных, для предоставления мне требуемого мне Сервиса или надлежащего выполнения заключенного со мной соглашения или договора.
+                        <span class="font-semibold">3.1.</span> {{ AGREEMENT_CLAUSES['3.1'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">3.2.</span> Информация о таких лицах размещается на Сайте Оператора для ознакомления.
+                        <span class="font-semibold">3.2.</span> {{ AGREEMENT_CLAUSES['3.2'] }}
                       </p>
                     </div>
                   </div>
@@ -170,7 +127,7 @@ useHead({
                   <div class="space-y-2">
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">4.1.</span> Любые действия (операции) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с моими персональными данными, включая:
+                        <span class="font-semibold">4.1.</span> {{ AGREEMENT_CLAUSES['4.1'] }}
                       </p>
                     </div>
 
@@ -290,37 +247,26 @@ useHead({
                   <div class="space-y-2">
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">5.1.</span> Срок действия настоящего согласия – 10 (десять) лет.
+                        <span class="font-semibold">5.1.</span> {{ AGREEMENT_CLAUSES['5.1'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">5.2.</span> Персональные данные хранятся Оператором в соответствии с требованиями законодательства на условиях конфиденциальности.
+                        <span class="font-semibold">5.2.</span> {{ AGREEMENT_CLAUSES['5.2'] }}
                       </p>
                     </div>
 
                     <div class="bg-gray-50 p-3 rounded-lg">
                       <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">5.3.</span> С текстом Политики в отношении обработки персональных данных Оператора ознакомлен (а).
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">5.4.</span> Я понимаю, что я вправе запросить у Операторов полную информацию о своих персональных данных, их обработке и использовании, а также потребовать исключения или исправления неверных или неполных персональных данных.
-                      </p>
-                    </div>
-
-                    <div class="bg-gray-50 p-3 rounded-lg">
-                      <p class="text-gray-700 text-sm">
-                        <span class="font-semibold">5.5.</span> Мне понятно, что я вправе в любой момент отозвать согласие на обработку, использование и передачу своих персональных данных путем подачи письменного заявления по адресу электронной почты: <span class="font-semibold text-indigo-600">at@mail.com</span> или путем направления отзыва согласия по юридическому адресу Оператора.
+                        <span class="font-semibold">5.3.</span> {{ AGREEMENT_CLAUSES['5.3'] }}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
+            <OperatorDetails />
           </div>
         </div>
       </div>

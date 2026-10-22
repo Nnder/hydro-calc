@@ -1,4 +1,5 @@
 <script setup>
+import { PRIVACY_VERSION, OPERATOR_READY } from '../../../shared/privacy'
 const { calculatorData } = useCalculatorSelector()
 
 const props = defineProps({
@@ -55,7 +56,6 @@ const formErrors = ref({
 })
 
 function handleFiles(event) {
-  console.log(event.target.files)
   form.value.files = Array.from(event.target.files)
 }
 
@@ -97,7 +97,7 @@ const clearError = field => {
 }
 
 const submitForm = async () => {
-  if (!validateForm()) return
+  if (!form.value.agreement || !OPERATOR_READY || !validateForm()) return
 
   isSending.value = true
 
@@ -111,7 +111,8 @@ const submitForm = async () => {
     formData.append('text', form.value.description) // description -> text
     formData.append('type', form.value.type || calculatorData.value.type)
 
-    console.log(calculatorData.value.type, form.value.type, props.type, 'wtf')
+    formData.append('agreement', String(form.value.agreement))
+    formData.append('consentVersion', PRIVACY_VERSION)
 
     // Добавляем файлы, если они есть
     if (form.value.files && form.value.files.length > 0) {
@@ -126,7 +127,6 @@ const submitForm = async () => {
       body: formData,
     })
 
-    console.log(response)
     // Очищаем форму после успешной отправки
     form.value = { name: '', phone: '', description: '', agreement: false, files: [] }
 
@@ -136,7 +136,6 @@ const submitForm = async () => {
       showSuccess.value = false
     }, 5000)
   } catch (error) {
-    console.error('Ошибка отправки:', error)
 
     // Более информативное сообщение об ошибке
     const errorMessage =
@@ -246,29 +245,28 @@ const id = useId()
 
     <div class="flex items-start space-x-2 md:space-x-3">
       <input
-        id="agreement"
+        :id="`agreement-${id}`"
+        required
         type="checkbox"
         v-model="form.agreement"
         class="mt-0.5 md:mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
       />
-      <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
-        Я подтверждаю ознакомление и даю
-        <a href="/agreement" class="text-blue-600 hover:underline">Согласие на обработку моих персональных данных</a>
-        <label for="agreement" class="text-xs md:text-sm text-gray-600 leading-tight">
-          в порядке и на условиях, указанных в
-          <a href="/personal" class="text-blue-600 hover:underline">Политике обработки персональных данных</a>
-        </label>
+      <label :for="`agreement-${id}`" class="text-xs md:text-sm text-gray-600 leading-tight">
+        Даю <a href="/agreement" target="_blank" rel="noopener" class="text-blue-600 underline">согласие на обработку персональных данных</a> для рассмотрения моей заявки.
       </label>
+
     </div>
 
+    <p class="text-xs text-gray-600">Сообщение и файлы необязательны. До 5 файлов, всего до 10 МБ. Не прикладывайте паспортные, медицинские данные и данные других людей. <a href="/personal" target="_blank" rel="noopener" class="text-blue-600 underline">Политика обработки персональных данных</a>.</p>
+    <p v-if="!OPERATOR_READY" role="status" class="text-sm text-gray-700">Онлайн-заявки временно недоступны. Позвоните <a href="tel:88002222031" class="underline">8 (800) 222-20-31</a>.</p>
     <button
       type="submit"
-      :disabled="isSending || !form.agreement"
+      :disabled="isSending || !form.agreement || !OPERATOR_READY"
       :class="[
         'w-full font-bold py-3 md:py-4 lg:py-5 px-6 md:px-8 rounded-xl md:rounded-2xl transition-all duration-400 flex items-center justify-center gap-2 md:gap-3',
         'transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl',
         'text-base md:text-lg',
-        isSending || !form.agreement
+        isSending || !form.agreement || !OPERATOR_READY
           ? 'bg-gradient-to-r from-blue-300 to-blue-400 cursor-not-allowed'
           : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-blue-500/40',
       ]"

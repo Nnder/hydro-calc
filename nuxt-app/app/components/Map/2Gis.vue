@@ -4,7 +4,7 @@
       class="w-full container xl:rounded-xl shadow-sm overflow-hidden border border-hydro-steel/10 h-[500px] relative"
     >
       <ClientOnly>
-        <iframe
+        <iframe title="Карта проезда"
           id="map_594542228"
           frameborder="0"
           width="100%"
