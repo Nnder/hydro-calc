@@ -1,5 +1,5 @@
 <script setup>
-import { PRIVACY_VERSION, OPERATOR_READY } from '../../../shared/privacy'
+import { PRIVACY_VERSION, OPERATOR_READY } from '#shared/privacy'
 const { calculatorData } = useCalculatorSelector()
 
 const props = defineProps({

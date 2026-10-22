@@ -1,4 +1,4 @@
-import { COOKIE_KEY, COOKIE_VERSION, parseCookieChoice, type CookieChoice } from '../../shared/cookieConsent'
+import { COOKIE_KEY, COOKIE_VERSION, parseCookieChoice, type CookieChoice } from '#shared/cookieConsent'
 
 export const usePrivacyChoice = () => {
   const choice = useState<CookieChoice | null>('privacy-choice', () => null)

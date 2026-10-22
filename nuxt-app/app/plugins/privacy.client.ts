@@ -1,4 +1,4 @@
-import { COOKIE_KEY } from '../../shared/cookieConsent'
+import { COOKIE_KEY } from '#shared/cookieConsent'
 
 export default defineNuxtPlugin(nuxtApp => {
   const { choice, restore } = usePrivacyChoice()

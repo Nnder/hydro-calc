@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   sourcemap: false,
   experimental: {
     // Keep client dependency optimization separate so AOS is converted from CommonJS.
-    viteEnvironmentApi: true,
+    viteEnvironmentApi: process.env.NODE_ENV === 'development',
   },
   modules: [
     '@vueuse/nuxt',

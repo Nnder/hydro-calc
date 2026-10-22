@@ -1,5 +1,5 @@
 <script setup>
-import { PRIVACY_VERSION, AGREEMENT_CLAUSES } from '../../shared/privacy'
+import { PRIVACY_VERSION, AGREEMENT_CLAUSES } from '#shared/privacy'
 import OperatorDetails from '~/components/Privacy/OperatorDetails.vue'
 useSeoMeta({ robots: 'noindex, nofollow' })
 useHead({

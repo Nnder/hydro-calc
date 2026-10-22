@@ -1,5 +1,5 @@
 <script setup>
-import { PRIVACY_VERSION } from '../../shared/privacy'
+import { PRIVACY_VERSION } from '#shared/privacy'
 import OperatorDetails from '~/components/Privacy/OperatorDetails.vue'
 const { settingsOpen } = usePrivacyChoice()
 useSeoMeta({ robots: 'noindex, nofollow' })

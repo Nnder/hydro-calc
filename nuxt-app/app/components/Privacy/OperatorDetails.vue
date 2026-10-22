@@ -1,5 +1,5 @@
 <script setup>
-import { OPERATOR, OPERATOR_READY, PRIVACY_CONTACT } from '../../../shared/privacy'
+import { OPERATOR, OPERATOR_READY, PRIVACY_CONTACT } from '#shared/privacy'
 </script>
 <template>
   <section aria-label="Реквизиты оператора" class="pt-2 text-xs leading-relaxed text-gray-500 space-y-1 break-words">
