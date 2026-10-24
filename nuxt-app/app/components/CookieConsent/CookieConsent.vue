@@ -12,7 +12,7 @@ onMounted(() => { ready.value = true })
       <NuxtLink to="/personal" class="text-blue-700 underline">Политика обработки персональных данных</NuxtLink>
       <div class="flex flex-wrap gap-3">
         <button class="px-5 py-3 border border-blue-700 rounded-lg text-blue-700" @click="save(false)">Только необходимые</button>
-        <button class="px-5 py-3 border border-blue-700 rounded-lg bg-blue-700 text-white" @click="save(true)">Разрешить аналитику</button>
+        <button class="px-5 py-3 border border-blue-700 rounded-lg bg-blue-700 text-white" @click="save(true)">Принять cookies</button>
         <button v-if="choice" class="px-5 py-3 underline" @click="settingsOpen = false">Закрыть</button>
       </div>
     </div>
